@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VALIQ - Bind top-down schematic map -->
+<!-- Original geometry drawn from community callout documentation. No Riot Games assets used. Not endorsed by Riot Games. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      text { font-family: sans-serif; font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+      text.label-small { font-size: 11px; fill: #c0c0c0; font-weight: 400; }
+      text.site-label { font-size: 18px; fill: #ffffff; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="#1a1a2e"/>
+
+  <!-- === WALLS layer === -->
+  <g id="walls">
+    <!-- Outer boundary -->
+    <rect x="30" y="30" width="940" height="940" fill="none" stroke="#4a4a6a" stroke-width="3"/>
+
+    <!-- Attacker spawn - center left -->
+    <rect x="40" y="400" width="180" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Long / B Main - top corridor -->
+    <rect x="40" y="40" width="620" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Site area -->
+    <rect x="40" y="200" width="300" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Teleport B entrance -->
+    <rect x="340" y="200" width="80" height="80" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Short / Showers -->
+    <rect x="340" y="280" width="160" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Hookah (tunnel B) -->
+    <rect x="220" y="400" width="200" height="80" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Short upper -->
+    <rect x="420" y="200" width="240" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Long -->
+    <rect x="660" y="40" width="300" height="360" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Site area -->
+    <rect x="500" y="400" width="460" height="260" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Teleport A exit -->
+    <rect x="420" y="400" width="80" height="80" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Garden -->
+    <rect x="420" y="480" width="80" height="180" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Short lower / Lamps -->
+    <rect x="500" y="660" width="200" height="80" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- CT area -->
+    <rect x="700" y="660" width="260" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Defender spawn -->
+    <rect x="780" y="860" width="180" height="100" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Site lower -->
+    <rect x="40" y="600" width="300" height="240" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Elbow -->
+    <rect x="340" y="600" width="80" height="100" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Bottom corridor (no mid direct connection = Bind trait) -->
+    <rect x="40" y="840" width="740" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Spawn connector -->
+    <rect x="220" y="480" width="80" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+  </g>
+
+  <!-- === ZONES layer === -->
+  <g id="zones">
+    <!-- ATK spawn -->
+    <rect x="42" y="402" width="176" height="196" fill="#3d3d6b" opacity="0.7"/>
+
+    <!-- DEF spawn -->
+    <rect x="782" y="862" width="176" height="96" fill="#3d6b3d" opacity="0.7"/>
+
+    <!-- B Site -->
+    <rect x="42" y="202" width="296" height="196" fill="#5c6fb8" opacity="0.55"/>
+
+    <!-- A Site -->
+    <rect x="502" y="402" width="456" height="256" fill="#b85c5c" opacity="0.55"/>
+
+    <!-- B Long / B Main -->
+    <rect x="42" y="42" width="616" height="156" fill="#6b5c3d" opacity="0.4"/>
+
+    <!-- A Long -->
+    <rect x="662" y="42" width="296" height="356" fill="#6b5c3d" opacity="0.4"/>
+
+    <!-- Hookah -->
+    <rect x="222" y="402" width="196" height="76" fill="#7a6b3d" opacity="0.6"/>
+
+    <!-- Showers (Short B) -->
+    <rect x="342" y="282" width="156" height="116" fill="#5a5a3d" opacity="0.5"/>
+
+    <!-- A Short -->
+    <rect x="422" y="202" width="236" height="196" fill="#5a5a3d" opacity="0.4"/>
+
+    <!-- Garden -->
+    <rect x="422" y="482" width="76" height="176" fill="#3d6b3d" opacity="0.4"/>
+
+    <!-- Teleport markers -->
+    <circle cx="380" cy="240" r="26" fill="#9b59b6" opacity="0.85"/>
+    <circle cx="460" cy="440" r="26" fill="#9b59b6" opacity="0.85"/>
+
+    <!-- CT area -->
+    <rect x="702" y="662" width="256" height="196" fill="#3d5a6b" opacity="0.4"/>
+
+    <!-- B Site lower section -->
+    <rect x="42" y="602" width="296" height="236" fill="#4a4a6b" opacity="0.4"/>
+
+    <!-- Bottom corridor -->
+    <rect x="42" y="842" width="736" height="116" fill="#3d3d5a" opacity="0.35"/>
+  </g>
+
+  <!-- === SITES layer === -->
+  <g id="sites">
+    <!-- B Site marker -->
+    <circle cx="190" cy="300" r="22" fill="#5c6fb8" opacity="0.9"/>
+    <text x="190" y="305" class="site-label">B</text>
+
+    <!-- A Site marker -->
+    <circle cx="730" cy="530" r="22" fill="#b85c5c" opacity="0.9"/>
+    <text x="730" y="535" class="site-label">A</text>
+  </g>
+
+  <!-- === LABELS layer === -->
+  <g id="labels">
+    <!-- Spawns -->
+    <text x="130" y="497">ATK</text>
+    <text x="130" y="512" class="label-small">Spawn</text>
+    <text x="870" y="907">DEF</text>
+    <text x="870" y="922" class="label-small">Spawn</text>
+
+    <!-- B side -->
+    <text x="330" y="112">B Long</text>
+    <text x="190" y="350">B Site</text>
+    <text x="420" y="345">Showers</text>
+    <text x="420" y="360" class="label-small">(B Short)</text>
+
+    <!-- Teleports -->
+    <text x="380" y="243" class="site-label" style="font-size:11px;fill:#e8d5f8">TP-B</text>
+    <text x="460" y="443" class="site-label" style="font-size:11px;fill:#e8d5f8">TP-A</text>
+
+    <!-- Hookah -->
+    <text x="320" y="445">Hookah</text>
+
+    <!-- A side -->
+    <text x="540" y="298">A Short</text>
+    <text x="810" y="200">A Long</text>
+    <text x="460" y="545">Garden</text>
+    <text x="730" y="582">A Site</text>
+
+    <!-- CT -->
+    <text x="830" y="752">CT</text>
+    <text x="830" y="767" class="label-small">Spawn</text>
+
+    <!-- Lower -->
+    <text x="190" y="722">B Lower</text>
+    <text x="600" y="712">Lamps</text>
+    <text x="400" y="897">Back Road</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20, 960)">
+    <rect x="0" y="0" width="14" height="10" fill="#b85c5c" opacity="0.9"/>
+    <text x="18" y="9" class="label-small" text-anchor="start">Site A</text>
+    <rect x="70" y="0" width="14" height="10" fill="#5c6fb8" opacity="0.9"/>
+    <text x="88" y="9" class="label-small" text-anchor="start">Site B</text>
+    <rect x="140" y="0" width="14" height="10" fill="#9b59b6" opacity="0.9"/>
+    <text x="158" y="9" class="label-small" text-anchor="start">Teleport</text>
+    <rect x="240" y="0" width="14" height="10" fill="#3d3d6b" opacity="0.9"/>
+    <text x="258" y="9" class="label-small" text-anchor="start">ATK</text>
+    <rect x="300" y="0" width="14" height="10" fill="#3d6b3d" opacity="0.9"/>
+    <text x="318" y="9" class="label-small" text-anchor="start">DEF</text>
+    <text x="400" y="9" class="label-small" text-anchor="start">VALIQ - Not endorsed by Riot Games</text>
+  </g>
+</svg>

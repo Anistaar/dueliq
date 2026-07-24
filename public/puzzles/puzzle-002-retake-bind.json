@@ -1,0 +1,138 @@
+{
+  "id": "puzzle-002",
+  "version": 1,
+  "map": "bind",
+  "side": "DEF",
+  "theme": "retake",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 22,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "semi-buy",
+    "util_joueur": {
+      "agent": "kayo",
+      "signature": "flash-drive",
+      "ultimate": null,
+      "basic_remaining": ["zero-point", "fragment"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 540,
+        "y": 298,
+        "orientation_deg": 0,
+        "label": "KAYO",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 830,
+        "y": 752,
+        "orientation_deg": 315,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 810,
+        "y": 200,
+        "orientation_deg": null,
+        "label": "E1",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "A Site Bind, spike plante default, 2v2, 22s. Tu es KAY/O a A Short (2 flashes), ton allie en CT. Un ATK est vu A Long. Que fais-tu ?",
+  "options": [
+    {
+      "label": "Lancer ZERO/point (suppression) sur le site puis flasher et entrer coordonne avec l'allie CT sur le spike",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 52,
+      "explication_courte": "ZERO/point supprime l'util des post-plants (pas de molly/flash pour retarder le defuse) et le flash ouvre l'entree ; frapper des 2 axes (Short + CT) sature une defense a 2.",
+      "sources_option": []
+    },
+    {
+      "label": "Flasher A Long en aveugle et duel l'ATK isole pour egaliser en 1v1 avant de retaker le spike",
+      "tier": "acceptable",
+      "ev_delta": "-0.3 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Prendre le pick sur l'ATK vu A Long simplifie en 1v1, mais consomme du temps sur un timer court (22s) et laisse le second ATK libre sur le spike pendant le duel.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Trading a known attacker can simplify the retake, but chasing a pick off-site costs clock the defenders often cannot afford on a short timer."
+        }
+      ]
+    },
+    {
+      "label": "Attendre en CT avec l'allie et jouer le retake au dernier moment vers 8s pour minimiser le temps d'exposition",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 18,
+      "explication_courte": "Retaker trop tard sur un default plant laisse trop peu de marge : si un angle resiste, le timer expire avant la clear du 2e ATK. La coordination est bonne mais le tempo trop tardif.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+          "citation": "A defuse needs 7 seconds; retaking with under ~10 seconds left on a contested spike leaves no margin to clear a second holder before detonation."
+        }
+      ]
+    },
+    {
+      "label": "Rush le spike en solo par A Short sans util pour gratter du temps de defuse pendant que l'allie arrive",
+      "tier": "faute",
+      "ev_delta": "-1.0 round EV",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Un solo dry-peek sur un spike tenu par 2 full-buy en crossfire donne un kill gratuit ; sans flash ni suppression c'est un 2v1 offert aux ATK.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+          "citation": "Solo dry entry into a held post-plant hands the attackers a free trade; util and coordinated timing are what break the crossfire, not raw aggression."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : retake A Site Bind en 2v2, default plant, 22 secondes. Tu es KAY/O avec ZERO/point (suppression), FRAG/ment (molly) et 1 FLASH/drive ; ton allie est en CT ; un ATK est repere A Long, le second est inconnu (probablement sur le spike ou hookah).\n\nLe defi d'un retake 2v2 sur default plant Bind est que les 2 attaquants tiennent un crossfire couvrant le spike depuis A Long et le fond de site. Deux principes s'appliquent : (1) casser l'util de retard des post-plants pour ne pas manger une molly sur le defuse, (2) frapper depuis deux axes distincts pour que 2 defenseurs saturent 2 attaquants.\n\nLa force de KAY/O ici est ZERO/point : la suppression desactive les capacites des ennemis touches dans la zone, donc pas de molly Viper/Brimstone ni de flash Phoenix pour retarder le defuse. Combinee au flash d'entree et a une entree coordonnee Short+CT, elle transforme un 2v2 incertain en retake structure. Chasser le pick A Long est jouable (option acceptable) mais mange un temps precieux sur un timer deja court.\n\nDistribution elite estimee : ~52% jouent suppression+flash+entree coordonnee, ~24% vont chercher le pick A Long d'abord, ~18% temporisent trop (retake tardif risque), ~4% rush solo sans util (la faute). Tolerance GTO : toute sequence qui coordonne les 2 corps et neutralise l'util adverse est acceptable ; le solo dry-peek est la seule vraie faute.",
+  "sources": [
+    {
+      "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+      "citation": "Coordination matters most on the retaker side; a coordinated entry with utility clears angles faster than defenders holding a crossfire can react."
+    },
+    {
+      "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+      "citation": "Use utility reactively and to deny the enemy's delay tools; suppressing or blinding the holders opens the window to plant/defuse contest."
+    },
+    {
+      "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+      "citation": "A spike planted in the open forces ~2.4 extra seconds of exposure to defuse; combined with the 7s defuse, timing the retake before ~10s left is critical."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "round_state.eco_def_approx",
+      "incertitude": "Le DEF est en semi-buy (KAY/O util complete supposee) ; si les armes sont plus faibles, l'equation duel A Long change et l'option 'chercher le pick' pourrait devenir couteuse."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides retake/post-plant ; l'usage precis de ZERO/point en retake 2v2 varie selon la composition adverse (agents a util de retard) non specifiee."
+    },
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "La position du 2e ATK est supposee sur/pres du spike mais non confirmee ; un juge Immortal+ pourrait ajuster la ligne optimale selon un stack A Long a 2 plutot qu'un split."
+    }
+  ]
+}

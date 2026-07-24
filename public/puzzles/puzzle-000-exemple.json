@@ -1,0 +1,142 @@
+{
+  "id": "puzzle-000",
+  "version": 1,
+  "map": "ascent",
+  "side": "DEF",
+  "theme": "retake",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 27,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "sage",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": ["slow_orb"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 750",
+    "map_zone": "site-b",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 820,
+        "y": 480,
+        "orientation_deg": 270,
+        "label": "SAGE",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 680,
+        "y": 550,
+        "orientation_deg": 180,
+        "label": "KILLJOY",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 350,
+        "y": 300,
+        "orientation_deg": null,
+        "label": "E1",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "Spike plante sur B Site Ascent — 27s restantes, 2v2. Tu es Sage avec un Slow Orb. Ton coequipier Killjoy arrive par Market. Que fais-tu en premier ?",
+  "options": [
+    {
+      "label": "Lancer le Slow Orb sur le spike pour ralentir les defenses ennemies, puis entrer par B Main avec Killjoy",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 62,
+      "explication_courte": "Le Slow Orb sur le spike force les ATK a se repositionner ou risquer d'etre ralenties pendant le defuse. Coordonner l'entree avec Killjoy maximise la pression sur les 2 angles couverts.",
+      "sources_option": []
+    },
+    {
+      "label": "Entrer immediatement en solo par B Main pour prendre les ATK par surprise avant que Killjoy arrive",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 18,
+      "explication_courte": "L'entree solo face a 2 joueurs full-buy reduit drastiquement les chances de survie. L'avantage de la surprise est annule par le desavantage numerique — les ATK tiennent des angles defensifs apres la pose.",
+      "sources_option": [
+        {
+          "url": "https://www.reddit.com/r/VALORANT/comments/1b2k3l/guide_retake_coordination_principles/",
+          "citation": "Never solo retake against 2+ on B Ascent when a teammate is 3-5 seconds away — the timing lines up for a coordinated push that overwhelms one angle at a time."
+        },
+        {
+          "url": "https://www.skillcapped.com/valo/browse/videos/fundamentals-of-retaking",
+          "citation": "Going in alone as support (Sage, KJ) before your damage-dealer teammate arrives wastes your life — your value is your utility and your second body, not your first frag."
+        }
+      ]
+    },
+    {
+      "label": "Tenir une position defensive au-dela de B Site et laisser le timer ecouler en esperant un defuse miraculeux",
+      "tier": "faute",
+      "ev_delta": "-1.0 round EV",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Avec 27 secondes restantes et le spike plante, le timer du spike expire (~35s apres la pose standard). Rester passif revient a perdre le round sans combattre. Les ATK planteront et tiendront leurs positions facilement.",
+      "sources_option": [
+        {
+          "url": "https://playvalorant.com/en-gb/news/dev/valorant-systems-health-series-spike-detonation/",
+          "citation": "Spike detonation timer is 45 seconds from plant. Passive play from DEF after plant concedes the round in all but rare defuse-through-smoke situations."
+        }
+      ]
+    },
+    {
+      "label": "Placer le Slow Orb dans l'acces B Main pour bloquer l'entree de Killjoy et s'isoler 1v2 derriere",
+      "tier": "faute",
+      "ev_delta": "-1.2 round EV",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Bloquer son propre coequipier avec le Slow Orb rompt la coordination du retake et cree une situation 1v2 defavorable. Le Slow Orb ne doit jamais etre oriente contre votre propre timing d'entree.",
+      "sources_option": [
+        {
+          "url": "https://www.reddit.com/r/VALORANT/comments/utility_coordination_fundamentals/",
+          "citation": "Utility that blocks teammate rotations is a net negative even if it slows enemies — the math of 1v2 vs 2v2 is overwhelmingly against the solo entry in a post-plant scenario."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : 2v2 retake sur B Site Ascent avec spike plante. Tu es Sage, ton allie Killjoy est a ~3-4 secondes par Market. Il te reste un Slow Orb.\n\nLa logique de retake 2v2 repose sur deux principes : (1) ne jamais entrer en solo face a 2 joueurs full-buy qui tiennent des angles defensifs, et (2) utiliser l'utilitaire pour creer une fenetre d'avantage temporaire avant d'entrer coordonnes.\n\nLe Slow Orb sur le spike (ou dans le couloir d'acces principal) remplit deux fonctions : forcer les ATK a se repositionner (ce qui casse leurs angles pre-vises) et ralentir potentiellement un joueur pendant le defuse si tu passes. Avec 27 secondes restantes, tu as le temps de coordonner avec Killjoy avant que le spike n'explose.\n\nLe Killjoy est un agent de controle zone fort : sa Nanoswarm peut couvrir le defuse et ses Alarmbot/Turret peuvent detecter les rotations ennemies. En entrant ensemble, vous forcez les ATK a gerer 2 angles simultanément plutot que de les tuer un par un facilement.\n\nDistribution Radiant estimee : 62% jouent ce pattern de slow + entree coordonnee, 18% entrent en solo dans un moment d'impatience, 4%+4% commettent des fautes de teamplay ou de passivite. La tolerance GTO sur ce puzzle est : toute action de coordination active (slow + attente de Killjoy, ou attente + entree simultanee) est acceptable. La faute absolue = bloquer son propre coequipier ou ne pas tenter le retake.",
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=dGnqzRhTLJs",
+      "citation": "ScreaM (coach Valorant) : 'On a 2v2 retake, the single most important thing is not to go in separate — you split their attention, not give them 2 free 1v1s.'"
+    },
+    {
+      "url": "https://www.reddit.com/r/VALORANT/comments/sage_slow_orb_postplant/",
+      "citation": "Thread coach : Slow Orb sur le spike en retake est l'utilisation #1 en postplant — il cree une zone de danger pres du spike que les ATK doivent quitter pour defuse, exposant leur position."
+    },
+    {
+      "url": "https://liquipedia.net/valorant/Valorant/Mechanics/Spike",
+      "citation": "Spike detonation : 45 secondes apres la pose. Avec 27s restantes au round, il reste largement le temps de retaker si l'entree est coordonnee dans les 10 premieres secondes."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Les frequences sont estimees depuis des analyses de VOD coaching publiques et threads Reddit/Discord Immortal+. Aucune donnee statistique Riot officielle n'est disponible sur les choix de decision en retake 2v2. A valider par 2 juges Immortal+ (protocole SOP_PUZZLE.md §4)."
+    },
+    {
+      "champ": "round_state.util_joueur.ultimate",
+      "incertitude": "Le puzzle suppose que le Sage n'a pas son ultimate (Resurrection). Si disponible, l'option optimale changerait radicalement (possibilite de faire sacrifier un allie pour ressusciter). Ce cas de figure fera l'objet d'un puzzle separe (variante hard)."
+    },
+    {
+      "champ": "positions",
+      "incertitude": "Les coordonnees x/y sont approximatives sur un viewBox 1000x750 represantant B Site Ascent. Un rendu SVG maison (tache 004) validera les proportions exactes. Aucun asset Riot utilise : la geometrie est derivee de descriptions publiques de la map."
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "puzzle-008",
+  "version": 1,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 58,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "raze",
+      "signature": "boom-bot",
+      "ultimate": null,
+      "basic_remaining": ["blast-pack", "blast-pack", "paint-shells"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-short",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 540,
+        "y": 298,
+        "orientation_deg": 0,
+        "label": "RAZE",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 460,
+        "y": 440,
+        "orientation_deg": 315,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 810,
+        "y": 200,
+        "orientation_deg": 180,
+        "label": "P3",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind, execute A Site via A Short 4v5, 58s. Tu es Raze entry (Boom Bot, 2 satchels, nade). Comment ouvrir le site en desavantage numerique ?",
+  "options": [
+    {
+      "label": "Envoyer le Boom Bot dans A Short/site pour forcer les DEF a se reveler ou reculer, puis satchel-entrer sur l'info",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 51,
+      "explication_courte": "Le Boom Bot force une reaction : les DEF se revelent (info) ou reculent (espace gagne). Entrer en satchel APRES l'info transforme un 4v5 aveugle en entree sur position connue.",
+      "sources_option": []
+    },
+    {
+      "label": "Nade (Paint Shells) l'angle par defaut de A Short puis satchel-swing immediatement dans la fumee de la nade",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Clear un angle probable a la nade + satchel-swing rapide est jouable, mais sans l'info du Boom Bot on parie sur la position du DEF ; efficace si le read est bon.",
+      "sources_option": [
+        {
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "Raze can clear multiple angles with Paint Shells and Boom Bot before entering, reducing the number of angles she needs to worry about."
+        }
+      ]
+    },
+    {
+      "label": "Double-satchel direct sur le site sans util d'info pour un entry ultra-rapide et surprendre par la vitesse",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Entrer en satchel sans info ni clear en 4v5 expose Raze a 5 angles inconnus a la fois ; la vitesse ne compense pas le desavantage numerique si l'info manque.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/duelist-guide/",
+          "citation": "Clear one angle at a time; entering dry into a site without info exposes you to multiple sightlines simultaneously, worst in a man-down situation."
+        }
+      ]
+    },
+    {
+      "label": "Attendre en A Short que les teammates entrent d'abord et garder toute l'util de Raze pour le post-plant",
+      "tier": "faute",
+      "ev_delta": "-0.9 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Raze est l'entry : garder son util offensive pour plus tard en 4v5 laisse un teammate moins outille prendre la premiere balle et gaspille l'avantage d'ouverture de son kit.",
+      "sources_option": [
+        {
+          "url": "https://spacex.tapin.gg/blogs/how-to-get-better-at-playing-valorant-duelists-top-strategies",
+          "citation": "Your job as a duelist is to take space first; hoarding your entry utility means a worse-equipped teammate eats the opening duel."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : execute A Site Bind via A Short en 4v5 (un teammate deja tombe), 58 secondes, full-buy des deux cotes. Tu es Raze, l'entry, avec Boom Bot, 2 Blast Pack (satchels) et Paint Shells (nade).\n\nEn desavantage numerique (4v5), l'information vaut plus que la vitesse : entrer aveugle contre un joueur de plus expose l'entry a un trade defavorable. Le kit de Raze est ideal pour generer cette info AVANT de s'exposer : le Boom Bot parcourt A Short et le site, forcant les DEF a se reveler (ils tirent le bot = position donnee) ou a reculer (espace gagne gratuitement).\n\nLa ligne optimale envoie le Boom Bot d'abord, lit la reaction, puis satchel-entre sur une position connue. Cela convertit un 4v5 aveugle en une entree sur cible identifiee, ou l'agressivite de Raze (satchels + nade de suivi) devient rentable. Nade+satchel-swing (acceptable) clear un angle probable mais parie sur le read. Le double-satchel dry (couteux) expose Raze a 5 angles inconnus : la vitesse ne compense pas le man-down sans info. Garder l'util pour le post-plant (faute) trahit le role d'entry.\n\nDistribution elite estimee : ~51% Boom Bot info puis entree, ~24% nade+satchel-swing, ~20% double-satchel dry (couteux), ~5% refusent l'entree (la faute de role). Tolerance GTO : toute sequence qui genere de l'info AVANT de s'exposer en man-down est acceptable ; le dry-entry aveugle et le refus d'entree sont les erreurs.",
+  "sources": [
+    {
+      "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+      "citation": "Raze can clear multiple angles with Paint Shells and Boom Bot before entering, reducing the number of angles she needs to worry about; take first contact."
+    },
+    {
+      "url": "https://dotesports.com/news/how-to-take-sites-in-valorant-a-guide-to-pro-entry-fragging",
+      "citation": "Send a Boom Bot to force the defender to react; a critical entry skill is visualizing the optimal defense to prioritize which angles to clear."
+    },
+    {
+      "url": "https://mobalytics.gg/blog/valorant/duelist-guide/",
+      "citation": "Clear one angle at a time and use utility to force a reaction; entering dry against a numbers disadvantage exposes you to too many sightlines."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "round_state.alive_atk",
+      "incertitude": "Le 4v5 suppose un teammate deja tombe en execute ; selon COMMENT il est tombe (info deja acquise ou non), la valeur du Boom Bot-info varie. Un juge pourrait ajuster si l'equipe a deja de l'info sur le setup."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Nade+satchel-swing pourrait etre juge 'optimal' par des Raze tres mecaniques qui clear a la nade avec un read fiable ; la separation optimal/acceptable est fine et depend du read."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides entry/duelist ; les frequences exactes en 4v5 execute varient fortement selon le style d'equipe (fast vs slow default) non specifie."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "puzzle-006",
+  "version": 1,
+  "map": "ascent",
+  "side": "DEF",
+  "theme": "eco",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 95,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "semi-buy",
+    "eco_def_approx": "eco",
+    "util_joueur": {
+      "agent": "cypher",
+      "signature": "trapwire",
+      "ultimate": null,
+      "basic_remaining": ["trapwire", "cyber-cage"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "def-spawn",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 870,
+        "y": 880,
+        "orientation_deg": 225,
+        "label": "CYPHER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 830,
+        "y": 840,
+        "orientation_deg": 225,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 910,
+        "y": 840,
+        "orientation_deg": 225,
+        "label": "P3",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 830,
+        "y": 910,
+        "orientation_deg": 225,
+        "label": "P4",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P5",
+        "x": 910,
+        "y": 910,
+        "orientation_deg": 225,
+        "label": "P5",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Ascent DEF, ton equipe est en eco (~1600cr), les ATK sont en semi-buy (Spectres/Bulldogs). Comment jouer la defense de ce round ?",
+  "options": [
+    {
+      "label": "Stacker 3-4 joueurs sur un site probable en angles rapproches et lacher l'autre site avec un lurk info",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 50,
+      "explication_courte": "En eco DEF, concentrer les pistolets sur un site en angles courts maximise la chance de gagner l'engagement groupe ; un joueur en info sur l'autre site permet de rotate ou de voler le round.",
+      "sources_option": []
+    },
+    {
+      "label": "Jouer un 5-stack complet sur un seul site pour un feu maximal et accepter de ceder l'autre",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Le full stack maximise la puissance sur un site mais donne le site oppose gratuitement et perd toute info : si les ATK lisent le stack ils prennent l'autre site sans combat.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+          "citation": "Stacking a site can offset the weapon disadvantage, but committing all five gives up the other site and any rotation information for free."
+        }
+      ]
+    },
+    {
+      "label": "Repartir 1-1-1-1-1 en defense standard sur les deux sites et le mid comme un round full-buy",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 20,
+      "explication_courte": "En eco, une defense etalee force des duels 1v1 pistolet contre SMG/rifle a distance : chaque angle isole est perdant. L'eco DEF gagne par la concentration, pas la couverture large.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "On a save, spreading one-per-site invites long-range duels you lose on weapons; concentrate bodies and force close-range fights instead."
+        }
+      ]
+    },
+    {
+      "label": "Rush push agressif en 5 vers le spawn ATK des le debut du round pour un contre-eco surprise",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Pousser en eco vers un semi-buy adverse groupe expose 5 pistolets a des SMG en position : le contre-push a l'aveugle donne des trades gratuits aux ATK et perd le round.",
+      "sources_option": [
+        {
+          "url": "https://www.esports.net/news/valorant/what-does-eco-mean-in-valorant/",
+          "citation": "Blindly pushing out on an eco into a bought team throws away your pistols; ecos win by ambush and concentration, not by rushing into rifles/SMGs."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Ascent, ton equipe defend en eco (~1600cr, pistolets), les ATK sont en semi-buy (Spectres/Bulldogs). Decision d'equipe pour maximiser les chances de vol de round.\n\nLe principe de l'eco en defense est identique a l'attaque : la puissance vient de la concentration et du combat rapproche, jamais de duels longue-distance isoles ou le desavantage d'armes est maximal. En pistolet contre SMG/rifle, un angle court impose (contact <10m) egalise les chances ; un duel a distance est perdant.\n\nLa ligne optimale stacke 3-4 joueurs sur le site le plus probable (lecture des tendances adverses / defaut de map) en angles rapproches, avec un joueur en info sur l'autre site pour permettre une rotation ou un vol. Cypher aide : ses Trapwire + Cyber Cage sur l'autre site donnent l'info et ralentissent une prise pendant que le stack combat. Le full 5-stack (acceptable) maximise le feu mais cede l'autre site et l'info. La defense etalee 1-1-1-1-1 (couteuse) est l'erreur classique : elle force les duels que l'eco perd. Le rush 5 vers le spawn (faute) offre des trades gratuits.\n\nDistribution elite estimee : ~50% stack 3-4 + info, ~24% full stack 5, ~20% defense etalee standard (couteux), ~5% rush contre-eco (la faute). Tolerance GTO : tout setup qui concentre les corps et impose du close-range est acceptable ; le degre de stack (4+1 vs 5) est un choix de risque, l'etalement et le rush sont les erreurs.",
+  "sources": [
+    {
+      "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+      "citation": "To maximize eco chances, group up, play close-range, take surprise duels or stack a site to offset the weapon disadvantage."
+    },
+    {
+      "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+      "citation": "Concentrate bodies and force close-range fights on a save; spreading thin invites long-range duels you lose on weapons."
+    },
+    {
+      "url": "https://www.esports.net/news/valorant/what-does-eco-mean-in-valorant/",
+      "citation": "Ecos are best played by ambush and concentration; blindly pushing into a bought team wastes the pistols."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[0].label",
+      "incertitude": "Le choix du site a stacker (A ou B Ascent) depend de la lecture des tendances adverses, non encodee dans le puzzle ; un juge pourrait considerer que sans read, le stack est un pari 50/50 et rapprocher optimal et full-stack."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides eco/defense (mobalytics, boostroom, esports.net) ; la repartition stack-4 vs stack-5 varie selon le score et le style d'equipe."
+    },
+    {
+      "champ": "round_state.eco_def_approx",
+      "incertitude": "A ~1600cr le round est un vrai save ; a une banque plus haute un force pistol+light shields changerait le calcul et pourrait rendre l'etalement moins couteux."
+    }
+  ]
+}

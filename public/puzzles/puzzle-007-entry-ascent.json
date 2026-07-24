@@ -1,0 +1,146 @@
+{
+  "id": "puzzle-007",
+  "version": 1,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 65,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "jett",
+      "signature": "tailwind",
+      "ultimate": null,
+      "basic_remaining": ["cloudburst", "cloudburst", "updraft"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-main",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 130,
+        "y": 265,
+        "orientation_deg": 45,
+        "label": "JETT",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 195,
+        "y": 265,
+        "orientation_deg": 45,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 175,
+        "y": 340,
+        "orientation_deg": 45,
+        "label": "P3",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 360,
+        "y": 435,
+        "orientation_deg": 225,
+        "label": "E?",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 4
+  },
+  "question": "Ascent, execute A Site full-buy 5v5, 65s. Tu es Jett entry a A Main (2 smokes, dash). Un DEF tient A Site. Comment prendre l'entree ?",
+  "options": [
+    {
+      "label": "Smoke un des angles (ex: Heaven/CT), swing l'autre en dash apres le flash/util d'un teammate et clear un angle a la fois",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 53,
+      "explication_courte": "Fumer l'angle non-challenge reduit le nombre de sightlines, entrer apres un flash d'equipe et clear un seul angle a la fois maximise l'entree tout en gardant le dash pour repositionner.",
+      "sources_option": []
+    },
+    {
+      "label": "Dash direct sur le site sans smoke ni flash pour surprendre le DEF par la vitesse, teammates en trade derriere",
+      "tier": "acceptable",
+      "ev_delta": "-0.3 round EV",
+      "freq_elite_estimee": 18,
+      "explication_courte": "Le dash surprise peut fonctionner si les trades suivent instantanement, mais entrer sans util expose Jett a tous les angles a la fois : c'est un pari agressif jouable en fast-execute.",
+      "sources_option": [
+        {
+          "url": "https://dotesports.com/news/how-to-take-sites-in-valorant-a-guide-to-pro-entry-fragging",
+          "citation": "Flash before you swing or smoke the angle you aren't challenging; entering dry exposes you to multiple sightlines at once versus one cleared angle at a time."
+        }
+      ]
+    },
+    {
+      "label": "Wide-swing le choke A Main en spray transfer pour couvrir les deux angles du site simultanement",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Wide-swing dans deux sightlines a la fois divise l'attention et donne au DEF pre-vise un tir gratuit ; l'entree efficace clear une ligne a la fois, pas toutes ensemble.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/duelist-guide/",
+          "citation": "Clear one angle at a time, do not wide swing into three sightlines simultaneously; wide swinging into pre-aimed defenders hands them the duel."
+        }
+      ]
+    },
+    {
+      "label": "Laisser un teammate entrer en premier et rester en retrait pour preserver Jett pour le clutch de fin de round",
+      "tier": "faute",
+      "ev_delta": "-0.9 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Jett est l'entry : son kit sert a prendre l'espace en premier. Rester en vie sans prendre l'entree, c'est ne pas jouer le role et laisser un teammate moins outille manger la premiere balle.",
+      "sources_option": [
+        {
+          "url": "https://spacex.tapin.gg/blogs/how-to-get-better-at-playing-valorant-duelists-top-strategies",
+          "citation": "If you're alive at the end of every round but not getting kills as a duelist, you're not playing the role; your job is to take space first and win the opening duel."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : execute A Site Ascent en 5v5 full-buy, 65 secondes, ton equipe est massee A Main. Tu es Jett, l'entry, avec 2 Cloudburst et un dash. Un DEF est repere sur A Site, 4 positions inconnues.\n\nLe role de l'entry fragger est de prendre l'espace en premier et de gagner le duel d'ouverture ; son kit (dash, smokes) existe pour survivre ou gagner ce premier contact. Deux principes structurent une bonne entree : (1) reduire le nombre de sightlines auxquelles on s'expose (fumer l'angle qu'on ne challenge pas), (2) clear un angle a la fois plutot que wide-swing dans plusieurs lignes.\n\nLa ligne optimale sur A Ascent : smoke un angle fort (Heaven/CT selon le setup adverse), attendre le flash ou l'util d'un teammate, puis entrer en dash sur l'angle challenge en le clearant proprement. Le dash reste disponible pour repositionner apres le premier kill. Le dash dry (acceptable) est un pari fast-execute valable si les trades suivent, mais expose a tous les angles. Le wide-swing (couteux) divise l'attention et offre le duel au DEF pre-vise. Rester en retrait (faute) trahit le role d'entry.\n\nDistribution elite estimee : ~53% smoke+flash+clear un angle, ~18% dash dry surprise (acceptable en fast-execute), ~20% wide-swing (couteux), ~5% refusent l'entree (la faute de role). Tolerance GTO : toute entree qui reduit les sightlines ET est suivie de trades est acceptable ; le wide-swing et le refus d'entree sont les erreurs.",
+  "sources": [
+    {
+      "url": "https://dotesports.com/news/how-to-take-sites-in-valorant-a-guide-to-pro-entry-fragging",
+      "citation": "Flash before you swing, smoke off the angle you are not challenging, and clear one angle at a time; do not wide swing into multiple sightlines at once."
+    },
+    {
+      "url": "https://mobalytics.gg/blog/valorant/duelist-guide/",
+      "citation": "An entry visualizes how the defense sets up to prioritize which angles to clear, with good crosshair placement to flick between potential positions."
+    },
+    {
+      "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+      "citation": "Jett is a top entry agent because her dash and smokes create space; take first contact, your kit is built to survive or win the opening duel."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "Un seul DEF est confirme sur A Site ; la ligne optimale (quel angle fumer) depend du setup defensif exact (Heaven vs Tree vs Generator) non specifie. Un juge Immortal+ trancherait selon la comp adverse."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Le dash dry est classe 'acceptable' mais en contexte fast-execute coordonne certains le jugeraient optimal ; la frontiere depend du tempo d'equipe (info non encodee)."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides entry/duelist (dotesports, mobalytics, oneesports) ; les vraies frequences varient selon le meta duelist et la map."
+    }
+  ]
+}

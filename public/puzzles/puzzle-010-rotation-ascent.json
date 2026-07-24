@@ -1,0 +1,138 @@
+{
+  "id": "puzzle-010",
+  "version": 1,
+  "map": "ascent",
+  "side": "DEF",
+  "theme": "rotation",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 40,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 4,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "killjoy",
+      "signature": "turret",
+      "ultimate": null,
+      "basic_remaining": ["nanoswarm", "alarmbot"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 640,
+        "y": 340,
+        "orientation_deg": 180,
+        "label": "KILLJOY",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 780,
+        "y": 522,
+        "orientation_deg": 225,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 500,
+        "y": 165,
+        "orientation_deg": 180,
+        "label": "E1",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Ascent DEF, tu tiens B a 2 (Killjoy). Ton Alarmbot ping 1 ATK Mid Top, ton allie A dit A Main silencieux. Les ATK ont perdu Mid tot. 40s. Que fais-tu ?",
+  "options": [
+    {
+      "label": "Rester B avec ta setup, prep une rotation courte : Mid controle par les ATK menace B via Market autant que A",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 49,
+      "explication_courte": "Le controle Mid adverse leur donne un split rapide sur B (via Market) autant que sur A. Tenir B avec la setup Killjoy et une rotation prete couvre la menace la plus directe sur ton site.",
+      "sources_option": []
+    },
+    {
+      "label": "Rotate tot vers A pour renforcer ton allie seul, en supposant que le Mid-take annonce un hit A via Catwalk/Tree",
+      "tier": "acceptable",
+      "ev_delta": "-0.3 round EV",
+      "freq_elite_estimee": 26,
+      "explication_courte": "Le controle Mid alimente souvent un hit A (Catwalk) ; renforcer un allie seul est defendable, mais quitter B avant confirmation laisse ton site nu si le split part B via Market.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Whoever controls mid gets better rotation timing and can split onto a site; if you lose mid, rotations must be earlier to avoid being punished."
+        }
+      ]
+    },
+    {
+      "label": "Push Mid en 2 avec ton allie B pour reprendre le controle Mid perdu et contester le joueur pinge",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Reprendre Mid en 2 quitte ton site et t'engage dans un espace controle par les ATK ; en 4v4 tu risques de te faire trade et de laisser B et A ouverts en meme temps.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "Retaking lost mid control mid-round commits bodies into enemy-held space; defenders usually hold sites and let mid control funnel into a readable hit."
+        }
+      ]
+    },
+    {
+      "label": "Vider ton Alarmbot + Nanoswarm dans Mid immediatement pour deny le controle, sans garder d'util pour le hit",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Gaspiller la setup Killjoy dans Mid avant le hit laisse ton site sans util quand le split arrive : l'util de site est ce qui gagne le retard, pas un deny premature de Mid.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+          "citation": "Use utility reactively and layer it; dumping your setup util early leaves you with nothing for the actual site hit."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Ascent, tu defends B a 2 (toi Killjoy avec setup + un allie B), un 3e coequipier est A, un 4e est tombe (4v4). Ton Alarmbot ou l'info d'equipe pinge un ATK Mid Top ; A Main est silencieux ; les ATK ont pris le controle Mid tot. 40 secondes.\n\nLe principe cle : le controle Mid est une autoroute de rotation ET d'attaque. Sur Ascent, une equipe qui controle Mid peut split sur B via Market (CT link) autant que sur A via Catwalk. Donc un Mid-take n'annonce pas forcement un hit A : il menace les deux sites, avec un avantage de tempo pour les ATK. La regle : ne pas quitter un site menace sur une hypothese non confirmee.\n\nLa ligne optimale garde ta setup Killjoy sur B (le site que le Mid-control menace le plus directement via Market) avec une rotation courte prete si l'info bascule clairement A. Ta setup (Turret + Nanoswarm + Alarmbot) est ce qui te fait gagner du temps sur le hit ; tu la gardes intacte. Rotate tot vers A (acceptable) est defendable car Mid alimente souvent Catwalk, mais laisse B nu au split Market. Push Mid en 2 (couteux) t'engage en espace adverse. Vider l'util dans Mid (faute) te prive de la setup au moment du vrai hit.\n\nDistribution elite estimee : ~49% tiennent B setup + rotation prete, ~26% rotate tot A, ~20% push Mid (couteux), ~5% gaspillent l'util (la faute). Tolerance GTO : tenir le site menace avec une rotation prete OU renforcer un allie seul sont deux lectures defendables du split ; push Mid et deny premature sont les erreurs.",
+  "sources": [
+    {
+      "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+      "citation": "Whoever controls mid gets better rotation timing and split options; a mid take threatens multiple sites, and losing mid means rotating earlier."
+    },
+    {
+      "url": "https://bo3.gg/valorant/articles/how-to-read-rotations-in-valorant-when-and-where-defenders-move",
+      "citation": "A quiet site (zero signal) plus mid pressure usually means the hit is being set up through mid; read the split rather than committing on assumption."
+    },
+    {
+      "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+      "citation": "Hold your site setup and let mid control funnel into a readable hit rather than committing bodies to retake lost mid space."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[0].tier",
+      "incertitude": "Le choix tenir-B vs rotate-A depend fortement de la meta de la map et du fait que sur Ascent un mid-take alimente historiquement plus A (Catwalk) que B (Market) selon certains coachs. La separation optimal/acceptable est la plus fine des 10 puzzles et devra etre tranchee par un juge Immortal+."
+    },
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "Un seul ATK est pinge Mid Top ; les 3 autres sont inconnus. Si un juge estime que le mid-control Ascent annonce majoritairement A, l'option 1 (rotate A) pourrait etre reclassee optimal."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides map-control/rotation (guildorder, bo3, boostroom) ; aucune donnee statistique sur la destination des splits post-mid-control par map en elite."
+    }
+  ]
+}

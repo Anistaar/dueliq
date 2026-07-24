@@ -1,0 +1,129 @@
+{
+  "id": "puzzle-003",
+  "version": 1,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 34,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "killjoy",
+      "signature": "nanoswarm",
+      "ultimate": null,
+      "basic_remaining": ["nanoswarm", "alarmbot"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 820,
+        "y": 130,
+        "orientation_deg": 225,
+        "label": "KILLJOY",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 780,
+        "y": 522,
+        "orientation_deg": 315,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 2
+  },
+  "question": "Spike plante default B Site Ascent, 2v2, 34s. Tu es Killjoy avec 2 Nanoswarm et Alarmbot. Ton allie tient CT Mid. Comment jouer le post-plant ?",
+  "options": [
+    {
+      "label": "Placer les 2 Nanoswarm en lineup sur le spike (default) et te repositionner en crossfire off-angle avec ton allie",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 57,
+      "explication_courte": "Les Nanoswarm en lineup rendent le defuse impossible sans clear, forcant les DEF a exposer les molly-spots ; le crossfire off-spike punit tout retaker qui s'expose au spike.",
+      "sources_option": []
+    },
+    {
+      "label": "Garder les Nanoswarm et jouer un crossfire agressif proche du spike pour trade instantane sur le premier retaker",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Un crossfire discipline gagne des post-plants sans util, mais garder les mollys prives d'un outil de retard ; jouable si les positions sont bien decalees et lineaires.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Crossfires are the most consistent ranked post-plant win condition because they don't require fancy utility, just two players at distinct angles."
+        }
+      ]
+    },
+    {
+      "label": "Balancer les 2 Nanoswarm des l'entree des DEF sur le site sans lineup, en visant a l'oeil",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Sans lineup, les Nanoswarm ratent souvent le spot exact de defuse et sont depensees trop tot ; on perd l'outil de retard le plus fiable du post-plant.",
+      "sources_option": [
+        {
+          "url": "https://www.cheatspulse.com/guides/valorant/default-plants-lineups",
+          "citation": "Playing for lineups is a core post-plant rule; molly lineups on the spike are hard to counter and eat up a lot of the enemies' time versus a wasted eyeballed throw."
+        }
+      ]
+    },
+    {
+      "label": "Vous stacker tous les deux au meme angle pres du spike pour un feu concentre sur l'entree principale",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Se stacker au meme angle offre une seule ligne aux DEF : un flash ou une entree groupee vous prend tous les deux, et personne ne couvre le second axe de defuse.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+          "citation": "Spread out, don't stack the same spot; a crossfire needs two distinct angles so the defenders can't clear both of you with one utility or one push."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : post-plant 2v2 sur B Site Ascent, spike default, 34 secondes. Tu es Killjoy avec 2 Nanoswarm et un Alarmbot ; ton allie tient CT Mid. Deux DEF vivants vont tenter le retake.\n\nLe post-plant en attaque repose sur trois leviers : (1) jouer pour des lineups d'util qui rendent le defuse impossible sans clear, (2) etaler les joueurs sur des angles distincts (ne jamais se stacker), (3) tenir un crossfire off-spike qui punit l'exposition au defuse. Killjoy est l'agent post-plant par excellence : ses Nanoswarm en lineup sur le default plant transforment le spike en zone de mort.\n\nLa ligne optimale combine les trois : deux Nanoswarm pre-alignees sur le spot de defuse (declenchables au son du defuse), puis un repositionnement en off-angle pour que toi et ton allie CT couvriez deux axes differents. Un DEF qui commence le defuse mange une molly ; s'il attend, le timer joue pour toi. Le crossfire pur (option acceptable) gagne aussi beaucoup de rounds mais se prive de l'outil de retard le plus fiable.\n\nDistribution elite estimee : ~57% jouent lineup+crossfire off-angle, ~23% jouent un crossfire discipline en gardant les mollys, ~15% jettent les mollys a l'oeil (moins fiable), ~5% se stackent au meme angle (la faute qui offre un seul point de contact). Tolerance GTO : toute ligne qui exploite les lineups OU tient un crossfire a deux angles distincts est solide ; se stacker est la seule vraie erreur.",
+  "sources": [
+    {
+      "url": "https://www.cheatspulse.com/guides/valorant/default-plants-lineups",
+      "citation": "Playing for lineups is a core post-plant rule and the go-to since it became meta; lineups are hard to counter and eat up a lot of the enemies' time."
+    },
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "Attack post-plant means spreading out (not all same spot), playing off the spike, holding crossfires, and using utility to delay the defuse."
+    },
+    {
+      "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+      "citation": "Your crossfire should cover the spike's approach lines with two players at distinct entry angles, not stacked in the same corner."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides post-plant (cheatspulse, dignitas, boostroom) ; la frequence exacte lineup vs crossfire-pur varie selon la maitrise des lineups Killjoy du joueur (skill-dependent)."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Le crossfire agressif (option 1) pourrait etre juge equivalent a l'optimal par des joueurs qui privilegient le trade instantane ; la marge optimal/acceptable est fine."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur B Site Ascent (viewBox 1000x1000, zones de maps.ts) ; le spot exact de lineup Nanoswarm n'est pas encode dans le JSON (info textuelle seulement)."
+    }
+  ]
+}

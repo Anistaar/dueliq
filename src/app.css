@@ -1,0 +1,41 @@
+/* DuelIQ — Global CSS — Not endorsed by Riot Games */
+:root {
+  --red:    #FF4655;
+  --teal:   #00D4AA;
+  --slate:  #E8EAF0;
+  --navy:   #0F111A;
+  --navy2:  #0b0d14;
+  --border: #1e293b;
+  --text:   #e2e8f0;
+  --muted:  #94a3b8;
+  --mono:   ui-monospace, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--navy2);
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p { margin: 0; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button {
+  font-family: inherit;
+}

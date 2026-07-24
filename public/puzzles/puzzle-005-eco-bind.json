@@ -1,0 +1,153 @@
+{
+  "id": "puzzle-005",
+  "version": 1,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "eco",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 92,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "eco",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "brimstone",
+      "signature": "sky-smoke",
+      "ultimate": null,
+      "basic_remaining": ["stim-beacon", "incendiary"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "atk-spawn",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 130,
+        "y": 500,
+        "orientation_deg": 0,
+        "label": "BRIM",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 130,
+        "y": 440,
+        "orientation_deg": 0,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 130,
+        "y": 560,
+        "orientation_deg": 0,
+        "label": "P3",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 175,
+        "y": 470,
+        "orientation_deg": 0,
+        "label": "P4",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P5",
+        "x": 175,
+        "y": 530,
+        "orientation_deg": 0,
+        "label": "P5",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Round 3 Bind, tu as perdu pistol + bonus, banque ATK ~1900cr chacun. Les DEF sont full-buy. Quelle decision d'equipe ?",
+  "options": [
+    {
+      "label": "Full save : pistolets + eco d'util, grouper pour un stack rapproche sur un site et jouer pour la prochaine full-buy",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 54,
+      "explication_courte": "Sauver garantit une full-buy (rifle + heavy shields + util) au round suivant. Un stack pistol groupe sur un site cree une chance de vol de round sans compromettre l'eco.",
+      "sources_option": []
+    },
+    {
+      "label": "Half-buy coordonne : SMG (Spectre) + light shields pour tous, jouer un fast-hit surprise sur un site",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 26,
+      "explication_courte": "A ~1900-2400cr le force Spectre light shields est jouable pour surprendre, mais casse l'eco : une defaite laisse l'equipe en semi-buy le round d'apres au lieu d'une full-buy garantie.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-economy-guide-buy-force-bonus-full-save",
+          "citation": "If you all have roughly 2200-2400 credits each it might be worth forcing Spectre light shields to catch your opponents off guard."
+        }
+      ]
+    },
+    {
+      "label": "Acheter chacun un Sheriff + light shields et se disperser pour chercher des picks a distance sur les entrees",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Se disperser en eco Sheriff dilue la puissance de feu : contre 5 rifles chaque duel isole est perdant. L'eco reussit par le groupement, pas la dispersion.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+          "citation": "To maximize eco impact, group up and play close-range together; spreading out into long-range duels against full rifles loses the weapon-disadvantaged fights."
+        }
+      ]
+    },
+    {
+      "label": "Buy partiel individuel : 2 joueurs prennent un Vandal, les 3 autres restent pistolet sans coordination d'achat",
+      "tier": "faute",
+      "ev_delta": "-0.7 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Un buy split incoherent casse l'eco de toute l'equipe sans masse de feu suffisante : 2 rifles isoles ne gagnent pas, et les 3 autres n'auront pas de full-buy ensuite.",
+      "sources_option": [
+        {
+          "url": "https://www.ldshop.gg/blog/valorant-gp/valorant-economy-guide.html",
+          "citation": "The safest strategy after a lost round is a complete save so the team can full-buy together next round; a partial uncoordinated buy wastes credits without firepower."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : round 3 sur Bind, ton equipe a perdu le pistol et le bonus, chaque joueur a ~1900 credits, les DEF sont full-buy. La question est une decision d'economie d'equipe, pas de position.\n\nLe principe fondamental de l'eco : ne pas depenser des credits qui t'empechent de full-buy au round suivant. A ~1900cr, personne ne peut acheter rifle + heavy shields + util. La ligne la plus sure est le full save : acheter seulement des pistolets (Sheriff/Ghost) et un minimum d'util, grouper l'equipe pour un stack rapproche sur un site, et jouer pour la full-buy garantie au round 4. Un stack pistol groupe peut voler un round si les DEF sur-etendent, sans jamais compromettre l'eco.\n\nLe half-buy force (Spectre + light shields) devient rationnel plus haut, vers 2200-2400cr, pour surprendre : c'est une option acceptable mais elle brise l'eco et laisse l'equipe en semi-buy si elle perd. Se disperser en eco (option couteuse) est une erreur classique : la puissance d'un eco vient du groupement et du combat rapproche, jamais des duels longue-distance isoles contre des rifles. Le buy split incoherent est la faute : il gaspille les credits de toute l'equipe sans masse de feu.\n\nDistribution elite estimee : ~54% full save groupe, ~26% force Spectre coordonne, ~15% se dispersent en Sheriff (couteux), ~5% buy split incoherent (la faute). Tolerance GTO : full save et force coordonne sont tous deux defendables selon la banque exacte et le score ; la dispersion et le buy split sont les erreurs.",
+  "sources": [
+    {
+      "url": "https://boosteria.org/guides/valorant-economy-guide-buy-force-bonus-full-save",
+      "citation": "The standard play after losing a round is a complete save so you can buy rifles, Heavy Shields and utility next round; force Spectre light shields only around 2200-2400cr."
+    },
+    {
+      "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+      "citation": "Maximize eco chances by grouping up and playing close-range together, taking surprise duels or stacking a site to offset the weapon disadvantage."
+    },
+    {
+      "url": "https://www.ldshop.gg/blog/valorant-gp/valorant-economy-guide.html",
+      "citation": "The safest strategy is to eco and save for a full buy next round; not saving risks not affording heavy shields plus a rifle the round after."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "round_state.eco_atk_approx",
+      "incertitude": "La banque exacte (~1900cr) place ce round a la frontiere save/force ; a 2200cr+ l'option 'force Spectre' pourrait devenir optimale. Le seuil precis depend du reglage des recompenses de round et du score, non specifie."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Frequences estimees depuis guides d'economie (boosteria, mobalytics, ldshop) ; les vrais pourcentages varient selon le meta pro/ranked et le round exact."
+    },
+    {
+      "champ": "positions",
+      "incertitude": "Les positions au spawn ATK sont schematiques (decision d'achat prise au buy phase, pas de contact) ; un juge pourrait estimer que le choix depend surtout du score de manche (ex: 0-2 vs 5-7)."
+    }
+  ]
+}

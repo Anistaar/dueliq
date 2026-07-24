@@ -1,0 +1,137 @@
+{
+  "id": "puzzle-004",
+  "version": 1,
+  "map": "haven",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 28,
+    "spike_planted": true,
+    "alive_atk": 3,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "viper",
+      "signature": "poison-cloud",
+      "ultimate": null,
+      "basic_remaining": ["snake-bite", "snake-bite", "toxic-screen"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 680,
+        "y": 545,
+        "orientation_deg": 315,
+        "label": "VIPER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 890,
+        "y": 695,
+        "orientation_deg": 0,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 740,
+        "y": 262,
+        "orientation_deg": 45,
+        "label": "P3",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Spike plante A Site Haven, 3v3, 28s. Tu es Viper (2 Snake Bite, mur pose sur site). Les DEF vont retaker de CT/A Link et A Long. Comment tenir le post-plant ?",
+  "options": [
+    {
+      "label": "Garder les 2 Snake Bite en lineup sur le spike et tenir les 3 attaquants en crossfire sur A Short, A Long et Link",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Le mur Viper deja pose scinde le site ; garder les mollys pour le moment du defuse + un crossfire a 3 angles distincts couvre tous les axes de retake d'un 3v3.",
+      "sources_option": []
+    },
+    {
+      "label": "Jeter une Snake Bite sur le spike immediatement pour deny le defuse tot, garder la seconde en reserve",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Deny le defuse tot est jouable si les DEF arrivent vite, mais depenser une molly avant le contact peut la gaspiller si le retake est retarde ; garder au moins une reserve est correct.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+          "citation": "Use utility reactively; layer it rather than spending every tool immediately after planting, or defenders wait it out and retake with full time."
+        }
+      ]
+    },
+    {
+      "label": "Rassembler les 3 attaquants derriere le mur Viper pres du spike pour un feu concentre sur l'axe principal",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 18,
+      "explication_courte": "Grouper les 3 corps concentre le feu mais laisse 2 des 3 axes de retake non couverts ; un split DEF Link+Long prend le site a revers pendant le focus sur un seul angle.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+          "citation": "Spread out and play off the spike; grouping your bodies leaves other approach lines open for a split retake to punish."
+        }
+      ]
+    },
+    {
+      "label": "Depenser mur + 2 Snake Bite d'un coup en pre-retake puis se replier sans tenir d'angle",
+      "tier": "faute",
+      "ev_delta": "-0.9 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Vider toute l'util avant le contact laisse les DEF attendre la dissipation et retaker un site sans util ni angle tenu ; le post-plant est perdu par gaspillage.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Dumping all utility pre-contact concedes the tempo; defenders re-time the retake once the util fades and you hold nothing."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : post-plant 3v3 sur A Site Haven, 28 secondes, spike plante. Tu es Viper : ton Toxic Screen (mur) est deja pose pour scinder le site, il te reste 2 Snake Bite. Les 3 DEF vont retaker depuis CT/A Link et A Long.\n\nLe post-plant 3v3 exige de couvrir tous les axes de retake avec le bon nombre de corps et de garder l'util de retard pour le moment ou le defuse commence. Haven A a trois axes d'approche pour les DEF (A Short/CT, A Link, A Long) : trois attaquants doivent occuper trois angles distincts, pas se grouper. Le mur Viper aide en coupant la vision d'un des axes, ce qui reduit le probleme a deux vraies lignes a tenir.\n\nLa ligne optimale garde les 2 Snake Bite en lineup sur le spike : elles ne se declenchent qu'au son du defuse, forcant les DEF a clear la molly (temps perdu) avant de toucher le spike. Pendant ce temps, le crossfire a 3 angles punit toute exposition. Deny le defuse trop tot (option acceptable) marche si le retake est rapide, mais risque de gaspiller une molly ; grouper les corps (couteux) laisse un axe ouvert au split.\n\nDistribution elite estimee : ~55% gardent les mollys en lineup + crossfire 3 angles, ~20% deny tot avec reserve, ~18% groupent les corps (couteux), ~5% videnttoute l'util avant contact (la faute). Tolerance GTO : toute ligne qui garde au moins une molly pour le defuse ET couvre plus d'un axe est acceptable.",
+  "sources": [
+    {
+      "url": "https://www.cheatspulse.com/guides/valorant/default-plants-lineups",
+      "citation": "Molly lineups on the spike are the go-to post-plant tool; holding them until the defuse begins is what eats the enemies' time."
+    },
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "Spread out (not all same spot), play off the spike, hold crossfires, and use utility to delay the defuse."
+    },
+    {
+      "url": "https://nonagames.com/2026/03/09/valorant-viper-lineups-and-site-execution-strategies-for-ranked-play/",
+      "citation": "Viper's wall and molly lineups are a core ranked post-plant win condition; the wall splits the site and the mollys deny the defuse spot."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides post-plant et lineups Viper (nonagames, dignitas, cheatspulse) ; la repartition depend fortement de la maitrise des lineups Viper et de la comp adverse (agents flash/recon) non specifiee."
+    },
+    {
+      "champ": "round_state.util_joueur.basic_remaining",
+      "incertitude": "On suppose le Toxic Screen deja pose (fuel a moitie) ; l'etat exact du fuel Viper influe sur la capacite a re-scinder le site et n'est pas encode dans le schema."
+    },
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "Les 3 DEF sont supposes retaker de Link+Long+CT mais aucune position n'est confirmee ; un juge pourrait juger la ligne optimale differente si les DEF stackent un seul axe."
+    }
+  ]
+}
