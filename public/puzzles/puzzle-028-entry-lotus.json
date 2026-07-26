@@ -1,0 +1,145 @@
+{
+  "id": "puzzle-028",
+  "version": 1,
+  "map": "lotus",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 40,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 4,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "jett",
+      "signature": "tailwind",
+      "ultimate": null,
+      "basic_remaining": ["cloudburst", "updraft", "tailwind"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "c-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 892,
+        "y": 695,
+        "orientation_deg": 315,
+        "label": "JETT",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 720,
+        "y": 538,
+        "orientation_deg": 315,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 892,
+        "y": 497,
+        "orientation_deg": 0,
+        "label": "P3",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 700,
+        "y": 214,
+        "orientation_deg": 180,
+        "label": "P4",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 4
+  },
+  "question": "Execute C Site Lotus 4v4 (le plus petit site, 4 entrees), 40s, tu es Jett a C Main. Comment ouvrir l'entree sur un site aussi exigu ?",
+  "options": [
+    {
+      "label": "Execute layered : Cloudburst coupe une sightline, entree groupee par C Main + C Link simultanes pour submerger le site",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 49,
+      "explication_courte": "C est le plus petit site avec 4 entrees et peu de spots DEF : le submerger par deux acces simultanes avec une smoke qui coupe l'angle disperse les DEF et cree le trade ; c'est le point faible de C.",
+      "sources_option": []
+    },
+    {
+      "label": "Dash Jett en solo par C Main pour ouvrir l'espace en premier et laisser la team suivre",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Un dash-entry Jett prend l'espace rapidement et cree l'ouverture, mais sur un site exigu a 4 entrees un dash solo mal tradé peut te mettre en 3v4 si le premier duel est perdu.",
+      "sources_option": [
+        {
+          "url": "https://upforge.gg/blog/lotus-map-guide-valorant",
+          "citation": "A Jett dash entry takes space fast on Lotus, but on the tight C site a solo dash that isn't traded can drop the team into a man-down execute."
+        }
+      ]
+    },
+    {
+      "label": "Entree dry en file par C Main sans util pour economiser les capacites",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Entrer dry en file sur un petit site donne aux DEF un tir en enfilade : chaque joueur peek le meme angle un a un, exactement ce que les holds C punissent.",
+      "sources_option": [
+        {
+          "url": "https://www.ibuypower.com/blog/games/valorant-lotus-map-guide",
+          "citation": "C Site's few holding spots punish players entering one lane single-file; without utility to break the sightline, defenders pick attackers off in a line."
+        }
+      ]
+    },
+    {
+      "label": "Refuser l'entree et jouer la fin de round en default sans hit",
+      "tier": "faute",
+      "ev_delta": "-0.7 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Refuser d'entrer a 40s en 4v4 full-buy laisse filer le round : tu perds l'initiative de l'attaque sans creer aucune menace de plant, offrant le round aux DEF.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/lotus-map-guide-layout-tip-tricks/",
+          "citation": "Failing to commit an execute at even numbers with the round clock running cedes attacker initiative and hands the round to the defense without a plant threat."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : execute C Site Lotus 4v4, 40 secondes, tu es Jett a C Main avec Cloudburst, Updraft, Tailwind. C est le plus petit site de la map avec 4 entrees.\n\nLe principe d'entry est de prendre l'espace en premier en reduisant les sightlines DEF ; sur C Lotus, la specificite est que le site est exigu avec tres peu de spots pour les DEF mais QUATRE points d'entree. Le point faible du site est donc qu'il peut etre submerge : entrer par deux acces simultanes disperse l'attention DEF et cree le trade, alors qu'un seul lane se fait tenir en enfilade.\n\nLa ligne optimale coordonne un execute layered : Cloudburst pour couper une sightline, entree groupee par C Main + C Link simultanement pour submerger le petit site. Le dash Jett solo (acceptable) prend l'espace vite et cree l'ouverture mais risque le man-down si non-tradé. L'entree dry en file (couteux) donne aux DEF un tir en enfilade — exactement ce que les holds C punissent. Refuser l'entree (faute) laisse filer le round sans menace de plant.\n\nDistribution elite estimee : ~49% execute layered deux-acces, ~24% dash Jett solo pour ouvrir, ~22% entree dry en file (couteux), ~5% refusent (la faute). Tolerance GTO : submerger le petit site par plusieurs acces avec util pour couper l'angle est l'invariant sur C ; l'entree dry en enfilade est l'erreur que les holds C exploitent.",
+  "sources": [
+    {
+      "url": "https://www.ibuypower.com/blog/games/valorant-lotus-map-guide",
+      "citation": "C Site is arguably the smallest site in the game with very few places to hold but four entry points, so overwhelming it from multiple accesses is the attacker's edge."
+    },
+    {
+      "url": "https://upforge.gg/blog/lotus-map-guide-valorant",
+      "citation": "Executing C on Lotus rewards layered utility and simultaneous entries; a Jett dash takes space but must be traded on such a tight site."
+    },
+    {
+      "url": "https://mobalytics.gg/blog/valorant/lotus-map-guide-layout-tip-tricks/",
+      "citation": "Entries win by breaking sightlines and taking space together; single-file dry pushes into a small site are picked off by defenders holding the lane."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides Lotus (ibuypower, upforge, mobalytics) ; la frequence execute-layered vs dash-Jett depend du tempo et de la compo, sans dataset public."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Le dash Jett solo (acceptable) peut etre optimal dans une compo dash-entry rapide avec bon trade ; la frontiere depend du plan d'equipe non fixe ici."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur C Site Lotus (viewBox 1000x1000, zones de maps.ts) ; le nombre exact de DEF stackes sur C est inconnu (4v4 mais repartition non fixee)."
+    }
+  ]
+}

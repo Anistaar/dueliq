@@ -1,0 +1,153 @@
+{
+  "id": "puzzle-024",
+  "version": 1,
+  "map": "split",
+  "side": "DEF",
+  "theme": "eco",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 92,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "eco",
+    "util_joueur": {
+      "agent": "cypher",
+      "signature": "spycam",
+      "ultimate": null,
+      "basic_remaining": ["trapwire", "cyber-cage"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "mid-bot",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 510,
+        "y": 478,
+        "orientation_deg": 270,
+        "label": "CYPHER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 490,
+        "y": 340,
+        "orientation_deg": 270,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 320,
+        "y": 430,
+        "orientation_deg": 180,
+        "label": "P3",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 500,
+        "y": 600,
+        "orientation_deg": 270,
+        "label": "P4",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P5",
+        "x": 770,
+        "y": 380,
+        "orientation_deg": 180,
+        "label": "P5",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Round eco DEF Split, 5v5, ATK full-buy, tu es Cypher en pistolet. Comment jouer l'eco pour maximiser tes chances de voler le round ou d'infliger des degats eco ?",
+  "options": [
+    {
+      "label": "Stacker 2-3 joueurs close-range Mid/Vents pour un duel rapproche coordonne, trap/cam sur l'autre acces pour l'info",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 49,
+      "explication_courte": "En eco l'unique avantage est le close-range groupe : sur Split, stacker Mid/Vents et forcer un duel rapproche neutralise l'avantage d'armes ATK ; le trap/cam donne l'info sur le cote non-stacke.",
+      "sources_option": []
+    },
+    {
+      "label": "Jouer default 5 postes standards et retake le site apres le plant avec les pistolets",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Un default eco qui vise le retake post-plant est jouable pour grappiller des degats eco, mais un retake pistolet vs full-buy est defavorable ; le stack close-range a une meilleure esperance de vol.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/lotus-map-guide-layout-tip-tricks/",
+          "citation": "On an eco, spreading into standard default positions and trying to retake with pistols against a full-buy is lower-EV than concentrating force for a close-range steal."
+        }
+      ]
+    },
+    {
+      "label": "Spread les 5 en solo sur chaque acces pour couvrir toute la map",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Etaler 5 pistolets en solo offre 5 duels 1v1 a distance ou l'ATK full-buy gagne : sur un eco l'etalement dilue le seul avantage (la concentration close-range).",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "On a save/eco round, spreading players into solo long-range duels plays into the full-buy's rifle advantage; concentration at close range is the eco's only edge."
+        }
+      ]
+    },
+    {
+      "label": "Rush A Main en groupe attaquer le spawn ATK avant leur setup",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Un rush DEF vers le spawn ATK court dans les armes full-buy en terrain ouvert : tu offres 5 duels a distance et perds tout le round eco sans aucun degat inflige.",
+      "sources_option": [
+        {
+          "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
+          "citation": "Rushing out toward the attacker spawn on an eco runs pistols into rifles in open space and wastes the round with no economic damage dealt."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : round eco DEF Split, 5v5, ATK full-buy, tu es Cypher en pistolet avec Trapwire, Cyber Cage, Spycam. L'objectif d'un eco n'est pas de gagner a coup sur mais de maximiser l'esperance : voler le round OU infliger un maximum de degats eco (frags qui delayent le prochain buy ATK).\n\nLe principe invariant de l'eco est la concentration au close-range : c'est le seul contexte ou des pistolets battent des fusils, car l'ecart d'armes s'efface a courte distance et la superiorite numerique locale prime. Sur Split, Mid/Vents est un terrain rapproche ideal pour ce stack. La util Cypher (Trapwire + Spycam) sur l'acces non-stacke donne l'info pour savoir si l'ATK vient ou pas, sans diluer le stack.\n\nLa ligne optimale stacke 2-3 joueurs close-range Mid/Vents et laisse un trap/cam sur l'autre acces. Le default-retake pistolet (acceptable) grappille des degats mais un retake vs full-buy est defavorable. Spread 5 solos (couteux) offre 5 duels a distance que l'ATK gagne. Rush le spawn ATK (faute) court dans les fusils en terrain ouvert.\n\nDistribution elite estimee : ~49% stackent close-range + info, ~22% default-retake, ~24% spread solo (couteux frequent en soloq), ~5% rush spawn (la faute). Tolerance GTO : concentration close-range est l'invariant eco ; le rush ouvert est l'erreur. Note : le spread solo est plus frequent (~24%) que l'acceptable en soloq, mais reste inferieur en EV.",
+  "sources": [
+    {
+      "url": "https://mobalytics.gg/blog/valorant/lotus-map-guide-layout-tip-tricks/",
+      "citation": "Eco rounds are won by concentration and close-range engagements plus one piece of info, not by spreading pistols into long-range duels against rifles."
+    },
+    {
+      "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+      "citation": "The eco's only edge is concentrated close-range force; spreading solo plays into the full-buy's rifle advantage at distance."
+    },
+    {
+      "url": "https://thunderpick.io/blog/split-map-strategy",
+      "citation": "Mid and Vents on Split are tight close-range areas ideal for stacking an eco push where pistol groups can neutralise the rifle advantage."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides eco (mobalytics, boostroom) + Split (thunderpick) ; le spread solo (~24%) est un couteux frequent en soloq, la repartition exacte varie par elo sans dataset public."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Le choix du cote a stacker (Mid/Vents vs un site) est un read non encode ; ici Mid est choisi comme terrain close-range par defaut de la map."
+    },
+    {
+      "champ": "options[2].tier",
+      "incertitude": "Le spread solo (couteux) a une freq >= 15 : classe couteux et non acceptable car son EV reste negatif malgre sa popularite soloq — frontiere que trancherait un juge."
+    }
+  ]
+}

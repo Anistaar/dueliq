@@ -1,0 +1,153 @@
+{
+  "id": "puzzle-029",
+  "version": 1,
+  "map": "lotus",
+  "side": "ATK",
+  "theme": "rotation",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 60,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "chamber",
+      "signature": "rendezvous",
+      "ultimate": null,
+      "basic_remaining": ["trademark", "headhunter", "rendezvous"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-tree",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 108,
+        "y": 497,
+        "orientation_deg": 45,
+        "label": "CHAMBER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 500,
+        "y": 222,
+        "orientation_deg": 90,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 500,
+        "y": 435,
+        "orientation_deg": 90,
+        "label": "P3",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 300,
+        "y": 214,
+        "orientation_deg": 90,
+        "label": "P4",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P5",
+        "x": 500,
+        "y": 218,
+        "orientation_deg": 90,
+        "label": "P5",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "ATK Lotus 5v5, ta team fixe l'attention DEF sur B, tu lurk A Tree pres de la porte rotative A. Comment exploiter la porte pour ta lurk ?",
+  "options": [
+    {
+      "label": "Declencher la porte rotative A pour simuler une rotation/prise A et bait un DEF a venir check, puis punir sur ta ligne",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 48,
+      "explication_courte": "Sur Lotus le cue sonore de la porte est un outil de fake : declencher la porte fait croire a une prise A et attire un DEF a check, que tu punis en lurk pendant que ta team fixe B.",
+      "sources_option": []
+    },
+    {
+      "label": "Traverser la porte A pour prendre reellement de l'espace A et menacer un vrai split A/B",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Prendre l'espace A cree une vraie double-menace, mais en traversant tu perds la surprise de la lurk et t'exposes seul a l'ancre A sans le trade de ta team fixee sur B.",
+      "sources_option": [
+        {
+          "url": "https://upforge.gg/blog/lotus-map-guide-valorant",
+          "citation": "Actually taking A space through the door creates a real split threat but sacrifices the lurker's surprise and exposes them to the A anchor without team trade."
+        }
+      ]
+    },
+    {
+      "label": "Poser ton Trademark dans l'ouverture de la porte pour couvrir tes arrieres pendant la lurk",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Poser le Trademark dans le rayon de la porte le fait detruire des qu'elle tourne : tu perds ta util de couverture d'arriere, exactement le piege du mecanisme Lotus.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",
+          "citation": "Anything sitting in a rotating door's path gets destroyed the instant it spins; deployables like Chamber's Trademark are lost if placed in the rotation arc."
+        }
+      ]
+    },
+    {
+      "label": "Declencher la porte a chaque round de la partie pour toujours faker A",
+      "tier": "faute",
+      "ev_delta": "-0.7 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Faker la porte a chaque round rend le fake previsible : les DEF cessent de la respecter et ta lurk perd toute valeur ; le fake ne marche que parcimonieux.",
+      "sources_option": [
+        {
+          "url": "https://www.dexerto.com/valorant/valorant-lotus-map-guide-layout-callouts-strategies-more-2026533/",
+          "citation": "You can trigger door sounds to fake a rotation, but make sure you don't use this trick too frequently — a predictable fake stops distracting defenders."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : ATK Lotus 5v5, ta team fixe l'attention DEF sur B, tu lurk A Tree pres de la porte rotative A. La question est comment exploiter la porte pour ta lurk.\n\nLe principe du lurk est de frapper ou de creer de la valeur quand l'equipe fixe l'attention adverse ailleurs. Sur Lotus, la porte rotative offre un outil de fake unique : declencher la porte cree un cue sonore fort et silencieux a l'activation qui fait croire aux DEF a une prise/rotation A. Ce cue peut attirer un DEF a venir check l'angle — que tu punis en lurk pendant que ta team occupe B. C'est un mind-game specifique a la map.\n\nLa ligne optimale declenche la porte pour simuler une prise A et bait un check, puis punit. Traverser reellement (acceptable) cree une vraie double-menace mais sacrifie la surprise et t'expose seul a l'ancre A. Poser le Trademark dans l'ouverture (couteux) le fait detruire au spin — le piege util de la map. Faker a chaque round (faute) rend le fake previsible et les DEF cessent de le respecter.\n\nDistribution elite estimee : ~48% fakent la porte pour bait, ~24% prennent reellement l'espace A, ~23% posent util dans le rayon (couteux : erreur mecanique), ~5% surexploitent le fake (la faute de meta). Tolerance GTO : le fake-porte parcimonieux pour attirer un check est l'outil de lurk Lotus ; poser util dans le rayon et sur-faker sont les deux erreurs specifiques.",
+  "sources": [
+    {
+      "url": "https://www.dexerto.com/valorant/valorant-lotus-map-guide-layout-callouts-strategies-more-2026533/",
+      "citation": "Use the rotating doors to fake one site and hit another; you can trigger these sounds to make enemies think you plan to rotate, causing distraction — but don't use it too frequently."
+    },
+    {
+      "url": "https://beebom.com/valorant-lotus-map-guide/",
+      "citation": "The rotating door audio cue can bait defenders into checking an angle; a lurker near the door can punish the reaction while the team pressures another site."
+    },
+    {
+      "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",
+      "citation": "Never park deployable utility in a door's rotation path; anything in the arc is destroyed the instant it spins, so lurkers must place trademarks clear of the door."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides Lotus (dexerto, beebom, switchblade) ; la frequence fake-porte vs prise reelle depend du plan de lurk et du read DEF, sans dataset public."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "La prise reelle d'espace A (acceptable) peut etre optimale si l'equipe planifie un vrai split A/B ; la frontiere depend du call d'equipe non fixe ici (lurk pur vs split)."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur A Tree Lotus (viewBox 1000x1000, zones de maps.ts) ; le declenchement de la porte A n'est pas geometrise dans le token 2D."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "puzzle-025",
+  "version": 1,
+  "map": "split",
+  "side": "ATK",
+  "theme": "clutch",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 30,
+    "spike_planted": true,
+    "alive_atk": 1,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "omen",
+      "signature": "dark-cover",
+      "ultimate": null,
+      "basic_remaining": ["dark-cover", "paranoia", "shrouded-step"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 320,
+        "y": 430,
+        "orientation_deg": 315,
+        "label": "OMEN",
+        "est_joueur_concerne": true
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 150,
+        "y": 278,
+        "orientation_deg": 135,
+        "label": "E?",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "Clutch 1v2 post-plant A Site Split, spike plante, 30s. Tu es Omen sur site, 1 DEF repere descend de A Heaven (surplomb), 1 inconnu. Comment gerer le 1v2 avec ta verticalite adverse ?",
+  "options": [
+    {
+      "label": "Dark Cover (smoke) sous A Heaven pour couper le surplomb, isoler le DEF au sol et jouer les duels un a un pres du spike",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 50,
+      "explication_courte": "En 1v2 la regle est de ne jamais affronter les deux en meme temps ; sur Split le danger #1 est le surplomb Heaven, smoker dessous neutralise l'angle vertical et reduit le retake a des 1v1 au sol.",
+      "sources_option": []
+    },
+    {
+      "label": "Paranoia vers l'acces du site pour aveugler les DEF a l'entree et prendre un duel a l'aveugle",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Paranoia aveugle et gagne du tempo, mais elle ne couvre pas l'angle vertical Heaven ; contre un DEF au surplomb la flash peut le rater et tu prends le duel bas sans info sur le haut.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+          "citation": "A blind (Paranoia) buys tempo and space but does not cover a vertical high-ground angle; against an elevated defender it can miss the overhead threat."
+        }
+      ]
+    },
+    {
+      "label": "Shrouded Step (TP) vers un flanc pour reprendre les DEF par surprise depuis un autre angle",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 18,
+      "explication_courte": "TP flanquer en 1v2 quitte le spike et t'expose aux deux DEF en mouvement : tu perds le controle du defuse et le son du TP te revele avant l'arrivee.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+          "citation": "Abandoning the plant to flank in a clutch exposes you to both defenders while giving up defuse denial; the teleport audio also reveals your reposition."
+        }
+      ]
+    },
+    {
+      "label": "Peek A Heaven directement pour tuer le DEF vu avant qu'il ne descende",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Peek le DEF au surplomb Heaven t'expose au 2e DEF inconnu qui peut te trade instantanement : tu affrontes les deux en meme temps, l'erreur cardinale du 1v2.",
+      "sources_option": [
+        {
+          "url": "https://www.exitlag.com/blog/split-valorant/",
+          "citation": "Peeking a known high-ground defender on Split without accounting for the second player exposes you to an instant trade; never fight two at once in a clutch."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : clutch 1v2 post-plant A Site Split, spike plante, 30 secondes. Tu es Omen avec Dark Cover, Paranoia, Shrouded Step ; 1 DEF repere descend de A Heaven (surplomb), 1 inconnu.\n\nLe principe cardinal du 1v2 est de transformer le combat en une serie de 1v1 : ne jamais affronter les deux adversaires en meme temps. Sur Split, la menace specifique est la verticalite — A Heaven surplombe le site et un DEF la-haut peut te prendre en meme temps qu'un DEF au sol. Le timer joue pour toi (spike plante), donc tu peux te permettre d'isoler.\n\nLa ligne optimale pose le Dark Cover sous A Heaven : couper le surplomb neutralise l'angle vertical et reduit le retake a des 1v1 au sol que tu peux gerer un par un pres du spike. Paranoia (acceptable) aveugle et gagne du tempo mais ne couvre pas le vertical ; contre un DEF au surplomb elle peut le rater. Shrouded Step flank (couteux) quitte le spike, t'expose aux deux et se fait entendre. Peek Heaven direct (faute) t'expose au 2e DEF inconnu qui te trade — affronter les deux a la fois, l'erreur cardinale.\n\nDistribution elite estimee : ~50% smokent sous Heaven pour isoler, ~22% Paranoia l'entree, ~18% TP flank, ~5% peek Heaven direct (la faute). Tolerance GTO : couper l'angle vertical pour isoler les duels est l'invariant du 1v2 sur Split ; peek le surplomb en ignorant le 2e DEF est l'erreur.",
+  "sources": [
+    {
+      "url": "https://www.exitlag.com/blog/split-valorant/",
+      "citation": "Split rewards controlling vertical angles like Heaven; in a clutch, cutting the high-ground sightline with a smoke isolates duels and prevents facing two players at once."
+    },
+    {
+      "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+      "citation": "Smokes are the clutch tool to isolate an angle and reduce a 1vX to a series of 1v1s; blinds buy tempo but do not cover elevated positions."
+    },
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "In a post-plant clutch the clock is on the planter's side; hold the spike, isolate duels, and avoid repositions that expose you to multiple defenders."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides Split + util (exitlag, boosteria, dignitas) ; la frequence smoke-isolate vs Paranoia depend du read sur la position du 2e DEF, sans dataset public."
+    },
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "La position du 2e DEF est inconnue (design) ; si les deux DEF sont groupes au sol, la valeur du smoke sous Heaven baisse — ce que trancherait un juge."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur A Site Split (viewBox 1000x1000, zones de maps.ts) ; le surplomb A Heaven est un attribut vertical non geometrise dans le token 2D."
+    }
+  ]
+}

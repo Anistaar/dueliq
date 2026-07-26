@@ -1,0 +1,137 @@
+{
+  "id": "puzzle-023",
+  "version": 1,
+  "map": "split",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 34,
+    "spike_planted": true,
+    "alive_atk": 3,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "semi-buy",
+    "util_joueur": {
+      "agent": "kayo",
+      "signature": "zero-point",
+      "ultimate": null,
+      "basic_remaining": ["frag-ment", "flash-drive", "zero-point"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 770,
+        "y": 380,
+        "orientation_deg": 45,
+        "label": "KAY/O",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 630,
+        "y": 158,
+        "orientation_deg": 90,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 880,
+        "y": 538,
+        "orientation_deg": 0,
+        "label": "P3",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 2
+  },
+  "question": "Post-plant B Site Split 3v2, spike plante, 34s, DEF en semi-buy. Tu es KAY/O sur site (Frag/ment, Flashdrive, Zero Point). Comment tenir le post-plant en avantage numerique ?",
+  "options": [
+    {
+      "label": "Etaler un crossfire B Main / B Heaven avec tes allies et garder la Frag/ment pour deny le defuse",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 52,
+      "explication_courte": "En 3v2 avantageux, un crossfire sur les deux acces B (Main au sol + Heaven vertical) force les DEF a un trade impossible ; garder la Frag/ment pour le moment du defuse est l'outil de retard le plus fiable.",
+      "sources_option": []
+    },
+    {
+      "label": "Lancer le Zero Point pour supprimer la util DEF avant qu'ils ne s'engagent au retake",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Supprimer la util DEF avant un retake force est defendable, mais en semi-buy 2 DEF les DEF ont peu d'util a nier ; le knife peut se gaspiller sur un site que tu tiens deja a 3v2.",
+      "sources_option": [
+        {
+          "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
+          "citation": "KAY/O's suppression is high-value to deny anchor or retake utility, but against a low-util semi-buy in a numbers-up post-plant the knife often reveals little and is better saved."
+        }
+      ]
+    },
+    {
+      "label": "Grouper les 3 sur B Heaven pour tenir un seul angle vertical fort",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 19,
+      "explication_courte": "Stacker les 3 sur un seul angle laisse l'autre acces au defuse libre : les DEF peuvent alors defuser hors de vue pendant que vous tenez un angle vide.",
+      "sources_option": [
+        {
+          "url": "https://thunderpick.io/blog/split-map-strategy",
+          "citation": "Covering only one approach in a post-plant leaves the opposite defuse angle open; spreading crossfires beats stacking a single sightline."
+        }
+      ]
+    },
+    {
+      "label": "Avancer chercher les 2 DEF dans B Main pour finir le round au frag",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Quitter le post-plant en 3v2 pour chasser des frags donne des duels non-necessaires et libere le spike ; tu jettes l'avantage du timer pour du risque gratuit.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
+          "citation": "In a numbers-up post-plant you win by holding stable angles and letting the clock run, not by pushing into the defenders and donating duels."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : post-plant B Site Split, 3v2 en ta faveur, spike plante, 34 secondes, DEF en semi-buy. Tu es KAY/O avec Frag/ment, Flashdrive, Zero Point.\n\nEn post-plant avantage numerique, trois principes se combinent : (1) le timer joue POUR l'attaquant qui a plante ; (2) un crossfire sur deux angles distincts force un trade que le DEF ne peut isoler ; (3) l'util de retard (ici la Frag/ment molly) se garde pour le moment ou un DEF commence le defuse. Sur B Split, l'atout specifique est que les acces sont a deux hauteurs — B Main au sol et B Heaven en surplomb — ce qui rend le crossfire vertical particulierement dur a challenger.\n\nLa ligne optimale etale un crossfire B Main / B Heaven et garde la Frag/ment pour deny le defuse au son. Utiliser le Zero Point tot (acceptable) est defendable pour nier la util adverse, mais contre un semi-buy 2 DEF il y a peu a supprimer et le knife peut se gaspiller. Stacker les 3 sur B Heaven (couteux) laisse l'autre angle de defuse libre. Avancer chasser les frags (faute) donne des duels gratuits et libere le spike.\n\nDistribution elite estimee : ~52% tiennent le crossfire deux-angles + Frag/ment reservee, ~22% suppriment au Zero Point, ~19% stackent un angle, ~5% avancent (la faute). Tolerance GTO : couvrir les deux acces (sol + vertical) ET garder l'util de retard sont les invariants ; avancer en avantage numerique est l'erreur.",
+  "sources": [
+    {
+      "url": "https://thunderpick.io/blog/split-map-strategy",
+      "citation": "On B Split the vertical B Heaven angle plus B Main ground access lets attackers set a two-height crossfire that defenders cannot challenge from a single position."
+    },
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "Attack post-plant means spreading out, playing off the spike, holding crossfires and using utility to delay the defuse rather than dumping it early."
+    },
+    {
+      "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+      "citation": "Crossfires are the most consistent post-plant win condition; two players at distinct angles force a trade the defender can't isolate, especially when numbers-up."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides post-plant + Split (thunderpick, dignitas, boostroom) ; la frequence crossfire vs knife-first depend de la util DEF reelle en semi-buy, non fixee."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Le Zero Point (acceptable) peut monter optimal si les DEF gardent une util anchor forte malgre le semi-buy ; la frontiere depend de leur loadout non encode."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur B Site Split (viewBox 1000x1000, zones de maps.ts) ; la hauteur exacte de B Heaven est un attribut de zone non geometrise dans le token 2D."
+    }
+  ]
+}

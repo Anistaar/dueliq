@@ -1,0 +1,146 @@
+{
+  "id": "puzzle-022",
+  "version": 1,
+  "map": "split",
+  "side": "DEF",
+  "theme": "retake",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 30,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "sage",
+      "signature": "slow-orb",
+      "ultimate": null,
+      "basic_remaining": ["slow-orb", "barrier-orb", "healing-orb"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 150,
+        "y": 278,
+        "orientation_deg": 45,
+        "label": "SAGE",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 390,
+        "y": 607,
+        "orientation_deg": 315,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 280,
+        "y": 162,
+        "orientation_deg": 90,
+        "label": "P3",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 320,
+        "y": 430,
+        "orientation_deg": 270,
+        "label": "E?",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "Retake A Site Split 3v2, spike plante, 30s. Tu es Sage a A Heaven (surplomb du site), 1 ATK vu au sol, 1 inconnu. Comment mener le retake avec ton avantage vertical ?",
+  "options": [
+    {
+      "label": "Exploiter le surplomb Heaven pour clear le site par le haut avec ton equipe, Slow Orb sur l'angle de repli ATK",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 51,
+      "explication_courte": "Sur Split le retake se gagne par la verticalite : depuis Heaven tu vois les post-plants du dessus, angle que l'ATK au sol ne controle pas ; le Slow Orb verrouille sa fuite pendant que la team clear.",
+      "sources_option": []
+    },
+    {
+      "label": "Descendre au sol rejoindre ton equipe et retaker le site groupe par les entrees basses",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Un retake groupe au sol est solide, mais tu abandonnes l'avantage vertical unique de Heaven — l'ATK peut alors tenir un crossfire au sol a egalite d'angles.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/split-map-guide/",
+          "citation": "High-ground positions like A Heaven define combat on Split; Split rewards owning a vertical position over winning a horizontal gunfight, so giving up Heaven cedes the edge."
+        }
+      ]
+    },
+    {
+      "label": "Mur (Barrier Orb) l'entree du site et attendre que le timer force les ATK a bouger avant d'engager",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 19,
+      "explication_courte": "Poser un mur passif et attendre en 3v2 favorable perd le round : le spike est plante, c'est TOI qui dois defuser ; laisser filer le timer donne la manche a l'ATK.",
+      "sources_option": [
+        {
+          "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
+          "citation": "In a spike-planted retake the defenders own the clock pressure; passively walling and waiting hands the round to attackers who only need to survive on the plant."
+        }
+      ]
+    },
+    {
+      "label": "Peek solo depuis Heaven sur le spike sans attendre ton equipe pour un pick rapide",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Un solo-peek Heaven sans trade offre un duel gratuit : si tu tombes, le retake devient 2v2 sans avantage vertical et ton util (Slow/Heal) meurt avec toi.",
+      "sources_option": [
+        {
+          "url": "https://www.exitlag.com/blog/split-valorant/",
+          "citation": "When retaking on Split, take space together and clear crossfires; peeking solo from Heaven without a trade donates a free duel and wastes your utility advantage."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : retake A Site Split, 3v2 en ta faveur, spike plante, 30 secondes. Tu es Sage a A Heaven — le surplomb qui domine le site — avec Slow Orb, Barrier Orb, Healing Orb ; 1 ATK vu au sol, 1 inconnu.\n\nSplit est LA map de la verticalite : les positions hautes (A Heaven, Vents, rafters) offrent des sightlines que le jeu au sol ne peut pas contester a egalite. Le principe du retake sur cette map est de garder l'avantage vertical, clear le site par le haut, et isoler les duels avec l'util. Depuis Heaven tu vois les post-plants du dessus — un angle que l'ATK plante au sol ne controle pas.\n\nLa ligne optimale exploite Heaven : tu clear le site depuis le surplomb avec ta team, et tu poses le Slow Orb sur l'angle de repli de l'ATK pour verrouiller sa fuite pendant que le retake se fait. Descendre au sol (acceptable) est un retake groupe solide mais rend l'avantage vertical, remettant le duel a egalite d'angles. Murrer et attendre (couteux) est une faute de tempo : le spike est plante, c'est toi qui dois defuser, laisser filer le timer perd le round. Peek solo Heaven (faute) donne un duel gratuit non-tradé.\n\nDistribution elite estimee : ~51% exploitent le surplomb Heaven, ~23% descendent retaker groupe au sol, ~19% murrent et attendent (perte de tempo), ~5% peekent solo (la faute). Tolerance GTO : garder et utiliser l'avantage vertical de Heaven est l'invariant Split ; le solo-peek non-tradé est l'erreur.",
+  "sources": [
+    {
+      "url": "https://www.switchbladegaming.com/valorant/split-map-guide/",
+      "citation": "High-ground positions define combat on Split: A Heaven, B Tower, Rafters and Mid Vents all offer sightline advantages; Split rewards owning a vertical position."
+    },
+    {
+      "url": "https://www.exitlag.com/blog/split-valorant/",
+      "citation": "For A site, controlling Heaven and screens provides the best coverage; always check Heaven positions before clearing ground level, and pre-aim elevated spots on retake."
+    },
+    {
+      "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
+      "citation": "Save key abilities for post-plant, take space together, clear crossfires and isolate duels with utility; a coordinated retake beats a rushed one."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides Split (switchblade, exitlag, boosting-ground) ; la frequence retake-Heaven vs retake-sol depend de la compo DEF et de la position de l'ATK inconnu, sans dataset public."
+    },
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "La position du 2e ATK est inconnue (design) ; s'il tient Heaven-access, l'avantage vertical de Sage se reduit — ce que trancherait un juge."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur A Site Split (viewBox 1000x1000, zones de maps.ts) ; la verticalite Heaven est un attribut de zone non encode geometriquement dans le token 2D."
+    }
+  ]
+}

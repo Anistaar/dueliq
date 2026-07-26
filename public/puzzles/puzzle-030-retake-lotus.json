@@ -1,0 +1,129 @@
+{
+  "id": "puzzle-030",
+  "version": 1,
+  "map": "lotus",
+  "side": "DEF",
+  "theme": "retake",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 32,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "skye",
+      "signature": "guiding-light",
+      "ultimate": null,
+      "basic_remaining": ["trailblazer", "guiding-light", "regrowth"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 500,
+        "y": 222,
+        "orientation_deg": 90,
+        "label": "SKYE",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 740,
+        "y": 430,
+        "orientation_deg": 225,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 2
+  },
+  "question": "Retake B Site Lotus 2v2, spike plante, 32s. Tu es Skye a B Main avec ton allie a B Corner. Comment coordonner le retake 2v2 ?",
+  "options": [
+    {
+      "label": "Utiliser Guiding Light (flash) pour ouvrir un angle et entrer en trade avec ton allie sur deux acces (B Main + B Corner)",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 52,
+      "explication_courte": "Un retake 2v2 se gagne par la coordination : flash pour deloger l'ATK d'un angle, entree simultanee sur deux acces pour forcer le trade et empecher un post-plant hold isole.",
+      "sources_option": []
+    },
+    {
+      "label": "Envoyer le Trailblazer (tiger) en eclaireur pour reveler la position des ATK avant d'entrer",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Le Trailblazer donne l'info et peut concuss un ATK, mais en 2v2 avec 32s l'envoyer scout coute du temps de defuse et n'ouvre pas l'angle aussi net qu'une flash coordonnee.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Scouting utility gives info before a retake but costs defuse time; a coordinated flash-and-trade opens the angle more directly in a tight 2v2 window."
+        }
+      ]
+    },
+    {
+      "label": "Entrer solo par B Main pendant que ton allie tient B Corner en backup",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Entrer solo en 2v2 sans trade immediat donne un duel isole : si tu tombes, ton allie se retrouve en 1v2 sur le retake, la coordination cassee.",
+      "sources_option": [
+        {
+          "url": "https://immortalboost.com/blog/valorant/valorant-lotus-map-guide/",
+          "citation": "Entering a 2v2 retake solo without an immediate trade risks dropping the retaker into a 1v2; coordinated dual entries are the safer conversion."
+        }
+      ]
+    },
+    {
+      "label": "Attendre passif que les ATK peekent hors du site avant d'engager",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Attendre en 2v2 avec spike plante laisse le timer expirer : c'est TOI qui dois defuser, jouer passif donne le round a l'ATK qui n'a qu'a tenir la bombe.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+          "citation": "In a spike-planted retake the defenders must act; playing passive lets the clock expire, handing the round to attackers who only need to survive on the plant."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : retake B Site Lotus 2v2, spike plante, 32 secondes. Tu es Skye a B Main avec Trailblazer, Guiding Light, Regrowth ; ton allie a B Corner.\n\nLe principe du retake 2v2 est la coordination : deux joueurs qui entrent en meme temps sur des acces distincts forcent un trade et empechent l'ATK de tenir un duel isole depuis un post-plant. Sur B Lotus, B Main et B Corner offrent deux acces distincts ideaux pour ce double-entry. Le timer est ta contrainte : spike plante, c'est toi qui dois defuser, donc tu ne peux pas te permettre de jouer passif.\n\nLa ligne optimale utilise Guiding Light pour flasher et deloger l'ATK d'un angle, puis entree simultanee sur B Main + B Corner pour forcer le trade. Le Trailblazer scout (acceptable) donne l'info et peut concuss, mais coute du temps de defuse et ouvre l'angle moins net qu'une flash coordonnee en 2v2 serre. Entrer solo (couteux) donne un duel isole : si tu tombes, ton allie est en 1v2. Attendre passif (faute) laisse le timer expirer — le spike est plante, l'inaction perd le round.\n\nDistribution elite estimee : ~52% flash + double-entry coordonne, ~23% Trailblazer scout d'abord, ~20% entree solo (couteux), ~5% attendent passif (la faute de tempo). Tolerance GTO : la flash + double-entry coordonnee est l'invariant du retake 2v2 ; jouer passif avec spike plante est l'erreur de tempo.",
+  "sources": [
+    {
+      "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+      "citation": "A coordinated retake uses a flash to open an angle and simultaneous entries on distinct accesses to force a trade rather than a solo isolated duel."
+    },
+    {
+      "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+      "citation": "In a spike-planted retake the defenders own the clock pressure and must act; a flash-and-trade entry beats scouting when the defuse window is short."
+    },
+    {
+      "url": "https://immortalboost.com/blog/valorant/valorant-lotus-map-guide/",
+      "citation": "On Lotus B, the two distinct accesses let two defenders enter simultaneously to force a trade; solo entries risk dropping into a 1v2."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides retake/util (boostroom, boosteria) + Lotus (immortalboost) ; la frequence flash-entry vs Trailblazer-scout depend de la position ATK et du temps restant, sans dataset public."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Le Trailblazer scout (acceptable) peut monter optimal si les positions ATK sont tres incertaines et le timer plus large ; la frontiere depend du contexte non fixe ici (32s fixe pour trancher)."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur B Site Lotus (viewBox 1000x1000, zones de maps.ts) ; les positions ATK sont inconnues (2 inconnus, design) — ce que trancherait un juge."
+    }
+  ]
+}

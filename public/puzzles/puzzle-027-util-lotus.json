@@ -1,0 +1,153 @@
+{
+  "id": "puzzle-027",
+  "version": 1,
+  "map": "lotus",
+  "side": "DEF",
+  "theme": "util",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 95,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "cypher",
+      "signature": "spycam",
+      "ultimate": null,
+      "basic_remaining": ["trapwire", "cyber-cage", "spycam"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "c-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 790,
+        "y": 360,
+        "orientation_deg": 180,
+        "label": "CYPHER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 892,
+        "y": 497,
+        "orientation_deg": 270,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 500,
+        "y": 435,
+        "orientation_deg": 0,
+        "label": "P3",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 210,
+        "y": 360,
+        "orientation_deg": 180,
+        "label": "P4",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P5",
+        "x": 500,
+        "y": 218,
+        "orientation_deg": 90,
+        "label": "P5",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Setup DEF Lotus C Site, debut de round, tu es Cypher. Ou poser ton Trapwire pour couvrir la porte rotative B-C et le split C sans perdre ta util ?",
+  "options": [
+    {
+      "label": "Poser le Trapwire sur le chemin d'acces au C via la porte, mais HORS du rayon de rotation de la porte pour qu'il survive",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 50,
+      "explication_courte": "La porte rotative detruit toute util deployee dans son rayon de rotation ; poser le Trapwire juste apres la porte (cote acces C) attrape les splits sans se faire pulveriser au premier spin.",
+      "sources_option": []
+    },
+    {
+      "label": "Poser le Trapwire plus profond dans C Site sur un angle secondaire loin de la porte",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Un trap profond en site survit et donne de l'info tardive, mais il rate le split par la porte B-C qui est le chemin d'entree #1 a couvrir sur C.",
+      "sources_option": [
+        {
+          "url": "https://immortalboost.com/blog/valorant/valorant-lotus-map-guide/",
+          "citation": "A deep site trap survives but gives only late info; the rotating-door split is a primary C entry that should be covered closer to the choke."
+        }
+      ]
+    },
+    {
+      "label": "Poser le Trapwire directement dans l'ouverture de la porte pour bloquer le split le plus tot",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Placer le trap dans le rayon de rotation semble couvrir le split au plus tot, mais des que la porte tourne elle DETRUIT le Trapwire : tu perds ta util pour rien.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",
+          "citation": "Never park deployable utility in a door's rotation path; anything sitting there gets destroyed the instant it spins — Cypher Trapwire and Cyber Cage are the most commonly lost."
+        }
+      ]
+    },
+    {
+      "label": "Ne pas poser de Trapwire et garder toute ta util pour un retake plus tard",
+      "tier": "faute",
+      "ev_delta": "-0.7 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Ne poser aucune info sur C te laisse aveugle sur le site le plus petit et le plus facile a submerger de la map : Cypher existe pour donner l'info d'acces, la garder passive est un gaspillage.",
+      "sources_option": [
+        {
+          "url": "https://www.ibuypower.com/blog/games/valorant-lotus-map-guide",
+          "citation": "C Site is one of the smallest sites with four entry points; leaving it without early information gives attackers an easy overwhelm, wasting a sentinel's info role."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : setup DEF Lotus C Site, debut de round, tu es Cypher avec Trapwire, Cyber Cage, Spycam. La question est ou poser le Trapwire pour couvrir la porte rotative B-C et le split C.\n\nLotus a une mecanique unique et piegeuse : les portes rotatives DETRUISENT toute util deployee dans leur rayon de rotation. Killjoy Alarmbot, Cypher Trapwire/Cyber Cage, Sage Slow Orb sont les pieces les plus souvent perdues a ce mecanisme. Le principe de setup util sur cette map est donc double : couvrir le chemin d'acces via la porte (un des acces #1 sur C, le site le plus petit avec 4 entrees), MAIS placer la util hors du rayon de rotation pour qu'elle survive.\n\nLa ligne optimale pose le Trapwire juste apres la porte (cote acces C, hors rayon) : il attrape les splits qui passent la porte sans se faire pulveriser au premier spin. Un trap profond (acceptable) survit mais rate le split-porte, l'entree #1. Poser le trap dans l'ouverture de la porte (couteux) couvre au plus tot mais se fait detruire des que la porte tourne — util perdue. Ne rien poser (faute) laisse C aveugle sur le site le plus facile a submerger.\n\nDistribution elite estimee : ~50% posent hors rayon cote acces, ~22% trap profond, ~23% posent dans l'ouverture (couteux frequent : l'erreur mecanique classique), ~5% ne posent rien (la faute). Tolerance GTO : couvrir le split-porte hors du rayon de rotation est l'invariant Lotus ; poser dans le rayon (util detruite) est l'erreur mecanique specifique de la map.",
+  "sources": [
+    {
+      "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",
+      "citation": "Never park deployable utility anywhere in a door's rotation path, as anything sitting in the path gets destroyed the instant it spins; Killjoy Alarmbot, Cypher Trapwire/Cyber Cage and Sage Slow Orb are the most commonly lost."
+    },
+    {
+      "url": "https://mobalytics.gg/blog/valorant/lotus-map-guide-layout-tip-tricks/",
+      "citation": "The rotating door at C is a key rotation path; Cypher Trapwire or Killjoy utility near the door catches attackers using it for a split — placed clear of the rotation arc."
+    },
+    {
+      "url": "https://www.ibuypower.com/blog/games/valorant-lotus-map-guide",
+      "citation": "C Site is arguably the smallest site in the game with very few holding spots but four entry points, making early access information especially valuable."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides Lotus (switchblade, mobalytics, ibuypower) ; le placement exact hors rayon vs deep depend du setup d'equipe, sans dataset public de spots Trapwire."
+    },
+    {
+      "champ": "options[2].tier",
+      "incertitude": "Le placement dans le rayon (couteux) a freq >= 15 car c'est l'erreur mecanique frequente en soloq ; son EV reste negatif (util detruite) donc couteux et non acceptable."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur C Site Lotus (viewBox 1000x1000, zones de maps.ts) ; le rayon exact de rotation de la porte B-C n'est pas geometrise dans le token 2D."
+    }
+  ]
+}
