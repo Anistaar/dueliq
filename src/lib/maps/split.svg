@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VALIQ - Split top-down schematic map -->
+<!-- Original geometry drawn from community callout documentation. No Riot Games assets used. Not endorsed by Riot Games. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      text { font-family: sans-serif; font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+      text.label-small { font-size: 11px; fill: #c0c0c0; font-weight: 400; }
+      text.site-label { font-size: 18px; fill: #ffffff; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="#1a1a2e"/>
+
+  <!-- === WALLS layer === -->
+  <g id="walls">
+    <!-- Outer boundary -->
+    <rect x="30" y="30" width="940" height="940" fill="none" stroke="#4a4a6a" stroke-width="3"/>
+
+    <!-- Attacker spawn - bottom left -->
+    <rect x="40" y="760" width="200" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Defender spawn - top center-right -->
+    <rect x="680" y="40" width="280" height="140" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === A SITE AREA (left side) === -->
+    <!-- A Main - left vertical corridor -->
+    <rect x="40" y="360" width="140" height="400" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Lobby connector -->
+    <rect x="180" y="580" width="160" height="180" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Ramp - diagonal connector from ATK -->
+    <rect x="180" y="720" width="140" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Heaven platform (elevated, above A site) -->
+    <rect x="40" y="200" width="220" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Link to CT -->
+    <rect x="180" y="120" width="200" height="80" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Site -->
+    <rect x="180" y="280" width="280" height="300" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Screens short connector -->
+    <rect x="320" y="560" width="140" height="100" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === MID AREA === -->
+    <!-- Mid top area connecting A and B -->
+    <rect x="380" y="120" width="300" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Sewer - underground passage (mid) -->
+    <rect x="360" y="560" width="280" height="80" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Vents - elevated mid passage -->
+    <rect x="400" y="280" width="180" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Mid connector to CT area -->
+    <rect x="440" y="400" width="140" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === B SITE AREA (right side) === -->
+    <!-- B Main - right upper corridor -->
+    <rect x="680" y="180" width="280" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Back - behind B site -->
+    <rect x="580" y="120" width="100" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Site -->
+    <rect x="580" y="280" width="380" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Heaven platform (elevated) -->
+    <rect x="800" y="480" width="160" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Alley / B Short connector -->
+    <rect x="680" y="480" width="120" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- CT area between B and mid -->
+    <rect x="580" y="480" width="100" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Lower passage / B Lobby -->
+    <rect x="600" y="680" width="360" height="100" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Bottom corridor -->
+    <rect x="240" y="760" width="360" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+  </g>
+
+  <!-- === ZONES layer === -->
+  <g id="zones">
+    <!-- ATK spawn -->
+    <rect x="42" y="762" width="196" height="196" fill="#3d3d6b" opacity="0.7"/>
+
+    <!-- DEF spawn -->
+    <rect x="682" y="42" width="276" height="136" fill="#3d6b3d" opacity="0.7"/>
+
+    <!-- A Site -->
+    <rect x="182" y="282" width="276" height="296" fill="#b85c5c" opacity="0.55"/>
+
+    <!-- B Site -->
+    <rect x="582" y="282" width="376" height="196" fill="#5c6fb8" opacity="0.55"/>
+
+    <!-- A Heaven elevated -->
+    <rect x="42" y="202" width="216" height="156" fill="#8a4a8a" opacity="0.4"/>
+
+    <!-- B Heaven elevated -->
+    <rect x="802" y="482" width="156" height="116" fill="#8a4a8a" opacity="0.4"/>
+
+    <!-- Mid / Vents area -->
+    <rect x="382" y="122" width="296" height="156" fill="#5a5a3d" opacity="0.4"/>
+    <rect x="402" y="282" width="176" height="116" fill="#4a6a4a" opacity="0.45"/>
+
+    <!-- Sewer passage -->
+    <rect x="362" y="562" width="276" height="76" fill="#3d4a5a" opacity="0.6"/>
+
+    <!-- A Main corridor -->
+    <rect x="42" y="362" width="136" height="396" fill="#6b5c3d" opacity="0.4"/>
+
+    <!-- B Main corridor -->
+    <rect x="682" y="182" width="276" height="156" fill="#6b5c3d" opacity="0.4"/>
+
+    <!-- CT area right -->
+    <rect x="582" y="482" width="96" height="196" fill="#3d5a6b" opacity="0.4"/>
+
+    <!-- Mid connector -->
+    <rect x="442" y="402" width="136" height="156" fill="#5a5a3d" opacity="0.35"/>
+
+    <!-- B Back -->
+    <rect x="582" y="122" width="96" height="156" fill="#4a4a5a" opacity="0.4"/>
+
+    <!-- Lower / B Lobby -->
+    <rect x="602" y="682" width="356" height="96" fill="#3d3d5a" opacity="0.35"/>
+  </g>
+
+  <!-- === SITES layer === -->
+  <g id="sites">
+    <!-- A Site marker -->
+    <circle cx="320" cy="430" r="22" fill="#b85c5c" opacity="0.9"/>
+    <text x="320" y="435" class="site-label">A</text>
+
+    <!-- B Site marker -->
+    <circle cx="770" cy="380" r="22" fill="#5c6fb8" opacity="0.9"/>
+    <text x="770" y="385" class="site-label">B</text>
+  </g>
+
+  <!-- === LABELS layer === -->
+  <g id="labels">
+    <!-- Spawns -->
+    <text x="140" y="857">ATK</text>
+    <text x="140" y="872" class="label-small">Spawn</text>
+    <text x="820" y="105">DEF</text>
+    <text x="820" y="120" class="label-small">Spawn</text>
+
+    <!-- A site callouts -->
+    <text x="320" y="472">A Site</text>
+    <text x="108" y="560">A Main</text>
+    <text x="260" y="655">A Lobby</text>
+    <text x="250" y="760">A Ramp</text>
+    <text x="150" y="278">A Heaven</text>
+
+    <!-- A link -->
+    <text x="280" y="162" class="label-small">A Link</text>
+
+    <!-- A Screens -->
+    <text x="390" y="607" class="label-small">Screens</text>
+
+    <!-- Mid callouts -->
+    <text x="530" y="198">Mid Top</text>
+    <text x="490" y="338">Vents</text>
+    <text x="510" y="478">Mid Bot</text>
+    <text x="500" y="600">Sewer</text>
+
+    <!-- B site callouts -->
+    <text x="770" y="430">B Site</text>
+    <text x="820" y="258">B Main</text>
+    <text x="630" y="158" class="label-small">B Back</text>
+    <text x="880" y="538">B Heaven</text>
+    <text x="740" y="538" class="label-small">B Short</text>
+
+    <!-- CT area -->
+    <text x="630" y="575">CT</text>
+    <text x="630" y="590" class="label-small">Spawn</text>
+
+    <!-- Lower -->
+    <text x="780" y="730">B Lobby</text>
+    <text x="420" y="857">Connector</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20, 960)">
+    <rect x="0" y="0" width="14" height="10" fill="#b85c5c" opacity="0.9"/>
+    <text x="18" y="9" class="label-small" text-anchor="start">Site A</text>
+    <rect x="70" y="0" width="14" height="10" fill="#5c6fb8" opacity="0.9"/>
+    <text x="88" y="9" class="label-small" text-anchor="start">Site B</text>
+    <rect x="140" y="0" width="14" height="10" fill="#8a4a8a" opacity="0.9"/>
+    <text x="158" y="9" class="label-small" text-anchor="start">Heaven</text>
+    <rect x="220" y="0" width="14" height="10" fill="#3d3d6b" opacity="0.9"/>
+    <text x="238" y="9" class="label-small" text-anchor="start">ATK</text>
+    <rect x="280" y="0" width="14" height="10" fill="#3d6b3d" opacity="0.9"/>
+    <text x="298" y="9" class="label-small" text-anchor="start">DEF</text>
+    <text x="400" y="9" class="label-small" text-anchor="start">VALIQ - Not endorsed by Riot Games</text>
+  </g>
+</svg>

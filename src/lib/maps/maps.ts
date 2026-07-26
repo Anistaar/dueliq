@@ -82,6 +82,65 @@ const havenZones: MapZone[] = [
 ];
 
 // ============================================================
+// SPLIT
+// ============================================================
+const splitZones: MapZone[] = [
+  { id: "atk-spawn",   label: "ATK Spawn",  cx: 140,  cy: 857,  type: "spawn" },
+  { id: "def-spawn",   label: "DEF Spawn",  cx: 820,  cy: 110,  type: "spawn" },
+  { id: "a-main",      label: "A Main",     cx: 108,  cy: 560,  type: "corridor" },
+  { id: "a-lobby",     label: "A Lobby",    cx: 260,  cy: 655,  type: "lobby" },
+  { id: "a-ramp",      label: "A Ramp",     cx: 250,  cy: 760,  type: "corridor" },
+  { id: "a-heaven",    label: "A Heaven",   cx: 150,  cy: 278,  type: "chokepoint" },
+  { id: "a-site",      label: "A Site",     cx: 320,  cy: 430,  type: "site" },
+  { id: "a-link",      label: "A Link",     cx: 280,  cy: 162,  type: "chokepoint" },
+  { id: "screens",     label: "Screens",    cx: 390,  cy: 607,  type: "chokepoint" },
+  { id: "mid-top",     label: "Mid Top",    cx: 530,  cy: 200,  type: "corridor" },
+  { id: "vents",       label: "Vents",      cx: 490,  cy: 340,  type: "chokepoint" },
+  { id: "mid-bot",     label: "Mid Bot",    cx: 510,  cy: 478,  type: "corridor" },
+  { id: "sewer",       label: "Sewer",      cx: 500,  cy: 600,  type: "corridor" },
+  { id: "b-main",      label: "B Main",     cx: 820,  cy: 260,  type: "corridor" },
+  { id: "b-back",      label: "B Back",     cx: 630,  cy: 158,  type: "lobby" },
+  { id: "b-site",      label: "B Site",     cx: 770,  cy: 380,  type: "site" },
+  { id: "b-heaven",    label: "B Heaven",   cx: 880,  cy: 538,  type: "chokepoint" },
+  { id: "b-short",     label: "B Short",    cx: 740,  cy: 538,  type: "chokepoint" },
+  { id: "ct-area",     label: "CT",         cx: 630,  cy: 575,  type: "lobby" },
+  { id: "b-lobby",     label: "B Lobby",    cx: 780,  cy: 730,  type: "lobby" },
+];
+
+// ============================================================
+// LOTUS
+// ============================================================
+const lotusZones: MapZone[] = [
+  { id: "atk-spawn",   label: "ATK Spawn",  cx: 500,  cy: 880,  type: "spawn" },
+  { id: "def-spawn",   label: "DEF Spawn",  cx: 500,  cy: 100,  type: "spawn" },
+  { id: "ct-corridor", label: "CT Corridor",cx: 500,  cy: 218,  type: "corridor" },
+  // A Site area (left)
+  { id: "a-site",      label: "A Site",     cx: 210,  cy: 360,  type: "site" },
+  { id: "a-main",      label: "A Main",     cx: 108,  cy: 695,  type: "corridor" },
+  { id: "a-tree",      label: "A Tree",     cx: 108,  cy: 497,  type: "lobby" },
+  { id: "a-rubble",    label: "A Rubble",   cx: 280,  cy: 538,  type: "chokepoint" },
+  { id: "a-heaven",    label: "A Heaven",   cx: 100,  cy: 217,  type: "chokepoint" },
+  { id: "a-link",      label: "A Link",     cx: 300,  cy: 214,  type: "chokepoint" },
+  { id: "a-lobby",     label: "A Lobby",    cx: 300,  cy: 720,  type: "lobby" },
+  // B Site area (top center)
+  { id: "b-main",      label: "B Main",     cx: 500,  cy: 222,  type: "corridor" },
+  { id: "b-site",      label: "B Site",     cx: 500,  cy: 435,  type: "site" },
+  { id: "b-elbow",     label: "B Elbow",    cx: 260,  cy: 430,  type: "chokepoint" },
+  { id: "b-corner",    label: "B Corner",   cx: 740,  cy: 430,  type: "chokepoint" },
+  // Rotating doors — type:utility (breakable mechanics, like Bind TPs)
+  { id: "door-ab",     label: "Door A-B",   cx: 360,  cy: 500,  type: "utility" },
+  { id: "door-bc",     label: "Door B-C",   cx: 640,  cy: 500,  type: "utility" },
+  // C Site area (right)
+  { id: "c-site",      label: "C Site",     cx: 790,  cy: 360,  type: "site" },
+  { id: "c-main",      label: "C Main",     cx: 892,  cy: 695,  type: "corridor" },
+  { id: "c-mound",     label: "C Mound",    cx: 892,  cy: 497,  type: "lobby" },
+  { id: "c-rubble",    label: "C Rubble",   cx: 720,  cy: 538,  type: "chokepoint" },
+  { id: "c-heaven",    label: "C Heaven",   cx: 900,  cy: 217,  type: "chokepoint" },
+  { id: "c-link",      label: "C Link",     cx: 700,  cy: 214,  type: "chokepoint" },
+  { id: "c-lobby",     label: "C Lobby",    cx: 700,  cy: 720,  type: "lobby" },
+];
+
+// ============================================================
 // Registry
 // ============================================================
 export const MAPS: Record<string, MapDefinition> = {
@@ -108,6 +167,22 @@ export const MAPS: Record<string, MapDefinition> = {
     viewBox: "0 0 1000 1000",
     svgPath: "/src/lib/maps/haven.svg",
     zones: havenZones,
+  },
+  split: {
+    id: "split",
+    displayName: "Split",
+    sites: ["A", "B"],
+    viewBox: "0 0 1000 1000",
+    svgPath: "/src/lib/maps/split.svg",
+    zones: splitZones,
+  },
+  lotus: {
+    id: "lotus",
+    displayName: "Lotus",
+    sites: ["A", "B", "C"],
+    viewBox: "0 0 1000 1000",
+    svgPath: "/src/lib/maps/lotus.svg",
+    zones: lotusZones,
   },
 };
 

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VALIQ - Lotus top-down schematic map -->
+<!-- Original geometry drawn from community callout documentation. No Riot Games assets used. Not endorsed by Riot Games. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      text { font-family: sans-serif; font-size: 13px; fill: #e8e8e8; font-weight: 600; text-anchor: middle; }
+      text.label-small { font-size: 11px; fill: #c0c0c0; font-weight: 400; }
+      text.site-label { font-size: 18px; fill: #ffffff; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="#1a1a2e"/>
+
+  <!-- === WALLS layer === -->
+  <g id="walls">
+    <!-- Outer boundary -->
+    <rect x="30" y="30" width="940" height="940" fill="none" stroke="#4a4a6a" stroke-width="3"/>
+
+    <!-- Attacker spawn - bottom center -->
+    <rect x="380" y="800" width="240" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Defender spawn - top center -->
+    <rect x="400" y="40" width="200" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === A SITE AREA (left) === -->
+    <!-- A Main approach from atk -->
+    <rect x="40" y="560" width="180" height="240" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Tree - outside area beside A main -->
+    <rect x="40" y="440" width="180" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Rubble / A Link -->
+    <rect x="220" y="440" width="120" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Site -->
+    <rect x="40" y="280" width="340" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Connector to CT -->
+    <rect x="200" y="160" width="220" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Heaven (raised ledge above site) -->
+    <rect x="40" y="160" width="160" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- A Lobby connector -->
+    <rect x="220" y="640" width="160" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === B SITE AREA (top center) === -->
+    <!-- B Main - upper corridor from defender -->
+    <rect x="340" y="160" width="320" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Site -->
+    <rect x="340" y="280" width="320" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Elbow - flank connector left of B -->
+    <rect x="280" y="380" width="60" height="100" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- B Connector right to C area -->
+    <rect x="660" y="380" width="60" height="100" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === C SITE AREA (right) === -->
+    <!-- C Main approach from atk -->
+    <rect x="780" y="560" width="180" height="240" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- C Mound - outside area beside C main -->
+    <rect x="780" y="440" width="180" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- C Site -->
+    <rect x="620" y="280" width="340" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- C Connector to CT -->
+    <rect x="580" y="160" width="220" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- C Heaven -->
+    <rect x="800" y="160" width="160" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- C Lobby connector -->
+    <rect x="620" y="640" width="160" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- C Rubble / C Link -->
+    <rect x="660" y="440" width="120" height="200" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- === ROTATING DOORS (breakable passages) === -->
+    <!-- Door A-B (between A site and B mid-left) -->
+    <rect x="330" y="460" width="60" height="80" fill="#2a2a45" stroke="#e8a020" stroke-width="3"/>
+
+    <!-- Door B-C (between B mid-right and C site) -->
+    <rect x="610" y="460" width="60" height="80" fill="#2a2a45" stroke="#e8a020" stroke-width="3"/>
+
+    <!-- === LOWER CONNECTORS === -->
+    <!-- Lotus inner loop bottom (ATK side connector) -->
+    <rect x="380" y="640" width="240" height="160" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Side passages lower left -->
+    <rect x="220" y="800" width="160" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+
+    <!-- Side passages lower right -->
+    <rect x="620" y="800" width="160" height="120" fill="#2a2a45" stroke="#5a5a7a" stroke-width="2"/>
+  </g>
+
+  <!-- === ZONES layer === -->
+  <g id="zones">
+    <!-- ATK spawn -->
+    <rect x="382" y="802" width="236" height="156" fill="#3d3d6b" opacity="0.7"/>
+
+    <!-- DEF spawn -->
+    <rect x="402" y="42" width="196" height="116" fill="#3d6b3d" opacity="0.7"/>
+
+    <!-- A Site -->
+    <rect x="42" y="282" width="336" height="156" fill="#b85c5c" opacity="0.55"/>
+
+    <!-- B Site -->
+    <rect x="342" y="282" width="316" height="196" fill="#5c6fb8" opacity="0.55"/>
+
+    <!-- C Site -->
+    <rect x="622" y="282" width="336" height="156" fill="#e67e22" opacity="0.5"/>
+
+    <!-- CT connector top -->
+    <rect x="202" y="162" width="596" height="116" fill="#3d5a6b" opacity="0.45"/>
+
+    <!-- A Heaven -->
+    <rect x="42" y="162" width="156" height="116" fill="#8a4a8a" opacity="0.4"/>
+
+    <!-- C Heaven -->
+    <rect x="802" y="162" width="156" height="116" fill="#8a4a8a" opacity="0.4"/>
+
+    <!-- A Tree -->
+    <rect x="42" y="442" width="176" height="116" fill="#3d6a3d" opacity="0.5"/>
+
+    <!-- C Mound -->
+    <rect x="782" y="442" width="176" height="116" fill="#3d6a3d" opacity="0.5"/>
+
+    <!-- A Main approach -->
+    <rect x="42" y="562" width="176" height="236" fill="#6b5c3d" opacity="0.4"/>
+
+    <!-- C Main approach -->
+    <rect x="782" y="562" width="176" height="236" fill="#6b5c3d" opacity="0.4"/>
+
+    <!-- A Rubble -->
+    <rect x="222" y="442" width="116" height="196" fill="#5a4a3d" opacity="0.45"/>
+
+    <!-- C Rubble -->
+    <rect x="662" y="442" width="116" height="196" fill="#5a4a3d" opacity="0.45"/>
+
+    <!-- Rotating door A-B highlight -->
+    <rect x="332" y="462" width="56" height="76" fill="#e8a020" opacity="0.6"/>
+
+    <!-- Rotating door B-C highlight -->
+    <rect x="612" y="462" width="56" height="76" fill="#e8a020" opacity="0.6"/>
+
+    <!-- B Elbow -->
+    <rect x="282" y="382" width="56" height="96" fill="#5a5a3d" opacity="0.4"/>
+
+    <!-- B Connector right -->
+    <rect x="662" y="382" width="56" height="96" fill="#5a5a3d" opacity="0.4"/>
+
+    <!-- Lobby connectors -->
+    <rect x="222" y="642" width="156" height="156" fill="#4a4a6b" opacity="0.4"/>
+    <rect x="622" y="642" width="156" height="156" fill="#4a4a6b" opacity="0.4"/>
+
+    <!-- Center bottom connector -->
+    <rect x="382" y="642" width="236" height="156" fill="#4a5a4a" opacity="0.35"/>
+  </g>
+
+  <!-- === SITES layer === -->
+  <g id="sites">
+    <!-- A Site marker -->
+    <circle cx="210" cy="360" r="22" fill="#b85c5c" opacity="0.9"/>
+    <text x="210" y="365" class="site-label">A</text>
+
+    <!-- B Site marker -->
+    <circle cx="500" cy="380" r="22" fill="#5c6fb8" opacity="0.9"/>
+    <text x="500" y="385" class="site-label">B</text>
+
+    <!-- C Site marker -->
+    <circle cx="790" cy="360" r="22" fill="#e67e22" opacity="0.9"/>
+    <text x="790" y="365" class="site-label">C</text>
+  </g>
+
+  <!-- === LABELS layer === -->
+  <g id="labels">
+    <!-- Spawns -->
+    <text x="500" y="880">ATK Spawn</text>
+    <text x="500" y="95">DEF Spawn</text>
+
+    <!-- A site callouts -->
+    <text x="210" y="405">A Site</text>
+    <text x="108" y="695">A Main</text>
+    <text x="108" y="497">A Tree</text>
+    <text x="280" y="538" class="label-small">A Rubble</text>
+    <text x="100" y="217" class="label-small">A Heaven</text>
+    <text x="300" y="214" class="label-small">A Link</text>
+    <text x="300" y="720">A Lobby</text>
+
+    <!-- B site callouts -->
+    <text x="500" y="222">B Main</text>
+    <text x="500" y="435">B Site</text>
+    <text x="260" y="430" class="label-small">B Elbow</text>
+    <text x="740" y="430" class="label-small">B Corner</text>
+
+    <!-- C site callouts -->
+    <text x="790" y="405">C Site</text>
+    <text x="892" y="695">C Main</text>
+    <text x="892" y="497">C Mound</text>
+    <text x="720" y="538" class="label-small">C Rubble</text>
+    <text x="900" y="217" class="label-small">C Heaven</text>
+    <text x="700" y="214" class="label-small">C Link</text>
+    <text x="700" y="720">C Lobby</text>
+
+    <!-- Rotating doors -->
+    <text x="360" y="520" class="label-small" style="fill:#f0b832">Door A-B</text>
+    <text x="640" y="520" class="label-small" style="fill:#f0b832">Door B-C</text>
+
+    <!-- CT connector -->
+    <text x="500" y="218">CT Corridor</text>
+
+    <!-- Center lower -->
+    <text x="500" y="718" class="label-small">Spawn Flank</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20, 960)">
+    <rect x="0" y="0" width="14" height="10" fill="#b85c5c" opacity="0.9"/>
+    <text x="18" y="9" class="label-small" text-anchor="start">Site A</text>
+    <rect x="70" y="0" width="14" height="10" fill="#5c6fb8" opacity="0.9"/>
+    <text x="88" y="9" class="label-small" text-anchor="start">Site B</text>
+    <rect x="140" y="0" width="14" height="10" fill="#e67e22" opacity="0.9"/>
+    <text x="158" y="9" class="label-small" text-anchor="start">Site C</text>
+    <rect x="210" y="0" width="14" height="10" fill="#e8a020" opacity="0.9"/>
+    <text x="228" y="9" class="label-small" text-anchor="start">Rot.Door</text>
+    <rect x="300" y="0" width="14" height="10" fill="#3d3d6b" opacity="0.9"/>
+    <text x="318" y="9" class="label-small" text-anchor="start">ATK</text>
+    <rect x="360" y="0" width="14" height="10" fill="#3d6b3d" opacity="0.9"/>
+    <text x="378" y="9" class="label-small" text-anchor="start">DEF</text>
+    <text x="440" y="9" class="label-small" text-anchor="start">VALIQ - Not endorsed by Riot Games</text>
+  </g>
+</svg>
