@@ -1,7 +1,7 @@
 // DuelIQ — Daily puzzle logic
 // Not endorsed by Riot Games.
 
-// Ordered list of daily puzzle filenames (p001-p010)
+// Ordered list of daily puzzle filenames (p001-p020)
 // puzzle-000-exemple is excluded from rotation (wrong viewBox baseline)
 export const DAILY_PUZZLES = [
   "puzzle-001-retake-haven.json",
@@ -14,6 +14,16 @@ export const DAILY_PUZZLES = [
   "puzzle-008-entry-bind.json",
   "puzzle-009-rotation-haven.json",
   "puzzle-010-rotation-ascent.json",
+  "puzzle-011-postplant-bind.json",
+  "puzzle-012-postplant-haven.json",
+  "puzzle-013-lurk-ascent.json",
+  "puzzle-014-lurk-bind.json",
+  "puzzle-015-util-haven.json",
+  "puzzle-016-util-ascent.json",
+  "puzzle-017-eco-bind.json",
+  "puzzle-018-eco-ascent.json",
+  "puzzle-019-clutch-haven.json",
+  "puzzle-020-clutch-ascent.json",
 ] as const;
 
 /** Returns day number since UTC epoch (days since 1970-01-01) */

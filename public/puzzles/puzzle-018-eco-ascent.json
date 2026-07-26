@@ -1,0 +1,137 @@
+{
+  "id": "puzzle-018",
+  "version": 1,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "eco",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 95,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "eco",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "phoenix",
+      "signature": "curveball",
+      "ultimate": null,
+      "basic_remaining": ["curveball", "hot-hands", "blaze"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-main",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 130,
+        "y": 265,
+        "orientation_deg": 0,
+        "label": "PHOENIX",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 195,
+        "y": 265,
+        "orientation_deg": 0,
+        "label": "P2",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 175,
+        "y": 620,
+        "orientation_deg": 45,
+        "label": "P3",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Ascent ATK, 5v5, round eco (~1900cr chacun, pistolets/SMG). DEF full-buy. Debut de round (95s). Comment jouer cet eco pour maximiser sa valeur ?",
+  "options": [
+    {
+      "label": "5-stack rush groupe sur un site (A) avec flashes, se coller et trade pour submerger l'anchor et upgrade les armes",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 47,
+      "explication_courte": "En eco, la concentration close-range + flashes + trades submerge un anchor isole ; meme si vous perdez, vous ramassez des rifles DEF et forcez leur util. C'est le play eco a plus forte esperance.",
+      "sources_option": []
+    },
+    {
+      "label": "Save discipline : prendre 1-2 picks longue distance safe et garder les credits pour un full-buy garanti ensuite",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 26,
+      "explication_courte": "Le light-save (chercher 1-2 picks safe puis garder les credits) garantit un full-buy suivant ; defendable si le score demande de reset l'eco, mais abandonne la chance de voler le round.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
+          "citation": "A disciplined save takes safe long-range picks and preserves credits for a guaranteed next-round buy, trading round-win chance for economy stability."
+        }
+      ]
+    },
+    {
+      "label": "Disperser en 5 solos sur toute la map pour prendre 5 duels et chercher des frags individuels",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Se disperser en solos annule le seul avantage de l'eco (le nombre en close-range) : chaque joueur affronte un rifle en 1v1 desavantageux et personne ne trade.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+          "citation": "Grouping up to hit one site lets you set crossfires and trade; scattering into individual duels wastes the numbers advantage an eco relies on."
+        }
+      ]
+    },
+    {
+      "label": "Full-buy force : acheter Spectres/armures a ~1900cr chacun et jouer comme un round normal",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Force-buy a ~1900cr casse l'economie : tu ne peux ni acheter correctement ni save, et tu te retrouves sous-equipe ce round ET en eco force le suivant. Double-perte economique.",
+      "sources_option": [
+        {
+          "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+          "citation": "Forcing a weak half-buy on a low economy leaves you underequipped this round and broke the next; commit to a proper eco or save instead."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Ascent ATK, 5v5, round eco (~1900cr par joueur, pistolets/SMG), DEF full-buy, debut de round (95s). L'objectif : maximiser l'esperance de l'eco sans casser l'economie.\n\nLe principe eco : l'eco n'a qu'un seul avantage — le nombre a courte distance. Trois regles : (1) se grouper et hit un seul site permet crossfires + trades + upgrade d'armes ; (2) la coordination (flashes, entrer ensemble, trade immediat) est indispensable ; (3) alternativement, un save discipline reset l'economie pour un full-buy garanti. Ce qu'il ne faut jamais faire : forcer un demi-buy pauvre qui casse deux rounds d'economie.\n\nLa ligne optimale 5-stack rush A avec flashes Phoenix, se colle et trade : vous submergez un anchor isole, ramassez des rifles meme en perdant, et forcez l'util DEF. C'est l'esperance la plus haute pour voler un round eco. Le save discipline (acceptable) garantit le full-buy suivant — defendable selon le score. Disperser en solos (couteux) annule l'avantage numerique. Force-buy a 1900cr (faute) est la double-perte economique classique.\n\nDistribution elite estimee : ~47% 5-stack rush groupe, ~26% save discipline, ~22% disperser en solos, ~5% force-buy (la faute). Tolerance GTO : rush groupe (voler le round) et save discipline (reset l'eco) sont les deux plays valides selon l'etat de score/economie ; disperser et force-buy sont les erreurs qui gaspillent soit le nombre soit l'economie.",
+  "sources": [
+    {
+      "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
+      "citation": "Group up and hit one bombsite together to set crossfires and trade; absolute coordination with flashes and immediate trades wins eco rounds."
+    },
+    {
+      "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
+      "citation": "Rushing a site with grouped pistols and flashes can overwhelm an off-position defender, or a disciplined save preserves the economy."
+    },
+    {
+      "url": "https://allvalorant.gg/what-is-eco-round-in-valorant/",
+      "citation": "On eco, prioritize teamwork and positioning to outmaneuver better-equipped adversaries; don't force a broken half-buy on a low bank."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Rush (optimal) vs save (acceptable) depend fortement du score et de l'etat d'economie de la manche : a certains scores, le save discipline devient optimal. Le contexte de manche exact n'est pas fixe par l'enonce (seuil ~1900cr donne)."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides eco (mobalytics, theguide, allvalorant) ; pas de dataset sur la frequence rush vs save a ~1900cr par elo en elite."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur A Main Ascent (viewBox 1000x1000, zones maps.ts) ; le site cible du rush (A) est un choix read-dependent partiellement isole dans l'enonce."
+    }
+  ]
+}

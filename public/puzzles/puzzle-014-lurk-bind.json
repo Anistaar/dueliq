@@ -1,0 +1,129 @@
+{
+  "id": "puzzle-014",
+  "version": 1,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "rotation",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 26,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "chamber",
+      "signature": "headhunter",
+      "ultimate": null,
+      "basic_remaining": ["trademark", "rendezvous"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "hookah",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 320,
+        "y": 440,
+        "orientation_deg": 315,
+        "label": "CHAMBER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 730,
+        "y": 530,
+        "orientation_deg": 180,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind, 4v5, 26s restantes. Ton equipe amorce A. Tu lurkes Hookah en Chamber (Rendezvous pose, Headhunter). Un son de rotation DEF vient de B vers A. Que fais-tu de ton lurk ?",
+  "options": [
+    {
+      "label": "Tenir Hookah et punir la rotation DEF qui traverse vers A, en couvrant l'angle avec Headhunter et ta Rendezvous en repli",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 51,
+      "explication_courte": "Une rotation confirmee qui traverse ton angle = le pick a haute valeur du lurk : tu prends un DEF isole en mouvement et ramenes ton equipe a 4v4 ou mieux, avec repli Rendezvous garanti.",
+      "sources_option": []
+    },
+    {
+      "label": "Rotate discretement vers A Site pour rejoindre le hit de ton equipe en 4-stack maintenant que B se vide",
+      "tier": "acceptable",
+      "ev_delta": "-0.3 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Regrouper est defendable en 4v5 pour ne pas rester isole, mais tu abandonnes le pick de rotation offert et le timer serre (26s) rend le regroupement risque.",
+      "sources_option": [
+        {
+          "url": "https://www.sportskeeda.com/valorant/guide-effective-rotation-win-valorant-map",
+          "citation": "Regrouping to hit a site together is safer when down a player, but it forfeits the flank/rotation picks a lurker is positioned to punish."
+        }
+      ]
+    },
+    {
+      "label": "Pousser vers B Site maintenant qu'il se vide pour prendre le site faiblement defendu par derriere",
+      "tier": "couteux",
+      "ev_delta": "-0.5 round EV",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Solo-push B en 26s avec un timer serre est trop lent : meme si le site se vide, tu n'as pas le temps de plant+hold seul, et un DEF laisse en anchor te punit.",
+      "sources_option": [
+        {
+          "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",
+          "citation": "Lurking is about information and picks, not solo-taking a site; a lone push into a site with an anchor and low time is a losing play."
+        }
+      ]
+    },
+    {
+      "label": "Tirer un HeadHunter dans le vide vers B pour faire du bruit et fausser la rotation DEF",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Tirer sans cible revele ta position exacte a Hookah, gaspille des credits/HP de Headhunter, et previent les DEF qu'un lurker est la : tu detruis l'avantage de surprise.",
+      "sources_option": [
+        {
+          "url": "https://wecoach.gg/blog/article/how-to-lurk-in-valorant-like-a-pro",
+          "citation": "Be unpredictable and silent; making noise that reveals your lurk position hands the defenders exactly the information you were trying to deny them."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Bind, 4v5 (down un joueur), 26 secondes restantes. Ton equipe amorce A. Tu lurkes Hookah en Chamber avec Rendezvous deja pose (repli garanti) et Headhunter. Tu entends une rotation DEF de B vers A qui va traverser ton angle.\n\nLe lurk atteint sa valeur maximale exactement dans ce cas : une rotation CONFIRMEE qui traverse ta ligne. Les principes : (1) le lurk vit pour l'info et les picks de flanc/rotation, pas pour prendre un site en solo ; (2) un DEF en mouvement, isole, focus sur A, est la cible la plus rentable ; (3) rester silencieux preserve la surprise. Chamber est le lurker de pick par excellence : Headhunter one-taps le rotateur, Rendezvous te teleporte hors de danger apres.\n\nLa ligne optimale tient Hookah et punit le DEF qui traverse : un kill ici ramene ton equipe a l'egalite ou mieux au moment ou elle hit A, et Rendezvous garantit ton repli. Rotate vers A (acceptable) evite l'isolement mais jette le pick offert. Push B solo (couteux) est trop lent en 26s contre un anchor. Tirer dans le vide (faute) revele ta position et gaspille tes ressources.\n\nDistribution elite estimee : ~51% tiennent et punissent la rotation, ~22% rotate rejoindre A, ~22% push B solo, ~5% tirent dans le vide (la faute). Tolerance GTO : capitaliser sur une rotation confirmee est le play a plus haute valeur, mais regrouper en 4v5 pour eviter l'isolement est une lecture defendable si tu doutes de l'angle.",
+  "sources": [
+    {
+      "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",
+      "citation": "Lurking nets valuable information, frags, and round wins by catching enemies off guard, especially rotating players focused elsewhere."
+    },
+    {
+      "url": "https://wecoach.gg/blog/article/how-to-lurk-in-valorant-like-a-pro",
+      "citation": "Patience and silence let you punish a confirmed rotation; the lurker hits the enemy when they are most vulnerable and in motion."
+    },
+    {
+      "url": "https://www.sportskeeda.com/valorant/guide-effective-rotation-win-valorant-map",
+      "citation": "Cutting off or punishing a defensive rotation as it crosses the map is high-value; reading the rotation sound tells you where the pick is."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[0].tier",
+      "incertitude": "Punir la rotation (optimal) suppose que l'angle Hookah offre un tir net sur le chemin B-vers-A ; si la rotation passe hors ligne de vue, rotate-A (acceptable) monte en priorite. Ligne de vue exacte non encodee."
+    },
+    {
+      "champ": "round_state.alive_atk",
+      "incertitude": "Le contexte du 4v5 (comment le 5e ATK est tombe) n'est pas precise ; il peut changer legerement le poids regrouper vs punir. Flagge honnetement."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides lurk/rotation (tracker, wecoach, sportskeeda) ; aucun dataset public sur la frequence punir-rotation vs regrouper en 4v5 par elo."
+    }
+  ]
+}

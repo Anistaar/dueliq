@@ -1,0 +1,129 @@
+{
+  "id": "puzzle-013",
+  "version": 1,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "rotation",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 58,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "cypher",
+      "signature": "spycam",
+      "ultimate": null,
+      "basic_remaining": ["trapwire", "cyber-cage"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "mid-bot",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 426,
+        "y": 490,
+        "orientation_deg": 45,
+        "label": "CYPHER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 175,
+        "y": 620,
+        "orientation_deg": 315,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Ascent, 5v5, debut de round (58s). Ton equipe amorce un default vers A. Tu es Cypher en lurk Mid Bot. Comment jouer ton lurk pour maximiser sa valeur ?",
+  "options": [
+    {
+      "label": "Poser un Trapwire CT Mid, rester passif, attendre que le hit A tire l'attention avant de menacer le flanc DEF",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 50,
+      "explication_courte": "Le lurk vaut quand l'equipe engage a l'oppose : la patience + le trap securisent l'info de rotation, et tu frappes les DEF quand ils sont focus sur le hit A.",
+      "sources_option": []
+    },
+    {
+      "label": "Prendre le controle Mid tot en Cyber-Cage pour ouvrir une 2e menace (split A via Mid) et fixer les DEF",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Prendre Mid cree une double-menace et de l'info, mais te rend visible tot : tu perds l'effet de surprise du lurk et exposes ta position aux DEF Mid.",
+      "sources_option": [
+        {
+          "url": "https://www.sportskeeda.com/valorant/guide-effective-rotation-win-valorant-map",
+          "citation": "Taking mid control opens split options and forces defenders to respect a second lane, but it commits you and reveals your position earlier."
+        }
+      ]
+    },
+    {
+      "label": "Pousser Mid agressivement en solo pour chercher un pick sur un joueur Mid dans les 20 premieres secondes",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 21,
+      "explication_courte": "Pousser trop tot en solo transforme le lurk en duel a l'aveugle : sans distraction de l'equipe a l'oppose, tu peux te faire trade et donner une info gratuite aux DEF.",
+      "sources_option": [
+        {
+          "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",
+          "citation": "Ideally you wait at least 30 seconds before pushing; lurking too early, before your team draws attention, isolates you into a bad duel."
+        }
+      ]
+    },
+    {
+      "label": "Rejoindre le hit A avec le reste de l'equipe pour un 5-stack groupe sur le site",
+      "tier": "faute",
+      "ev_delta": "-0.7 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Abandonner le lurk pour un 5-stack elimine la menace de flanc et la double-info : les DEF peuvent rotate librement et stacker A sans craindre un joueur dans leur dos.",
+      "sources_option": [
+        {
+          "url": "https://wecoach.gg/blog/article/how-to-lurk-in-valorant-like-a-pro",
+          "citation": "A lurker's value is the backline pressure and flank threat; collapsing into the main group removes exactly the reason to lurk in the first place."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Ascent, 5v5, tout debut de round (58s). Ton equipe amorce un default vers A. Tu es Cypher en lurk Mid Bot, avec Trapwire, Cyber-Cage, Spycam. Cinq DEF vivants, positions inconnues.\n\nLe lurk repose sur trois principes : (1) la patience — attendre au moins 30 secondes, jusqu'a ce que l'equipe engage a l'oppose et fixe l'attention DEF ; (2) l'information — securiser la ligne de rotation/flanc pour prevenir ton equipe et couper les rotations ; (3) l'unpredictabilite — frapper quand les DEF sont vulnerables, focus ailleurs. Cypher est le lurker ideal : Trapwire + Spycam couvrent le flanc et la rotation pendant que tu attends.\n\nLa ligne optimale pose un Trapwire CT Mid (securise ton dos + info de rotation) puis reste passive : quand le hit A tire les DEF, tu menaces le flanc ou coupes une rotation, avec l'effet de surprise maximal. Prendre Mid tot (acceptable) cree une double-menace mais te revele et sacrifie la surprise. Pousser solo tot (couteux) t'isole dans un duel a l'aveugle sans distraction. Rejoindre le 5-stack (faute) supprime la raison meme du lurk.\n\nDistribution elite estimee : ~50% jouent le lurk patient + trap, ~24% prennent Mid pour la double-menace, ~21% poussent trop tot, ~5% rejoignent le stack (la faute). Tolerance GTO : rester patient et securiser le flanc OU prendre Mid pour ouvrir un split sont deux facons valides d'exploiter la position ; pousser en solo trop tot est l'erreur de timing la plus commune.",
+  "sources": [
+    {
+      "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",
+      "citation": "Wait at least 30 seconds before pushing; lurking is most effective when your teammates create distractions on the opposite side of the map."
+    },
+    {
+      "url": "https://wecoach.gg/blog/article/how-to-lurk-in-valorant-like-a-pro",
+      "citation": "Patience is the cornerstone of lurking; hit the enemy when they're most vulnerable, typically when focused on your teammates elsewhere."
+    },
+    {
+      "url": "https://note.com/charm_tiger6920/n/n2dc1d6fd231a?hl=en-US",
+      "citation": "A lurk wins by cutting rotations and applying backline pressure while the main hit forces the defenders to commit their attention."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Prendre Mid (acceptable) peut etre optimal dans une compo orientee Mid-control (Ascent) ; la frontiere depend du call d'equipe (default A pur vs A+Mid split) non entierement fixe par l'enonce."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides lurk (tracker, wecoach, note.com) ; aucun dataset public sur la frequence lurk-passif vs Mid-take par elo en elite."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur Mid Ascent (viewBox 1000x1000, zones maps.ts) ; le spot exact du Trapwire CT Mid n'est pas encode dans le JSON."
+    }
+  ]
+}

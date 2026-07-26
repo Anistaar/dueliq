@@ -1,0 +1,129 @@
+{
+  "id": "puzzle-017",
+  "version": 1,
+  "map": "bind",
+  "side": "DEF",
+  "theme": "eco",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 80,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "eco",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "cypher",
+      "signature": "spycam",
+      "ultimate": null,
+      "basic_remaining": ["trapwire", "cyber-cage"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 730,
+        "y": 530,
+        "orientation_deg": 180,
+        "label": "CYPHER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 810,
+        "y": 200,
+        "orientation_deg": 225,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind DEF, 5v5, anti-eco : les ATK sont en eco (pistolets/SMG). Tu tiens A en Cypher (full-buy). Comment defendre pour minimiser le risque et garder ton avantage eco ?",
+  "options": [
+    {
+      "label": "Jouer les angles a longue distance, rester groupe avec ton allie A et tenir passif hors range des pistolets/shotguns",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 53,
+      "explication_courte": "En anti-eco tu gagnes les duels a longue distance ou pistolets et shotguns sont faibles ; rester groupe evite les picks surprise close-range et preserve ton rifle pour la manche suivante.",
+      "sources_option": []
+    },
+    {
+      "label": "Poser Trapwire + Spycam sur les chokes et tenir en retrait pour info + trades, sans chercher a peek",
+      "tier": "acceptable",
+      "ev_delta": "-0.1 round EV",
+      "freq_elite_estimee": 27,
+      "explication_courte": "Setup util + info est solide et safe, mais un peu passif : tu cedes potentiellement l'espace et le plant si l'util seule ne stoppe pas un rush groupe. Jouable et low-risk.",
+      "sources_option": [
+        {
+          "url": "https://www.sportskeeda.com/valorant/valorant-ranked-guide-5-tips-anti-eco-rounds",
+          "citation": "Hold passive map control and keep duels at long range; setting traps and info tools lets you play safe and trade rather than dueling up close."
+        }
+      ]
+    },
+    {
+      "label": "Avancer agressivement A Short pour chercher des frags faciles sur les ATK en eco",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Chasser les frags eco te rapproche des pistolets/shotguns ou l'eco est le plus dangereux : un rush groupe ou un shorty en angle proche peut te prendre gratuitement ton rifle.",
+      "sources_option": [
+        {
+          "url": "https://www.sportskeeda.com/valorant/valorant-ranked-guide-5-tips-anti-eco-rounds",
+          "citation": "Don't chase eco frags into close-range positions; classic pistols and shotguns can win the day when numbers close the distance."
+        }
+      ]
+    },
+    {
+      "label": "Pousser en solo dans le spawn ATK pour prendre l'info tot et un pick isole",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Solo-push dans le spawn adverse en anti-eco = donner ton rifle a un 5-stack eco groupe : tu te fais surnombrer close-range et l'ennemi upgrade son arsenal gratuitement.",
+      "sources_option": [
+        {
+          "url": "https://glizzy.substack.com/p/attacking-and-defending-on-ecos-and",
+          "citation": "Against an eco, refrain from pushing into positions where the enemy can easily retrieve your weapon; stay on your own side of the map."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Bind DEF, 5v5, anti-eco. Les ATK sont en eco (pistolets, peut-etre SMG/shotgun). Tu tiens A en Cypher avec Trapwire, Spycam, Cyber-Cage (full-buy). L'objectif : gagner le round SANS risquer ton rifle inutilement.\n\nLe principe anti-eco : minimiser le risque, maximiser l'economie. L'eco est dangereux a courte distance (shotguns, Frenzy, rush groupe) et faible a longue distance. Donc trois regles : (1) tenir les duels a longue portee ou ton rifle domine ; (2) rester groupe pour eviter les picks surprise et pouvoir trade ; (3) ne pas chasser les frags eco dans des positions ou l'ennemi peut recuperer ton arme.\n\nLa ligne optimale joue les angles longs, groupe avec ton allie A, passif hors range des pistolets. Tu gagnes proprement sans donner d'arme. Le setup util + info (acceptable) est safe et low-risk mais un peu passif — jouable. Avancer A Short (couteux) te rapproche du danger close-range. Solo-push le spawn (faute) donne ton rifle a un 5-stack eco groupe et upgrade leur arsenal.\n\nDistribution elite estimee : ~53% jouent long + groupe passif, ~27% setup util/info en retrait, ~15% avancent chercher des frags, ~5% solo-push spawn (la faute). Tolerance GTO : garder la distance et rester groupe est l'invariant anti-eco ; poser l'util et tenir info est une variante egalement safe. Chasser les frags close-range ou pousser en solo sont les erreurs qui donnent des armes a l'eco.",
+  "sources": [
+    {
+      "url": "https://www.sportskeeda.com/valorant/valorant-ranked-guide-5-tips-anti-eco-rounds",
+      "citation": "Sticking together, checking corners and keeping distance prevents surprise kills from pistols/shotguns; hold passive map control at long range."
+    },
+    {
+      "url": "https://glizzy.substack.com/p/attacking-and-defending-on-ecos-and",
+      "citation": "Don't chase eco frags, refrain from pushing where the enemy can retrieve your weapons, and stay on your own side of the map."
+    },
+    {
+      "url": "https://www.ldshop.gg/blog/valorant-gp/valorant-economy-guide.html",
+      "citation": "In an anti-eco, minimize risk and maximize economy; keep players alive to preserve your buy and deny the enemy free weapon upgrades."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Setup util+info (acceptable) vs jouer long+groupe (optimal) : la frontiere depend de savoir si les ATK vont rusher A (ou l'util aide) ou disperser ; le read du site vise n'est pas encode dans l'enonce."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides anti-eco (sportskeeda, glizzy, ldshop) ; pas de dataset sur la frequence long-hold vs setup-util en anti-eco par elo en elite."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur A Site Bind (viewBox 1000x1000, zones maps.ts) ; le placement exact du Trapwire/Spycam n'est pas encode dans le JSON."
+    }
+  ]
+}

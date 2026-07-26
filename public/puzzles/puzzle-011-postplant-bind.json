@@ -1,0 +1,129 @@
+{
+  "id": "puzzle-011",
+  "version": 1,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 33,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "viper",
+      "signature": "poison-cloud",
+      "ultimate": null,
+      "basic_remaining": ["snakebite", "toxic-screen"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 810,
+        "y": 200,
+        "orientation_deg": 135,
+        "label": "VIPER",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 540,
+        "y": 298,
+        "orientation_deg": 90,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Spike plante A Site Bind, 2v3, 33s. Tu es Viper (1 Snakebite, Toxic Screen, Poison Cloud) vers A Long, ton allie couvre A Short. Comment jouer le post-plant en desavantage numerique ?",
+  "options": [
+    {
+      "label": "Poser un crossfire A Long / A Short avec ton allie et garder ta Snakebite en reserve pour le defuse",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 52,
+      "explication_courte": "En 2v3 le temps est ton allie : deux angles distincts forcent un trade, et garder la Snakebite pour le moment du defuse est l'outil de retard le plus fiable contre 3 defuseurs.",
+      "sources_option": []
+    },
+    {
+      "label": "Poser le mur (Toxic Screen) pour couper A Site en deux et isoler les duels A Long, en gardant la Snakebite",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Couper le site reduit les sightlines et isole les duels a ton avantage, mais en 2v3 ca peut ceder trop d'espace d'un cote et laisser le defuse partir hors mur.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Cutting the site or an approach with a wall isolates duels and forces defenders through a chokepoint, but overcommitting one side can open the opposite defuse angle."
+        }
+      ]
+    },
+    {
+      "label": "Balancer la Snakebite sur le spike immediatement pour deny le defuse tant que les DEF n'ont pas contact",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 18,
+      "explication_courte": "Jeter la molly avant tout contact la gaspille : elle expire avant que les 3 DEF ne s'engagent reellement au defuse, et tu perds ton outil de retard au moment critique.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
+          "citation": "Use utility reactively and time mollies to the defuse; a molly thrown too early expires before the defenders actually commit, wasting your delay tool."
+        }
+      ]
+    },
+    {
+      "label": "Rusher A Short avec ton allie pour chercher un pick avant que les 3 DEF n'arrivent groupes",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Quitter le post-plant pour peek en 2v3 donne le trade a l'ennemi et libere le spike : tu abandonnes l'avantage du timer pour un duel desavantageux.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
+          "citation": "As an attacker in post-plant you win by not donating a free duel and holding stable angles while the clock runs; pushing into a numbers disadvantage throws that away."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : post-plant 2v3 sur A Site Bind, spike pose, 33 secondes. Tu es Viper avec une Snakebite, ton mur (Toxic Screen), Poison Cloud ; tu tiens vers A Long, ton allie couvre A Short. Trois DEF vivants vont retaker.\n\nEn desavantage numerique post-plant, trois principes se combinent : (1) le temps joue POUR l'attaquant qui a plante — chaque seconde force les DEF a s'exposer ; (2) deux angles distincts (crossfire) forcent un trade et empechent un duel isole ; (3) l'util de retard (ici la Snakebite) doit etre reservee au moment ou un DEF commence reellement le defuse, pas depensee a l'aveugle.\n\nLa ligne optimale garde le crossfire A Long / A Short et la Snakebite en reserve : tu ne cedes pas d'espace gratuitement, et au son du defuse tu balances la molly sur le spike pour reset le timer de 7 secondes. Poser le mur (acceptable) est defendable pour isoler les duels A Long, mais en 2v3 ca peut ouvrir le defuse de l'autre cote. Jeter la Snakebite trop tot (couteux) gaspille l'outil. Rusher pour un pick (faute) donne le trade a l'ennemi et libere le spike.\n\nDistribution elite estimee : ~52% tiennent crossfire + Snakebite reservee, ~24% posent le mur pour isoler, ~18% jettent la molly trop tot, ~5% rushent (la faute). Tolerance GTO : garder l'util de retard pour le defuse ET tenir deux angles distincts sont les invariants ; peek en desavantage numerique est l'erreur.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "Attack post-plant means spreading out, playing off the spike, holding crossfires, and using utility to delay the defuse rather than dumping it early."
+    },
+    {
+      "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+      "citation": "Crossfires are the most consistent ranked post-plant win condition; two players at distinct angles force a trade the defender can't isolate."
+    },
+    {
+      "url": "https://www.ggamechamps.com/blogs/post-plant-valorant",
+      "citation": "Prioritize time-stalling tactics over overcommitting to fights; in a post-plant the clock is your teammate, especially when outnumbered."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides post-plant (dignitas, boostroom, ggamechamps, theguide) ; la frequence crossfire-pur vs mur-Viper depend de la maitrise du mur A Bind et n'a pas de dataset public."
+    },
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Le mur (acceptable) pourrait etre juge optimal par des Viper-mains qui maitrisent le split A Site Bind ; la frontiere optimal/acceptable depend de la comp DEF exacte (non fixee ici)."
+    },
+    {
+      "champ": "positions.map_zone",
+      "incertitude": "Positions x/y approximatives sur A Site Bind (viewBox 1000x1000, zones de maps.ts) ; l'etat de fuel du mur Viper n'est pas encode dans le JSON."
+    }
+  ]
+}

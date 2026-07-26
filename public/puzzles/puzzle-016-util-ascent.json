@@ -1,0 +1,138 @@
+{
+  "id": "puzzle-016",
+  "version": 1,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "util",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 42,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 4,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "kayo",
+      "signature": "zero-point",
+      "ultimate": null,
+      "basic_remaining": ["flash-drive", "frag-ment", "zero-point"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 820,
+        "y": 130,
+        "orientation_deg": 225,
+        "label": "KAYO",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 638,
+        "y": 135,
+        "orientation_deg": 270,
+        "label": "P2",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 640,
+        "y": 340,
+        "orientation_deg": 315,
+        "label": "E1",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Ascent, 4v4, 42s. Ton equipe controle B Main + Catwalk. Un DEF confirme anchor B Site. Tu es KAY/O (ZERO/point, Flash, Frag). Comment executer B avec ton util ?",
+  "options": [
+    {
+      "label": "Lancer ZERO/point sur B Site pour supprimer l'util de l'anchor, puis flash l'entree et rentrer trade avec ton allie",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 50,
+      "explication_courte": "Le knife supprime l'util du/des DEF site (deny smokes/mollys de retard), la flash aveugle l'anchor, et l'entree tradee compresse la decision DEF : c'est un execute util-first classique.",
+      "sources_option": []
+    },
+    {
+      "label": "Flash l'entree B Site directement et rentrer sans knife, en gardant ZERO/point pour un futur retake",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Flash + entry est un execute valide et economise le knife, mais laisse l'anchor avec toute son util de retard (molly defuse-deny) intacte pour le post-plant.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/execute-sites-valorant-2026-basic-attack-setups",
+          "citation": "Flash-and-enter is a solid execute, but suppressing the anchor's utility first denies the delay tools they use to contest your plant."
+        }
+      ]
+    },
+    {
+      "label": "Balancer le Frag/ment sur le spot d'anchor pour chercher du degat avant l'entree, sans flash",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 21,
+      "explication_courte": "La molly seule deplace l'anchor mais sans flash tu entres dans un duel a vue : l'anchor repositionne et te tire dessus depuis un nouvel angle non aveugle.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-coordinate-and-win-midround-situations-747",
+          "citation": "A molly displaces a holder but a dry entry without a flash still gives them a clean duel from a repositioned angle; layer your utility."
+        }
+      ]
+    },
+    {
+      "label": "Rentrer B Site en dry (sans util) avec ton allie pour surprendre l'anchor par la vitesse",
+      "tier": "faute",
+      "ev_delta": "-0.8 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Dry-entry contre un anchor confirme, en ayant un kit d'execute complet, gaspille l'util : l'anchor tient un angle prepare et gagne le duel d'entree, cassant le hit.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/execute-sites-valorant-2026-basic-attack-setups",
+          "citation": "Executing a site with utility makes defenders choose between bad options; a dry entry against a prepared anchor hands them the opening duel."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Ascent, 4v4, 42 secondes. Ton equipe controle B Main + Catwalk. Un DEF est confirme en anchor B Site (E1 visible). Tu es KAY/O avec ZERO/point (le knife de suppression), Flash-drive, Frag/ment.\n\nLe principe du mid-round execute : de la bonne util layered force les DEF a choisir entre de mauvaises options. KAY/O est unique — son ZERO/point supprime l'util adverse dans un rayon, ce qui neutralise les smokes/mollys de retard de l'anchor (l'outil qui deny ton plant). Combine a une flash d'entree et un trade, c'est l'execute qui compresse le plus la decision DEF.\n\nLa ligne optimale : knife sur B Site (supprime l'util de l'anchor et de tout renfort proche), puis flash l'entree et rentre trade avec ton allie. L'anchor ne peut ni retarder ni contester proprement. Flash + entry sans knife (acceptable) est valide et garde le knife pour un retake, mais laisse l'util de retard DEF intacte. Molly seule sans flash (couteux) deplace l'anchor mais te donne un duel a vue. Dry-entry (faute) contre un anchor prepare donne le duel d'entree a l'ennemi.\n\nDistribution elite estimee : ~50% knife+flash+trade, ~24% flash+entry gardant le knife, ~21% molly seule, ~5% dry-entry (la faute). Tolerance GTO : layered utility (flash + trade au minimum) est l'invariant ; utiliser ZERO/point maintenant vs le garder pour le retake est la vraie zone de choix. Dry-entry contre anchor confirme est l'erreur.",
+  "sources": [
+    {
+      "url": "https://boosteria.org/guides/execute-sites-valorant-2026-basic-attack-setups",
+      "citation": "Good executes compress defender decision-making by using good utility to make defenders choose between bad options."
+    },
+    {
+      "url": "https://theguide.gg/improve/lessons/valorant/how-to-coordinate-and-win-midround-situations-747",
+      "citation": "Layer utility: a flash sets up the entry, a trade ensures the duel isn't isolated, and suppression/mollies deny the holder's delay tools."
+    },
+    {
+      "url": "https://alviran.net/blog/valorant-trading-guide-2026/",
+      "citation": "When your first player swings with support utility and a second close enough to trade, the defender no longer gets a free 1v1 even if the entry dies."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Knife-now (optimal) vs garder ZERO/point pour le retake (acceptable) depend du plan d'equipe et de la valeur du knife en post-plant sur Ascent ; certains KAY/O gardent le knife pour l'ult/retake. Contexte de manche non fixe."
+    },
+    {
+      "champ": "positions.ennemis_connus",
+      "incertitude": "Un seul anchor B est confirme ; les 3 autres DEF sont inconnus. Si un 2e DEF stack B, le poids de la suppression augmente ; s'ils sont A, l'execute passe plus vite. Non encode."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides execute/trade (boosteria, theguide, alviran) ; pas de dataset sur la frequence knife-first vs flash-first en execute B Ascent par elo."
+    }
+  ]
+}

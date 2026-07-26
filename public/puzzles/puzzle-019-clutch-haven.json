@@ -1,0 +1,121 @@
+{
+  "id": "puzzle-019",
+  "version": 1,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "clutch",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 20,
+    "spike_planted": true,
+    "alive_atk": 1,
+    "alive_def": 1,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "omen",
+      "signature": "dark-cover",
+      "ultimate": null,
+      "basic_remaining": ["paranoia", "dark-cover", "shrouded-step"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 500,
+        "y": 748,
+        "orientation_deg": 270,
+        "label": "OMEN",
+        "est_joueur_concerne": true
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "Haven B, 1v1 clutch, spike plante, 20s. Tu es Omen (1 smoke, Paranoia, Shrouded Step) a B Entrance. Le dernier ATK garde le spike quelque part sur B. Comment jouer le retake ?",
+  "options": [
+    {
+      "label": "Smoke un cote du site pour isoler le duel a 1 angle, puis peek l'autre cote pour un 1v1 propre sous pression du timer",
+      "tier": "optimal",
+      "ev_delta": "+0.0 round EV",
+      "freq_elite_estimee": 49,
+      "explication_courte": "En 1v1 tu transformes le retake en un seul duel : la smoke coupe un angle, tu ne peek qu'une ligne, et le timer force l'ATK a s'exposer pour contester ton defuse. Controle du duel.",
+      "sources_option": []
+    },
+    {
+      "label": "Utiliser Paranoia a travers le site pour aveugler l'ATK et entrer sur l'info du flash, en avancant vers le spike",
+      "tier": "acceptable",
+      "ev_delta": "-0.2 round EV",
+      "freq_elite_estimee": 25,
+      "explication_courte": "Paranoia degage un angle et peut ouvrir une entree, mais tu t'exposes a plusieurs positions possibles ; sans savoir ou est l'ATK, la flash peut ne couvrir qu'un des angles.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
+          "citation": "Utility should block vision, force movement, buy time, or make the next duel easier; a flash helps entry but only if it covers the angle the enemy actually holds."
+        }
+      ]
+    },
+    {
+      "label": "Rush directement le spike pour commencer le defuse et forcer l'ATK a se montrer pour te stopper",
+      "tier": "couteux",
+      "ev_delta": "-0.4 round EV",
+      "freq_elite_estimee": 21,
+      "explication_courte": "Rush le defuse sans clear te met a decouvert : l'ATK qui tient un angle prepare te tire dessus pendant que tu es immobile sur le spike, duel perdu d'avance.",
+      "sources_option": [
+        {
+          "url": "https://www.valocheck.com/guides/spike-defuse/",
+          "citation": "Don't rush onto the spike blind against an unknown holder; defusing exposed lets a prepared angle-holder shoot you while you're locked in the defuse."
+        }
+      ]
+    },
+    {
+      "label": "Attendre passivement B Entrance sans util jusqu'a la derniere seconde en esperant que l'ATK se montre",
+      "tier": "faute",
+      "ev_delta": "-0.7 round EV",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Attendre sans agir donne le round : le spike explose, l'ATK n'a aucune raison de bouger, et tu gaspilles ton util de controle du duel. Le clock est ton second adversaire.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
+          "citation": "The clock is a secondary opponent; in a post-plant clutch you must act to force the duel, waiting passively lets the spike detonate for free."
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Situation : Haven B, 1v1 clutch, spike plante, 20 secondes. Tu es Omen a B Entrance avec une smoke (Dark Cover), Paranoia, Shrouded Step. Le dernier ATK garde le spike quelque part sur B Site.\n\nLes principes du clutch 1v1 en retake : (1) transformer la situation en un seul duel controle — reduire le nombre d'angles a verifier ; (2) l'util doit faire un des quatre jobs (bloquer la vision, forcer le mouvement, gagner du temps, faciliter le prochain duel) — sinon la garder ; (3) le clock est un second adversaire — en post-plant DEF, le timer force l'ATK a te contester s'il veut proteger le defuse, mais il force AUSSI ta main (le spike explose). L'Omen a l'outil ideal : une smoke isole le duel a un angle unique.\n\nLa ligne optimale smoke un cote du site (coupe un angle), puis peek l'autre pour un 1v1 propre : tu controles ou vient le duel et le timer pousse l'ATK a s'exposer pour contester ton approche du spike. Paranoia (acceptable) peut ouvrir une entree mais s'expose a plusieurs positions inconnues. Rush le spike (couteux) te met a decouvert contre un angle prepare. Attendre passif (faute) laisse le spike exploser gratuitement.\n\nDistribution elite estimee : ~49% smoke pour isoler le duel, ~25% Paranoia pour ouvrir, ~21% rush le defuse, ~5% attendent passif (la faute). Tolerance GTO : reduire le duel a un seul angle via la smoke est l'invariant du 1v1 controle ; utiliser Paranoia pour degager est une alternative valide si tu lis la position de l'ATK. Rush aveugle et attente passive sont les erreurs.",
+  "sources": [
+    {
+      "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
+      "citation": "Turn a 1vX into a series of 1v1s; changing your spot isolates duels, and utility should block vision, force movement, buy time, or ease the next duel."
+    },
+    {
+      "url": "https://dignitas.gg/articles/hero-moments-from-vct-champions-berlin-how-isolating-your-duels-can-help-you-clutch",
+      "citation": "Isolating duels — peeking only enough to see one opponent at a time — is the key to winning clutch situations."
+    },
+    {
+      "url": "https://www.valocheck.com/guides/spike-defuse/",
+      "citation": "In a post-plant clutch the defuse timer forces action; control which angle the duel happens on rather than defusing blind against an unknown holder."
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "options[1].tier",
+      "incertitude": "Smoke-isolate (optimal) vs Paranoia-entry (acceptable) depend de si Omen a lu la position approximative de l'ATK ; avec une info claire, Paranoia sur le bon angle peut egaler l'optimal. Position ATK inconnue par design."
+    },
+    {
+      "champ": "positions.ennemis_inconnus_count",
+      "incertitude": "La position exacte du dernier ATK (sur le spike, en angle off-site, ou lurk retour) n'est pas connue ; c'est la variable qui rendrait un juge Immortal+ nuance sur l'ordre smoke vs peek."
+    },
+    {
+      "champ": "options[*].freq_elite_estimee",
+      "incertitude": "Estimations depuis guides clutch/defuse (boosteria, dignitas, valocheck) ; pas de dataset public sur la frequence smoke-isolate vs flash-entry en 1v1 retake par elo."
+    }
+  ]
+}
