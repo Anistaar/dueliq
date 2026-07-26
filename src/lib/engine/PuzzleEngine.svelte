@@ -5,6 +5,12 @@
   import { computeScore, tierLabel, tierColor } from "./puzzle_types.js";
   import PuzzleBoard from "./PuzzleBoard.svelte";
   import PuzzleHUD from "./PuzzleHUD.svelte";
+  import {
+    trackDailyCompletion,
+    fetchDailyPercentile,
+    formatPercentile,
+    type PercentileResult,
+  } from "../analytics.js";
 
   const { puzzle, onComplete } = $props<{
     puzzle: PuzzleSchema;
@@ -18,6 +24,10 @@
   let timer = $state<number>(30);
   let timerActive = $state(false);
   let copySuccess = $state(false);
+
+  // Percentile state (fetched async after goEnd)
+  let percentileResult = $state<PercentileResult | null>(null);
+  let percentileFetching = $state(false);
 
   // Randomize option order once on mount
   const shuffledOrder = $derived.by(() => {
@@ -76,9 +86,21 @@
     phase = "reveal";
   }
 
-  function goEnd() {
+  async function goEnd() {
     phase = "end";
     onComplete?.();
+
+    // Fire-and-forget: track completion event (sync beacon, silent on error)
+    if (chosenOption) {
+      trackDailyCompletion(chosenOption.tier);
+    }
+
+    // Fetch percentile async — UI degrades gracefully if it fails
+    if (chosenOption) {
+      percentileFetching = true;
+      percentileResult = await fetchDailyPercentile(chosenOption.tier);
+      percentileFetching = false;
+    }
   }
 
   // ---- Share ----
@@ -98,8 +120,11 @@
       `DuelIQ — ${puzzle.id} | ${puzzle.map.toUpperCase()} ${puzzle.theme.toUpperCase()}`,
       `Score : ${score}/1000  ${tierEmoji(tier)} ${tierLabel(tier)}`,
       `Difficulte : ${"*".repeat(puzzle.difficulty_est)}${"_".repeat(5 - puzzle.difficulty_est)}`,
-      "anistaar.github.io/dueliq"
     ];
+    if (percentileResult) {
+      lines.push(formatPercentile(percentileResult));
+    }
+    lines.push("anistaar.github.io/dueliq");
     return lines.join("\n");
   }
 
@@ -127,6 +152,8 @@
     chosenIndex = null;
     timer = 30;
     timerActive = false;
+    percentileResult = null;
+    percentileFetching = false;
     stopTimer();
   }
 </script>
@@ -263,6 +290,17 @@
           <p class="end-msg">Faute tactique — chaque situation est une lecon.</p>
         {/if}
       {/if}
+
+      <!-- Percentile widget — degrades gracefully if fetch fails or adblocked -->
+      {#if percentileFetching}
+        <div class="percentile-loading">Calcul du classement du jour...</div>
+      {:else if percentileResult}
+        <div class="percentile-badge">
+          <span class="percentile-icon">🏆</span>
+          <span class="percentile-text">{formatPercentile(percentileResult)}</span>
+        </div>
+      {/if}
+
       <button class="btn-share" onclick={copyShare}>
         {copySuccess ? "Copie !" : "Copier le resultat"}
       </button>
@@ -571,6 +609,35 @@
     max-width: 380px;
     margin: 0;
     line-height: 1.5;
+  }
+
+  /* ---- PERCENTILE ---- */
+  .percentile-loading {
+    font-size: 12px;
+    color: #475569;
+    font-family: ui-monospace, Consolas, monospace;
+    letter-spacing: 0.04em;
+    padding: 4px 0;
+  }
+  .percentile-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0f172a;
+    border: 1px solid #1e3a5f;
+    border-radius: 8px;
+    padding: 10px 18px;
+  }
+  .percentile-icon {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .percentile-text {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #60a5fa;
+    letter-spacing: 0.03em;
   }
 
   .share-preview {
