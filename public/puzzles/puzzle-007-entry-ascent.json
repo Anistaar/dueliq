@@ -129,6 +129,29 @@
       "citation": "Jett is a top entry agent because her dash and smokes create space; take first contact, your kit is built to survive or win the opening duel."
     }
   ],
+  "freeze_at_ms": 5800,
+  "timeline": [
+    { "t_ms": 0,    "type": "camera", "camera": { "x": 0, "y": 100, "w": 800, "h": 600 } },
+    { "t_ms": 400,  "type": "move",   "token": "P2", "from": { "x": 195, "y": 265 }, "to": { "x": 260, "y": 240 } },
+    { "t_ms": 700,  "type": "move",   "token": "P3", "from": { "x": 175, "y": 340 }, "to": { "x": 240, "y": 310 } },
+    { "t_ms": 1000, "type": "move",   "token": "YOU", "from": { "x": 130, "y": 265 }, "to": { "x": 180, "y": 250 } },
+    { "t_ms": 1600, "type": "util",   "zone": { "x": 380, "y": 400, "r": 70, "color": "#00D4AA", "label": "SMOKE" } },
+    { "t_ms": 2200, "type": "move",   "token": "P2", "from": { "x": 260, "y": 240 }, "to": { "x": 310, "y": 290 } },
+    { "t_ms": 2200, "type": "move",   "token": "P3", "from": { "x": 240, "y": 310 }, "to": { "x": 300, "y": 340 } },
+    { "t_ms": 2600, "type": "util",   "zone": { "x": 420, "y": 300, "r": 55, "color": "#facc15", "label": "FLASH" } },
+    { "t_ms": 3100, "type": "move",   "token": "YOU", "from": { "x": 180, "y": 250 }, "to": { "x": 330, "y": 350 } },
+    { "t_ms": 4000, "type": "camera", "camera": { "x": 100, "y": 200, "w": 700, "h": 550 } },
+    { "t_ms": 4200, "type": "kill",   "token": "E1", "label": "ENTRY KILL" },
+    { "t_ms": 4600, "type": "move",   "token": "YOU", "from": { "x": 330, "y": 350 }, "to": { "x": 390, "y": 390 } },
+    { "t_ms": 5200, "type": "move",   "token": "P2", "from": { "x": 310, "y": 290 }, "to": { "x": 370, "y": 340 } }
+  ],
+  "resolution_timeline": [
+    { "t_ms": 0,    "type": "util",   "zone": { "x": 380, "y": 400, "r": 70, "color": "#00D4AA", "label": "SMOKE" } },
+    { "t_ms": 300,  "type": "util",   "zone": { "x": 420, "y": 300, "r": 55, "color": "#facc15", "label": "FLASH" } },
+    { "t_ms": 600,  "type": "move",   "token": "YOU", "from": { "x": 130, "y": 265 }, "to": { "x": 390, "y": 390 }, "label": "DASH + CLEAR" },
+    { "t_ms": 900,  "type": "move",   "token": "P2",  "from": { "x": 195, "y": 265 }, "to": { "x": 350, "y": 310 }, "label": "TRADE SUPPORT" },
+    { "t_ms": 1200, "type": "move",   "token": "P3",  "from": { "x": 175, "y": 340 }, "to": { "x": 340, "y": 370 }, "label": "FOLLOW" }
+  ],
   "validation": {
     "status": "draft",
     "juges": []

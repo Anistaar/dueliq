@@ -1,5 +1,31 @@
-// VALIQ - Puzzle types matching the JSON schema (version 1, tache 002)
+// VALIQ - Puzzle types matching the JSON schema (version 1+, tache 002 + replay)
 // Not endorsed by Riot Games.
+
+// ── Timeline event types ─────────────────────────────────────────────────
+
+export type TimelineEventType = "move" | "util" | "kill" | "plant" | "sound" | "camera";
+
+export interface TimelineEvent {
+  t_ms: number;
+  type: TimelineEventType;
+  /** Token id for move/kill */
+  token?: string;
+  /** Move: start position */
+  from?: { x: number; y: number };
+  /** Move: end position */
+  to?: { x: number; y: number };
+  /** Util zone: center + radius */
+  zone?: { x: number; y: number; r: number; color?: string; label?: string };
+  /** Generic label */
+  label?: string;
+  /** Camera pan/zoom target */
+  camera?: {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+  };
+}
 
 export interface UtilJoueur {
   agent: string;
@@ -61,6 +87,12 @@ export interface PuzzleSchema {
   sources: { url: string; citation: string }[];
   validation: { status: "draft" | "judged"; juges: unknown[] };
   _gaps: { champ: string; incertitude: string }[];
+  /** Optional replay timeline (enables animated intro) */
+  timeline?: TimelineEvent[];
+  /** ms at which intro freezes hard for the question */
+  freeze_at_ms?: number;
+  /** Continuation timeline shown in explanation phase (optimal line) */
+  resolution_timeline?: TimelineEvent[];
 }
 
 // Scoring grid (SOP 002)

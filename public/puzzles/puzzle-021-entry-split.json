@@ -136,6 +136,31 @@
       "citation": "A strong Split attack takes some mid space, identifies where the sentinel and controller utility are stacked, then hits the weaker side with a split or late regroup."
     }
   ],
+  "freeze_at_ms": 5600,
+  "timeline": [
+    { "t_ms": 0,    "type": "camera", "camera": { "x": 150, "y": 100, "w": 700, "h": 700 } },
+    { "t_ms": 300,  "type": "move",   "token": "YOU", "from": { "x": 530, "y": 200 }, "to": { "x": 530, "y": 280 } },
+    { "t_ms": 500,  "type": "move",   "token": "P2",  "from": { "x": 490, "y": 340 }, "to": { "x": 510, "y": 400 } },
+    { "t_ms": 700,  "type": "move",   "token": "P3",  "from": { "x": 510, "y": 478 }, "to": { "x": 510, "y": 530 } },
+    { "t_ms": 900,  "type": "move",   "token": "P4",  "from": { "x": 108, "y": 560 }, "to": { "x": 180, "y": 540 } },
+    { "t_ms": 1100, "type": "move",   "token": "P5",  "from": { "x": 820, "y": 260 }, "to": { "x": 740, "y": 300 } },
+    { "t_ms": 1500, "type": "util",   "zone": { "x": 530, "y": 390, "r": 65, "color": "#00D4AA", "label": "BOOM BOT" } },
+    { "t_ms": 2000, "type": "move",   "token": "YOU", "from": { "x": 530, "y": 280 }, "to": { "x": 530, "y": 350 } },
+    { "t_ms": 2000, "type": "move",   "token": "P2",  "from": { "x": 510, "y": 400 }, "to": { "x": 510, "y": 460 } },
+    { "t_ms": 2400, "type": "util",   "zone": { "x": 480, "y": 460, "r": 55, "color": "#FF4655", "label": "PAINT SHELLS" } },
+    { "t_ms": 3000, "type": "move",   "token": "YOU", "from": { "x": 530, "y": 350 }, "to": { "x": 530, "y": 430 } },
+    { "t_ms": 3500, "type": "camera", "camera": { "x": 300, "y": 300, "w": 550, "h": 550 } },
+    { "t_ms": 4000, "type": "move",   "token": "P4",  "from": { "x": 180, "y": 540 }, "to": { "x": 270, "y": 520 } },
+    { "t_ms": 4500, "type": "move",   "token": "P5",  "from": { "x": 740, "y": 300 }, "to": { "x": 670, "y": 370 } },
+    { "t_ms": 5000, "type": "move",   "token": "YOU", "from": { "x": 530, "y": 430 }, "to": { "x": 530, "y": 490 } }
+  ],
+  "resolution_timeline": [
+    { "t_ms": 0,    "type": "util",   "zone": { "x": 530, "y": 390, "r": 65, "color": "#00D4AA", "label": "BOOM BOT MID" } },
+    { "t_ms": 300,  "type": "move",   "token": "YOU", "from": { "x": 530, "y": 200 }, "to": { "x": 530, "y": 490 }, "label": "MID CONTROL" },
+    { "t_ms": 600,  "type": "move",   "token": "P2",  "from": { "x": 490, "y": 340 }, "to": { "x": 490, "y": 600 }, "label": "A SEWER SPLIT" },
+    { "t_ms": 900,  "type": "move",   "token": "P4",  "from": { "x": 108, "y": 560 }, "to": { "x": 320, "y": 560 }, "label": "B BACK SPLIT" },
+    { "t_ms": 1200, "type": "util",   "zone": { "x": 530, "y": 560, "r": 80, "color": "#FF4655", "label": "EXECUTE" } }
+  ],
   "validation": {
     "status": "draft",
     "juges": []
