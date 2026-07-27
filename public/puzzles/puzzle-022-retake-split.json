@@ -29,24 +29,24 @@
     "allies": [
       {
         "id": "YOU",
-        "x": 150,
-        "y": 278,
+        "x": 220,
+        "y": 350,
         "orientation_deg": 45,
         "label": "SAGE",
         "est_joueur_concerne": true
       },
       {
         "id": "P2",
-        "x": 390,
-        "y": 607,
+        "x": 360,
+        "y": 440,
         "orientation_deg": 315,
         "label": "P2",
         "est_joueur_concerne": false
       },
       {
         "id": "P3",
-        "x": 280,
-        "y": 162,
+        "x": 300,
+        "y": 260,
         "orientation_deg": 90,
         "label": "P3",
         "est_joueur_concerne": false
@@ -55,8 +55,8 @@
     "ennemis_connus": [
       {
         "id": "E1",
-        "x": 320,
-        "y": 430,
+        "x": 330,
+        "y": 330,
         "orientation_deg": 270,
         "label": "E?",
         "est_joueur_concerne": false

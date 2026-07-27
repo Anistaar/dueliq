@@ -29,39 +29,30 @@
     "allies": [
       {
         "id": "YOU",
-        "x": 130,
-        "y": 265,
+        "x": 390,
+        "y": 390,
         "orientation_deg": 45,
         "label": "JETT",
         "est_joueur_concerne": true
       },
       {
         "id": "P2",
-        "x": 195,
-        "y": 265,
+        "x": 370,
+        "y": 340,
         "orientation_deg": 45,
         "label": "P2",
         "est_joueur_concerne": false
       },
       {
         "id": "P3",
-        "x": 175,
+        "x": 300,
         "y": 340,
         "orientation_deg": 45,
         "label": "P3",
         "est_joueur_concerne": false
       }
     ],
-    "ennemis_connus": [
-      {
-        "id": "E1",
-        "x": 360,
-        "y": 435,
-        "orientation_deg": 225,
-        "label": "E?",
-        "est_joueur_concerne": false
-      }
-    ],
+    "ennemis_connus": [],
     "ennemis_inconnus_count": 4
   },
   "question": "Ascent, 5v5 full-buy execute on A Site, 65s. You are Jett entry at A Main (2 smokes, dash). One DEF spotted on A Site. How do you take the entry?",

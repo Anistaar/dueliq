@@ -3,9 +3,10 @@
   // Maps are original top-down schematics. Not endorsed by Riot Games.
   import type { Positions } from "./puzzle_types.js";
 
-  const { positions, mapId } = $props<{
+  const { positions, mapId, hideTokens = false } = $props<{
     positions: Positions;
     mapId: string;
+    hideTokens?: boolean;
   }>();
 
   // Parse viewBox dimensions for token scaling (derived so reactive to prop)
@@ -297,6 +298,9 @@
       opacity="0.8"
     >SPIKE</text>
 
+    <!-- ===== TOKENS (hidden during replay — animated layer takes over) ===== -->
+    <g class="token-layer" class:tokens-hidden={hideTokens}>
+
     <!-- ===== UNKNOWN ENEMIES ===== -->
     {#each unknowns as pt, i}
       <g class="token-appear" style="animation-delay: {i * 80}ms">
@@ -505,6 +509,8 @@
       </g>
     {/each}
 
+    </g><!-- /token-layer -->
+
     <!-- ===== LEGEND ===== -->
     <g transform="translate(14, {VB_H - 68})">
       <!-- Legend background pill -->
@@ -566,6 +572,15 @@
   }
   @media (max-width: 600px) {
     .board-svg { max-height: 200px; }
+  }
+
+  /* Hide static tokens during replay — animated layer takes over */
+  :global(.token-layer) {
+    transition: opacity 0.15s ease;
+  }
+  :global(.tokens-hidden) {
+    opacity: 0;
+    pointer-events: none;
   }
 
   /* Token stagger appearance animation */

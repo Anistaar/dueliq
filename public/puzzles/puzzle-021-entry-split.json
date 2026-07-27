@@ -30,15 +30,15 @@
       {
         "id": "YOU",
         "x": 530,
-        "y": 200,
+        "y": 490,
         "orientation_deg": 90,
         "label": "RAZE",
         "est_joueur_concerne": true
       },
       {
         "id": "P2",
-        "x": 490,
-        "y": 340,
+        "x": 510,
+        "y": 460,
         "orientation_deg": 90,
         "label": "P2",
         "est_joueur_concerne": false
@@ -46,23 +46,23 @@
       {
         "id": "P3",
         "x": 510,
-        "y": 478,
+        "y": 530,
         "orientation_deg": 90,
         "label": "P3",
         "est_joueur_concerne": false
       },
       {
         "id": "P4",
-        "x": 108,
-        "y": 560,
+        "x": 270,
+        "y": 520,
         "orientation_deg": 0,
         "label": "P4",
         "est_joueur_concerne": false
       },
       {
         "id": "P5",
-        "x": 820,
-        "y": 260,
+        "x": 670,
+        "y": 370,
         "orientation_deg": 180,
         "label": "P5",
         "est_joueur_concerne": false

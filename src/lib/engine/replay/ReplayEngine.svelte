@@ -397,25 +397,88 @@
     </g>
   {/each}
 
-  <!-- ── LIVE TOKENS (moving versions on top) ── -->
+  <!-- ── DEFS (gradients/filters matching PuzzleBoard) ── -->
+  <defs>
+    <radialGradient id="re-you-grad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#b45309" />
+    </radialGradient>
+    <radialGradient id="re-ally-grad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#6ee7b7" />
+      <stop offset="100%" stop-color="#065f46" />
+    </radialGradient>
+    <radialGradient id="re-enemy-grad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </radialGradient>
+    <filter id="re-glow-yellow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.8 0 0 0  0 0 0 0 0  0 0 0 0.9 0" />
+      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <filter id="re-glow-teal" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 0.83 0.67 0 0  0 0 0.67 0 0  0 0 0 0.8 0" />
+      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <filter id="re-glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.27 0.33 0 0  0 0 0.33 0 0  0 0 0 0.8 0" />
+      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ── LIVE TOKENS (full style matching PuzzleBoard) ── -->
   {#each tokens.values() as tok}
     {#if !tok.dead}
       <g style="pointer-events:none;">
-        <!-- Moving token -->
         {#if tok.isYou}
-          <!-- YOU moving token -->
-          <circle cx={tok.x} cy={tok.y} r={R + 6}
-            fill="#facc15" opacity="0.15" />
+          <!-- YOU: pulsing ring + filled body + star icon -->
+          <circle cx={tok.x} cy={tok.y} r={R + 14}
+            fill="none" stroke="#facc15" stroke-width="1.5" opacity="0.5"
+            class="re-pulse-ring" />
+          <circle cx={tok.x} cy={tok.y} r={R + 8}
+            fill="none" stroke="#facc15" stroke-width="1"
+            stroke-dasharray="4 3" opacity="0.7" />
+          <circle cx={tok.x} cy={tok.y} r={R + 4} fill="#facc15" opacity="0.12" />
           <circle cx={tok.x} cy={tok.y} r={R}
-            fill="none" stroke="#facc15" stroke-width="3" opacity="0.9" />
+            fill="url(#re-you-grad)" stroke="#facc15" stroke-width="3"
+            filter="url(#re-glow-yellow)" />
+          <text x={tok.x} y={tok.y + 5} text-anchor="middle"
+            font-size="16" fill="#fde68a"
+            font-family="'Space Grotesk', monospace" font-weight="900">★</text>
+          <text x={tok.x} y={tok.y - R - 8} text-anchor="middle"
+            font-size="10" fill="#facc15"
+            font-family="'Space Grotesk', monospace" font-weight="700"
+            letter-spacing="0.1em">YOU</text>
         {:else if tok.isAlly}
-          <!-- Ally moving -->
+          <!-- Ally: filled body + shield icon -->
+          <circle cx={tok.x} cy={tok.y} r={R + 4} fill="#4ade80" opacity="0.08" />
           <circle cx={tok.x} cy={tok.y} r={R}
-            fill="none" stroke="#4ade80" stroke-width="2.5" opacity="0.85" />
+            fill="url(#re-ally-grad)" stroke="#4ade80" stroke-width="2.5"
+            filter="url(#re-glow-teal)" />
+          <rect x={tok.x - 8} y={tok.y - 10} width="5" height="16" rx="2" fill="#bbf7d0" opacity="0.9" />
+          <rect x={tok.x + 3} y={tok.y - 10} width="5" height="16" rx="2" fill="#bbf7d0" opacity="0.9" />
+          {#if tok.label}
+            <text x={tok.x} y={tok.y + R + 14} text-anchor="middle"
+              font-size="10" fill="#6ee7b7"
+              font-family="'Space Grotesk', monospace" font-weight="600" opacity="0.9">{tok.label}</text>
+          {/if}
         {:else}
-          <!-- Enemy moving -->
+          <!-- Enemy: filled body + X icon -->
+          <circle cx={tok.x} cy={tok.y} r={R + 6} fill="#ef4444" opacity="0.08" />
           <circle cx={tok.x} cy={tok.y} r={R}
-            fill="none" stroke="#ef4444" stroke-width="2.5" opacity="0.85" />
+            fill="url(#re-enemy-grad)" stroke="#ef4444" stroke-width="2.5"
+            filter="url(#re-glow-red)" />
+          <line x1={tok.x - 10} y1={tok.y - 10} x2={tok.x + 10} y2={tok.y + 10}
+            stroke="#fca5a5" stroke-width="2.5" stroke-linecap="round" />
+          <line x1={tok.x + 10} y1={tok.y - 10} x2={tok.x - 10} y2={tok.y + 10}
+            stroke="#fca5a5" stroke-width="2.5" stroke-linecap="round" />
+          {#if tok.label}
+            <text x={tok.x} y={tok.y + R + 14} text-anchor="middle"
+              font-size="10" fill="#fca5a5"
+              font-family="'Space Grotesk', monospace" font-weight="600" opacity="0.9">{tok.label}</text>
+          {/if}
         {/if}
       </g>
     {/if}
@@ -448,5 +511,15 @@
   @keyframes kill-appear {
     from { opacity: 0; transform: scale(0.5); }
     to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* YOU token pulse ring (mirrors PuzzleBoard .pulse-ring) */
+  :global(.re-pulse-ring) {
+    animation: re-pulse 2s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes re-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50%       { opacity: 0.15; transform: scale(1.15); }
   }
 </style>

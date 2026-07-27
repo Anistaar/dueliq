@@ -307,8 +307,8 @@
         </span>
       </div>
       <div class="board-section board-anim-wrap">
-        <!-- Static board underneath -->
-        <PuzzleBoard positions={puzzle.positions} mapId={puzzle.map} />
+        <!-- Static board underneath — tokens hidden while replay overlay is active -->
+        <PuzzleBoard positions={puzzle.positions} mapId={puzzle.map} hideTokens={true} />
         <!-- Replay animation overlay -->
         {#if puzzle.timeline}
           <ReplayEngine
