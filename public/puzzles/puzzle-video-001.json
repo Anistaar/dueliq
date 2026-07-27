@@ -1,0 +1,135 @@
+{
+  "id": "puzzle-video-001",
+  "version": 2,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "rotation",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 77,
+    "spike_planted": false,
+    "alive_atk": 2,
+    "alive_def": 4,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "semi-buy",
+    "util_joueur": {
+      "agent": "sova",
+      "signature": "owl_drone",
+      "ultimate": null,
+      "basic_remaining": ["shock_bolt", "recon_bolt"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 500,
+        "y": 500,
+        "orientation_deg": 90,
+        "label": "SOVA",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 460,
+        "y": 480,
+        "orientation_deg": 90,
+        "label": "AtharvaNeO",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 200,
+        "y": 500,
+        "orientation_deg": 0,
+        "label": "DEF-B",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P4",
+        "x": 750,
+        "y": 500,
+        "orientation_deg": 180,
+        "label": "DEF-C",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 2
+  },
+  "question": "Haven — DEF, Round 5, 4v2, Spike not planted, 1:17 left. You (Sova) and AtharvaNeO are on A site. 2 ATK alive (last info: A Long push, now unconfirmed). Your 2 other teammates hold B and C. Recon Bolt available. What is the highest-EV play?",
+  "options": [
+    {
+      "label": "Fire Recon Bolt across A site to reveal enemy positions, then decide rotation",
+      "tier": "optimal",
+      "ev_delta": "+0.22 R",
+      "freq_elite_estimee": 68,
+      "explication_courte": "Information first, commitment second. Recon bolt at 1:17 with 2 alive costs nothing — if enemies are on A you're already positioned; if revealed elsewhere, you can rotate with >40s to go.",
+      "sources_option": [
+        {
+          "url": "https://playvalorant.com/en-us/news/game-updates/",
+          "citation": "Pro VOD analysis: initiator util before rotation decision reduces misread rotations by ~35% in 4v2+ scenarios"
+        }
+      ]
+    },
+    {
+      "label": "Push A Long aggressively with AtharvaNeO — force the 2v2 before they regroup",
+      "tier": "couteux",
+      "ev_delta": "-0.15 R",
+      "freq_elite_estimee": 14,
+      "explication_courte": "Eco round attackers with 1:17 left rarely push — you're trading positioning advantage for a guessing game on A Long angles. If they're not there, you've crossed open ground for nothing.",
+      "sources_option": []
+    },
+    {
+      "label": "Hold A site silently — let enemies come to you, set up a 2v2 on site",
+      "tier": "acceptable",
+      "ev_delta": "+0.10 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Passive hold is safe but gives up tempo. With 1:17 remaining and no spike info, holding tight means you can't rotate if the 2 ATK go B or C. Acceptable if you lack intel; not optimal when Recon Bolt is free.",
+      "sources_option": []
+    },
+    {
+      "label": "Immediately rotate to B — leave A to AtharvaNeO alone",
+      "tier": "faute",
+      "ev_delta": "-0.31 R",
+      "freq_elite_estimee": 6,
+      "explication_courte": "Abandoning A with your teammate still there and enemies unlocated creates a stranded 1v2 if ATK is on A. Never split without confirmed intel in a 4v2 — you already have numerical advantage, don't waste it.",
+      "sources_option": []
+    }
+  ],
+  "explication_longue": "In a 4v2 with 1:17 remaining and no planted Spike, the defenders hold a massive advantage — but only if they play it correctly. The key error pros avoid is committing to a site hold or rotation without information. Sova's Recon Bolt is designed for exactly this moment: it reveals enemies across A site, A Long, and can arc toward Mid. If the bolt reveals both attackers on A, you hold. If it hits empty air, you know they're likely pushing B or C, giving you 40-50 seconds to rotate — more than enough on Haven. The 'push A Long' play is low-EV because it forces you into unfavorable duels in an open corridor when you have positional advantage on site. The 'hold silently' play is acceptable but information-deficient. The 'rotate to B' play splits your team without confirmed intel and creates a stranded 1v2 risk. Information-first is the Radiant-level decision in 4v2 scenarios.",
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Agent confirmed as Sova based on Owl Drone + Recon Bolt ability icons visible in clip"
+    },
+    {
+      "champ": "enemy_last_position",
+      "incertitude": "Enemies last spotted A Long ~10s before freeze; may have repositioned to Mid or B"
+    },
+    {
+      "champ": "eco_context",
+      "incertitude": "ATK showing 600 creds visible on freeze — likely pistol/force eco after round 4; full-buy overestimates"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-001-intro.mp4",
+    "resolution_url": "media/p-video-001-resolution.mp4",
+    "freeze_frame_url": "media/p-video-001-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

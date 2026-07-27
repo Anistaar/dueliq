@@ -23,10 +23,18 @@
 
   const BASE = import.meta.env.BASE_URL; // '/dueliq/'
   // Preview override: ?p=007 loads a specific puzzle (playtest/deep-links; daily streak logic untouched)
+  // Supports ?p=007 (numeric → looks in DAILY_PUZZLES) or ?p=video-001 (literal slug → direct file)
   const previewParam = new URLSearchParams(location.search).get("p");
-  const previewFile = previewParam
-    ? (DAILY_PUZZLES.find((f) => f.includes(`puzzle-${previewParam.padStart(3, "0")}`)) ?? null)
-    : null;
+  let previewFile: string | null = null;
+  if (previewParam) {
+    if (/^\d+$/.test(previewParam)) {
+      // Numeric: find in daily rotation
+      previewFile = DAILY_PUZZLES.find((f) => f.includes(`puzzle-${previewParam.padStart(3, "0")}`)) ?? null;
+    } else {
+      // Slug: direct filename, e.g. "video-001" → "puzzle-video-001.json"
+      previewFile = `puzzle-${previewParam}.json`;
+    }
+  }
   const isPreview = previewFile !== null;
   const puzzleFile = previewFile ?? todayPuzzleFile();
   const dayNum = dailyNumber();

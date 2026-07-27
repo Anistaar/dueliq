@@ -72,6 +72,23 @@ export interface PuzzleOptionSchema {
   sources_option: { url: string; citation: string }[];
 }
 
+// ── Video puzzle support ─────────────────────────────────────────────────────
+
+export interface VideoPuzzle {
+  /** URL to intro clip (plays up to freeze, muted autoplay) */
+  intro_url: string;
+  /** URL to resolution clip (plays in explanation phase) */
+  resolution_url: string;
+  /** URL to JPEG freeze frame (displayed while question is shown) */
+  freeze_frame_url: string;
+  /** Channel/creator credit for attribution */
+  credit: string;
+  /** License text (e.g. "Creative Commons Attribution") */
+  license: string;
+  /** Optional license URL */
+  license_url?: string;
+}
+
 export interface PuzzleSchema {
   id: string;
   version: number;
@@ -93,6 +110,8 @@ export interface PuzzleSchema {
   freeze_at_ms?: number;
   /** Continuation timeline shown in explanation phase (optimal line) */
   resolution_timeline?: TimelineEvent[];
+  /** Optional video puzzle config — when present, VideoEngine replaces PuzzleBoard */
+  video?: VideoPuzzle;
 }
 
 // Scoring grid (SOP 002)

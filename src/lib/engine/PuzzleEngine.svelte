@@ -7,6 +7,7 @@
   import PuzzleHUD from "./PuzzleHUD.svelte";
   import ReplayEngine from "./replay/ReplayEngine.svelte";
   import ReplayExplanation from "./replay/ReplayExplanation.svelte";
+  import VideoEngine from "./VideoEngine.svelte";
   import {
     trackDailyCompletion,
     fetchDailyPercentile,
@@ -22,10 +23,13 @@
   }>();
 
   const hasTimeline = !!(puzzle.timeline && puzzle.timeline.length > 0 && puzzle.freeze_at_ms);
+  const hasVideo = !!puzzle.video;
 
   // ── Phase state machine ────────────────────────────────────────────────────
-  // Phases: "intro" → (if timeline) "replay" → "freeze" → "playing" → "grade_flash" → "reveal" → "end"
-  type Phase = "intro" | "replay" | "freeze" | "playing" | "grade_flash" | "reveal" | "end";
+  // Phases: "intro" → (if video) "video_intro" → "video_question" → "grade_flash" → "video_reveal" → "end"
+  //         "intro" → (if timeline) "replay" → "freeze" → "playing" → "grade_flash" → "reveal" → "end"
+  type Phase = "intro" | "replay" | "freeze" | "playing" | "grade_flash" | "reveal" | "end"
+    | "video_intro" | "video_question" | "video_reveal";
   let phase = $state<Phase>("intro");
 
   let chosenIndex = $state<number | null>(null);
@@ -108,7 +112,9 @@
   // ── Actions ───────────────────────────────────────────────────────────────
 
   function startPlay() {
-    if (hasTimeline) {
+    if (hasVideo) {
+      phase = "video_intro";
+    } else if (hasTimeline) {
       phase = "replay";
       replayPlaying = true;
     } else {
@@ -117,6 +123,24 @@
       timer = 15;
       startTimer();
     }
+  }
+
+  /** Called by VideoEngine when intro clip ends — show freeze + question */
+  function onVideoIntroEnded() {
+    phase = "video_question";
+  }
+
+  /** Called when user picks an option in video mode */
+  function videoChoose(originalIndex: number) {
+    if (phase !== "video_question") return;
+    chosenIndex = originalIndex;
+    const tier = puzzle.options[originalIndex].tier;
+    gradeGrade = tierToGrade(tier);
+    phase = "grade_flash";
+    playSfxGrade(gradeGrade);
+    setTimeout(() => {
+      phase = "video_reveal";
+    }, 1400);
   }
 
   /** Called by ReplayEngine when freeze_at_ms is hit */
@@ -240,6 +264,15 @@
     stopTimer();
   }
 
+  // Video phase helper for VideoEngine component
+  const videoPhase = $derived.by((): "intro" | "question" | "grade_flash" | "reveal" => {
+    if (phase === "video_intro") return "intro";
+    if (phase === "video_question") return "question";
+    if (phase === "grade_flash" && hasVideo) return "grade_flash";
+    if (phase === "video_reveal") return "reveal";
+    return "intro";
+  });
+
   function tierGrade(tier: OptionTier): string {
     return tierToGrade(tier);
   }
@@ -277,22 +310,82 @@
         {#if puzzle.validation.status === "draft"}
           <span class="badge beta" title="Answers sourced from pro guides — Immortal+ judge review in progress">Community beta</span>
         {/if}
+        {#if hasVideo}
+          <span class="badge video-badge">VIDEO</span>
+        {/if}
       </div>
       <PuzzleHUD state={puzzle.round_state} side={puzzle.side} />
-      <div class="board-section">
-        <PuzzleBoard positions={puzzle.positions} mapId={puzzle.map} />
-      </div>
+      {#if !hasVideo}
+        <div class="board-section">
+          <PuzzleBoard positions={puzzle.positions} mapId={puzzle.map} />
+        </div>
+      {/if}
       <div class="question-box">
-        <div class="question-tag">SITUATION</div>
+        <div class="question-tag">{hasVideo ? "VIDEO PUZZLE" : "SITUATION"}</div>
         <p class="question">{puzzle.question}</p>
       </div>
-      {#if hasTimeline}
+      {#if hasVideo}
+        <p class="replay-hint">Watch the real gameplay clip — then make your call before the freeze.</p>
+      {:else if hasTimeline}
         <p class="replay-hint">The situation will play out — watch carefully before the freeze.</p>
       {/if}
       <button class="btn-primary" tabindex="0" onclick={startPlay}>
         <span class="btn-icon">▶</span>
-        <span>Play →</span>
+        <span>{hasVideo ? "Watch clip →" : "Play →"}</span>
       </button>
+    </div>
+
+  <!-- ===== VIDEO ENGINE PHASES ===== -->
+  {:else if phase === "video_intro" || phase === "video_question" || (phase === "grade_flash" && hasVideo) || phase === "video_reveal"}
+    <div class="phase-video fade-in">
+      <div class="meta-row">
+        <span class="badge map">{puzzle.map.toUpperCase()}</span>
+        <span class="badge theme">{puzzle.theme.toUpperCase()}</span>
+        <span class="badge side">{puzzle.side}</span>
+        <span class="badge video-badge">VIDEO</span>
+      </div>
+      {#if puzzle.video}
+        <VideoEngine
+          video={puzzle.video}
+          question={puzzle.question}
+          options={puzzle.options}
+          explication_longue={puzzle.explication_longue}
+          onChoose={videoChoose}
+          chosenIndex={chosenIndex}
+          phase={videoPhase}
+          onIntroEnded={onVideoIntroEnded}
+        />
+      {/if}
+      {#if phase === "video_reveal"}
+        <!-- EV table summary -->
+        <div class="ev-table" style="margin-top: 8px;">
+          <div class="ev-table-title">
+            <span class="ev-table-icon">◈</span>
+            EV breakdown
+          </div>
+          {#each puzzle.options as opt, i}
+            {@const barW = evBarPercent(opt)}
+            {@const color = tierColor(opt.tier)}
+            {@const isChosen = chosenOption !== null && opt === chosenOption}
+            <div class="ev-bar-row" class:is-chosen={isChosen} style="animation-delay: {i * 80 + 200}ms">
+              <div class="ev-bar-left">
+                <span class="ev-tier-label" style="color: {color}; border-color: {color}40; background: {color}12">{tierGrade(opt.tier)}</span>
+                <span class="ev-opt-label" class:ev-chosen-text={isChosen}>{opt.label.slice(0, 50)}{opt.label.length > 50 ? "…" : ""}</span>
+              </div>
+              <div class="ev-bar-track">
+                <div class="ev-bar-fill" style="width: {barW}%; background: {color}; box-shadow: 0 0 8px {color}50;"></div>
+              </div>
+              <span class="ev-value" style="color: {color}">{opt.ev_delta}</span>
+            </div>
+          {/each}
+        </div>
+        <div class="reveal-actions">
+          <button class="btn-primary" onclick={goEnd}>
+            <span class="btn-icon">◆</span>
+            Final score →
+          </button>
+        </div>
+      {/if}
     </div>
 
   <!-- ===== REPLAY (animated intro) ===== -->
@@ -620,6 +713,14 @@
   .diff-star      { color: #fbbf24; font-size: 10px; }
   .diff-star.empty { color: #2d2009; }
   .badge.beta  { background: #0f172a; color: #64748b; border-color: #1e293b; cursor: help; }
+  .badge.video-badge { background: #1a0a0f; color: #FF4655; border-color: #7f1d1d; font-weight: 700; }
+
+  /* ── VIDEO PHASE ── */
+  .phase-video {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   /* ── REPLAY BADGES ── */
   .replay-badge {
