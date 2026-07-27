@@ -16,7 +16,10 @@
       "agent": "viper",
       "signature": "poison-cloud",
       "ultimate": null,
-      "basic_remaining": ["snakebite", "toxic-screen"]
+      "basic_remaining": [
+        "snakebite",
+        "toxic-screen"
+      ]
     }
   },
   "positions": {
@@ -43,22 +46,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 3
   },
-  "question": "Spike plante A Site Bind, 2v3, 33s. Tu es Viper (1 Snakebite, Toxic Screen, Poison Cloud) vers A Long, ton allie couvre A Short. Comment jouer le post-plant en desavantage numerique ?",
+  "question": "Spike planted A Site Bind, 2v3, 33s. You are Viper (1 Snake Bite, Toxic Screen, Poison Cloud) toward A Long, teammate covers A Short. How do you hold post-plant?",
   "options": [
     {
-      "label": "Poser un crossfire A Long / A Short avec ton allie et garder ta Snakebite en reserve pour le defuse",
+      "label": "Set a crossfire A Long / A Short with your teammate and save the Snake Bite for the defuse attempt",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 52,
-      "explication_courte": "En 2v3 le temps est ton allie : deux angles distincts forcent un trade, et garder la Snakebite pour le moment du defuse est l'outil de retard le plus fiable contre 3 defuseurs.",
+      "explication_courte": "In a 2v3 the timer is your ally: two distinct angles force a trade, and saving the Snake Bite for the defuse moment is the highest-value use of your molly.",
       "sources_option": []
     },
     {
-      "label": "Poser le mur (Toxic Screen) pour couper A Site en deux et isoler les duels A Long, en gardant la Snakebite",
+      "label": "Deploy Toxic Screen to split A Site in two and isolate the A Long duels, save the molly",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Couper le site reduit les sightlines et isole les duels a ton avantage, mais en 2v3 ca peut ceder trop d'espace d'un cote et laisser le defuse partir hors mur.",
+      "explication_courte": "Cutting the site reduces sightlines and isolates duels in your favor, but in a 2v3 splitting the site may cede too much space too early.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
@@ -67,11 +70,11 @@
       ]
     },
     {
-      "label": "Balancer la Snakebite sur le spike immediatement pour deny le defuse tant que les DEF n'ont pas contact",
+      "label": "Throw the Snake Bite onto the spike immediately to deny the defuse before the 3 DEF get organized",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 18,
-      "explication_courte": "Jeter la molly avant tout contact la gaspille : elle expire avant que les 3 DEF ne s'engagent reellement au defuse, et tu perds ton outil de retard au moment critique.",
+      "explication_courte": "Throwing the molly before contact wastes it: it expires before the 3 DEF actually engage, and you lose your most valuable delay tool.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
@@ -80,11 +83,11 @@
       ]
     },
     {
-      "label": "Rusher A Short avec ton allie pour chercher un pick avant que les 3 DEF n'arrivent groupes",
+      "label": "Rush A Short with your teammate to fish for a pick before the 3 DEF arrive grouped",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Quitter le post-plant pour peek en 2v3 donne le trade a l'ennemi et libere le spike : tu abandonnes l'avantage du timer pour un duel desavantageux.",
+      "explication_courte": "Leaving post-plant to peek in a 2v3 hands the enemy a trade and frees the spike: you abandon your time advantage for a gamble.",
       "sources_option": [
         {
           "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
@@ -93,7 +96,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : post-plant 2v3 sur A Site Bind, spike pose, 33 secondes. Tu es Viper avec une Snakebite, ton mur (Toxic Screen), Poison Cloud ; tu tiens vers A Long, ton allie couvre A Short. Trois DEF vivants vont retaker.\n\nEn desavantage numerique post-plant, trois principes se combinent : (1) le temps joue POUR l'attaquant qui a plante — chaque seconde force les DEF a s'exposer ; (2) deux angles distincts (crossfire) forcent un trade et empechent un duel isole ; (3) l'util de retard (ici la Snakebite) doit etre reservee au moment ou un DEF commence reellement le defuse, pas depensee a l'aveugle.\n\nLa ligne optimale garde le crossfire A Long / A Short et la Snakebite en reserve : tu ne cedes pas d'espace gratuitement, et au son du defuse tu balances la molly sur le spike pour reset le timer de 7 secondes. Poser le mur (acceptable) est defendable pour isoler les duels A Long, mais en 2v3 ca peut ouvrir le defuse de l'autre cote. Jeter la Snakebite trop tot (couteux) gaspille l'outil. Rusher pour un pick (faute) donne le trade a l'ennemi et libere le spike.\n\nDistribution elite estimee : ~52% tiennent crossfire + Snakebite reservee, ~24% posent le mur pour isoler, ~18% jettent la molly trop tot, ~5% rushent (la faute). Tolerance GTO : garder l'util de retard pour le defuse ET tenir deux angles distincts sont les invariants ; peek en desavantage numerique est l'erreur.",
+  "explication_longue": "Situation: 2v3 post-plant on A Site Bind, spike planted, 33 seconds. You are Viper with a Snake Bite, Toxic Screen, Poison Cloud; holding toward A Long, teammate covers A Short. Three DEF will retake.\n\nIn a 2v3 post-plant, time is your greatest ally: the defenders must defuse before detonation, so YOU hold all the leverage. Optimal play is patience: set a crossfire at two distinct angles (A Long and A Short), let the DEF come to you, force a trade, and save the Snake Bite for the exact moment a DEF touches the spike. The molly on the defuse is worth far more than an early throw.\n\nDeploying Toxic Screen (acceptable) to split the site can isolate duels - but in a 2v3 it may cede space too early. Throwing the molly immediately before contact (costly) wastes it: it expires before the DEF engage. Rushing to fish for picks (mistake) abandons your post-plant leverage entirely.\n\nEstimated elite distribution: ~54% crossfire + saved molly, ~22% Toxic Screen split, ~16% early molly (costly), ~6% rush for picks (mistake).",
   "sources": [
     {
       "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",

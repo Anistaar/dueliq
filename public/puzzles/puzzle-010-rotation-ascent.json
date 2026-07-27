@@ -16,7 +16,10 @@
       "agent": "killjoy",
       "signature": "turret",
       "ultimate": null,
-      "basic_remaining": ["nanoswarm", "alarmbot"]
+      "basic_remaining": [
+        "nanoswarm",
+        "alarmbot"
+      ]
     }
   },
   "positions": {
@@ -52,22 +55,22 @@
     ],
     "ennemis_inconnus_count": 3
   },
-  "question": "Ascent DEF, tu tiens B a 2 (Killjoy). Ton Alarmbot ping 1 ATK Mid Top, ton allie A dit A Main silencieux. Les ATK ont perdu Mid tot. 40s. Que fais-tu ?",
+  "question": "Ascent DEF, you hold B at 2 (Killjoy). Your Alarmbot pings 1 ATK Mid Top, your A teammate says A Main is quiet. ATK grabbed Mid. How do you call it?",
   "options": [
     {
-      "label": "Rester B avec ta setup, prep une rotation courte : Mid controle par les ATK menace B via Market autant que A",
+      "label": "Stay on B with your setup, prep a short rotate: Mid control threatens B via Market as much as A via Catwalk",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 49,
-      "explication_courte": "Le controle Mid adverse leur donne un split rapide sur B (via Market) autant que sur A. Tenir B avec la setup Killjoy et une rotation prete couvre la menace la plus directe sur ton site.",
+      "explication_courte": "ATK Mid control opens a fast B split (via Market) as much as an A hit (Catwalk). Holding B with your Killjoy setup keeps the intel and the site covered.",
       "sources_option": []
     },
     {
-      "label": "Rotate tot vers A pour renforcer ton allie seul, en supposant que le Mid-take annonce un hit A via Catwalk/Tree",
+      "label": "Rotate early toward A to back up your solo A teammate, reading the Mid take as a Catwalk hit incoming",
       "tier": "acceptable",
       "ev_delta": "-0.3 round EV",
       "freq_elite_estimee": 26,
-      "explication_courte": "Le controle Mid alimente souvent un hit A (Catwalk) ; renforcer un allie seul est defendable, mais quitter B avant confirmation laisse ton site nu si le split part B via Market.",
+      "explication_courte": "Mid control often feeds a Catwalk hit on A; reinforcing a solo teammate is defensible, but you abandon B and your Killjoy setup for an unconfirmed read.",
       "sources_option": [
         {
           "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
@@ -76,11 +79,11 @@
       ]
     },
     {
-      "label": "Push Mid en 2 avec ton allie B pour reprendre le controle Mid perdu et contester le joueur pinge",
+      "label": "Push Mid with your B teammate to contest the ATK and reclaim Mid control",
       "tier": "couteux",
       "ev_delta": "-0.5 round EV",
       "freq_elite_estimee": 20,
-      "explication_courte": "Reprendre Mid en 2 quitte ton site et t'engage dans un espace controle par les ATK ; en 4v4 tu risques de te faire trade et de laisser B et A ouverts en meme temps.",
+      "explication_courte": "Pushing Mid 2v4 abandons your site and engages on ATK-controlled ground; in a 4v4 you risk losing both Mid and B in one play.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
@@ -89,11 +92,11 @@
       ]
     },
     {
-      "label": "Vider ton Alarmbot + Nanoswarm dans Mid immediatement pour deny le controle, sans garder d'util pour le hit",
+      "label": "Dump Alarmbot + Nanoswarm into Mid immediately to deny their control, burn all setup now",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Gaspiller la setup Killjoy dans Mid avant le hit laisse ton site sans util quand le split arrive : l'util de site est ce qui gagne le retard, pas un deny premature de Mid.",
+      "explication_courte": "Wasting your Killjoy setup in Mid before any hit lands leaves your site undefended when the split arrives - the setup is worthless away from a plant spot.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
@@ -102,7 +105,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Ascent, tu defends B a 2 (toi Killjoy avec setup + un allie B), un 3e coequipier est A, un 4e est tombe (4v4). Ton Alarmbot ou l'info d'equipe pinge un ATK Mid Top ; A Main est silencieux ; les ATK ont pris le controle Mid tot. 40 secondes.\n\nLe principe cle : le controle Mid est une autoroute de rotation ET d'attaque. Sur Ascent, une equipe qui controle Mid peut split sur B via Market (CT link) autant que sur A via Catwalk. Donc un Mid-take n'annonce pas forcement un hit A : il menace les deux sites, avec un avantage de tempo pour les ATK. La regle : ne pas quitter un site menace sur une hypothese non confirmee.\n\nLa ligne optimale garde ta setup Killjoy sur B (le site que le Mid-control menace le plus directement via Market) avec une rotation courte prete si l'info bascule clairement A. Ta setup (Turret + Nanoswarm + Alarmbot) est ce qui te fait gagner du temps sur le hit ; tu la gardes intacte. Rotate tot vers A (acceptable) est defendable car Mid alimente souvent Catwalk, mais laisse B nu au split Market. Push Mid en 2 (couteux) t'engage en espace adverse. Vider l'util dans Mid (faute) te prive de la setup au moment du vrai hit.\n\nDistribution elite estimee : ~49% tiennent B setup + rotation prete, ~26% rotate tot A, ~20% push Mid (couteux), ~5% gaspillent l'util (la faute). Tolerance GTO : tenir le site menace avec une rotation prete OU renforcer un allie seul sont deux lectures defendables du split ; push Mid et deny premature sont les erreurs.",
+  "explication_longue": "Situation: Ascent, you defend B at 2 (you Killjoy with setup + one B teammate), third teammate on A, fourth is down (4v4). Alarmbot or team callout pings 1 ATK Mid Top; A Main is quiet.\n\nKey rotation principle: holding your site with intel beats rotating on an unconfirmed signal. On Ascent, ATK Mid control is ambiguous - it opens a B split via Market just as much as an A hit via Catwalk. Your Killjoy setup is your most powerful defensive asset; abandoning it for an early A rotate removes that for an unconfirmed threat.\n\nThe correct line: stay B, keep setup active, let the round develop. If the Mid ATK commits to A via Catwalk, your A teammate calls it and you make an informed rotate through Mid or CT. Early A rotate (acceptable) is defensible if your read on Catwalk is strong, but burns B. Pushing Mid in 2 (costly) fights on ATK-controlled ground. Dumping setup into Mid (mistake) wastes every defensive piece in the wrong location.\n\nEstimated elite distribution: ~54% hold B + conditional rotate, ~23% early A rotate, ~17% Mid push (costly), ~4% dump setup (mistake).",
   "sources": [
     {
       "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",

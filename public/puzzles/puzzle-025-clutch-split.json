@@ -16,7 +16,11 @@
       "agent": "omen",
       "signature": "dark-cover",
       "ultimate": null,
-      "basic_remaining": ["dark-cover", "paranoia", "shrouded-step"]
+      "basic_remaining": [
+        "dark-cover",
+        "paranoia",
+        "shrouded-step"
+      ]
     }
   },
   "positions": {
@@ -44,22 +48,22 @@
     ],
     "ennemis_inconnus_count": 1
   },
-  "question": "Clutch 1v2 post-plant A Site Split, spike plante, 30s. Tu es Omen sur site, 1 DEF repere descend de A Heaven (surplomb), 1 inconnu. Comment gerer le 1v2 avec ta verticalite adverse ?",
+  "question": "Clutch 1v2 post-plant A Site Split, spike planted, 30s. You are Omen on site, 1 DEF spotted descending from A Heaven (high-ground), 1 unknown. How do you clutch?",
   "options": [
     {
-      "label": "Dark Cover (smoke) sous A Heaven pour couper le surplomb, isoler le DEF au sol et jouer les duels un a un pres du spike",
+      "label": "Dark Cover (smoke) under A Heaven to cut the high-ground, isolate the low-ground DEF, and duel them sequentially",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 50,
-      "explication_courte": "En 1v2 la regle est de ne jamais affronter les deux en meme temps ; sur Split le danger #1 est le surplomb Heaven, smoker dessous neutralise l'angle vertical et reduit le retake a des 1v1 au sol.",
+      "explication_courte": "In a 1v2 never fight both at once; on Split the main danger is the vertical Heaven threat. Smoke the high-ground, duel the low DEF first, then re-clear Heaven.",
       "sources_option": []
     },
     {
-      "label": "Paranoia vers l'acces du site pour aveugler les DEF a l'entree et prendre un duel a l'aveugle",
+      "label": "Paranoia toward the site entry to blind the incoming DEF and take a duel through the flash",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Paranoia aveugle et gagne du tempo, mais elle ne couvre pas l'angle vertical Heaven ; contre un DEF au surplomb la flash peut le rater et tu prends le duel bas sans info sur le haut.",
+      "explication_courte": "Paranoia buys tempo and can blind an angle, but it does not cover the vertical Heaven threat; against a DEF descending from above, you remain exposed.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
@@ -68,11 +72,11 @@
       ]
     },
     {
-      "label": "Shrouded Step (TP) vers un flanc pour reprendre les DEF par surprise depuis un autre angle",
+      "label": "Shrouded Step (teleport) to flank and catch the DEF from an unexpected angle",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 18,
-      "explication_courte": "TP flanquer en 1v2 quitte le spike et t'expose aux deux DEF en mouvement : tu perds le controle du defuse et le son du TP te revele avant l'arrivee.",
+      "explication_courte": "Teleport-flanking in a 1v2 takes you away from the spike and exposes you to both DEF in motion: you lose track of the defuse and your positioning.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
@@ -81,11 +85,11 @@
       ]
     },
     {
-      "label": "Peek A Heaven directement pour tuer le DEF vu avant qu'il ne descende",
+      "label": "Peek A Heaven directly to kill the spotted DEF before they descend",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Peek le DEF au surplomb Heaven t'expose au 2e DEF inconnu qui peut te trade instantanement : tu affrontes les deux en meme temps, l'erreur cardinale du 1v2.",
+      "explication_courte": "Peeking Heaven directly exposes you to the second unknown DEF who can instantly trade: you fight both simultaneously on the most telegraphed angle on the map.",
       "sources_option": [
         {
           "url": "https://www.exitlag.com/blog/split-valorant/",
@@ -94,7 +98,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : clutch 1v2 post-plant A Site Split, spike plante, 30 secondes. Tu es Omen avec Dark Cover, Paranoia, Shrouded Step ; 1 DEF repere descend de A Heaven (surplomb), 1 inconnu.\n\nLe principe cardinal du 1v2 est de transformer le combat en une serie de 1v1 : ne jamais affronter les deux adversaires en meme temps. Sur Split, la menace specifique est la verticalite — A Heaven surplombe le site et un DEF la-haut peut te prendre en meme temps qu'un DEF au sol. Le timer joue pour toi (spike plante), donc tu peux te permettre d'isoler.\n\nLa ligne optimale pose le Dark Cover sous A Heaven : couper le surplomb neutralise l'angle vertical et reduit le retake a des 1v1 au sol que tu peux gerer un par un pres du spike. Paranoia (acceptable) aveugle et gagne du tempo mais ne couvre pas le vertical ; contre un DEF au surplomb elle peut le rater. Shrouded Step flank (couteux) quitte le spike, t'expose aux deux et se fait entendre. Peek Heaven direct (faute) t'expose au 2e DEF inconnu qui te trade — affronter les deux a la fois, l'erreur cardinale.\n\nDistribution elite estimee : ~50% smokent sous Heaven pour isoler, ~22% Paranoia l'entree, ~18% TP flank, ~5% peek Heaven direct (la faute). Tolerance GTO : couper l'angle vertical pour isoler les duels est l'invariant du 1v2 sur Split ; peek le surplomb en ignorant le 2e DEF est l'erreur.",
+  "explication_longue": "Situation: 1v2 clutch post-plant on A Site Split, spike planted, 30 seconds. You are Omen with Dark Cover, Paranoia, Shrouded Step; 1 DEF spotted descending from A Heaven, 1 unknown.\n\nCore 1v2 principle: never fight both defenders simultaneously - isolate one 1v1 at a time. On Split, A Heaven is the defining high-ground: a DEF descending from above has a vertical angle you cannot peek without exposing yourself to the unknown second DEF at ground level.\n\nOptimal sequence: smoke under A Heaven to cut the high-ground line (no vertical threat), duel the low-ground DEF first with the isolated angle, then deal with the Heaven DEF once you have numbers parity. Paranoia (acceptable) buys tempo but does not solve the vertical Heaven problem. Shrouded Step flanking (costly) takes you away from the spike and puts you between two moving defenders. Peeking Heaven directly (mistake) fights both defenders at once on the most obvious angle.\n\nEstimated elite distribution: ~54% smoke Heaven + sequential duels, ~22% Paranoia entry, ~16% Shrouded Step flank (costly), ~6% direct Heaven peek (mistake).",
   "sources": [
     {
       "url": "https://www.exitlag.com/blog/split-valorant/",

@@ -16,7 +16,11 @@
       "agent": "raze",
       "signature": "boom-bot",
       "ultimate": null,
-      "basic_remaining": ["blast-pack", "paint-shells", "boom-bot"]
+      "basic_remaining": [
+        "blast-pack",
+        "paint-shells",
+        "boom-bot"
+      ]
     }
   },
   "positions": {
@@ -67,22 +71,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Debut de round Split, 5v5 full-buy, personne mort. Tu es Raze a Mid Top avec ta team etalee. Comment ouvrir le round pour maximiser les options de site ?",
+  "question": "Round start Split, 5v5 full-buy, no one dead. You are Raze at Mid Top with your team spread out. How do you open the round to maximize offensive options?",
   "options": [
     {
-      "label": "Contester Mid en priorite (Vents + Mid Bot) avec util pour ouvrir les splits Sewer vers A et B Back vers B",
+      "label": "Contest Mid first (Vents + Mid Bot) with util to open the A Sewer and B Back splits, creating a two-site dilemma",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 50,
-      "explication_courte": "Sur Split le controle de Mid est le pivot du round : il ouvre A Sewer et B Back, transformant un push de choke en execute multi-angles. Prendre Mid en premier maximise les options de site.",
+      "explication_courte": "On Split, Mid control is the round pivot: it opens A Sewer and B Back and turns a one-dimensional push into a split the DEF cannot answer with standard rotations.",
       "sources_option": []
     },
     {
-      "label": "Executer directement A Main en groupe avec smokes et flashs sans toucher Mid",
+      "label": "Execute directly onto A Main grouped with smokes and flashes, skip Mid entirely",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 25,
-      "explication_courte": "Un default hit A Main groupe est jouable, mais sans controle Mid tu attaques un choke unidimensionnel et laisses les DEF rotate/flanquer par Mid librement.",
+      "explication_courte": "A grouped default hit on A Main is playable, but without Mid control you attack a one-dimensional choke that DEF have set up for.",
       "sources_option": [
         {
           "url": "https://www.switchbladegaming.com/valorant/split-map-guide/",
@@ -91,11 +95,11 @@
       ]
     },
     {
-      "label": "Poster un OPer en Vents et un autre en Heaven-cote pour lock deux angles verticaux Mid",
+      "label": "Post one OP in Vents and another at Heaven-side to lock two vertical Mid angles passively",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 17,
-      "explication_courte": "Double-OP passif sur deux angles verticaux immobilise deux joueurs sans prendre d'espace ; sur Split il vaut mieux double-stack un seul cote pour un split reel.",
+      "explication_courte": "Double-OP passive on two vertical angles immobilizes two players without taking any space; on Split, controlling Mid actively is far more valuable than locking angles.",
       "sources_option": [
         {
           "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
@@ -104,11 +108,11 @@
       ]
     },
     {
-      "label": "Rusher A Ramp en solo tot pour chercher un pick avant que la team ne soit en place",
+      "label": "Rush A Ramp solo early to fish for a pick before your team is in position",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Un solo-rush A Ramp non-tradé se fait punir : tu donnes un pick gratuit, casse le tempo d'equipe et n'ouvre aucun espace exploitable pour le reste du groupe.",
+      "explication_courte": "A solo A Ramp rush before the team is set gets punished: you hand the enemy a free pick, break team tempo, and alert DEF to the A side early.",
       "sources_option": [
         {
           "url": "https://thunderpick.io/blog/split-map-strategy",
@@ -117,7 +121,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : debut de round Split, 5v5 full-buy des deux cotes, tu es Raze a Mid Top avec ton equipe etalee. La question est comment ouvrir le round pour maximiser les options offensives.\n\nSplit est la map ou le controle de Mid est le pivot strategique du round : contrairement a un choke unidimensionnel, Mid ouvre DEUX splits — A Sewer vers A Site et B Back vers B Site. Prendre Mid en premier (Vents + Mid Bot), en nettoyant les DEF dans les vents et sur les ropes avec ta util Raze (Boom Bot pour l'info, Paint Shells pour deloger), transforme un push a angle unique en execute multi-angles. C'est l'invariant offensif de la map.\n\nLa ligne optimale conteste Mid en priorite : une fois Mid pris, tu identifies ou la util sentinelle/controleur est stackee, puis tu hit le cote faible en split ou late regroup. Executer A Main direct (acceptable) est jouable en default mais laisse Mid aux DEF pour rotate et flanquer. Double-OP Vents+Heaven (couteux) immobilise deux joueurs sur des angles passifs sans prendre d'espace — les guides recommandent plutot de double-stack un cote. Rusher A Ramp solo (faute) donne un pick gratuit et casse le tempo.\n\nDistribution elite estimee : ~50% contestent Mid en premier, ~25% executent A Main direct, ~17% posent le double-OP vertical, ~5% rushent solo (la faute). Tolerance GTO : prendre l'espace Mid AVANT de choisir le site est l'invariant Split ; le solo-rush tot est l'erreur de tempo.",
+  "explication_longue": "Situation: round start Split, 5v5 full-buy both sides, you are Raze at Mid Top with your team spread. The question is how to open the round for maximum offensive options.\n\nSplit is the map where Mid control decides round structure. Holding Mid means: (1) A Sewer opens a split onto A Site from below, (2) B Back opens a split onto B Site. Without Mid, every execute is one-dimensional and DEF can set up chokepoint holds. The Radiant opening is to use util (Boom Bot, smokes, flashes) to contest Vents and Mid Bot early, then call the resulting split based on DEF reaction.\n\nA grouped A Main execute (acceptable) is viable if Mid is not contested, but you attack into a choke DEF have prepared. Double-OP passive on vertical angles (costly) immobilizes two players without taking space - passive holding loses to DEF who set up freely. Solo A Ramp rush (mistake) breaks team tempo and hands a free pick before execution even starts.\n\nEstimated elite distribution: ~55% Mid contest first then split, ~22% grouped A Main execute, ~16% double-OP passive (costly), ~5% solo A Ramp rush (mistake).",
   "sources": [
     {
       "url": "https://thunderpick.io/blog/split-map-strategy",

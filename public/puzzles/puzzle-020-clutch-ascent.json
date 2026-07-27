@@ -16,7 +16,10 @@
       "agent": "jett",
       "signature": "tailwind",
       "ultimate": null,
-      "basic_remaining": ["cloudburst", "updraft"]
+      "basic_remaining": [
+        "cloudburst",
+        "updraft"
+      ]
     }
   },
   "positions": {
@@ -35,22 +38,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "Ascent A, 1v2 clutch post-plant, spike plante, 32s. Tu es Jett (2 Cloudburst, Updraft, Tailwind dispo) sur A Site. Les 2 DEF vont retaker. Comment jouer le 1v2 ?",
+  "question": "Ascent A, 1v2 clutch post-plant, spike planted, 32s. You are Jett (2 Cloudbursts, Updraft, Tailwind available) on A Site. 2 DEF will retake. How do you clutch?",
   "options": [
     {
-      "label": "Te repositionner off-spike sur un angle qui isole 1 DEF a la fois, smoke la ligne du 2e, dash en reserve pour reset",
+      "label": "Reposition off-spike to an angle that isolates 1 DEF at a time, smoke the second line, duel them sequentially",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 48,
-      "explication_courte": "En 1v2 post-plant tu ne cherches pas le double-kill : tu isoles un 1v1 a la fois via un angle off-spike + smoke, et le timer force les DEF a retaker groupes et exposes. Dash en reserve pour reset.",
+      "explication_courte": "In a 1v2 post-plant you are not looking for a double kill: you isolate one 1v1 at a time via an off-spike angle plus a smoke cutting the second line.",
       "sources_option": []
     },
     {
-      "label": "Tenir une position proche du spike : tuer le 1er entrant puis reset avec Tailwind avant le 2e duel",
+      "label": "Hold a position close to the spike: kill the first retaker then dash-reset with Tailwind before the second arrives",
       "tier": "acceptable",
       "ev_delta": "-0.3 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Jouer proche + dash-reset apres le 1er kill est defendable et exploite la mobilite Jett, mais tenir pres du spike t'expose a un double-swing coordonne des 2 DEF.",
+      "explication_courte": "Holding close plus dash-reset after the first kill is defensible and exploits Jett's mobility, but holding close puts you on the spike - the most watched spot.",
       "sources_option": [
         {
           "url": "https://www.hotspawn.com/valorant/guide/how-to-clutch-in-valorant",
@@ -59,11 +62,11 @@
       ]
     },
     {
-      "label": "Rusher agressivement vers un DEF avec Tailwind pour prendre un duel rapide et casser le 1v2 en 1v1",
+      "label": "Dash aggressively toward one DEF with Tailwind to take a fast duel and break the 1v2 quickly",
       "tier": "couteux",
       "ev_delta": "-0.5 round EV",
       "freq_elite_estimee": 23,
-      "explication_courte": "Dash offensif dans un 1v2 te jette entre deux joueurs : meme si tu tues le premier, le second te trade instantanement pendant ton animation de dash. La mobilite se joue en reset, pas en engage.",
+      "explication_courte": "An offensive dash into a 1v2 puts you between two players: even if you kill the first, the second trades you instantly.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
@@ -72,11 +75,11 @@
       ]
     },
     {
-      "label": "Vider tes 2 Cloudburst + Updraft immediatement pour te cacher, sans plan de duel derriere",
+      "label": "Dump both Cloudbursts plus Updraft immediately to hide, with no dueling plan behind the util",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Depenser toute ton util sans la connecter a un duel suivant la gaspille : les smokes se dissipent, tu n'as rien pour le 2e duel, et les 2 DEF clear le site groupes.",
+      "explication_courte": "Spending all util without connecting to a duel wastes it: the smokes dissipate, you are left with nothing, and the 1v2 is no easier than when it started.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
@@ -85,7 +88,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Ascent A, 1v2 clutch post-plant, spike plante, 32 secondes. Tu es Jett avec 2 Cloudburst, Updraft, et Tailwind (dash) disponible. Les deux DEF vont retaker A.\n\nLes principes du 1v2 post-plant : (1) transformer le 1v2 en une serie de 1v1 — ne jamais affronter les deux en meme temps ; (2) chaque util doit faire un job (bloquer la vision d'un DEF pendant que tu duels l'autre, gagner du temps, faciliter le duel) ; (3) le timer joue POUR toi — le spike est pose, donc les DEF doivent venir a toi et s'exposer pour defuse, tu n'as pas a te precipiter ; (4) la mobilite Jett (dash) se garde pour RESET apres un kill, pas pour engager. Isoler les duels est le facteur #1 des clutchs gagnes.\n\nLa ligne optimale se repositionne off-spike sur un angle qui n'ouvre qu'un DEF a la fois, smoke la ligne du second pour couper le double-swing, et laisse le timer desorganiser leur retake ; le dash reste en reserve pour reset apres le premier kill. Tenir proche + dash-reset (acceptable) exploite la mobilite mais s'expose au double-swing. Dash offensif (couteux) te jette entre les deux et te fait trade. Vider l'util sans plan (faute) la gaspille.\n\nDistribution elite estimee : ~48% isolent via angle+smoke, ~24% tiennent proche + dash-reset, ~23% dash offensif, ~5% vident l'util sans plan (la faute). Tolerance GTO : isoler un 1v1 a la fois avec la smoke pour couper le second DEF est l'invariant ; jouer la mobilite en reset apres le 1er kill est une variante Jett valide. Dasher entre les deux ou gaspiller l'util sont les erreurs qui perdent le 1v2.",
+  "explication_longue": "Situation: Ascent A, 1v2 clutch post-plant, spike planted, 32 seconds. You are Jett with 2 Cloudbursts, Updraft, and Tailwind (dash) available. Two DEF will retake A.\n\n1v2 post-plant principles: (1) never fight both defenders simultaneously, (2) use util to isolate one 1v1 at a time, (3) position off-spike so the defenders come to you. Jett has the mobility to reposition rapidly, making her the strongest 1v2 clutch agent.\n\nOptimal sequence: reposition off-spike to an angle that only exposes one DEF at a time, use one Cloudburst to cut the second line, duel the first DEF with the angle in your favor, then reset and take the second. Holding close plus Tailwind-reset (acceptable) is also valid but close-to-spike positions are pre-aimed. Dashing offensively into a 1v2 (costly) sandwiches you between two players. Dumping all util without a connected plan (mistake) wastes every tool for zero return.\n\nEstimated elite distribution: ~55% off-spike position + isolated duels, ~22% close hold + Tailwind reset, ~16% aggressive dash (costly), ~5% dump all util (mistake).",
   "sources": [
     {
       "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",

@@ -16,7 +16,10 @@
       "agent": "cypher",
       "signature": "spycam",
       "ultimate": null,
-      "basic_remaining": ["trapwire", "cyber-cage"]
+      "basic_remaining": [
+        "trapwire",
+        "cyber-cage"
+      ]
     }
   },
   "positions": {
@@ -43,22 +46,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Ascent, 5v5, debut de round (58s). Ton equipe amorce un default vers A. Tu es Cypher en lurk Mid Bot. Comment jouer ton lurk pour maximiser sa valeur ?",
+  "question": "Ascent, 5v5, round start (58s). Your team opens a default toward A. You are Cypher lurking Mid Bot. How do you play your lurk?",
   "options": [
     {
-      "label": "Poser un Trapwire CT Mid, rester passif, attendre que le hit A tire l'attention avant de menacer le flanc DEF",
+      "label": "Plant a Trapwire at CT Mid, stay passive, wait for the A hit to pull DEF attention before making your move",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 50,
-      "explication_courte": "Le lurk vaut quand l'equipe engage a l'oppose : la patience + le trap securisent l'info de rotation, et tu frappes les DEF quand ils sont focus sur le hit A.",
+      "explication_courte": "The lurk pays dividends when the team engages on the opposite side: patience plus the trap secures rotation intel and lets you strike when DEF commit to A.",
       "sources_option": []
     },
     {
-      "label": "Prendre le controle Mid tot en Cyber-Cage pour ouvrir une 2e menace (split A via Mid) et fixer les DEF",
+      "label": "Take Mid control early with a Cyber-Cage to open a second threat (A split via Mid) and put DEF in a dilemma",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Prendre Mid cree une double-menace et de l'info, mais te rend visible tot : tu perds l'effet de surprise du lurk et exposes ta position aux DEF Mid.",
+      "explication_courte": "Taking Mid creates a double-threat and generates info, but you become visible early and lose the surprise element that makes a lurk valuable.",
       "sources_option": [
         {
           "url": "https://www.sportskeeda.com/valorant/guide-effective-rotation-win-valorant-map",
@@ -67,11 +70,11 @@
       ]
     },
     {
-      "label": "Pousser Mid agressivement en solo pour chercher un pick sur un joueur Mid dans les 20 premieres secondes",
+      "label": "Push Mid aggressively solo to fish for a pick in the first 20 seconds",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 21,
-      "explication_courte": "Pousser trop tot en solo transforme le lurk en duel a l'aveugle : sans distraction de l'equipe a l'oppose, tu peux te faire trade et donner une info gratuite aux DEF.",
+      "explication_courte": "Pushing too early solo turns the lurk into a blind duel: without team distraction at A, DEF can focus Mid and punish the premature push.",
       "sources_option": [
         {
           "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",
@@ -80,11 +83,11 @@
       ]
     },
     {
-      "label": "Rejoindre le hit A avec le reste de l'equipe pour un 5-stack groupe sur le site",
+      "label": "Abandon the lurk and join the A hit with the rest of the team for a 5-stack on site",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Abandonner le lurk pour un 5-stack elimine la menace de flanc et la double-info : les DEF peuvent rotate librement et stacker A sans craindre un joueur dans leur dos.",
+      "explication_courte": "Abandoning the lurk for a 5-stack removes the flanking threat and all rotation intel: DEF can rotate freely knowing only one axis is threatened.",
       "sources_option": [
         {
           "url": "https://wecoach.gg/blog/article/how-to-lurk-in-valorant-like-a-pro",
@@ -93,7 +96,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Ascent, 5v5, tout debut de round (58s). Ton equipe amorce un default vers A. Tu es Cypher en lurk Mid Bot, avec Trapwire, Cyber-Cage, Spycam. Cinq DEF vivants, positions inconnues.\n\nLe lurk repose sur trois principes : (1) la patience — attendre au moins 30 secondes, jusqu'a ce que l'equipe engage a l'oppose et fixe l'attention DEF ; (2) l'information — securiser la ligne de rotation/flanc pour prevenir ton equipe et couper les rotations ; (3) l'unpredictabilite — frapper quand les DEF sont vulnerables, focus ailleurs. Cypher est le lurker ideal : Trapwire + Spycam couvrent le flanc et la rotation pendant que tu attends.\n\nLa ligne optimale pose un Trapwire CT Mid (securise ton dos + info de rotation) puis reste passive : quand le hit A tire les DEF, tu menaces le flanc ou coupes une rotation, avec l'effet de surprise maximal. Prendre Mid tot (acceptable) cree une double-menace mais te revele et sacrifie la surprise. Pousser solo tot (couteux) t'isole dans un duel a l'aveugle sans distraction. Rejoindre le 5-stack (faute) supprime la raison meme du lurk.\n\nDistribution elite estimee : ~50% jouent le lurk patient + trap, ~24% prennent Mid pour la double-menace, ~21% poussent trop tot, ~5% rejoignent le stack (la faute). Tolerance GTO : rester patient et securiser le flanc OU prendre Mid pour ouvrir un split sont deux facons valides d'exploiter la position ; pousser en solo trop tot est l'erreur de timing la plus commune.",
+  "explication_longue": "Situation: Ascent, 5v5, round start (58s). Your team opens a default toward A. You are Cypher lurking Mid Bot, with Trapwire, Cyber-Cage, Spycam. Five DEF alive, positions unknown.\n\nA lurk generates value two ways: (1) creating a split that forces DEF to choose between A and Mid, or (2) punishing a rotation with a high-value pick when DEF commit to one side. Cypher's Trapwire is the perfect passive sentry: plant it at CT Mid for free rotation intel without giving away your position.\n\nCorrect sequence: plant the Trapwire, stay passive, wait. When your team opens A and DEF rotate from CT Mid, the Trapwire reveals the rotator and you take the pick on a moving defender. Taking Mid control early (acceptable) creates a real double-threat but burns your surprise. Aggressive early push (costly) is the most common lurk mistake: without team distraction, DEF focus Mid and punish you. Joining the 5-stack (mistake) eliminates the flanking threat entirely.\n\nEstimated elite distribution: ~55% passive Trapwire + wait for rotation, ~22% early Mid control, ~16% aggressive early push (costly), ~5% join 5-stack (mistake).",
   "sources": [
     {
       "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",

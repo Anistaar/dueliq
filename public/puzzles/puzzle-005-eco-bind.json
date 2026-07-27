@@ -67,22 +67,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Round 3 Bind, tu as perdu pistol + bonus, banque ATK ~1900cr chacun. Les DEF sont full-buy. Quelle decision d'equipe ?",
+  "question": "Round 3 Bind, lost pistol + bonus, ATK bank ~1900cr each. DEF are full-buy. What's the team call?",
   "options": [
     {
-      "label": "Full save : pistolets + eco d'util, grouper pour un stack rapproche sur un site et jouer pour la prochaine full-buy",
+      "label": "Full save: pistols + minimal util, group up for a close-range stack on one site and play for the next full-buy",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 54,
-      "explication_courte": "Sauver garantit une full-buy (rifle + heavy shields + util) au round suivant. Un stack pistol groupe sur un site cree une chance de vol de round sans compromettre l'eco.",
+      "explication_courte": "Saving guarantees a full-buy (rifle + heavy shields + util) next round. A grouped pistol stack on one site creates a round-steal chance without torpedoing the eco.",
       "sources_option": []
     },
     {
-      "label": "Half-buy coordonne : SMG (Spectre) + light shields pour tous, jouer un fast-hit surprise sur un site",
+      "label": "Coordinated half-buy: SMG (Spectre) + light shields for everyone, fast-hit surprise on one site",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 26,
-      "explication_courte": "A ~1900-2400cr le force Spectre light shields est jouable pour surprendre, mais casse l'eco : une defaite laisse l'equipe en semi-buy le round d'apres au lieu d'une full-buy garantie.",
+      "explication_courte": "A Spectre light-shield force at ~1900-2400cr can surprise defenders, but if you lose it leaves the team in semi-buy next round instead of a guaranteed full-buy.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-economy-guide-buy-force-bonus-full-save",
@@ -91,11 +91,11 @@
       ]
     },
     {
-      "label": "Acheter chacun un Sheriff + light shields et se disperser pour chercher des picks a distance sur les entrees",
+      "label": "Everyone buys a Sheriff + light shields and spreads out to fish for long-range picks at entry points",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 15,
-      "explication_courte": "Se disperser en eco Sheriff dilue la puissance de feu : contre 5 rifles chaque duel isole est perdant. L'eco reussit par le groupement, pas la dispersion.",
+      "explication_courte": "Spreading out on a Sheriff eco dilutes your firepower: every isolated duel against rifles is losing. Eco rounds are won through grouping, not spreading.",
       "sources_option": [
         {
           "url": "https://mobalytics.gg/blog/valorant/valorant-how-to-maximize-chances-winning-eco-rounds/",
@@ -104,11 +104,11 @@
       ]
     },
     {
-      "label": "Buy partiel individuel : 2 joueurs prennent un Vandal, les 3 autres restent pistolet sans coordination d'achat",
+      "label": "Uncoordinated partial buy: 2 players grab a Vandal, the other 3 stay on pistol with no shared plan",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Un buy split incoherent casse l'eco de toute l'equipe sans masse de feu suffisante : 2 rifles isoles ne gagnent pas, et les 3 autres n'auront pas de full-buy ensuite.",
+      "explication_courte": "A split buy breaks the whole team's eco without enough firepower to back it up: 2 isolated rifles don't win, and the other 3 won't have a full-buy next round either.",
       "sources_option": [
         {
           "url": "https://www.ldshop.gg/blog/valorant-gp/valorant-economy-guide.html",
@@ -117,7 +117,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : round 3 sur Bind, ton equipe a perdu le pistol et le bonus, chaque joueur a ~1900 credits, les DEF sont full-buy. La question est une decision d'economie d'equipe, pas de position.\n\nLe principe fondamental de l'eco : ne pas depenser des credits qui t'empechent de full-buy au round suivant. A ~1900cr, personne ne peut acheter rifle + heavy shields + util. La ligne la plus sure est le full save : acheter seulement des pistolets (Sheriff/Ghost) et un minimum d'util, grouper l'equipe pour un stack rapproche sur un site, et jouer pour la full-buy garantie au round 4. Un stack pistol groupe peut voler un round si les DEF sur-etendent, sans jamais compromettre l'eco.\n\nLe half-buy force (Spectre + light shields) devient rationnel plus haut, vers 2200-2400cr, pour surprendre : c'est une option acceptable mais elle brise l'eco et laisse l'equipe en semi-buy si elle perd. Se disperser en eco (option couteuse) est une erreur classique : la puissance d'un eco vient du groupement et du combat rapproche, jamais des duels longue-distance isoles contre des rifles. Le buy split incoherent est la faute : il gaspille les credits de toute l'equipe sans masse de feu.\n\nDistribution elite estimee : ~54% full save groupe, ~26% force Spectre coordonne, ~15% se dispersent en Sheriff (couteux), ~5% buy split incoherent (la faute). Tolerance GTO : full save et force coordonne sont tous deux defendables selon la banque exacte et le score ; la dispersion et le buy split sont les erreurs.",
+  "explication_longue": "Situation: round 3 on Bind, your team lost the pistol and the bonus round, every player is sitting on ~1900 credits, defenders are full-buy. This is a team economy decision, not a positioning one.\n\nThe core eco principle: don't spend credits that stop you from full-buying next round. At ~1900cr, nobody can afford a rifle + heavy shields + util. The safest line is a full save: buy only pistols (Sheriff/Ghost) and minimal util, group up for a close-range stack on one site, and play for the guaranteed full-buy in round 4. A grouped pistol stack can steal the round if defenders over-extend, without ever compromising the economy.\n\nA force buy (Spectre + light shields) becomes rational closer to 2200-2400cr to catch opponents off guard — that's an acceptable option, but it breaks the eco and leaves the team in semi-buy if they lose. Spreading out on an eco round (costly option) is a classic mistake: eco power comes from grouping and close-range combat, never from isolated long-range duels against rifles. The uncoordinated split buy is the mistake: it burns everyone's credits without enough firepower.\n\nEstimated elite distribution: ~54% full save grouped, ~26% coordinated Spectre force, ~15% spread out on Sheriff (costly), ~5% uncoordinated split buy (the mistake). GTO tolerance: full save and coordinated force are both defensible depending on exact bank and score; spreading and the split buy are the errors.",
   "sources": [
     {
       "url": "https://boosteria.org/guides/valorant-economy-guide-buy-force-bonus-full-save",

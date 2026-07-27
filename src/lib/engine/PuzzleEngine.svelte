@@ -133,8 +133,8 @@
     const tier = chosenOption?.tier ?? "faute";
     const lines = [
       `DuelIQ — ${puzzle.id} | ${puzzle.map.toUpperCase()} ${puzzle.theme.toUpperCase()}`,
-      `Score : ${score}/1000  ${tierEmoji(tier)} ${tierLabel(tier)}`,
-      `Difficulte : ${"*".repeat(puzzle.difficulty_est)}${"_".repeat(5 - puzzle.difficulty_est)}`,
+      `Score: ${score}/1000  ${tierEmoji(tier)} ${tierLabel(tier)}`,
+      `Difficulty: ${"*".repeat(puzzle.difficulty_est)}${"_".repeat(5 - puzzle.difficulty_est)}`,
     ];
     if (percentileResult) {
       lines.push(formatPercentile(percentileResult));
@@ -320,7 +320,7 @@
       <div class="ev-table">
         <div class="ev-table-title">
           <span class="ev-table-icon">◈</span>
-          EV par option
+          EV by option
         </div>
         {#each puzzle.options as opt, i}
           {@const barW = evBarPercent(opt)}

@@ -75,10 +75,10 @@ export function computeScore(tier: OptionTier): number {
 
 export function tierLabel(tier: OptionTier): string {
   switch (tier) {
-    case "optimal":    return "Choix Radiant";
+    case "optimal":    return "Radiant Choice";
     case "acceptable": return "Acceptable";
-    case "couteux":    return "Couteux";
-    case "faute":      return "Faute";
+    case "couteux":    return "Costly";
+    case "faute":      return "Mistake";
   }
 }
 

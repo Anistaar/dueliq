@@ -16,7 +16,11 @@
       "agent": "sova",
       "signature": "recon-bolt",
       "ultimate": null,
-      "basic_remaining": ["recon-bolt", "shock-bolt", "owl-drone"]
+      "basic_remaining": [
+        "recon-bolt",
+        "shock-bolt",
+        "owl-drone"
+      ]
     }
   },
   "positions": {
@@ -43,22 +47,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Haven, 5v5, 50s. Ton equipe hesite entre A et C. Tu es Sova a Mid/Window avec Recon Bolt, Owl Drone, Shock Bolt. Comment generer l'info pour orienter le hit ?",
+  "question": "Haven, 5v5, 50s. Your team is split between A and C. You are Sova at Mid/Window with Recon Bolt, Owl Drone, Shock Bolt. How do you use your util to settle the decision?",
   "options": [
     {
-      "label": "Tirer un Recon Bolt qui scan A Link / A Short pour compter les DEF sur A avant que l'equipe ne s'engage",
+      "label": "Fire a Recon Bolt scanning A Link / A Short to count the DEF on A before your team commits",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 48,
-      "explication_courte": "Le Recon revele le nombre de DEF sur un site = l'info qui decide le hit. Tu poses une question claire (combien sur A ?) et l'equipe agit sur la reponse : hit le site le plus faible.",
+      "explication_courte": "The Recon reveals how many DEF are on A - the exact information that resolves the A vs C debate cleanly without committing your body.",
       "sources_option": []
     },
     {
-      "label": "Envoyer l'Owl Drone dans Mid/A Link pour un scan actif et un dart eventuel, avant de decider du site",
+      "label": "Send the Owl Drone into Mid/A Link for a live scan and a potential dart, before deciding",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Le drone donne une info live plus riche (positions exactes) mais t'immobilise et fait du bruit ; c'est plus lent et te rend vulnerable si un DEF push pendant le pilotage.",
+      "explication_courte": "The Drone gives richer positional info (exact locations) but immobilizes you and makes noise; a valid option but costs more time and exposes your drone.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/execute-sites-valorant-2026-basic-attack-setups",
@@ -67,11 +71,11 @@
       ]
     },
     {
-      "label": "Balancer un Shock Bolt sur un angle commun de A pour chercher du degat, sans scan prealable",
+      "label": "Throw a Shock Bolt onto a common A angle to deal damage, without scanning first",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 23,
-      "explication_courte": "Un Shock a l'aveugle sans info depense une charge de degat pour un resultat aleatoire ; tu n'apprends rien sur les positions et tu previens les DEF de ta presence Mid.",
+      "explication_courte": "A blind Shock Bolt without info spends a damage charge for a random result; you learn nothing about the site count and solve nothing.",
       "sources_option": [
         {
           "url": "https://theguide.gg/improve/lessons/valorant/how-to-coordinate-and-win-midround-situations-747",
@@ -80,11 +84,11 @@
       ]
     },
     {
-      "label": "Faire hit A immediatement sans util d'info, en supposant que A est le site le plus faible",
+      "label": "Hit A immediately without any info util, assuming A is the weaker site based on feel",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Engager un site sur une supposition non verifiee alors que tu as toute l'util d'info d'un Sova = gaspiller ton kit : tu peux hit un stack et perdre le round d'entree.",
+      "explication_courte": "Committing on an unchecked assumption when you have a full Sova info kit wastes every tool he has and converts an informed decision into a forced guess.",
       "sources_option": [
         {
           "url": "https://www.idsnews.com/article/2026/02/sponsored-reading-the-game",
@@ -93,7 +97,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Haven, 5v5, 50 secondes. Ton equipe hesite entre A et C (Haven a 3 sites, l'info est reine). Tu es Sova a Mid/Window avec Recon Bolt, Owl Drone, Shock Bolt.\n\nLe principe central du mid-round : avant de jeter de l'util, pose-toi la question ' quelle info ca me donne et qu'est-ce que je ferai differemment selon la reponse ? '. Si tu ne peux pas y repondre avant le throw, tu joues reactif. Sova est l'agent d'info par excellence : son Recon repond a la question la plus utile en debut de mid-round — combien de DEF sur ce site ? — pour orienter le hit vers le site le plus faible.\n\nLa ligne optimale tire un Recon Bolt qui scan A Link / A Short : l'equipe compte les DEF et hit le site sous-defendu. C'est de l'info actionnable qui change directement la decision. L'Owl Drone (acceptable) donne une info plus riche mais t'immobilise et fait du bruit — plus lent, plus risque. Le Shock a l'aveugle (couteux) depense du degat sans rien apprendre. Hit A sans info (faute) gaspille ton kit d'info et peut te jeter dans un stack.\n\nDistribution elite estimee : ~48% tirent le Recon pour compter, ~24% drone pour info riche, ~23% Shock a l'aveugle, ~5% hit sans info (la faute). Tolerance GTO : toute util qui repond a une question claire et change la decision est bonne ; Recon et drone sont deux facons valides de generer l'info, le drone etant simplement plus lent et bruyant. Depenser du degat sans read ou engager sur supposition sont les erreurs.",
+  "explication_longue": "Situation: Haven, 5v5, 50 seconds. Your team is debating A vs C (Haven has 3 sites - information is king). You are Sova at Mid/Window with Recon Bolt, Owl Drone, Shock Bolt.\n\nCore mid-round principle: information before commitment. Haven's three-site structure makes reading the DEF split critical - hitting the wrong site against 3 stacked defenders is a losing execute. Sova's Recon Bolt is designed for this: one bolt through A Link/A Short counts the defenders and tells you definitively whether A is contested or stacked.\n\nIf the Recon shows 1-2 DEF on A, hit A; if 3+, pivot to C. The Owl Drone (acceptable) gives richer positional info but immobilizes you and makes noise. The Shock Bolt (costly) burns damage without answering the player count question. Committing without any scan (mistake) turns a solved information problem into a 50/50 guess despite having the tools to solve it for free.\n\nEstimated elite distribution: ~55% Recon Bolt first then commit, ~22% Owl Drone scan, ~16% Shock Bolt (costly), ~5% blind commit (mistake).",
   "sources": [
     {
       "url": "https://theguide.gg/improve/lessons/valorant/how-to-coordinate-and-win-midround-situations-747",

@@ -16,7 +16,11 @@
       "agent": "raze",
       "signature": "boom-bot",
       "ultimate": null,
-      "basic_remaining": ["blast-pack", "blast-pack", "paint-shells"]
+      "basic_remaining": [
+        "blast-pack",
+        "blast-pack",
+        "paint-shells"
+      ]
     }
   },
   "positions": {
@@ -51,22 +55,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Bind, execute A Site via A Short 4v5, 58s. Tu es Raze entry (Boom Bot, 2 satchels, nade). Comment ouvrir le site en desavantage numerique ?",
+  "question": "Bind, execute A Site via A Short 4v5, 58s. You are Raze entry (Boom Bot, 2 satchels, nade). How do you open the site on a disadvantaged push?",
   "options": [
     {
-      "label": "Envoyer le Boom Bot dans A Short/site pour forcer les DEF a se reveler ou reculer, puis satchel-entrer sur l'info",
+      "label": "Send the Boom Bot into A Short/site to force DEF to reveal or back off, then satchel into the space it creates",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 51,
-      "explication_courte": "Le Boom Bot force une reaction : les DEF se revelent (info) ou reculent (espace gagne). Entrer en satchel APRES l'info transforme un 4v5 aveugle en entree sur position connue.",
+      "explication_courte": "The Boom Bot forces a reaction: DEF reveal their position (info) or back off (space gained). Satchel-swinging into known space is the correct entry sequence.",
       "sources_option": []
     },
     {
-      "label": "Nade (Paint Shells) l'angle par defaut de A Short puis satchel-swing immediatement dans la fumee de la nade",
+      "label": "Nade (Paint Shells) the default A Short angle, then immediately satchel-swing into the opening",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Clear un angle probable a la nade + satchel-swing rapide est jouable, mais sans l'info du Boom Bot on parie sur la position du DEF ; efficace si le read est bon.",
+      "explication_courte": "Clearing a likely angle with nade + fast satchel-swing is playable, but without the Boom Bot info you might satchel into an unknown position.",
       "sources_option": [
         {
           "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
@@ -75,11 +79,11 @@
       ]
     },
     {
-      "label": "Double-satchel direct sur le site sans util d'info pour un entry ultra-rapide et surprendre par la vitesse",
+      "label": "Double-satchel directly onto site without any info util for an ultra-fast surprise entry",
       "tier": "couteux",
       "ev_delta": "-0.5 round EV",
       "freq_elite_estimee": 20,
-      "explication_courte": "Entrer en satchel sans info ni clear en 4v5 expose Raze a 5 angles inconnus a la fois ; la vitesse ne compense pas le desavantage numerique si l'info manque.",
+      "explication_courte": "Satchel entry with no info in a 4v5 exposes Raze to 5 unknown angles at once; speed does not substitute for information.",
       "sources_option": [
         {
           "url": "https://mobalytics.gg/blog/valorant/duelist-guide/",
@@ -88,11 +92,11 @@
       ]
     },
     {
-      "label": "Attendre en A Short que les teammates entrent d'abord et garder toute l'util de Raze pour le post-plant",
+      "label": "Wait in A Short for teammates to enter first and hold all Raze util for a potential clutch",
       "tier": "faute",
       "ev_delta": "-0.9 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Raze est l'entry : garder son util offensive pour plus tard en 4v5 laisse un teammate moins outille prendre la premiere balle et gaspille l'avantage d'ouverture de son kit.",
+      "explication_courte": "Raze is the entry fragger: holding her offensive util in a 4v5 leaves teammates under-supported and wastes the Boom Bot entirely.",
       "sources_option": [
         {
           "url": "https://spacex.tapin.gg/blogs/how-to-get-better-at-playing-valorant-duelists-top-strategies",
@@ -101,7 +105,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : execute A Site Bind via A Short en 4v5 (un teammate deja tombe), 58 secondes, full-buy des deux cotes. Tu es Raze, l'entry, avec Boom Bot, 2 Blast Pack (satchels) et Paint Shells (nade).\n\nEn desavantage numerique (4v5), l'information vaut plus que la vitesse : entrer aveugle contre un joueur de plus expose l'entry a un trade defavorable. Le kit de Raze est ideal pour generer cette info AVANT de s'exposer : le Boom Bot parcourt A Short et le site, forcant les DEF a se reveler (ils tirent le bot = position donnee) ou a reculer (espace gagne gratuitement).\n\nLa ligne optimale envoie le Boom Bot d'abord, lit la reaction, puis satchel-entre sur une position connue. Cela convertit un 4v5 aveugle en une entree sur cible identifiee, ou l'agressivite de Raze (satchels + nade de suivi) devient rentable. Nade+satchel-swing (acceptable) clear un angle probable mais parie sur le read. Le double-satchel dry (couteux) expose Raze a 5 angles inconnus : la vitesse ne compense pas le man-down sans info. Garder l'util pour le post-plant (faute) trahit le role d'entry.\n\nDistribution elite estimee : ~51% Boom Bot info puis entree, ~24% nade+satchel-swing, ~20% double-satchel dry (couteux), ~5% refusent l'entree (la faute de role). Tolerance GTO : toute sequence qui genere de l'info AVANT de s'exposer en man-down est acceptable ; le dry-entry aveugle et le refus d'entree sont les erreurs.",
+  "explication_longue": "Situation: execute A Site Bind via A Short in 4v5 (one teammate down), 58 seconds, full-buy both sides. You are Raze, the entry, with Boom Bot, 2 Blast Packs (satchels) and Paint Shells (nade).\n\nEntry in a 4v5 is about gathering intel before spending your body. The Boom Bot is the most underrated entry tool in Valorant: it forces defenders to react (reveal by shooting it, or back off and cede space). Once the Boom Bot does its job, you satchel into the created space - you are not entering blind.\n\nNading the default angle + satchel-swing (acceptable) works if defenders are predictable, but misses the Boom Bot intel value. Blind double-satchel (costly) trades speed for zero information: in a 4v5 with 5 unknown angles, dying first turns it into a 3v5. Holding all util (mistake) wastes the Boom Bot on a clutch that never comes.\n\nEstimated elite distribution: ~55% Boom Bot info then satchel entry, ~22% nade+satchel-swing, ~16% blind double-satchel (costly), ~5% hold all util (mistake).",
   "sources": [
     {
       "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",

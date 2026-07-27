@@ -104,10 +104,10 @@
         <span class="daily-tag">DAILY PUZZLE</span>
       </div>
       <h1 class="hero-title">
-        Prends de meilleures<br/>
-        <span class="hero-title--accent">décisions</span> sur Valorant.
+        Make sharper<br/>
+        <span class="hero-title--accent">decisions</span> in Valorant.
       </h1>
-      <p class="hero-sub">Un puzzle de situation par jour. Gratuit. Sans compte. La logique des pros, expliquée.</p>
+      <p class="hero-sub">One daily scenario puzzle. Free. No account. Pro-level logic, explained.</p>
       <!-- Badges row -->
       <div class="hero-badges">
         <span class="hero-badge">
@@ -120,7 +120,7 @@
         </span>
         <span class="hero-badge hero-badge--accent">
           <span class="hb-icon">★</span>
-          Gratuit
+          Free
         </span>
       </div>
     </div>
@@ -133,17 +133,17 @@
       {#if loading}
         <div class="status-msg">
           <div class="loading-bar"></div>
-          Chargement du puzzle du jour...
+          Loading today's puzzle...
         </div>
 
       {:else if error}
         <div class="error-box">
           <div class="error-icon">!</div>
           <div>
-            <strong>Erreur de chargement</strong><br/>
+            <strong>Failed to load puzzle</strong><br/>
             {error}
           </div>
-          <button class="btn-small" onclick={loadPuzzle}>Réessayer</button>
+          <button class="btn-small" onclick={loadPuzzle}>Retry</button>
         </div>
 
       {:else if dailyDone}
@@ -156,11 +156,11 @@
             </svg>
           </div>
           <div class="done-content">
-            <div class="done-title">Daily #{dayNum} — Complété !</div>
-            <p class="done-msg">Reviens demain pour le prochain puzzle.</p>
+            <div class="done-title">Daily #{dayNum} — Done!</div>
+            <p class="done-msg">Come back tomorrow for the next puzzle.</p>
           </div>
           <div class="done-countdown">
-            <div class="done-countdown-label">Prochain puzzle dans</div>
+            <div class="done-countdown-label">Next puzzle in</div>
             <Countdown />
           </div>
         </div>
@@ -175,14 +175,14 @@
   <!-- ======= HOW IT WORKS ======= -->
   <section class="howto-section">
     <div class="howto-inner">
-      <h2 class="howto-title">Comment ça marche</h2>
+      <h2 class="howto-title">How it works</h2>
       <div class="steps-grid">
         <div class="step">
           <div class="step-num">01</div>
           <div class="step-icon">◎</div>
           <div class="step-content">
-            <div class="step-title">Analyse la situation</div>
-            <p class="step-desc">Tu vois la map, les positions alliées/ennemies, l'économie. Même info que les pros.</p>
+            <div class="step-title">Read the situation</div>
+            <p class="step-desc">See the map, ally and enemy positions, credits. Same information the pros work with.</p>
           </div>
         </div>
         <div class="step-connector"></div>
@@ -190,8 +190,8 @@
           <div class="step-num">02</div>
           <div class="step-icon">◈</div>
           <div class="step-content">
-            <div class="step-title">Prends ta décision</div>
-            <p class="step-desc">4 options réelles. 30 secondes. Pas de triche — juste ton instinct de joueur.</p>
+            <div class="step-title">Make the call</div>
+            <p class="step-desc">4 real options. 30 seconds. No peeking — just your game sense.</p>
           </div>
         </div>
         <div class="step-connector"></div>
@@ -199,8 +199,8 @@
           <div class="step-num">03</div>
           <div class="step-icon">★</div>
           <div class="step-content">
-            <div class="step-title">Comprends le delta EV</div>
-            <p class="step-desc">Score Radiant / Acceptable / Couteux / Faute — avec l'explication chiffrée.</p>
+            <div class="step-title">Understand the EV delta</div>
+            <p class="step-desc">Radiant / Acceptable / Costly / Mistake — with the numbers behind each call.</p>
           </div>
         </div>
       </div>
@@ -211,25 +211,25 @@
   <section class="coming-section">
     <div class="coming-inner">
       <div class="coming-header">
-        <h2 class="coming-title">Bientôt : le training complet</h2>
+        <h2 class="coming-title">Coming soon: full training mode</h2>
         <span class="coming-tag">EARLY ACCESS</span>
       </div>
       <ul class="coming-list">
         <li class="coming-item">
           <span class="coming-dot teal"></span>
-          <span>Diagnostic de ton style de jeu</span>
+          <span>Playstyle diagnosis</span>
         </li>
         <li class="coming-item">
           <span class="coming-dot red"></span>
-          <span>Programme d'entraînement personnalisé</span>
+          <span>Personalized training program</span>
         </li>
         <li class="coming-item">
           <span class="coming-dot teal"></span>
-          <span>Radar de compétences par rôle</span>
+          <span>Skill radar by role</span>
         </li>
         <li class="coming-item">
           <span class="coming-dot red"></span>
-          <span>VOD review assistée par IA</span>
+          <span>AI-assisted VOD review</span>
         </li>
       </ul>
     </div>
@@ -239,20 +239,20 @@
   <section class="waitlist-section">
     <div class="waitlist-inner">
       <div class="waitlist-glow"></div>
-      <h2 class="waitlist-title">Sois notifié en premier</h2>
-      <p class="waitlist-sub">Rejoins la liste pour l'accès early au training complet. Pas de spam.</p>
+      <h2 class="waitlist-title">Get notified first</h2>
+      <p class="waitlist-sub">Join the list for early access to the full training mode. No spam.</p>
 
       {#if waitlistStatus === "ok"}
         <div class="waitlist-ok">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#00D4AA" stroke-width="1.5"/><path d="M6 10l3 3 5-6" stroke="#00D4AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Merci ! On te contacte à l'ouverture.
+          You're in. We'll reach out when it launches.
         </div>
       {:else}
         <form class="waitlist-form" onsubmit={submitWaitlist}>
           <input
             class="waitlist-input"
             type="email"
-            placeholder="ton@email.com"
+            placeholder="your@email.com"
             bind:value={waitlistEmail}
             required
             disabled={waitlistStatus === "sending"}
@@ -262,11 +262,11 @@
             type="submit"
             disabled={waitlistStatus === "sending"}
           >
-            {waitlistStatus === "sending" ? "..." : "M'inscrire"}
+            {waitlistStatus === "sending" ? "..." : "Notify me"}
           </button>
         </form>
         {#if waitlistStatus === "err"}
-          <p class="waitlist-err">Erreur d'envoi — réessaie ou écris à dueliq [at] gmail.com</p>
+          <p class="waitlist-err">Send failed — try again or reach us at dueliq [at] gmail.com</p>
         {/if}
       {/if}
     </div>
@@ -283,9 +283,9 @@
       <div class="footer-links">
         <span class="footer-wordmark"><span style="color:#FF4655">Duel</span><span style="color:#00D4AA">IQ</span> &copy; 2026</span>
         <span class="sep">|</span>
-        <span>Analytics : <a href="https://goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> (sans cookies)</span>
+        <span>Analytics: <a href="https://goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> (no cookies)</span>
         <span class="sep">|</span>
-        <span>Données : localStorage uniquement</span>
+        <span>Data: localStorage only</span>
       </div>
     </div>
   </footer>

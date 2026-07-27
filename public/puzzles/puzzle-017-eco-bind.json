@@ -16,7 +16,10 @@
       "agent": "cypher",
       "signature": "spycam",
       "ultimate": null,
-      "basic_remaining": ["trapwire", "cyber-cage"]
+      "basic_remaining": [
+        "trapwire",
+        "cyber-cage"
+      ]
     }
   },
   "positions": {
@@ -43,22 +46,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Bind DEF, 5v5, anti-eco : les ATK sont en eco (pistolets/SMG). Tu tiens A en Cypher (full-buy). Comment defendre pour minimiser le risque et garder ton avantage eco ?",
+  "question": "Bind DEF, 5v5, anti-eco: ATK on eco (pistols/SMG). You hold A as Cypher (full-buy). How do you defend to minimize risk and maximize anti-eco win rate?",
   "options": [
     {
-      "label": "Jouer les angles a longue distance, rester groupe avec ton allie A et tenir passif hors range des pistolets/shotguns",
+      "label": "Play long-range angles, stay grouped with your A teammate, passively hold outside close-range SMG/pistol range",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 53,
-      "explication_courte": "En anti-eco tu gagnes les duels a longue distance ou pistolets et shotguns sont faibles ; rester groupe evite les picks surprise close-range et preserve ton rifle pour la manche suivante.",
+      "explication_courte": "In an anti-eco you win long-range duels where pistols and shotguns are weakest; staying grouped avoids a surprise rush and preserves your rifles for the trades.",
       "sources_option": []
     },
     {
-      "label": "Poser Trapwire + Spycam sur les chokes et tenir en retrait pour info + trades, sans chercher a peek",
+      "label": "Set Trapwire + Spycam on the chokes and hold in retract for info + trades, without pushing for frags",
       "tier": "acceptable",
       "ev_delta": "-0.1 round EV",
       "freq_elite_estimee": 27,
-      "explication_courte": "Setup util + info est solide et safe, mais un peu passif : tu cedes potentiellement l'espace et le plant si l'util seule ne stoppe pas un rush groupe. Jouable et low-risk.",
+      "explication_courte": "Setup util plus passive info play is solid and safe, but slightly passive: you may cede space and let the eco rush closer than needed.",
       "sources_option": [
         {
           "url": "https://www.sportskeeda.com/valorant/valorant-ranked-guide-5-tips-anti-eco-rounds",
@@ -67,11 +70,11 @@
       ]
     },
     {
-      "label": "Avancer agressivement A Short pour chercher des frags faciles sur les ATK en eco",
+      "label": "Push aggresively into A Short to pick off the eco players before they set up",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 15,
-      "explication_courte": "Chasser les frags eco te rapproche des pistolets/shotguns ou l'eco est le plus dangereux : un rush groupe ou un shorty en angle proche peut te prendre gratuitement ton rifle.",
+      "explication_courte": "Chasing eco frags brings you into SMG/shotgun range where the eco is most dangerous: a grouped rush can punish your aggression and steal a rifle.",
       "sources_option": [
         {
           "url": "https://www.sportskeeda.com/valorant/valorant-ranked-guide-5-tips-anti-eco-rounds",
@@ -80,11 +83,11 @@
       ]
     },
     {
-      "label": "Pousser en solo dans le spawn ATK pour prendre l'info tot et un pick isole",
+      "label": "Solo-push into ATK spawn to take info early and fish for an isolated pick",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Solo-push dans le spawn adverse en anti-eco = donner ton rifle a un 5-stack eco groupe : tu te fais surnombrer close-range et l'ennemi upgrade son arsenal gratuitement.",
+      "explication_courte": "Solo-pushing into ATK spawn on anti-eco means giving your rifle to a 5-stack eco group: you get swarmed and the round turns.",
       "sources_option": [
         {
           "url": "https://glizzy.substack.com/p/attacking-and-defending-on-ecos-and",
@@ -93,7 +96,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Bind DEF, 5v5, anti-eco. Les ATK sont en eco (pistolets, peut-etre SMG/shotgun). Tu tiens A en Cypher avec Trapwire, Spycam, Cyber-Cage (full-buy). L'objectif : gagner le round SANS risquer ton rifle inutilement.\n\nLe principe anti-eco : minimiser le risque, maximiser l'economie. L'eco est dangereux a courte distance (shotguns, Frenzy, rush groupe) et faible a longue distance. Donc trois regles : (1) tenir les duels a longue portee ou ton rifle domine ; (2) rester groupe pour eviter les picks surprise et pouvoir trade ; (3) ne pas chasser les frags eco dans des positions ou l'ennemi peut recuperer ton arme.\n\nLa ligne optimale joue les angles longs, groupe avec ton allie A, passif hors range des pistolets. Tu gagnes proprement sans donner d'arme. Le setup util + info (acceptable) est safe et low-risk mais un peu passif — jouable. Avancer A Short (couteux) te rapproche du danger close-range. Solo-push le spawn (faute) donne ton rifle a un 5-stack eco groupe et upgrade leur arsenal.\n\nDistribution elite estimee : ~53% jouent long + groupe passif, ~27% setup util/info en retrait, ~15% avancent chercher des frags, ~5% solo-push spawn (la faute). Tolerance GTO : garder la distance et rester groupe est l'invariant anti-eco ; poser l'util et tenir info est une variante egalement safe. Chasser les frags close-range ou pousser en solo sont les erreurs qui donnent des armes a l'eco.",
+  "explication_longue": "Situation: Bind DEF, 5v5, anti-eco. ATK on eco (pistols, maybe SMG/shotgun). You hold A as Cypher with Trapwire, Spycam, Cyber-Cage (full-buy). Goal: win the round without giving up rifles.\n\nAnti-eco principle: you cannot lose this round by playing standard, but you can lose it by playing wrong. The biggest mistake on anti-eco is chasing easy frags - it brings your rifles into close range where pistols and shotguns become viable. The correct line is passive and long-range: hold angles where your rifle dominates, stay grouped to deter the rush, and use Trapwire + Spycam for early warning.\n\nSetup + passive hold (acceptable) is slightly more passive but still solid. Aggressive push into A Short (costly) is the classic anti-eco mistake: you step into shotgun range and gift the ATK a free rifle pick. Solo-pushing spawn (mistake) is a 1v5 on eco terms - you lose the rifle and the round.\n\nEstimated elite distribution: ~54% passive long-range hold grouped, ~23% setup util + retract, ~17% aggressive push (costly), ~4% solo spawn push (mistake).",
   "sources": [
     {
       "url": "https://www.sportskeeda.com/valorant/valorant-ranked-guide-5-tips-anti-eco-rounds",

@@ -51,22 +51,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "C Site Haven, spike plante, 3v2 en votre faveur, 31s. Tu es Omen a C Link avec 2 smokes et Paranoia. Comment lancer le retake ?",
+  "question": "C Site Haven, spike planted, 3v2 your favor, 31s. You're Omen at C Link with 2 smokes and Paranoia. How do you run the retake?",
   "options": [
     {
-      "label": "Fumer les deux angles de defuse (C Long et default plant) puis retaker groupes sur le spike en 3 depuis Garage et Link",
+      "label": "Smoke both defuse angles (C Long and default plant), then push onto the spike grouped from Garage and Link",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 58,
-      "explication_courte": "Les smokes coupent les crossfires post-plant des 2 defenseurs restants et permettent une entree groupee sur le spike. En 3v2 la coordination util+numbers force les ATK a lacher un angle.",
+      "explication_courte": "The smokes cut the post-plant crossfire from the remaining 2 defenders, letting all 3 enter the spike at once. In a 3v2, coordinated util + numbers forces the ATK to give up an angle.",
       "sources_option": []
     },
     {
-      "label": "Utiliser Paranoia dans l'axe principal puis entrer immediatement avant meme de placer les smokes",
+      "label": "Use Paranoia along the main axis, then rush in before throwing any smokes",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Le flash aveugle les post-plants une fenetre, mais entrer sans smokes laisse les crossfires ouverts si le flash rate un angle. Jouable avec un timing parfait, plus risque que le combo smoke+entree.",
+      "explication_courte": "The flash blinds post-plant defenders for a window, but entering without smokes leaves crossfires open if Paranoia misses an angle. Playable with perfect timing — riskier than the smoke+entry combo.",
       "sources_option": [
         {
           "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
@@ -75,11 +75,11 @@
       ]
     },
     {
-      "label": "Depenser les 2 smokes et Paranoia d'un coup en pre-entree puis attendre 8s avant de rentrer",
+      "label": "Dump all 2 smokes and Paranoia at once pre-entry, then wait 8s before pushing",
       "tier": "couteux",
       "ev_delta": "-0.5 round EV",
       "freq_elite_estimee": 14,
-      "explication_courte": "Balancer toute l'util d'un coup laisse les defenseurs attendre la dissipation et defendre le spike a util complete de votre cote videe. Le tempo est casse.",
+      "explication_courte": "Throwing all util in one burst lets defenders wait it out and hold the spike with full time once your side is dry. You lose tempo entirely.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
@@ -88,11 +88,11 @@
       ]
     },
     {
-      "label": "Envoyer un seul joueur en solo peek C Long pour chercher un pick avant de retaker groupes",
+      "label": "Send one player solo peeking C Long to fish for a pick before grouping for the retake",
       "tier": "faute",
       "ev_delta": "-0.9 round EV",
       "freq_elite_estimee": 4,
-      "explication_courte": "Un peek solo sur un post-plant tenu par crossfire donne un duel gratuit aux ATK et casse l'avantage 3v2. Le retake devient un 2v2 sans util coordonnee.",
+      "explication_courte": "A solo peek into a post-plant crossfire gifts the ATK a free trade and throws away your 3v2 advantage. The retake becomes a 2v2 without coordinated util.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
@@ -101,7 +101,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : retake C Site Haven en 3v2, spike plante, 31 secondes au timer. Tu es Omen avec 2 Dark Cover et Paranoia. Les 2 attaquants restants se sont installes en post-plant et tiennent probablement un crossfire sur les axes de defuse (C Long et le default plant vers Garage).\n\nPrincipe cle du retake : on ne gagne pas le retake en posant le pied sur le site, on le gagne en rendant le defuse impossible pour l'adversaire. En 3v2 avec util, la bonne sequence est de neutraliser la vision des post-plants (smokes sur les angles de tir) PUIS d'entrer groupes pour forcer les 2 ATK a couvrir plus d'angles qu'ils n'en ont de joueurs.\n\nLes 2 Dark Cover d'Omen servent exactement a couper les 2 lignes de crossfire : une smoke sur C Long, une sur l'angle default. Une fois la vision refusee, l'entree a 3 corps par Garage et Link sature la defense : les 2 ATK ne peuvent tenir que 2 angles, le troisieme retaker passe. Paranoia peut etre gardee pour la re-clear si un angle resiste.\n\nDistribution elite estimee : ~58% jouent le combo smokes+entree groupee, ~22% tentent une entree flash sans smoke (jouable mais plus risquee), ~14% gaspillent toute l'util d'un coup, ~4% peekent en solo (la faute qui rend l'avantage numerique). Tolerance GTO : toute sequence qui refuse la vision AVANT d'entrer groupe est acceptable.",
+  "explication_longue": "Situation: 3v2 retake on C Site Haven, spike planted, 31 seconds on the clock. You're Omen with 2 Dark Covers and Paranoia. The 2 remaining attackers have set up post-plant and are likely holding a crossfire covering the defuse angles (C Long and the default plant toward Garage).\n\nKey retake principle: you don't win the retake by stepping onto the site — you win it by making the defuse impossible for the enemy. In a 3v2 with util, the correct sequence is to deny vision on the post-plants (smoke the firing lines) THEN push grouped to force the 2 ATK to cover more angles than they have players.\n\nOmen's 2 Dark Covers are made exactly for cutting those 2 crossfire lines: one smoke on C Long, one on the default angle. With vision denied, a 3-body push through Garage and Link saturates the defense — the 2 ATK can only hold 2 angles, so the third retaker gets through. Paranoia can be saved for re-clearing if an angle holds out.\n\nEstimated elite distribution: ~58% play the smoke+grouped-entry combo, ~22% try a flash-first entry without smokes (playable but riskier), ~14% dump all util at once, ~4% solo peek (the mistake that throws the numbers advantage). GTO tolerance: any sequence that denies vision BEFORE entering grouped is acceptable.",
   "sources": [
     {
       "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",

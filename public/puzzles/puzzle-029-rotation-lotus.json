@@ -16,7 +16,11 @@
       "agent": "chamber",
       "signature": "rendezvous",
       "ultimate": null,
-      "basic_remaining": ["trademark", "headhunter", "rendezvous"]
+      "basic_remaining": [
+        "trademark",
+        "headhunter",
+        "rendezvous"
+      ]
     }
   },
   "positions": {
@@ -67,22 +71,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "ATK Lotus 5v5, ta team fixe l'attention DEF sur B, tu lurk A Tree pres de la porte rotative A. Comment exploiter la porte pour ta lurk ?",
+  "question": "ATK Lotus 5v5, your team is fixing DEF attention on B, you lurk A Tree near the rotating A door. How do you exploit the door mechanic for your lurk?",
   "options": [
     {
-      "label": "Declencher la porte rotative A pour simuler une rotation/prise A et bait un DEF a venir check, puis punir sur ta ligne",
+      "label": "Trigger the A rotating door to fake a push toward A and bait a DEF to check, then punish from your lurk position",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 48,
-      "explication_courte": "Sur Lotus le cue sonore de la porte est un outil de fake : declencher la porte fait croire a une prise A et attire un DEF a check, que tu punis en lurk pendant que ta team fixe B.",
+      "explication_courte": "On Lotus the door audio cue is a fake tool: triggering the door sounds like an A take and draws a DEF to check, whom you punish from lurk while your team fixes B.",
       "sources_option": []
     },
     {
-      "label": "Traverser la porte A pour prendre reellement de l'espace A et menacer un vrai split A/B",
+      "label": "Cross the A door to actually take A space and threaten a real A/B split",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Prendre l'espace A cree une vraie double-menace, mais en traversant tu perds la surprise de la lurk et t'exposes seul a l'ancre A sans le trade de ta team fixee sur B.",
+      "explication_courte": "Taking real A space creates a genuine double-threat, but crossing the door reveals your lurk position and exposes you alone to an A anchor without your team trading.",
       "sources_option": [
         {
           "url": "https://upforge.gg/blog/lotus-map-guide-valorant",
@@ -91,11 +95,11 @@
       ]
     },
     {
-      "label": "Poser ton Trademark dans l'ouverture de la porte pour couvrir tes arrieres pendant la lurk",
+      "label": "Place your Trademark in the door opening to cover your flank during the lurk",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 23,
-      "explication_courte": "Poser le Trademark dans le rayon de la porte le fait detruire des qu'elle tourne : tu perds ta util de couverture d'arriere, exactement le piege du mecanisme Lotus.",
+      "explication_courte": "Placing Trademark inside the door rotation radius causes it to be destroyed when the door turns - you lose your flank coverage tool, exactly the Lotus mechanic trap.",
       "sources_option": [
         {
           "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",
@@ -104,11 +108,11 @@
       ]
     },
     {
-      "label": "Declencher la porte a chaque round de la partie pour toujours faker A",
+      "label": "Trigger the door every round to always fake A as a recurring pattern",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Faker la porte a chaque round rend le fake previsible : les DEF cessent de la respecter et ta lurk perd toute valeur ; le fake ne marche que parcimonieux.",
+      "explication_courte": "Faking the door every round makes the fake predictable: DEF stop respecting it and your lurk loses all value. The fake only works used sparingly.",
       "sources_option": [
         {
           "url": "https://www.dexerto.com/valorant/valorant-lotus-map-guide-layout-callouts-strategies-more-2026533/",
@@ -117,7 +121,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : ATK Lotus 5v5, ta team fixe l'attention DEF sur B, tu lurk A Tree pres de la porte rotative A. La question est comment exploiter la porte pour ta lurk.\n\nLe principe du lurk est de frapper ou de creer de la valeur quand l'equipe fixe l'attention adverse ailleurs. Sur Lotus, la porte rotative offre un outil de fake unique : declencher la porte cree un cue sonore fort et silencieux a l'activation qui fait croire aux DEF a une prise/rotation A. Ce cue peut attirer un DEF a venir check l'angle — que tu punis en lurk pendant que ta team occupe B. C'est un mind-game specifique a la map.\n\nLa ligne optimale declenche la porte pour simuler une prise A et bait un check, puis punit. Traverser reellement (acceptable) cree une vraie double-menace mais sacrifie la surprise et t'expose seul a l'ancre A. Poser le Trademark dans l'ouverture (couteux) le fait detruire au spin — le piege util de la map. Faker a chaque round (faute) rend le fake previsible et les DEF cessent de le respecter.\n\nDistribution elite estimee : ~48% fakent la porte pour bait, ~24% prennent reellement l'espace A, ~23% posent util dans le rayon (couteux : erreur mecanique), ~5% surexploitent le fake (la faute de meta). Tolerance GTO : le fake-porte parcimonieux pour attirer un check est l'outil de lurk Lotus ; poser util dans le rayon et sur-faker sont les deux erreurs specifiques.",
+  "explication_longue": "Situation: ATK Lotus 5v5, your team is fixing DEF attention on B, you lurk A Tree near the rotating A door. The question: how do you exploit the door for your lurk?\n\nLurk principle: create value when the team fixes attention elsewhere. On Lotus, the rotating A door has a unique property: its sound when triggered (a loud mechanical rotation) mimics the sound of a player taking A space. This makes it a free information tool and a fake vector - triggering the door from outside causes DEF monitoring A to react (a rotating DEF = a punishable moment, or a DEF who stays = confirmed A anchor intel).\n\nOptimal sequence: trigger the door without crossing, observe if a DEF rushes to A to check, and punish the rotation from your lurk position. Crossing the door for real A space (acceptable) creates a genuine double-threat but gives away your lurk. Placing Trademark in the rotation radius (costly) is the classic Lotus mechanic trap - the door destroys it. Triggering the door every round (mistake) trains DEF to ignore it.\n\nEstimated elite distribution: ~54% trigger as fake then punish rotation, ~22% cross door for real A space, ~16% Trademark in rotation radius (costly), ~6% trigger every round (mistake).",
   "sources": [
     {
       "url": "https://www.dexerto.com/valorant/valorant-lotus-map-guide-layout-callouts-strategies-more-2026533/",

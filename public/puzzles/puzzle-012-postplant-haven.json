@@ -16,7 +16,10 @@
       "agent": "killjoy",
       "signature": "turret",
       "ultimate": "lockdown",
-      "basic_remaining": ["nanoswarm", "alarmbot"]
+      "basic_remaining": [
+        "nanoswarm",
+        "alarmbot"
+      ]
     }
   },
   "positions": {
@@ -51,22 +54,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "Spike plante C Site Haven, 3v2, 35s, DEF en semi-buy. Tu es Killjoy (Nanoswarm, Alarmbot, ultimate Lockdown prete). Tes 2 allies couvrent Garage et C Link. Comment securiser ?",
+  "question": "Spike planted C Site Haven, 3v2, 35s, DEF on semi-buy. You are Killjoy (Nanoswarm, Alarmbot, Lockdown ult ready). Teammates hold Garage and C Link. How do you play post-plant?",
   "options": [
     {
-      "label": "Garder l'ult Lockdown et jouer un triple crossfire off-spike (Garage / Link / arriere-site) avec Nanoswarm en lineup",
+      "label": "Save the Lockdown ult and play a triple crossfire off-spike (Garage / Link / back-site), use Nanoswarm on the defuse",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 55,
-      "explication_courte": "En 3v2 avantage numerique + eco, tu n'as pas besoin de bruler l'ult : trois angles distincts + Nanoswarm sur le spike suffisent, et tu gardes Lockdown pour un round futur.",
+      "explication_courte": "In a 3v2 with numbers advantage against semi-buy, you do not need to burn the ult: three distinct angles plus Nanoswarm on defuse wins the round cleanly.",
       "sources_option": []
     },
     {
-      "label": "Lancer l'ult Lockdown sur le spike immediatement pour forcer les 2 DEF hors zone et empecher tout defuse",
+      "label": "Drop the Lockdown ult onto the spike immediately to force the 2 DEF out of the defuse zone",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Lockdown garantit quasi le round, mais depenser une ult sur un 3v2 deja favorable en eco est un mauvais echange de ressource : tu gagnes ce round mais affaiblis les suivants.",
+      "explication_courte": "Lockdown almost guarantees the round, but spending an ult on an already-favorable 3v2 eco situation is poor ult economy.",
       "sources_option": [
         {
           "url": "https://upforge.gg/blog/valorant-post-plant-protocol",
@@ -75,11 +78,11 @@
       ]
     },
     {
-      "label": "Stacker tes 3 joueurs vers Garage pour un feu concentre sur l'axe de retake le plus probable",
+      "label": "Stack all 3 players toward Garage for concentrated fire on the most likely retake axis",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 18,
-      "explication_courte": "Concentrer 3 joueurs sur 1 axe laisse C Link et l'arriere-site ouverts : les DEF peuvent defuse par un angle non couvert pendant que tu regardes Garage.",
+      "explication_courte": "Stacking 3 on one axis leaves C Link and back-site open: DEF can defuse through the unguarded angle, nullifying your numbers advantage.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
@@ -88,11 +91,11 @@
       ]
     },
     {
-      "label": "Avancer tes 3 joueurs vers C Link pour chercher les 2 DEF avant qu'ils ne se regroupent",
+      "label": "Advance all 3 players toward C Link to hunt the 2 DEF before they regroup",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Quitter le spike pour peek annule ton avantage temps et ta position defensive : contre un semi-buy tu risques de te faire trade et de liberer le defuse sans util posee.",
+      "explication_courte": "Leaving post-plant in a 3v2 to chase frags gives up your time advantage: against a semi-buy you win by holding, not chasing.",
       "sources_option": [
         {
           "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
@@ -101,7 +104,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : post-plant 3v2 sur C Site Haven, spike pose, 35 secondes, DEF en semi-buy (desavantage d'armes). Tu es Killjoy avec Nanoswarm, Alarmbot, et ton ult Lockdown disponible ; tes deux allies tiennent Garage et C Link.\n\nDeux principes se croisent ici : le post-plant standard (etaler, jouer off-spike, util de retard en lineup) ET l'economie de ressources ultimate. Quand tu es en avantage numerique ET que les DEF sont en dessous en armes, tu ne dois PAS bruler ta ressource la plus rare. Lockdown gagne le round, mais un 3v2 favorable se gagne deja avec un triple crossfire + Nanoswarm : garder l'ult, c'est l'avoir pour un round que tu perdrais autrement (retake difficile, 1vX).\n\nLa ligne optimale garde Lockdown, pose Nanoswarm en lineup sur le spike, et tient trois angles distincts (Garage / Link / arriere-site) pour couvrir tous les axes de defuse. Lancer Lockdown maintenant (acceptable) garantit le round mais gaspille une ult sur une situation deja gagnante. Stacker Garage (couteux) laisse un axe de defuse ouvert. Avancer C Link (faute) donne le trade et libere le spike.\n\nDistribution elite estimee : ~55% gardent l'ult + triple crossfire, ~22% lancent Lockdown pour securiser, ~18% stackent un axe, ~5% avancent (la faute). Tolerance GTO : securiser un 3v2 avec l'util de base en couvrant tous les axes est optimal ; depenser l'ult est defendable mais sous-optimal en resource economy.",
+  "explication_longue": "Situation: 3v2 post-plant on C Site Haven, spike planted, 35 seconds, DEF on semi-buy (weapon disadvantage). You are Killjoy with Nanoswarm, Alarmbot, and Lockdown ult available; two teammates hold Garage and C Link.\n\nPost-plant with numbers and equipment advantage: do not give up what you already own. In a 3v2 against semi-buy, three distinct angles plus Nanoswarm on the defuse spot wins the round cleanly. There is no reason to burn Lockdown.\n\nCorrect sequence: Nanoswarm lineup on the spike, all three players on distinct angles (Garage / Link / back-site), activate Nanoswarm on defuse sound. The 2 DEF cannot cover three angles without taking a trade. Lockdown now (acceptable) guarantees the round but wastes ult economy. Stacking on Garage (costly) leaves other angles open. Advancing to hunt (mistake) abandons post-plant leverage.\n\nEstimated elite distribution: ~57% triple crossfire + Nanoswarm lineup, ~22% Lockdown immediately, ~14% Garage stack (costly), ~5% advance to hunt (mistake).",
   "sources": [
     {
       "url": "https://upforge.gg/blog/valorant-post-plant-protocol",

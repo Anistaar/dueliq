@@ -51,22 +51,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 3
   },
-  "question": "Spike plante A Site Haven, 3v3, 28s. Tu es Viper (2 Snake Bite, mur pose sur site). Les DEF vont retaker de CT/A Link et A Long. Comment tenir le post-plant ?",
+  "question": "Spike planted A Site Haven, 3v3, 28s. You're Viper (2 Snake Bites, wall already placed on site). DEF will retake from CT/A Link and A Long. How do you hold post-plant?",
   "options": [
     {
-      "label": "Garder les 2 Snake Bite en lineup sur le spike et tenir les 3 attaquants en crossfire sur A Short, A Long et Link",
+      "label": "Save both Snake Bites on lineups for the spike and hold 3 attackers in crossfire at A Short, A Long, and Link",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 55,
-      "explication_courte": "Le mur Viper deja pose scinde le site ; garder les mollys pour le moment du defuse + un crossfire a 3 angles distincts couvre tous les axes de retake d'un 3v3.",
+      "explication_courte": "Your Toxic Screen already splits the site; saving mollys for the defuse moment plus a 3-angle crossfire covers every retake axis in a 3v3.",
       "sources_option": []
     },
     {
-      "label": "Jeter une Snake Bite sur le spike immediatement pour deny le defuse tot, garder la seconde en reserve",
+      "label": "Drop one Snake Bite onto the spike immediately to deny an early defuse, keep the second in reserve",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 20,
-      "explication_courte": "Deny le defuse tot est jouable si les DEF arrivent vite, mais depenser une molly avant le contact peut la gaspiller si le retake est retarde ; garder au moins une reserve est correct.",
+      "explication_courte": "Denying the early defuse works if defenders push fast, but spending a molly before contact can waste it if the retake is slow; keeping at least one in reserve is still correct play.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
@@ -75,11 +75,11 @@
       ]
     },
     {
-      "label": "Rassembler les 3 attaquants derriere le mur Viper pres du spike pour un feu concentre sur l'axe principal",
+      "label": "Cluster all 3 attackers behind Viper's wall near the spike for concentrated fire on the main retake axis",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 18,
-      "explication_courte": "Grouper les 3 corps concentre le feu mais laisse 2 des 3 axes de retake non couverts ; un split DEF Link+Long prend le site a revers pendant le focus sur un seul angle.",
+      "explication_courte": "Grouping 3 bodies concentrates fire but leaves 2 of the 3 retake axes uncovered; a Link+Long split lets DEF take the site from behind while you're focused on one angle.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
@@ -88,11 +88,11 @@
       ]
     },
     {
-      "label": "Depenser mur + 2 Snake Bite d'un coup en pre-retake puis se replier sans tenir d'angle",
+      "label": "Dump the wall + both Snake Bites all at once before the retake, then fall back without holding any angle",
       "tier": "faute",
       "ev_delta": "-0.9 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Vider toute l'util avant le contact laisse les DEF attendre la dissipation et retaker un site sans util ni angle tenu ; le post-plant est perdu par gaspillage.",
+      "explication_courte": "Burning all util before any contact lets DEF wait it out and retake a site with no util and no angles held; the post-plant is lost by waste.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
@@ -101,7 +101,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : post-plant 3v3 sur A Site Haven, 28 secondes, spike plante. Tu es Viper : ton Toxic Screen (mur) est deja pose pour scinder le site, il te reste 2 Snake Bite. Les 3 DEF vont retaker depuis CT/A Link et A Long.\n\nLe post-plant 3v3 exige de couvrir tous les axes de retake avec le bon nombre de corps et de garder l'util de retard pour le moment ou le defuse commence. Haven A a trois axes d'approche pour les DEF (A Short/CT, A Link, A Long) : trois attaquants doivent occuper trois angles distincts, pas se grouper. Le mur Viper aide en coupant la vision d'un des axes, ce qui reduit le probleme a deux vraies lignes a tenir.\n\nLa ligne optimale garde les 2 Snake Bite en lineup sur le spike : elles ne se declenchent qu'au son du defuse, forcant les DEF a clear la molly (temps perdu) avant de toucher le spike. Pendant ce temps, le crossfire a 3 angles punit toute exposition. Deny le defuse trop tot (option acceptable) marche si le retake est rapide, mais risque de gaspiller une molly ; grouper les corps (couteux) laisse un axe ouvert au split.\n\nDistribution elite estimee : ~55% gardent les mollys en lineup + crossfire 3 angles, ~20% deny tot avec reserve, ~18% groupent les corps (couteux), ~5% videnttoute l'util avant contact (la faute). Tolerance GTO : toute ligne qui garde au moins une molly pour le defuse ET couvre plus d'un axe est acceptable.",
+  "explication_longue": "Situation: 3v3 post-plant on A Site Haven, 28 seconds, spike planted. You're Viper: your Toxic Screen (wall) is already placed splitting the site, you have 2 Snake Bites left. The 3 defenders will retake from CT/A Link and A Long.\n\nPost-plant with a 3v3 requires covering every retake axis with the right number of bodies and holding delay util for when the defuse actually starts. Haven A has three defender approach lines (A Short/CT, A Link, A Long) — three attackers must occupy three distinct angles, never stack. The Viper wall helps by cutting vision on one axis, reducing the problem to two live lines to hold.\n\nThe optimal line saves both Snake Bites on lineups targeting the defuse spot: activate on the defuse sound, forcing DEF to clear the molly (wasted time) before touching the spike. Meanwhile, the 3-angle crossfire punishes any exposure. Denying the defuse too early (acceptable option) works if the retake is fast, but risks wasting a molly; clustering bodies (costly) leaves an axis open to a split push.\n\nEstimated elite distribution: ~55% save mollys on lineups + 3-angle crossfire, ~20% early deny with one reserve, ~18% cluster bodies (costly), ~5% dump all util before contact (the mistake). GTO tolerance: any line that keeps at least one molly for the defuse AND covers more than one axis is acceptable.",
   "sources": [
     {
       "url": "https://www.cheatspulse.com/guides/valorant/default-plants-lineups",

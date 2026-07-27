@@ -16,7 +16,11 @@
       "agent": "kayo",
       "signature": "zero-point",
       "ultimate": null,
-      "basic_remaining": ["frag-ment", "flash-drive", "zero-point"]
+      "basic_remaining": [
+        "frag-ment",
+        "flash-drive",
+        "zero-point"
+      ]
     }
   },
   "positions": {
@@ -51,22 +55,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "Post-plant B Site Split 3v2, spike plante, 34s, DEF en semi-buy. Tu es KAY/O sur site (Frag/ment, Flashdrive, Zero Point). Comment tenir le post-plant en avantage numerique ?",
+  "question": "Post-plant B Site Split 3v2, spike planted, 34s, DEF on semi-buy. You are KAY/O on site (Frag/ment, Flashdrive, Zero Point). How do you hold the post-plant?",
   "options": [
     {
-      "label": "Etaler un crossfire B Main / B Heaven avec tes allies et garder la Frag/ment pour deny le defuse",
+      "label": "Spread a crossfire B Main / B Heaven with your teammates and save Frag/ment for the defuse attempt",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 52,
-      "explication_courte": "En 3v2 avantageux, un crossfire sur les deux acces B (Main au sol + Heaven vertical) force les DEF a un trade impossible ; garder la Frag/ment pour le moment du defuse est l'outil de retard le plus fiable.",
+      "explication_courte": "In a 3v2 with numbers advantage, a B Main (low) / B Heaven (high) crossfire forces the 2 DEF to choose between two angles; save the molly for the defuse moment.",
       "sources_option": []
     },
     {
-      "label": "Lancer le Zero Point pour supprimer la util DEF avant qu'ils ne s'engagent au retake",
+      "label": "Throw Zero Point to suppress DEF util before they engage on the retake",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Supprimer la util DEF avant un retake force est defendable, mais en semi-buy 2 DEF les DEF ont peu d'util a nier ; le knife peut se gaspiller sur un site que tu tiens deja a 3v2.",
+      "explication_courte": "Suppressing DEF util before a forced retake is defensible, but against a semi-buy the 2 DEF have limited util anyway - the crossfire is more impactful than the knife here.",
       "sources_option": [
         {
           "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
@@ -75,11 +79,11 @@
       ]
     },
     {
-      "label": "Grouper les 3 sur B Heaven pour tenir un seul angle vertical fort",
+      "label": "Stack all 3 on B Heaven to hold one strong vertical angle",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 19,
-      "explication_courte": "Stacker les 3 sur un seul angle laisse l'autre acces au defuse libre : les DEF peuvent alors defuser hors de vue pendant que vous tenez un angle vide.",
+      "explication_courte": "Stacking all 3 on one angle leaves the other entry to the defuse unguarded: DEF can defuse through the uncovered axis with no resistance.",
       "sources_option": [
         {
           "url": "https://thunderpick.io/blog/split-map-strategy",
@@ -88,11 +92,11 @@
       ]
     },
     {
-      "label": "Avancer chercher les 2 DEF dans B Main pour finir le round au frag",
+      "label": "Push out toward the 2 DEF in B Main to finish the round on frags",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Quitter le post-plant en 3v2 pour chasser des frags donne des duels non-necessaires et libere le spike ; tu jettes l'avantage du timer pour du risque gratuit.",
+      "explication_courte": "Leaving post-plant in a 3v2 to chase frags gives unnecessary duels and frees the spike: you abandon your time leverage for a gamble.",
       "sources_option": [
         {
           "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
@@ -101,7 +105,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : post-plant B Site Split, 3v2 en ta faveur, spike plante, 34 secondes, DEF en semi-buy. Tu es KAY/O avec Frag/ment, Flashdrive, Zero Point.\n\nEn post-plant avantage numerique, trois principes se combinent : (1) le timer joue POUR l'attaquant qui a plante ; (2) un crossfire sur deux angles distincts force un trade que le DEF ne peut isoler ; (3) l'util de retard (ici la Frag/ment molly) se garde pour le moment ou un DEF commence le defuse. Sur B Split, l'atout specifique est que les acces sont a deux hauteurs — B Main au sol et B Heaven en surplomb — ce qui rend le crossfire vertical particulierement dur a challenger.\n\nLa ligne optimale etale un crossfire B Main / B Heaven et garde la Frag/ment pour deny le defuse au son. Utiliser le Zero Point tot (acceptable) est defendable pour nier la util adverse, mais contre un semi-buy 2 DEF il y a peu a supprimer et le knife peut se gaspiller. Stacker les 3 sur B Heaven (couteux) laisse l'autre angle de defuse libre. Avancer chasser les frags (faute) donne des duels gratuits et libere le spike.\n\nDistribution elite estimee : ~52% tiennent le crossfire deux-angles + Frag/ment reservee, ~22% suppriment au Zero Point, ~19% stackent un angle, ~5% avancent (la faute). Tolerance GTO : couvrir les deux acces (sol + vertical) ET garder l'util de retard sont les invariants ; avancer en avantage numerique est l'erreur.",
+  "explication_longue": "Situation: 3v2 post-plant on B Site Split, spike planted, 34 seconds, DEF on semi-buy. You are KAY/O on site with Frag/ment, Flashdrive, Zero Point.\n\nPost-plant with numbers advantage, three principles: (1) spread your players across distinct angles (never stack), (2) save your best delay util for the defuse moment, (3) let the DEF come to you. B Site Split has two main retake axes: B Main (low ground) and B Heaven (high ground). Three attackers must cover both - two bodies in a crossfire plus one off-angle watching the spike.\n\nCorrect sequence: crossfire B Main / B Heaven, save Frag/ment for the defuse sound, activate on defuse attempt. The 2 DEF cannot safely approach from either axis. Zero Point now (acceptable) strips their util but against a semi-buy they have little util to strip - the crossfire value is higher. Stacking B Heaven (costly) leaves B Main open. Pushing for frags (mistake) abandons leverage.\n\nEstimated elite distribution: ~54% crossfire + saved Frag/ment, ~22% Zero Point suppression first, ~16% Heaven stack (costly), ~6% push for frags (mistake).",
   "sources": [
     {
       "url": "https://thunderpick.io/blog/split-map-strategy",

@@ -16,7 +16,11 @@
       "agent": "omen",
       "signature": "dark-cover",
       "ultimate": null,
-      "basic_remaining": ["paranoia", "dark-cover", "shrouded-step"]
+      "basic_remaining": [
+        "paranoia",
+        "dark-cover",
+        "shrouded-step"
+      ]
     }
   },
   "positions": {
@@ -35,22 +39,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 1
   },
-  "question": "Haven B, 1v1 clutch, spike plante, 20s. Tu es Omen (1 smoke, Paranoia, Shrouded Step) a B Entrance. Le dernier ATK garde le spike quelque part sur B. Comment jouer le retake ?",
+  "question": "Haven B, 1v1 clutch, spike planted, 20s. You are Omen (1 smoke, Paranoia, Shrouded Step) at B Entrance. The last ATK guards the spike somewhere on B Site. How do you clutch?",
   "options": [
     {
-      "label": "Smoke un cote du site pour isoler le duel a 1 angle, puis peek l'autre cote pour un 1v1 propre sous pression du timer",
+      "label": "Smoke one side of the site to isolate the duel to 1 angle, then peek the other side for a clean 1v1",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 49,
-      "explication_courte": "En 1v1 tu transformes le retake en un seul duel : la smoke coupe un angle, tu ne peek qu'une ligne, et le timer force l'ATK a s'exposer pour contester ton defuse. Controle du duel.",
+      "explication_courte": "In a 1v1 you convert the retake into a single duel: the smoke cuts one angle, you only peek one line, making it a pure 1v1 on your terms.",
       "sources_option": []
     },
     {
-      "label": "Utiliser Paranoia a travers le site pour aveugler l'ATK et entrer sur l'info du flash, en avancant vers le spike",
+      "label": "Use Paranoia through the site to blind the ATK and enter on the flash, positioning behind util",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 25,
-      "explication_courte": "Paranoia degage un angle et peut ouvrir une entree, mais tu t'exposes a plusieurs positions possibles ; sans savoir ou est l'ATK, la flash peut ne couvrir qu'un des angles.",
+      "explication_courte": "Paranoia clears an angle and can open an entry, but you expose yourself to multiple positions at once if the flash misses the exact angle.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
@@ -59,11 +63,11 @@
       ]
     },
     {
-      "label": "Rush directement le spike pour commencer le defuse et forcer l'ATK a se montrer pour te stopper",
+      "label": "Rush directly toward the spike to start the defuse and force the ATK to reveal themselves to stop you",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 21,
-      "explication_courte": "Rush le defuse sans clear te met a decouvert : l'ATK qui tient un angle prepare te tire dessus pendant que tu es immobile sur le spike, duel perdu d'avance.",
+      "explication_courte": "Rushing the defuse without clearing exposes you to any prepared angle: the ATK who is pre-aimed kills you mid-defuse. Never defuse before clearing.",
       "sources_option": [
         {
           "url": "https://www.valocheck.com/guides/spike-defuse/",
@@ -72,11 +76,11 @@
       ]
     },
     {
-      "label": "Attendre passivement B Entrance sans util jusqu'a la derniere seconde en esperant que l'ATK se montre",
+      "label": "Wait passively at B Entrance without using util until the last second, hoping the ATK makes a mistake",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Attendre sans agir donne le round : le spike explose, l'ATK n'a aucune raison de bouger, et tu gaspilles ton util de controle du duel. Le clock est ton second adversaire.",
+      "explication_courte": "Waiting without acting gives the round to the ATK: the spike detonates, the enemy has no reason to move, and you waste all your util.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",
@@ -85,7 +89,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Haven B, 1v1 clutch, spike plante, 20 secondes. Tu es Omen a B Entrance avec une smoke (Dark Cover), Paranoia, Shrouded Step. Le dernier ATK garde le spike quelque part sur B Site.\n\nLes principes du clutch 1v1 en retake : (1) transformer la situation en un seul duel controle — reduire le nombre d'angles a verifier ; (2) l'util doit faire un des quatre jobs (bloquer la vision, forcer le mouvement, gagner du temps, faciliter le prochain duel) — sinon la garder ; (3) le clock est un second adversaire — en post-plant DEF, le timer force l'ATK a te contester s'il veut proteger le defuse, mais il force AUSSI ta main (le spike explose). L'Omen a l'outil ideal : une smoke isole le duel a un angle unique.\n\nLa ligne optimale smoke un cote du site (coupe un angle), puis peek l'autre pour un 1v1 propre : tu controles ou vient le duel et le timer pousse l'ATK a s'exposer pour contester ton approche du spike. Paranoia (acceptable) peut ouvrir une entree mais s'expose a plusieurs positions inconnues. Rush le spike (couteux) te met a decouvert contre un angle prepare. Attendre passif (faute) laisse le spike exploser gratuitement.\n\nDistribution elite estimee : ~49% smoke pour isoler le duel, ~25% Paranoia pour ouvrir, ~21% rush le defuse, ~5% attendent passif (la faute). Tolerance GTO : reduire le duel a un seul angle via la smoke est l'invariant du 1v1 controle ; utiliser Paranoia pour degager est une alternative valide si tu lis la position de l'ATK. Rush aveugle et attente passive sont les erreurs.",
+  "explication_longue": "Situation: Haven B, 1v1 clutch, spike planted, 20 seconds. You are Omen at B Entrance with a smoke (Dark Cover), Paranoia, Shrouded Step. The last ATK guards the spike somewhere on B Site.\n\nOne-vs-one clutch principles: (1) never peek multiple angles simultaneously, (2) use util to isolate the duel to a single angle, (3) never start the defuse before the site is clear. Omen is the best 1v1 clutch agent: his smoke creates a controlled information environment.\n\nOptimal sequence: smoke one side of the site (e.g. B Screen or the back wall angle), then peek only the unsmoked side - the ATK can only be in one of the two halves, and you are only peeking one. If the peek misses, Shrouded Step gives repositioning. Paranoia (acceptable) can blind an angle and open entry but risks exposing you to multiple lines. Rushing the defuse (costly) is a classic panic play - pre-aimed angles punish defuse-first every time. Passive waiting (mistake) gives the round to the clock.\n\nEstimated elite distribution: ~54% smoke + isolate peek, ~22% Paranoia entry, ~16% rush defuse (costly), ~6% passive wait (mistake).",
   "sources": [
     {
       "url": "https://boosteria.org/guides/valorant-clutches-guide-2026-win-1vx-situations",

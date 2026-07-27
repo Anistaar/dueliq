@@ -16,7 +16,11 @@
       "agent": "killjoy",
       "signature": "turret",
       "ultimate": null,
-      "basic_remaining": ["alarmbot", "nanoswarm", "turret"]
+      "basic_remaining": [
+        "alarmbot",
+        "nanoswarm",
+        "turret"
+      ]
     }
   },
   "positions": {
@@ -68,22 +72,22 @@
     ],
     "ennemis_inconnus_count": 4
   },
-  "question": "DEF Lotus 4v5, contact confirme sur C Site, tu es Killjoy a B Site. Comment rotate rejoindre C au plus vite avec les portes rotatives ?",
+  "question": "DEF Lotus 4v5, contact confirmed on C Site, you are Killjoy at B Site. How do you rotate to C as fast as possible given the rotating doors?",
   "options": [
     {
-      "label": "Ouvrir la porte rotative B-C et rotate a travers pour arriver a C plus vite, en acceptant le cue sonore",
+      "label": "Open the B-C rotating door and rotate through it to reach C faster, accepting the sound cue it creates",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 48,
-      "explication_courte": "Sur Lotus, la porte rotative B-C raccourcit la rotation : arriver au bon site a temps vaut plus qu'une rotation silencieuse qui arrive trop tard. Le cue trahit le mouvement mais le contact est deja confirme.",
+      "explication_courte": "On Lotus, the B-C rotating door shortens the rotation: arriving at the right site in time is worth more than the audio cue the door opening creates.",
       "sources_option": []
     },
     {
-      "label": "Rotate par le chemin standard (CT Corridor) pour ne pas donner de cue sonore aux ATK",
+      "label": "Rotate through the standard path (CT Corridor) to avoid giving the ATK any audio warning of your rotation",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 25,
-      "explication_courte": "Le chemin standard est silencieux et evite d'annoncer ta rotation, mais il est plus long : sur une menace C confirmee tu risques d'arriver apres le plant, en retard sur le retake.",
+      "explication_courte": "The standard CT path is silent and avoids telegraphing your rotation, but it is longer; on a confirmed C contact, speed to site may outweigh the stealth.",
       "sources_option": [
         {
           "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",
@@ -92,11 +96,11 @@
       ]
     },
     {
-      "label": "Rester a B Site tenir ta position au cas ou le C serait un fake",
+      "label": "Stay at B Site and hold your position in case the C contact is a fake",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Tenir B sur un contact C confirme laisse tes allies en sous-nombre sur le vrai site : en 4v5 tu ne peux pas te permettre d'ancrer un site qui n'est pas attaque.",
+      "explication_courte": "Holding B on a confirmed C contact leaves your teammates outnumbered on the real site: in a 4v5 you cannot afford to anchor a site that may be a fake.",
       "sources_option": [
         {
           "url": "https://beebom.com/valorant-lotus-map-guide/",
@@ -105,11 +109,11 @@
       ]
     },
     {
-      "label": "Ouvrir la porte B-C mais attendre 10s qu'elle finisse de tourner avant de passer",
+      "label": "Open the B-C door but wait the full 10s for it to finish rotating before stepping through",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Attendre la rotation complete de 10s annule tout le gain de vitesse : la porte offre un passage PENDANT sa rotation, pas apres ; attendre = arriver aussi tard que le chemin long, cue en plus.",
+      "explication_courte": "Waiting the full 10-second door rotation cycle defeats the entire speed advantage: the door offers a passable gap DURING rotation, not only after it is open.",
       "sources_option": [
         {
           "url": "https://www.dexerto.com/valorant/valorant-lotus-map-guide-layout-callouts-strategies-more-2026533/",
@@ -118,7 +122,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : DEF Lotus 4v5, contact CONFIRME sur C Site, tu es Killjoy a B Site. La question est comment rejoindre C au plus vite.\n\nLotus est la map des trois sites et des rotations rapides : ses deux portes rotatives (A-Tree et B-C) raccourcissent les rotations A<->B et B<->C. Le principe de rotation sur cette map est qu'arriver au BON site a temps vaut plus qu'une rotation silencieuse qui arrive trop tard. La porte rotative met exactement 10 secondes a tourner de 180 degres, mais offre un passage PENDANT sa rotation, pas seulement a la fin.\n\nLa ligne optimale ouvre la porte B-C et rotate a travers : le contact C est deja confirme, donc le cue sonore de la porte ne trahit rien que l'ATK n'anticipe deja, et le gain de temps te met en position pour la defense ou le retake. Le chemin standard silencieux (acceptable) evite d'annoncer la rotation mais est plus long — risque d'arriver apres le plant. Rester a B (couteux) laisse tes allies en sous-nombre sur le vrai site en 4v5. Ouvrir la porte puis attendre 10s (faute) annule le gain : le passage est pendant la rotation, pas apres.\n\nDistribution elite estimee : ~48% rotate par la porte, ~25% prennent le chemin standard silencieux, ~22% restent ancrer B (couteux), ~5% attendent la rotation complete (la faute mecanique). Tolerance GTO : sur un contact confirme, la vitesse de rotation prime le silence — la porte est l'outil ; attendre sa fin est l'erreur mecanique.",
+  "explication_longue": "Situation: DEF Lotus 4v5, contact CONFIRMED on C Site, you are Killjoy at B Site. The question is how to reach C as fast as possible.\n\nLotus is the three-site map with fast rotations via its two unique rotating doors. The B-C door is a shortcut that cuts the B-to-C rotation time significantly. On a CONFIRMED contact (not a fake), speed to the right site is the priority: the audio cue of opening the door is a known Lotus mechanic that experienced players account for, but arriving in time to help defenders outweighs the warning.\n\nThe standard CT Corridor path (acceptable) is completely silent and avoids revealing your rotation, but it is notably longer and may be too slow on a confirmed call. Staying at B on a confirmed C hit (costly) leaves teammates in a numbers deficit at the real site. Opening the door but waiting 10 seconds for it to fully rotate (mistake) destroys the speed advantage - you can pass through during the rotation.\n\nEstimated elite distribution: ~54% open B-C door and rotate through, ~23% CT Corridor silent rotation, ~16% hold B on fake read (costly), ~5% open and wait 10s (mistake).",
   "sources": [
     {
       "url": "https://www.switchbladegaming.com/valorant/lotus-map-guide/",

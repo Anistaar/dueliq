@@ -16,7 +16,11 @@
       "agent": "sage",
       "signature": "slow-orb",
       "ultimate": null,
-      "basic_remaining": ["slow-orb", "barrier-orb", "healing-orb"]
+      "basic_remaining": [
+        "slow-orb",
+        "barrier-orb",
+        "healing-orb"
+      ]
     }
   },
   "positions": {
@@ -60,22 +64,22 @@
     ],
     "ennemis_inconnus_count": 1
   },
-  "question": "Retake A Site Split 3v2, spike plante, 30s. Tu es Sage a A Heaven (surplomb du site), 1 ATK vu au sol, 1 inconnu. Comment mener le retake avec ton avantage vertical ?",
+  "question": "Retake A Site Split 3v2, spike planted, 30s. You are Sage at A Heaven (overlooking the site), 1 ATK spotted below, 1 unknown. How do you run the retake?",
   "options": [
     {
-      "label": "Exploiter le surplomb Heaven pour clear le site par le haut avec ton equipe, Slow Orb sur l'angle de repli ATK",
+      "label": "Exploit the Heaven high-ground to clear the site from above with your team, Slow Orb on the spike to delay defuse",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 51,
-      "explication_courte": "Sur Split le retake se gagne par la verticalite : depuis Heaven tu vois les post-plants du dessus, angle que l'ATK au sol ne controle pas ; le Slow Orb verrouille sa fuite pendant que la team clear.",
+      "explication_courte": "On Split, retakes are won through verticality: from Heaven you can see post-plant positions below, Slow Orb delays the defuse, and your team enters from the low angles simultaneously.",
       "sources_option": []
     },
     {
-      "label": "Descendre au sol rejoindre ton equipe et retaker le site groupe par les entrees basses",
+      "label": "Drop down to the ground level and retake the site grouped with your team through the low entries",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 23,
-      "explication_courte": "Un retake groupe au sol est solide, mais tu abandonnes l'avantage vertical unique de Heaven — l'ATK peut alors tenir un crossfire au sol a egalite d'angles.",
+      "explication_courte": "A grouped low-ground retake is solid, but you abandon the unique vertical advantage of Heaven - the ATK below have less information without the top-down threat.",
       "sources_option": [
         {
           "url": "https://www.switchbladegaming.com/valorant/split-map-guide/",
@@ -84,11 +88,11 @@
       ]
     },
     {
-      "label": "Mur (Barrier Orb) l'entree du site et attendre que le timer force les ATK a bouger avant d'engager",
+      "label": "Wall (Barrier Orb) the site entry and wait for the timer to force the ATK to move before retaking",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 19,
-      "explication_courte": "Poser un mur passif et attendre en 3v2 favorable perd le round : le spike est plante, c'est TOI qui dois defuser ; laisser filer le timer donne la manche a l'ATK.",
+      "explication_courte": "Placing a passive wall in a 3v2 you favor loses the round: the spike is planted, YOU are the one who must defuse - letting the timer run is a slow forfeit.",
       "sources_option": [
         {
           "url": "https://boosting-ground.com/Valorant/guides/map-guides/split-map-guide",
@@ -97,11 +101,11 @@
       ]
     },
     {
-      "label": "Peek solo depuis Heaven sur le spike sans attendre ton equipe pour un pick rapide",
+      "label": "Solo peek from Heaven onto the spike without waiting for your team for a fast pick",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Un solo-peek Heaven sans trade offre un duel gratuit : si tu tombes, le retake devient 2v2 sans avantage vertical et ton util (Slow/Heal) meurt avec toi.",
+      "explication_courte": "A solo Heaven peek without a trade offers the ATK a free kill: if you die, the retake becomes a 2v2 without your Heaven advantage and you lose the numbers edge.",
       "sources_option": [
         {
           "url": "https://www.exitlag.com/blog/split-valorant/",
@@ -110,7 +114,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : retake A Site Split, 3v2 en ta faveur, spike plante, 30 secondes. Tu es Sage a A Heaven — le surplomb qui domine le site — avec Slow Orb, Barrier Orb, Healing Orb ; 1 ATK vu au sol, 1 inconnu.\n\nSplit est LA map de la verticalite : les positions hautes (A Heaven, Vents, rafters) offrent des sightlines que le jeu au sol ne peut pas contester a egalite. Le principe du retake sur cette map est de garder l'avantage vertical, clear le site par le haut, et isoler les duels avec l'util. Depuis Heaven tu vois les post-plants du dessus — un angle que l'ATK plante au sol ne controle pas.\n\nLa ligne optimale exploite Heaven : tu clear le site depuis le surplomb avec ta team, et tu poses le Slow Orb sur l'angle de repli de l'ATK pour verrouiller sa fuite pendant que le retake se fait. Descendre au sol (acceptable) est un retake groupe solide mais rend l'avantage vertical, remettant le duel a egalite d'angles. Murrer et attendre (couteux) est une faute de tempo : le spike est plante, c'est toi qui dois defuser, laisser filer le timer perd le round. Peek solo Heaven (faute) donne un duel gratuit non-tradé.\n\nDistribution elite estimee : ~51% exploitent le surplomb Heaven, ~23% descendent retaker groupe au sol, ~19% murrent et attendent (perte de tempo), ~5% peekent solo (la faute). Tolerance GTO : garder et utiliser l'avantage vertical de Heaven est l'invariant Split ; le solo-peek non-tradé est l'erreur.",
+  "explication_longue": "Situation: 3v2 retake on A Site Split, spike planted, 30 seconds. You are Sage at A Heaven - the high-ground that dominates the site - with Slow Orb, Barrier Orb, Healing Orb; 1 ATK spotted below, 1 unknown.\n\nSplit A retake is won through verticality: Heaven overlooks the post-plant positions, and a team that combines high-ground (Heaven angle) with low-ground (Ramp/Lobby entries) forces the 2 ATK into an impossible coverage problem. Sage's Slow Orb on the spike delays the defuse, buying the extra seconds needed to coordinate the entry.\n\nThe correct sequence: Slow Orb onto the spike (delay), your two teammates push through the low entries while you cover from Heaven - the 2 ATK cannot hold both simultaneously. Dropping to low ground (acceptable) is solid but wastes the Heaven advantage. Walling the entry and waiting (costly) is passive in a situation where you must defuse the spike - the timer is your enemy. Solo Heaven peek (mistake) throws the numbers advantage away.\n\nEstimated elite distribution: ~55% Heaven high-ground + Slow Orb + coordinated low entry, ~22% grouped low-ground retake, ~15% passive wall wait (costly), ~6% solo Heaven peek (mistake).",
   "sources": [
     {
       "url": "https://www.switchbladegaming.com/valorant/split-map-guide/",

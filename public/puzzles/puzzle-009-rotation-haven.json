@@ -16,7 +16,10 @@
       "agent": "sova",
       "signature": "recon-bolt",
       "ultimate": null,
-      "basic_remaining": ["recon-bolt", "shock-dart"]
+      "basic_remaining": [
+        "recon-bolt",
+        "shock-dart"
+      ]
     }
   },
   "positions": {
@@ -43,22 +46,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 5
   },
-  "question": "Haven DEF, tu tiens C Site (Sova) a 2. Tu entends des pas + une util a C Garage mais C Long reste silencieux. 48s. Rotate ou rester ?",
+  "question": "Haven DEF, you hold C Site (Sova) at 2. You hear footsteps + util at C Garage but C Long stays silent. 48s. Rotate, hold, or confirm?",
   "options": [
     {
-      "label": "Recon-bolt C Garage/Long pour confirmer le nombre AVANT de decider, tenir ta position tant que l'info n'est pas claire",
+      "label": "Recon-bolt C Garage/Long to confirm the player count BEFORE deciding, hold your position while the scan resolves",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 55,
-      "explication_courte": "Le recon transforme un son ambigu (fake possible) en compte reel. Rotate ou rester sur une info confirmee evite de ceder C a un fake ou de rester sur un lurk pendant que le vrai hit va ailleurs.",
+      "explication_courte": "The recon turns an ambiguous sound (possible fake) into a real player count. Deciding based on confirmed info is always stronger than guessing.",
       "sources_option": []
     },
     {
-      "label": "Tenir C a 2 sans recon, jouer le retard a l'util et appeler la rotation d'un teammate si le hit se confirme",
+      "label": "Hold C at 2 without a recon, stall with util, and call for a teammate rotate if the hit looks real",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Tenir et retarder est solide si tu ne veux pas depenser le recon, mais sans confirmation tu risques de gaspiller de l'util sur un fake ou de manquer un split silencieux.",
+      "explication_courte": "Holding and stalling without spending the recon is solid, but without confirmation you risk holding a 2v5 fake while the real hit drops elsewhere.",
       "sources_option": [
         {
           "url": "https://bo3.gg/valorant/articles/how-to-read-rotations-in-valorant-when-and-where-defenders-move",
@@ -67,11 +70,11 @@
       ]
     },
     {
-      "label": "Rotate immediatement vers B/A des le son de C Garage en supposant que c'est un fake pour renforcer un autre site",
+      "label": "Rotate immediately toward B/A at the first sound from C Garage, assuming it is a fake to draw your attention",
       "tier": "couteux",
       "ev_delta": "-0.5 round EV",
       "freq_elite_estimee": 18,
-      "explication_courte": "Quitter C sur un simple son suppose un fake sans preuve : si le hit C est reel, tu cedes le site a 5 avec un seul defenseur restant. Rotate sans info est un pari.",
+      "explication_courte": "Leaving C on a single unconfirmed sound assumes a fake without proof: if the C hit is real, you abandon the site to a full push.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
@@ -80,11 +83,11 @@
       ]
     },
     {
-      "label": "Push agressif C Garage en solo pour contester l'entree et chercher un pick avant le hit",
+      "label": "Aggressive solo push into C Garage to contest the entry and fish for a pick before the hit",
       "tier": "faute",
       "ev_delta": "-0.9 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Pousser en solo dans un choke ou 5 ATK full-buy arrivent donne un duel perdant et un trade gratuit ; en 2-DEF sur site, perdre un joueur en push detruit la defense du site.",
+      "explication_courte": "Pushing solo into a choke where 5 full-buy ATK may be arriving is a free kill handed to the enemy - and it reveals exactly how many hold C.",
       "sources_option": [
         {
           "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
@@ -93,7 +96,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : Haven, tu defends C Site a 2 (toi Sova + un allie), 48 secondes. Tu entends des pas et une util a C Garage, mais C Long reste silencieux. La question : rotate, rester, ou confirmer ?\n\nLe principe de rotation en defense : le son est le signal #1 mais il est faillible (les ATK fakent en jetant de l'util ou en marchant fort avant de rotate ailleurs). La regle d'or est de ne pas ceder un site sur une info non confirmee. Un mouvement a C Garage sans bruit a C Long peut etre un vrai hit C... ou un fake destine a te faire rotate pendant que le hit part sur B/A.\n\nLa ligne optimale exploite le kit de Sova : un Recon Bolt sur C Garage/Long revele le nombre reel d'attaquants. Trois issues : plusieurs ATK confirmes = vrai hit, tu tiens et appelles la rotation ; un seul = probable fake/lurk, tu peux liberer un joueur ailleurs ; rien = le hit est ailleurs, rotate en connaissance de cause. Tenir et retarder sans recon (acceptable) est correct mais laisse l'incertitude. Rotate immediatement sur le son (couteux) cede C si le hit est reel. Push solo (faute) offre un trade gratuit.\n\nDistribution elite estimee : ~55% recon pour confirmer avant d'agir, ~22% tiennent et retardent, ~18% rotate sur le son (couteux), ~5% push solo (la faute). Tolerance GTO : toute action qui CONFIRME avant de ceder un site est acceptable ; rotate a l'aveugle et push solo sont les erreurs.",
+  "explication_longue": "Situation: Haven, you defend C Site at 2 (you Sova + one teammate), 48 seconds. You hear footsteps and util at C Garage, but C Long stays silent. The call: rotate, hold, or confirm?\n\nThe key rotation principle: information before decision. Haven has three sites and rotation is expensive - an incorrect rotate is a 2v5 abandoned site. Sova's Recon Bolt is made for this moment: one bolt into C Garage/Long reveals the player count and turns a guessed decision into an informed one. If it shows 3+ ATK, call for a teammate rotate and stall; if it shows 1-2, you hold at 2 comfortably.\n\nHolding without a recon (acceptable) works if your instinct is right, but carries real risk of getting overwhelmed 2v5. Rotating immediately (costly) gambles on the fake: if the hit is real, C is ceded. Solo-pushing into Garage (mistake) is always wrong - you feed information AND a free kill in a choke where you are outnumbered.\n\nEstimated elite distribution: ~55% recon first then decide, ~23% hold + stall without recon, ~17% early rotate (costly), ~4% solo push (mistake).",
   "sources": [
     {
       "url": "https://bo3.gg/valorant/articles/how-to-read-rotations-in-valorant-when-and-where-defenders-move",

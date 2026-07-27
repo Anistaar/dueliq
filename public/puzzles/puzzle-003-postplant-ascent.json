@@ -43,22 +43,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "Spike plante default B Site Ascent, 2v2, 34s. Tu es Killjoy avec 2 Nanoswarm et Alarmbot. Ton allie tient CT Mid. Comment jouer le post-plant ?",
+  "question": "Spike planted default B Site Ascent, 2v2, 34s. You're Killjoy with 2 Nanoswarms and an Alarmbot. Your teammate holds CT Mid. How do you play post-plant?",
   "options": [
     {
-      "label": "Placer les 2 Nanoswarm en lineup sur le spike (default) et te repositionner en crossfire off-angle avec ton allie",
+      "label": "Set both Nanoswarms on a lineup covering the default plant, then reposition in a crossfire off-angle with your teammate",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 57,
-      "explication_courte": "Les Nanoswarm en lineup rendent le defuse impossible sans clear, forcant les DEF a exposer les molly-spots ; le crossfire off-spike punit tout retaker qui s'expose au spike.",
+      "explication_courte": "Nanoswarm lineups make defusing impossible without clearing the molly spots first, forcing defenders to expose themselves; the off-spike crossfire punishes any retaker who steps up.",
       "sources_option": []
     },
     {
-      "label": "Garder les Nanoswarm et jouer un crossfire agressif proche du spike pour trade instantane sur le premier retaker",
+      "label": "Hold the Nanoswarms and play a disciplined close crossfire near the spike to instantly trade the first retaker",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 23,
-      "explication_courte": "Un crossfire discipline gagne des post-plants sans util, mais garder les mollys prives d'un outil de retard ; jouable si les positions sont bien decalees et lineaires.",
+      "explication_courte": "A disciplined crossfire can win post-plants without util, but holding the mollys wastes your best delay tool; playable if your positions are well offset and on distinct lines.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
@@ -67,11 +67,11 @@
       ]
     },
     {
-      "label": "Balancer les 2 Nanoswarm des l'entree des DEF sur le site sans lineup, en visant a l'oeil",
+      "label": "Throw both Nanoswarms as soon as defenders enter site — no lineup, just eyeballing it",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 15,
-      "explication_courte": "Sans lineup, les Nanoswarm ratent souvent le spot exact de defuse et sont depensees trop tot ; on perd l'outil de retard le plus fiable du post-plant.",
+      "explication_courte": "Without a lineup, Nanoswarms often miss the exact defuse spot and get burned early; you lose your most reliable delay tool for the post-plant.",
       "sources_option": [
         {
           "url": "https://www.cheatspulse.com/guides/valorant/default-plants-lineups",
@@ -80,11 +80,11 @@
       ]
     },
     {
-      "label": "Vous stacker tous les deux au meme angle pres du spike pour un feu concentre sur l'entree principale",
+      "label": "Stack both players at the same angle near the spike for concentrated fire on the main entry",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Se stacker au meme angle offre une seule ligne aux DEF : un flash ou une entree groupee vous prend tous les deux, et personne ne couvre le second axe de defuse.",
+      "explication_courte": "Stacking the same angle gives defenders a single line to work with — one flash or a grouped push takes you both out, and nobody covers the second defuse axis.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
@@ -93,7 +93,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : post-plant 2v2 sur B Site Ascent, spike default, 34 secondes. Tu es Killjoy avec 2 Nanoswarm et un Alarmbot ; ton allie tient CT Mid. Deux DEF vivants vont tenter le retake.\n\nLe post-plant en attaque repose sur trois leviers : (1) jouer pour des lineups d'util qui rendent le defuse impossible sans clear, (2) etaler les joueurs sur des angles distincts (ne jamais se stacker), (3) tenir un crossfire off-spike qui punit l'exposition au defuse. Killjoy est l'agent post-plant par excellence : ses Nanoswarm en lineup sur le default plant transforment le spike en zone de mort.\n\nLa ligne optimale combine les trois : deux Nanoswarm pre-alignees sur le spot de defuse (declenchables au son du defuse), puis un repositionnement en off-angle pour que toi et ton allie CT couvriez deux axes differents. Un DEF qui commence le defuse mange une molly ; s'il attend, le timer joue pour toi. Le crossfire pur (option acceptable) gagne aussi beaucoup de rounds mais se prive de l'outil de retard le plus fiable.\n\nDistribution elite estimee : ~57% jouent lineup+crossfire off-angle, ~23% jouent un crossfire discipline en gardant les mollys, ~15% jettent les mollys a l'oeil (moins fiable), ~5% se stackent au meme angle (la faute qui offre un seul point de contact). Tolerance GTO : toute ligne qui exploite les lineups OU tient un crossfire a deux angles distincts est solide ; se stacker est la seule vraie erreur.",
+  "explication_longue": "Situation: 2v2 post-plant on B Site Ascent, default plant, 34 seconds. You're Killjoy with 2 Nanoswarms and an Alarmbot; your teammate holds CT Mid. Two defenders will attempt the retake.\n\nPost-plant on attack rests on three levers: (1) playing for util lineups that make defusing impossible without clearing, (2) spreading players across distinct angles (never stack), (3) holding an off-spike crossfire that punishes anyone stepping up to defuse. Killjoy is the ideal post-plant agent: her Nanoswarm lineups on the default plant turn the spike into a kill zone.\n\nThe optimal line combines all three: two Nanoswarms pre-aimed at the defuse spot (activate on the defuse sound), then reposition so you and your CT teammate cover two different angles. A defender who starts defusing eats a molly; if they wait, the timer works for you. A pure crossfire (acceptable option) also wins plenty of rounds but forgoes the most reliable delay tool.\n\nEstimated elite distribution: ~57% play lineup+off-angle crossfire, ~23% play a disciplined crossfire holding the mollys, ~15% eyeball-throw the mollys (less reliable), ~5% stack the same angle (the mistake that gives defenders a single contact point). GTO tolerance: any line that uses the lineups OR holds a crossfire at two distinct angles is solid; stacking is the only real error.",
   "sources": [
     {
       "url": "https://www.cheatspulse.com/guides/valorant/default-plants-lineups",

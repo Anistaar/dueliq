@@ -16,7 +16,11 @@
       "agent": "jett",
       "signature": "tailwind",
       "ultimate": null,
-      "basic_remaining": ["cloudburst", "updraft", "tailwind"]
+      "basic_remaining": [
+        "cloudburst",
+        "updraft",
+        "tailwind"
+      ]
     }
   },
   "positions": {
@@ -59,22 +63,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 4
   },
-  "question": "Execute C Site Lotus 4v4 (le plus petit site, 4 entrees), 40s, tu es Jett a C Main. Comment ouvrir l'entree sur un site aussi exigu ?",
+  "question": "Execute C Site Lotus 4v4 (smallest site, 4 entries), 40s, you are Jett at C Main. How do you open the entry on such a tight site?",
   "options": [
     {
-      "label": "Execute layered : Cloudburst coupe une sightline, entree groupee par C Main + C Link simultanes pour submerger le site",
+      "label": "Layered execute: Cloudburst cuts one sightline, grouped entry via C Main + C Link simultaneously to overwhelm the site",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 49,
-      "explication_courte": "C est le plus petit site avec 4 entrees et peu de spots DEF : le submerger par deux acces simultanes avec une smoke qui coupe l'angle disperse les DEF et cree le trade ; c'est le point faible de C.",
+      "explication_courte": "C is the smallest site with 4 entries and few DEF spots: hitting from two access points simultaneously with a smoke cutting the key angle disperses DEF and creates trades.",
       "sources_option": []
     },
     {
-      "label": "Dash Jett en solo par C Main pour ouvrir l'espace en premier et laisser la team suivre",
+      "label": "Dash Jett solo through C Main to create the opening first and let the team follow",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 24,
-      "explication_courte": "Un dash-entry Jett prend l'espace rapidement et cree l'ouverture, mais sur un site exigu a 4 entrees un dash solo mal tradé peut te mettre en 3v4 si le premier duel est perdu.",
+      "explication_courte": "A dash-entry from Jett takes space quickly and creates an opening, but on a small site with 4 entries a solo dash that is not traded can put you in a 3v4 immediately.",
       "sources_option": [
         {
           "url": "https://upforge.gg/blog/lotus-map-guide-valorant",
@@ -83,11 +87,11 @@
       ]
     },
     {
-      "label": "Entree dry en file par C Main sans util pour economiser les capacites",
+      "label": "Dry-push in file through C Main without util to conserve abilities for later",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 22,
-      "explication_courte": "Entrer dry en file sur un petit site donne aux DEF un tir en enfilade : chaque joueur peek le meme angle un a un, exactement ce que les holds C punissent.",
+      "explication_courte": "Entering dry in a file on a small site gives DEF a shooting gallery: each player peeks the same angle one by one, exactly what C holds are set up to punish.",
       "sources_option": [
         {
           "url": "https://www.ibuypower.com/blog/games/valorant-lotus-map-guide",
@@ -96,11 +100,11 @@
       ]
     },
     {
-      "label": "Refuser l'entree et jouer la fin de round en default sans hit",
+      "label": "Refuse the entry and play for the end of round in a default without hitting the site",
       "tier": "faute",
       "ev_delta": "-0.7 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Refuser d'entrer a 40s en 4v4 full-buy laisse filer le round : tu perds l'initiative de l'attaque sans creer aucune menace de plant, offrant le round aux DEF.",
+      "explication_courte": "Refusing to enter at 40s in a 4v4 full-buy loses the round by default: you surrender attack initiative without creating any plant threat, handing the round to the DEF.",
       "sources_option": [
         {
           "url": "https://mobalytics.gg/blog/valorant/lotus-map-guide-layout-tip-tricks/",
@@ -109,7 +113,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : execute C Site Lotus 4v4, 40 secondes, tu es Jett a C Main avec Cloudburst, Updraft, Tailwind. C est le plus petit site de la map avec 4 entrees.\n\nLe principe d'entry est de prendre l'espace en premier en reduisant les sightlines DEF ; sur C Lotus, la specificite est que le site est exigu avec tres peu de spots pour les DEF mais QUATRE points d'entree. Le point faible du site est donc qu'il peut etre submerge : entrer par deux acces simultanes disperse l'attention DEF et cree le trade, alors qu'un seul lane se fait tenir en enfilade.\n\nLa ligne optimale coordonne un execute layered : Cloudburst pour couper une sightline, entree groupee par C Main + C Link simultanement pour submerger le petit site. Le dash Jett solo (acceptable) prend l'espace vite et cree l'ouverture mais risque le man-down si non-tradé. L'entree dry en file (couteux) donne aux DEF un tir en enfilade — exactement ce que les holds C punissent. Refuser l'entree (faute) laisse filer le round sans menace de plant.\n\nDistribution elite estimee : ~49% execute layered deux-acces, ~24% dash Jett solo pour ouvrir, ~22% entree dry en file (couteux), ~5% refusent (la faute). Tolerance GTO : submerger le petit site par plusieurs acces avec util pour couper l'angle est l'invariant sur C ; l'entree dry en enfilade est l'erreur que les holds C exploitent.",
+  "explication_longue": "Situation: execute C Site Lotus in 4v4, 40 seconds, you are Jett at C Main with Cloudburst, Updraft, Tailwind. C is the smallest site on the map with 4 entries.\n\nC Site entry principle: small site, multiple entries, few hiding spots for DEF. The correct execute exploits the entry options rather than funneling through one. Cloudburst cuts the primary sightline (e.g. the C Main pillar angle), while your team enters simultaneously through C Main AND C Link - two entry points at once forces DEF to choose which to hold and creates a trade on whichever they pick.\n\nJett solo dash (acceptable) takes space quickly and can open an entry, but a solo dash on a tight site that goes untraded puts you in immediate trouble. Dry-push in file (costly) is the worst possible entry pattern on a small site: everyone peeks the same angle in sequence and DEF drop them one by one. Refusing to enter at 40s (mistake) concedes the round without a fight.\n\nEstimated elite distribution: ~54% layered execute (smoke + simultaneous dual-entry), ~22% Jett dash-entry solo, ~16% dry-push in file (costly), ~6% refuse entry (mistake).",
   "sources": [
     {
       "url": "https://www.ibuypower.com/blog/games/valorant-lotus-map-guide",

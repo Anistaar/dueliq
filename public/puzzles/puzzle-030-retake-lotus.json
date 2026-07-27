@@ -16,7 +16,11 @@
       "agent": "skye",
       "signature": "guiding-light",
       "ultimate": null,
-      "basic_remaining": ["trailblazer", "guiding-light", "regrowth"]
+      "basic_remaining": [
+        "trailblazer",
+        "guiding-light",
+        "regrowth"
+      ]
     }
   },
   "positions": {
@@ -43,22 +47,22 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "Retake B Site Lotus 2v2, spike plante, 32s. Tu es Skye a B Main avec ton allie a B Corner. Comment coordonner le retake 2v2 ?",
+  "question": "Retake B Site Lotus 2v2, spike planted, 32s. You are Skye at B Main with your teammate at B Corner. How do you coordinate the 2v2 retake?",
   "options": [
     {
-      "label": "Utiliser Guiding Light (flash) pour ouvrir un angle et entrer en trade avec ton allie sur deux acces (B Main + B Corner)",
+      "label": "Use Guiding Light (flash) to open an angle and enter in trade with your teammate from two access points simultaneously",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 52,
-      "explication_courte": "Un retake 2v2 se gagne par la coordination : flash pour deloger l'ATK d'un angle, entree simultanee sur deux acces pour forcer le trade et empecher un post-plant hold isole.",
+      "explication_courte": "A 2v2 retake is won by coordination: flash to clear an angle and force a fight, simultaneous dual-entry through two access points prevents a post-plant hold from covering both.",
       "sources_option": []
     },
     {
-      "label": "Envoyer le Trailblazer (tiger) en eclaireur pour reveler la position des ATK avant d'entrer",
+      "label": "Send the Trailblazer (tiger) as a scout to reveal ATK positions before committing to the entry",
       "tier": "acceptable",
       "ev_delta": "-0.2 round EV",
       "freq_elite_estimee": 23,
-      "explication_courte": "Le Trailblazer donne l'info et peut concuss un ATK, mais en 2v2 avec 32s l'envoyer scout coute du temps de defuse et n'ouvre pas l'angle aussi net qu'une flash coordonnee.",
+      "explication_courte": "The Trailblazer gives info and can concuss an ATK, but in a 2v2 with 32s sending a scout costs defuse time and does not open the angle as cleanly as a coordinated flash.",
       "sources_option": [
         {
           "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
@@ -67,11 +71,11 @@
       ]
     },
     {
-      "label": "Entrer solo par B Main pendant que ton allie tient B Corner en backup",
+      "label": "Enter solo through B Main while your teammate holds B Corner in backup",
       "tier": "couteux",
       "ev_delta": "-0.4 round EV",
       "freq_elite_estimee": 20,
-      "explication_courte": "Entrer solo en 2v2 sans trade immediat donne un duel isole : si tu tombes, ton allie se retrouve en 1v2 sur le retake, la coordination cassee.",
+      "explication_courte": "Entering solo in a 2v2 without an immediate trade gives an isolated 1v2 duel: if you die, your teammate is in a 1v2 with the retake coordination broken.",
       "sources_option": [
         {
           "url": "https://immortalboost.com/blog/valorant/valorant-lotus-map-guide/",
@@ -80,11 +84,11 @@
       ]
     },
     {
-      "label": "Attendre passif que les ATK peekent hors du site avant d'engager",
+      "label": "Wait passively for the ATK to peek out of the site before engaging",
       "tier": "faute",
       "ev_delta": "-0.8 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Attendre en 2v2 avec spike plante laisse le timer expirer : c'est TOI qui dois defuser, jouer passif donne le round a l'ATK qui n'a qu'a tenir la bombe.",
+      "explication_courte": "Waiting in a 2v2 with the spike planted gives the round away: YOU must defuse - playing passive lets the clock run out and the ATK win by doing nothing.",
       "sources_option": [
         {
           "url": "https://boosteria.org/guides/valorant-2026-utility-guide-smokes-flashes-mollies",
@@ -93,7 +97,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : retake B Site Lotus 2v2, spike plante, 32 secondes. Tu es Skye a B Main avec Trailblazer, Guiding Light, Regrowth ; ton allie a B Corner.\n\nLe principe du retake 2v2 est la coordination : deux joueurs qui entrent en meme temps sur des acces distincts forcent un trade et empechent l'ATK de tenir un duel isole depuis un post-plant. Sur B Lotus, B Main et B Corner offrent deux acces distincts ideaux pour ce double-entry. Le timer est ta contrainte : spike plante, c'est toi qui dois defuser, donc tu ne peux pas te permettre de jouer passif.\n\nLa ligne optimale utilise Guiding Light pour flasher et deloger l'ATK d'un angle, puis entree simultanee sur B Main + B Corner pour forcer le trade. Le Trailblazer scout (acceptable) donne l'info et peut concuss, mais coute du temps de defuse et ouvre l'angle moins net qu'une flash coordonnee en 2v2 serre. Entrer solo (couteux) donne un duel isole : si tu tombes, ton allie est en 1v2. Attendre passif (faute) laisse le timer expirer — le spike est plante, l'inaction perd le round.\n\nDistribution elite estimee : ~52% flash + double-entry coordonne, ~23% Trailblazer scout d'abord, ~20% entree solo (couteux), ~5% attendent passif (la faute de tempo). Tolerance GTO : la flash + double-entry coordonnee est l'invariant du retake 2v2 ; jouer passif avec spike plante est l'erreur de tempo.",
+  "explication_longue": "Situation: 2v2 retake on B Site Lotus, spike planted, 32 seconds. You are Skye at B Main with Trailblazer, Guiding Light, Regrowth; your teammate at B Corner.\n\n2v2 retake principle: coordination. Two players entering simultaneously from two different access points force the 2 ATK into a coverage impossible - they can only hold one angle at a time. Skye's Guiding Light (flash) is the opener: flash an angle to create entry, both players push at the same moment through B Main and B Corner, and the first trade establishes the 1v1 you win from even numbers.\n\nTrailblazer scout (acceptable) gives richer positional info and can concuss an ATK, but in a tight 2v2 with 32s on the clock, the defuse time cost and slower entry setup may not be worth the extra info. Entering solo (costly) breaks the coordination entirely - if you die it becomes a 1v2 with your teammate exposed. Passive waiting (mistake) concedes the round to the clock: the spike is planted and YOU must defuse.\n\nEstimated elite distribution: ~55% flash + simultaneous dual-entry, ~22% Trailblazer scout first, ~15% solo entry (costly), ~6% passive wait (mistake).",
   "sources": [
     {
       "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",

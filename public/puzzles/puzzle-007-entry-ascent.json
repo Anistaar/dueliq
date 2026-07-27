@@ -16,7 +16,11 @@
       "agent": "jett",
       "signature": "tailwind",
       "ultimate": null,
-      "basic_remaining": ["cloudburst", "cloudburst", "updraft"]
+      "basic_remaining": [
+        "cloudburst",
+        "cloudburst",
+        "updraft"
+      ]
     }
   },
   "positions": {
@@ -60,22 +64,22 @@
     ],
     "ennemis_inconnus_count": 4
   },
-  "question": "Ascent, execute A Site full-buy 5v5, 65s. Tu es Jett entry a A Main (2 smokes, dash). Un DEF tient A Site. Comment prendre l'entree ?",
+  "question": "Ascent, 5v5 full-buy execute on A Site, 65s. You are Jett entry at A Main (2 smokes, dash). One DEF spotted on A Site. How do you take the entry?",
   "options": [
     {
-      "label": "Smoke un des angles (ex: Heaven/CT), swing l'autre en dash apres le flash/util d'un teammate et clear un angle a la fois",
+      "label": "Smoke one angle (e.g. Heaven/CT), swing the other with dash after a teammate flash",
       "tier": "optimal",
       "ev_delta": "+0.0 round EV",
       "freq_elite_estimee": 53,
-      "explication_courte": "Fumer l'angle non-challenge reduit le nombre de sightlines, entrer apres un flash d'equipe et clear un seul angle a la fois maximise l'entree tout en gardant le dash pour repositionner.",
+      "explication_courte": "Smoking the un-challenged angle cuts sightlines; entering after a team flash and clearing the remaining angle with Jett dash is the Radiant entry sequence.",
       "sources_option": []
     },
     {
-      "label": "Dash direct sur le site sans smoke ni flash pour surprendre le DEF par la vitesse, teammates en trade derriere",
+      "label": "Dash directly onto site without smoke or flash to surprise the DEF with raw speed, let teammates trade",
       "tier": "acceptable",
       "ev_delta": "-0.3 round EV",
       "freq_elite_estimee": 18,
-      "explication_courte": "Le dash surprise peut fonctionner si les trades suivent instantanement, mais entrer sans util expose Jett a tous les angles a la fois : c'est un pari agressif jouable en fast-execute.",
+      "explication_courte": "A surprise dash can work if teammates immediately trade, but entering without util exposes Jett to multiple uncleared angles; viable but riskier.",
       "sources_option": [
         {
           "url": "https://dotesports.com/news/how-to-take-sites-in-valorant-a-guide-to-pro-entry-fragging",
@@ -84,11 +88,11 @@
       ]
     },
     {
-      "label": "Wide-swing le choke A Main en spray transfer pour couvrir les deux angles du site simultanement",
+      "label": "Wide-swing the A Main choke in spray-transfer to cover both site angles simultaneously",
       "tier": "couteux",
       "ev_delta": "-0.5 round EV",
       "freq_elite_estimee": 20,
-      "explication_courte": "Wide-swing dans deux sightlines a la fois divise l'attention et donne au DEF pre-vise un tir gratuit ; l'entree efficace clear une ligne a la fois, pas toutes ensemble.",
+      "explication_courte": "Wide-swinging into two sightlines splits your focus and hands a pre-aimed DEF a free shot; you cannot win both duels at once.",
       "sources_option": [
         {
           "url": "https://mobalytics.gg/blog/valorant/duelist-guide/",
@@ -97,11 +101,11 @@
       ]
     },
     {
-      "label": "Laisser un teammate entrer en premier et rester en retrait pour preserver Jett pour le clutch de fin de round",
+      "label": "Let a teammate push in first and hang back to preserve Jett for a potential clutch later",
       "tier": "faute",
       "ev_delta": "-0.9 round EV",
       "freq_elite_estimee": 5,
-      "explication_courte": "Jett est l'entry : son kit sert a prendre l'espace en premier. Rester en vie sans prendre l'entree, c'est ne pas jouer le role et laisser un teammate moins outille manger la premiere balle.",
+      "explication_courte": "Jett is the entry fragger: her kit exists to create space first. Hanging back wastes her kit and leaves the push a body short.",
       "sources_option": [
         {
           "url": "https://spacex.tapin.gg/blogs/how-to-get-better-at-playing-valorant-duelists-top-strategies",
@@ -110,7 +114,7 @@
       ]
     }
   ],
-  "explication_longue": "Situation : execute A Site Ascent en 5v5 full-buy, 65 secondes, ton equipe est massee A Main. Tu es Jett, l'entry, avec 2 Cloudburst et un dash. Un DEF est repere sur A Site, 4 positions inconnues.\n\nLe role de l'entry fragger est de prendre l'espace en premier et de gagner le duel d'ouverture ; son kit (dash, smokes) existe pour survivre ou gagner ce premier contact. Deux principes structurent une bonne entree : (1) reduire le nombre de sightlines auxquelles on s'expose (fumer l'angle qu'on ne challenge pas), (2) clear un angle a la fois plutot que wide-swing dans plusieurs lignes.\n\nLa ligne optimale sur A Ascent : smoke un angle fort (Heaven/CT selon le setup adverse), attendre le flash ou l'util d'un teammate, puis entrer en dash sur l'angle challenge en le clearant proprement. Le dash reste disponible pour repositionner apres le premier kill. Le dash dry (acceptable) est un pari fast-execute valable si les trades suivent, mais expose a tous les angles. Le wide-swing (couteux) divise l'attention et offre le duel au DEF pre-vise. Rester en retrait (faute) trahit le role d'entry.\n\nDistribution elite estimee : ~53% smoke+flash+clear un angle, ~18% dash dry surprise (acceptable en fast-execute), ~20% wide-swing (couteux), ~5% refusent l'entree (la faute de role). Tolerance GTO : toute entree qui reduit les sightlines ET est suivie de trades est acceptable ; le wide-swing et le refus d'entree sont les erreurs.",
+  "explication_longue": "Situation: execute A Site Ascent in 5v5 full-buy, 65 seconds, team stacked at A Main. You are Jett with 2 Cloudbursts and a dash. One DEF spotted on A Site, 4 positions unknown.\n\nEntry fraggers create space by cutting sightlines then entering after util. The Radiant Jett entry sequence on A Ascent: (1) smoke one angle to cut the crossfire, (2) wait for a teammate flash to blind remaining defenders, (3) dash onto site and clear the unsmoked angle while the flash is active. This reduces a multi-angle problem to a single duel.\n\nDashing in blind without util (acceptable) can catch defenders off-guard but exposes you to multiple uncleared angles. Wide-swinging the main choke (costly) splits your attention between two sightlines - a pre-aimed DEF punishes the exposure. Hanging back (mistake) wastes the entire Jett kit and your role.\n\nEstimated elite distribution: ~55% smoke+flash+dash entry, ~22% dash surprise, ~16% wide-swing (costly), ~5% hang back (mistake).",
   "sources": [
     {
       "url": "https://dotesports.com/news/how-to-take-sites-in-valorant-a-guide-to-pro-entry-fragging",
