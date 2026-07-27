@@ -639,11 +639,27 @@
   /* ── BOARD SECTION ── */
   .board-section { margin: 4px 0; }
 
+  /* Stacking context: board + replay overlay share the same space */
   .board-anim-wrap {
     position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
   }
+  /* The board-wrap is the positioned anchor */
   .board-anim-wrap :global(.board-wrap) {
     position: relative;
+    z-index: 1;
+  }
+  /* ReplayEngine SVG absolutely fills the board-svg area */
+  .board-anim-wrap :global(.replay-overlay) {
+    position: absolute;
+    /* zone-label is ~22px, board-svg starts after */
+    top: 22px; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 10px;
+    overflow: hidden;
   }
 
   /* Freeze veil */
