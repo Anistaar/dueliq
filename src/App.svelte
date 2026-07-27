@@ -3,6 +3,7 @@
   // Not endorsed by Riot Games.
   import type { PuzzleSchema } from "./lib/engine/puzzle_types.js";
   import PuzzleEngine from "./lib/engine/PuzzleEngine.svelte";
+  import TheatreOverlay from "./lib/engine/TheatreOverlay.svelte";
   import Countdown from "./lib/Countdown.svelte";
   import StreakBadge from "./lib/StreakBadge.svelte";
   import {
@@ -20,6 +21,17 @@
   let dailyDone = $state(getStreakData().playedToday);
   let waitlistStatus = $state<"idle" | "sending" | "ok" | "err">("idle");
   let waitlistEmail = $state("");
+
+  // ---- Theatre mode (video puzzles only) ----
+  let theatreActive = $state(false);
+
+  function enterTheatre() {
+    theatreActive = true;
+  }
+
+  function exitTheatre() {
+    theatreActive = false;
+  }
 
   const BASE = import.meta.env.BASE_URL; // '/dueliq/'
   // Preview override: ?p=007 loads a specific puzzle (playtest/deep-links; daily streak logic untouched)
@@ -87,6 +99,15 @@
   // ---- Init ----
   loadPuzzle();
 </script>
+
+<!-- ======= THEATRE MODE (full viewport, outside page flow) ======= -->
+{#if theatreActive && puzzle?.video}
+  <TheatreOverlay
+    {puzzle}
+    onComplete={onDailyComplete}
+    onExit={exitTheatre}
+  />
+{/if}
 
 <div class="page">
 
@@ -182,7 +203,37 @@
         </div>
 
       {:else if puzzle}
-        <PuzzleEngine {puzzle} onComplete={onDailyComplete} />
+        {#if puzzle.video}
+          <!-- Video puzzle: theatre launcher card -->
+          <div class="theatre-launcher">
+            <div class="theatre-launcher-meta">
+              <span class="tl-badge tl-badge--map">{puzzle.map.toUpperCase()}</span>
+              <span class="tl-badge tl-badge--theme">{puzzle.theme.toUpperCase()}</span>
+              <span class="tl-badge tl-badge--side">{puzzle.side}</span>
+              <span class="tl-badge tl-badge--video">VIDEO</span>
+            </div>
+            <div class="theatre-launcher-body">
+              <div class="tl-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="23" stroke="#FF4655" stroke-width="1.5" opacity="0.4"/>
+                  <circle cx="24" cy="24" r="23" stroke="#FF4655" stroke-width="1.5" stroke-dasharray="72 144" opacity="0.2"/>
+                  <polygon points="19,15 35,24 19,33" fill="#FF4655"/>
+                </svg>
+              </div>
+              <div class="tl-text">
+                <div class="tl-title">Video Puzzle</div>
+                <p class="tl-desc">Watch the real gameplay clip, freeze on the decision, make your call — full screen.</p>
+              </div>
+            </div>
+            <button class="btn-theatre" onclick={enterTheatre}>
+              <span class="btn-icon">▶</span>
+              Watch clip full screen →
+            </button>
+            <p class="tl-hint">The video opens in immersive mode. Press Esc or × to return.</p>
+          </div>
+        {:else}
+          <PuzzleEngine {puzzle} onComplete={onDailyComplete} />
+        {/if}
       {/if}
 
     </div>
@@ -928,4 +979,101 @@
   .footer-links a { color: #475569; }
   .footer-links a:hover { color: #64748b; }
   .sep { color: #1e293b; }
+
+  /* ---- THEATRE LAUNCHER CARD ---- */
+  .theatre-launcher {
+    background: linear-gradient(135deg, #0f1117 0%, #13151f 100%);
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(255,70,85,0.08);
+  }
+  .theatre-launcher::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FF465540, transparent);
+  }
+
+  .theatre-launcher-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tl-badge {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    border-radius: 5px;
+    padding: 3px 9px;
+    border: 1px solid;
+    font-weight: 600;
+  }
+  .tl-badge--map   { background: #0f1b2d; color: #60a5fa; border-color: #1e3a5f; }
+  .tl-badge--theme { background: #0d1f17; color: #34d399; border-color: #064e3b; }
+  .tl-badge--side  { background: #1a0d24; color: #c084fc; border-color: #4c1d95; }
+  .tl-badge--video { background: #1a0a0f; color: #FF4655; border-color: #7f1d1d; font-weight: 700; }
+
+  .theatre-launcher-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .tl-icon { flex-shrink: 0; }
+  .tl-text { display: flex; flex-direction: column; gap: 6px; }
+  .tl-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #e2e8f0;
+    letter-spacing: -0.01em;
+  }
+  .tl-desc {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 400px;
+  }
+
+  .btn-theatre {
+    background: linear-gradient(135deg, #FF4655 0%, #cc2d3a 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 24px;
+    min-height: 52px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(255,70,85,0.35);
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-theatre:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(255,70,85,0.5);
+    filter: brightness(1.08);
+  }
+
+  .tl-hint {
+    font-size: 11px;
+    color: #334155;
+    font-family: ui-monospace, Consolas, monospace;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
 </style>
