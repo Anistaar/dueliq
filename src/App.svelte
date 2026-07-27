@@ -235,7 +235,7 @@
   }
   .legal-note {
     font-size: 10px;
-    color: #1e293b;
+    color: #334155;
     font-family: ui-monospace, Consolas, monospace;
     letter-spacing: 0.04em;
     display: none;
@@ -244,9 +244,10 @@
 
   /* ---- HERO ---- */
   .hero {
-    padding: 36px 16px 20px;
+    padding: 20px 16px 14px;
     border-bottom: 1px solid #1e293b;
   }
+  @media (min-width: 600px) { .hero { padding: 36px 16px 20px; } }
   .hero-inner {
     max-width: 760px;
     margin: 0 auto;
@@ -314,7 +315,8 @@
     color: #fca5a5;
     border: 1px solid #b91c1c;
     border-radius: 4px;
-    padding: 4px 12px;
+    padding: 10px 14px;
+    min-height: 44px;
     font-size: 12px;
     cursor: pointer;
   }
@@ -361,6 +363,8 @@
     border-top: 1px solid #1e293b;
     border-bottom: 1px solid #1e293b;
     padding: 40px 16px;
+    min-height: 220px; /* Prevent CLS — content height known at paint time */
+    contain: layout;
   }
   .coming-inner {
     max-width: 760px;
@@ -431,7 +435,8 @@
     border-radius: 6px;
     color: #e2e8f0;
     font-size: 14px;
-    padding: 10px 14px;
+    padding: 12px 14px;
+    min-height: 44px;
     outline: none;
     transition: border-color 0.15s;
   }
@@ -444,7 +449,8 @@
     color: #0b0d14;
     border: none;
     border-radius: 6px;
-    padding: 10px 22px;
+    padding: 12px 22px;
+    min-height: 44px;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
@@ -483,7 +489,7 @@
   }
   .footer-disclaimer {
     font-size: 11px;
-    color: #334155;
+    color: #475569;
     font-family: ui-monospace, Consolas, monospace;
     line-height: 1.6;
     letter-spacing: 0.02em;
@@ -494,10 +500,10 @@
     gap: 8px;
     align-items: center;
     font-size: 11px;
-    color: #1e293b;
+    color: #334155;
     font-family: ui-monospace, Consolas, monospace;
   }
-  .footer-links a { color: #334155; }
-  .footer-links a:hover { color: #475569; }
-  .sep { color: #1e293b; }
+  .footer-links a { color: #475569; }
+  .footer-links a:hover { color: #64748b; }
+  .sep { color: #334155; }
 </style>

@@ -663,7 +663,8 @@
     color: #fff;
     border: none;
     border-radius: 6px;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    min-height: 44px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -676,7 +677,8 @@
     color: #d1fae5;
     border: 1px solid #047857;
     border-radius: 6px;
-    padding: 10px 22px;
+    padding: 12px 22px;
+    min-height: 44px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -689,7 +691,8 @@
     color: #60a5fa;
     border: 1px solid #1e3a5f;
     border-radius: 6px;
-    padding: 8px 18px;
+    padding: 10px 18px;
+    min-height: 44px;
     font-size: 13px;
     cursor: pointer;
     transition: border-color 0.15s;

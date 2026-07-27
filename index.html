@@ -4,17 +4,48 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DuelIQ — Entraine ta prise de decision Valorant. Puzzle du jour gratuit, sans compte." />
-    <meta property="og:title" content="DuelIQ" />
-    <meta property="og:description" content="Le puzzle de decision Valorant du jour. Gratuit, sans compte, chaque jour." />
+    <meta name="description" content="DuelIQ — Train your Valorant decision-making. Free daily puzzle, no account required." />
+
+    <!-- Open Graph — required for Reddit/Discord link previews -->
+    <meta property="og:title" content="DuelIQ — Daily Valorant Decision Puzzle" />
+    <meta property="og:description" content="Can you make the right call? Free daily Valorant puzzle. No account. Pro logic, explained." />
     <meta property="og:type" content="website" />
-    <title>DuelIQ — Puzzle de decision Valorant</title>
+    <meta property="og:url" content="https://anistaar.github.io/dueliq/" />
+    <meta property="og:image" content="https://anistaar.github.io/dueliq/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DuelIQ — Train your Valorant decision-making. Free daily puzzle." />
+    <meta property="og:site_name" content="DuelIQ" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DuelIQ — Daily Valorant Decision Puzzle" />
+    <meta name="twitter:description" content="Can you make the right call? Free daily Valorant puzzle. No account. Pro logic, explained." />
+    <meta name="twitter:image" content="https://anistaar.github.io/dueliq/og-image.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://anistaar.github.io/dueliq/" />
+
+    <title>DuelIQ — Daily Valorant Decision Puzzle</title>
+
     <!-- GoatCounter analytics — no cookies, GDPR-safe -->
     <script data-goatcounter="https://dueliq.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
   </head>
   <body>
     <div id="app"></div>
+    <!-- Shown only when JavaScript is disabled -->
+    <noscript>
+      <style>
+        .noscript-msg { font-family: system-ui, sans-serif; background: #0b0d14; color: #e2e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+        .noscript-msg h1 { font-size: 32px; } .noscript-msg h1 span:first-child { color: #FF4655; } .noscript-msg h1 span:last-child { color: #00D4AA; }
+        .noscript-msg p { color: #94a3b8; max-width: 360px; line-height: 1.6; }
+      </style>
+      <div class="noscript-msg">
+        <h1><span>Duel</span><span>IQ</span></h1>
+        <p>DuelIQ requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
