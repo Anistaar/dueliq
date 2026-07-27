@@ -348,10 +348,16 @@
     </div>
   {/if}
 
-  <!-- QUESTION overlay (bottom panel) -->
+  <!-- QUESTION overlay — centered on desktop, stacked on portrait mobile -->
   {#if phase === "question"}
     <div class="question-layer fade-in">
-      <!-- Timer arc (top of question panel) -->
+      <!-- Question banner (top of the centred block) -->
+      <div class="q-banner">
+        <div class="q-tag">WHAT DO YOU DO?</div>
+        <p class="q-text">{puzzle.question}</p>
+      </div>
+
+      <!-- Timer row (sits just above the cards grid) -->
       <div class="timer-row">
         <svg class="timer-svg" viewBox="0 0 40 40" width="40" height="40">
           <circle cx="20" cy="20" r="16" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" />
@@ -373,12 +379,6 @@
         <span class="timer-label" class:urgent={timer <= 5 && timerActive}>
           {timer > 0 ? `${timer}s` : "Make your call"}
         </span>
-      </div>
-
-      <!-- Question text -->
-      <div class="q-banner">
-        <div class="q-tag">WHAT DO YOU DO?</div>
-        <p class="q-text">{puzzle.question}</p>
       </div>
 
       <!-- Choices -->
@@ -561,12 +561,34 @@
       linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
   }
 
+  /* ── QUESTION LAYER — centred over the video on desktop/landscape ── */
+  .question-layer {
+    /* Desktop default: absolute, dead-centre of the theatre */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 60;
+    width: min(720px, 80vw);
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* dark translucent glass card */
+    background: rgba(8, 10, 18, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 14px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  }
+
   /* ─────────────────────────────────────────────────────────────────────────
      PORTRAIT MOBILE — stacked layout (video top, panel below, no overlap)
      Only active on narrow portrait screens (phones).
      Desktop / landscape: untouched (absolute overlay layout preserved).
   ───────────────────────────────────────────────────────────────────────── */
-  @media (orientation: portrait) and (max-width: 700px) {
+  @media (max-width: 700px) {
     /* Switch the theatre root to a normal column flow */
     .theatre {
       overflow-y: auto;
@@ -603,19 +625,30 @@
         linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 25%);
     }
 
-    /* Question layer: out of absolute flow, stacked below video */
+    /* Question layer: back in normal flow, stacked below video */
     .question-layer {
       position: relative;
-      bottom: unset;
+      top: unset;
       left: unset;
       right: unset;
+      transform: none;
+      width: 100%;
       max-height: none;
       overflow-y: auto;
       overscroll-behavior: contain;
-      background: #0b0d14;
+      /* keep the same glass card style, just full-width */
+      background: rgba(11,13,20,0.97);
+      backdrop-filter: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
       flex: 1;
-      /* keep some breathing room at bottom for safe-area */
-      padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
+      padding: 16px 16px max(env(safe-area-inset-bottom, 16px), 16px);
+    }
+
+    /* Choices single-column in portrait */
+    .choices {
+      grid-template-columns: 1fr;
     }
 
     /* Reveal layer: out of absolute flow, stacked below video */
@@ -765,32 +798,6 @@
     50% { opacity: 0.3; }
   }
 
-  /* ── QUESTION LAYER ── */
-  .question-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 60;
-    padding: 16px 16px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.8) 70%, transparent 100%);
-  }
-
-  @media (min-width: 800px) {
-    .question-layer {
-      padding: 20px 48px 32px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .question-layer {
-      padding: 24px 15% 40px;
-    }
-  }
-
   /* Timer row */
   .timer-row {
     display: flex;
@@ -833,17 +840,11 @@
   }
   @media (min-width: 800px) { .q-text { font-size: 16px; } }
 
-  /* Choices */
+  /* Choices — always 2×2 inside the centred card on desktop */
   .choices {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-  }
-  @media (max-width: 500px) {
-    .choices { grid-template-columns: 1fr; }
-  }
-  @media (min-width: 1100px) {
-    .choices { grid-template-columns: 1fr 1fr 1fr 1fr; }
   }
 
   .choice-btn {

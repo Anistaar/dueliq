@@ -146,11 +146,11 @@ for (const vp of PORTRAIT_VIEWPORTS) {
   });
 }
 
-// ── Desktop control: layout must be unchanged ────────────────────────────────
-test.describe("Desktop 1440x900 — layout unchanged", () => {
+// ── Desktop: cards centred over the video ───────────────────────────────────
+test.describe("Desktop 1440x900 — cards centred over video", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
-  test("question phase: panel is an absolute overlay (not stacked)", async ({ page }) => {
+  test("question phase: cards are centred over the freeze frame (video visible)", async ({ page }) => {
     await openTheatre(page);
 
     const questionLayer = page.locator(".question-layer");
@@ -163,15 +163,21 @@ test.describe("Desktop 1440x900 — layout unchanged", () => {
     expect(videoBox).not.toBeNull();
     expect(questionBox).not.toBeNull();
 
-    // On desktop, video-layer is position:absolute inset:0 = full viewport
+    // Video-layer fills full viewport on desktop
     expect(videoBox!.width).toBeCloseTo(1440, -1);
     expect(videoBox!.height).toBeCloseTo(900, -1);
 
-    // Question panel overlaps the video (bottom-anchored overlay)
-    const questionTop  = questionBox!.y;
-    const videoBottom  = videoBox!.y + videoBox!.height;
-    // The panel is inside the video layer area
-    expect(questionTop).toBeLessThan(videoBottom);
+    // Cards panel is inside the viewport (overlays the video)
+    expect(questionBox!.y).toBeGreaterThanOrEqual(0);
+    expect(questionBox!.y + questionBox!.height).toBeLessThanOrEqual(900 + 4);
+
+    // Cards panel is horizontally centred (centre x within 80px of viewport centre)
+    const panelCentreX = questionBox!.x + questionBox!.width / 2;
+    expect(Math.abs(panelCentreX - 720)).toBeLessThan(80);
+
+    // Cards panel is vertically centred (centre y within 150px of viewport centre)
+    const panelCentreY = questionBox!.y + questionBox!.height / 2;
+    expect(Math.abs(panelCentreY - 450)).toBeLessThan(150);
 
     await page.screenshot({
       path: "tests/screenshots/desktop-1440x900-question.png",
@@ -205,6 +211,39 @@ test.describe("Desktop 1440x900 — layout unchanged", () => {
 
     await page.screenshot({
       path: "tests/screenshots/desktop-1440x900-reveal.png",
+      fullPage: false,
+    });
+  });
+});
+
+// ── Portrait 390x844 — cards below video, centred in their zone ─────────────
+test.describe("Portrait 390x844 — cards below video (no regression)", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test("question phase: video visible, cards appear below it", async ({ page }) => {
+    await openTheatre(page);
+
+    const questionLayer = page.locator(".question-layer");
+    await questionLayer.waitFor({ timeout: 20_000 });
+
+    const videoLayer = page.locator(".video-layer");
+    const videoBox  = await videoLayer.boundingBox();
+    const questionBox = await questionLayer.boundingBox();
+
+    expect(videoBox).not.toBeNull();
+    expect(questionBox).not.toBeNull();
+
+    const videoBottom  = videoBox!.y + videoBox!.height;
+    const questionTop  = questionBox!.y;
+
+    // Cards panel must start at or after the bottom of the video (stacked, no overlap)
+    expect(questionTop).toBeGreaterThanOrEqual(videoBottom - 4);
+
+    // Video must still occupy meaningful vertical space
+    expect(videoBox!.height).toBeGreaterThan(844 * 0.20);
+
+    await page.screenshot({
+      path: "tests/screenshots/portrait-390x844-question.png",
       fullPage: false,
     });
   });
