@@ -42,6 +42,44 @@
   let resolutionVideoEl = $state<HTMLVideoElement | null>(null);
   let gradeFlashDone = $state(false);
 
+  // Video audio: default unmuted at 0.8, localStorage-backed
+  const VIDEO_MUTE_KEY = "dueliq_video_muted";
+  let videoMuted = $state<boolean>(false);
+  let videoBlocked = $state(false);
+
+  function initVideoMute() {
+    try {
+      const s = localStorage.getItem(VIDEO_MUTE_KEY);
+      videoMuted = s === "true";
+    } catch { videoMuted = false; }
+  }
+  // Run on mount via $effect
+  $effect(() => { initVideoMute(); });
+
+  function toggleVideoMute() {
+    videoMuted = !videoMuted;
+    videoBlocked = false;
+    try { localStorage.setItem(VIDEO_MUTE_KEY, String(videoMuted)); } catch {}
+    [introVideoEl, resolutionVideoEl].forEach(v => {
+      if (v) { v.muted = videoMuted; v.volume = videoMuted ? 0 : 0.8; }
+    });
+  }
+
+  function handleVideoBlocked(v: HTMLVideoElement) {
+    v.muted = true;
+    v.play().catch(() => {});
+    videoBlocked = true;
+  }
+
+  function userUnblock() {
+    videoMuted = false;
+    videoBlocked = false;
+    try { localStorage.setItem(VIDEO_MUTE_KEY, "false"); } catch {}
+    [introVideoEl, resolutionVideoEl].forEach(v => {
+      if (v) { v.muted = false; v.volume = 0.8; }
+    });
+  }
+
   const chosenOption = $derived<PuzzleOptionSchema | null>(
     chosenIndex !== null ? options[chosenIndex] : null
   );
@@ -54,6 +92,8 @@
   $effect(() => {
     if (phase === "reveal" && resolutionVideoEl) {
       resolutionVideoEl.currentTime = 0;
+      resolutionVideoEl.volume = videoMuted ? 0 : 0.8;
+      resolutionVideoEl.muted = videoMuted;
       resolutionVideoEl.play().catch(() => {});
     }
   });
@@ -70,14 +110,28 @@
         class="ve-video"
         src={introSrc}
         autoplay
-        muted
         playsinline
         onended={handleIntroEnded}
+        oncanplay={(e) => {
+          const v = e.currentTarget as HTMLVideoElement;
+          if (!v) return;
+          v.volume = videoMuted ? 0 : 0.8;
+          v.muted = videoMuted;
+          v.play().catch((err: DOMException) => {
+            if (err?.name === 'NotAllowedError') handleVideoBlocked(v);
+          });
+        }}
       ></video>
       <div class="ve-intro-hint">
         <span class="ve-hint-dot"></span>
         Watch the situation — what would you do?
+        <button class="ve-vol-btn" onclick={toggleVideoMute} title={videoMuted ? "Unmute" : "Mute"}>
+          {videoMuted ? "🔇" : "🔊"}
+        </button>
       </div>
+      {#if videoBlocked}
+        <button class="ve-tap-unmute" onclick={userUnblock}>🔇 Tap for sound</button>
+      {/if}
     </div>
 
   <!-- ===== FREEZE FRAME + QUESTION (phase: question) ===== -->
@@ -125,7 +179,6 @@
           class="ve-video"
           src={resolutionSrc}
           loop
-          muted
           playsinline
         ></video>
         <div class="ve-resolution-badge">What actually happened</div>
@@ -209,6 +262,32 @@
   @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
+  }
+
+  .ve-vol-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #64748b;
+    transition: color 0.15s;
+  }
+  .ve-vol-btn:hover { color: #e2e8f0; }
+  .ve-tap-unmute {
+    align-self: center;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Space Grotesk', monospace;
+    color: #e2e8f0;
+    cursor: pointer;
+    animation: pulse 2s ease-in-out infinite;
   }
 
   /* ---- QUESTION ---- */

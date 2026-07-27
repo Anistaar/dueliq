@@ -25,6 +25,13 @@
   let copySuccess = $state(false);
   let gradeGrade = $state<"S" | "A" | "C" | "X">("S");
 
+  // Video audio — separate from SFX mute
+  // Default: unmuted at 0.8 (game audio is the experience)
+  // Persisted in localStorage so user preference survives sessions
+  const VIDEO_MUTE_KEY = "dueliq_video_muted";
+  let videoMuted = $state<boolean>(false);
+  let videoBlocked = $state(false); // true when browser autoplay blocked audio
+
   // Video elements
   let introVideoEl = $state<HTMLVideoElement | null>(null);
   let resolutionVideoEl = $state<HTMLVideoElement | null>(null);
@@ -73,6 +80,11 @@
   onMount(() => {
     initSfx();
     sfxMuted = getMuted();
+    // Restore video mute preference
+    try {
+      const stored = localStorage.getItem(VIDEO_MUTE_KEY);
+      videoMuted = stored === "true";
+    } catch { videoMuted = false; }
     // Lock scroll
     document.body.style.overflow = "hidden";
     return () => {
@@ -86,10 +98,25 @@
     if (e.key === "Escape") handleExit();
   }
 
+  // Sync video volume/mute whenever state changes or element appears
+  $effect(() => {
+    const vol = videoMuted ? 0 : 0.8;
+    if (introVideoEl) {
+      introVideoEl.volume = vol;
+      introVideoEl.muted = videoMuted;
+    }
+    if (resolutionVideoEl) {
+      resolutionVideoEl.volume = vol;
+      resolutionVideoEl.muted = videoMuted;
+    }
+  });
+
   // Auto-play resolution video when phase switches to reveal
   $effect(() => {
     if (phase === "reveal" && resolutionVideoEl) {
       resolutionVideoEl.currentTime = 0;
+      resolutionVideoEl.volume = videoMuted ? 0 : 0.8;
+      resolutionVideoEl.muted = videoMuted;
       resolutionVideoEl.play().catch(() => {});
     }
   });
@@ -137,6 +164,44 @@
   function toggleMute() {
     sfxMuted = !sfxMuted;
     setMuted(sfxMuted);
+  }
+
+  function toggleVideoMute() {
+    videoMuted = !videoMuted;
+    videoBlocked = false;
+    try { localStorage.setItem(VIDEO_MUTE_KEY, String(videoMuted)); } catch {}
+  }
+
+  // Called from video onplay — clear blocked state once audio actually starts
+  function onVideoPlay() {
+    videoBlocked = false;
+  }
+
+  // Called when autoplay is blocked by browser (DOMException name: NotAllowedError)
+  function onIntroPlayError(err: unknown) {
+    const domErr = err as DOMException;
+    if (domErr?.name === "NotAllowedError") {
+      // Mute and retry so video still plays visually; show tap-to-unmute hint
+      if (introVideoEl) {
+        introVideoEl.muted = true;
+        introVideoEl.play().catch(() => {});
+        videoBlocked = true;
+      }
+    }
+  }
+
+  function userUnblock() {
+    videoMuted = false;
+    videoBlocked = false;
+    try { localStorage.setItem(VIDEO_MUTE_KEY, "false"); } catch {}
+    if (introVideoEl) {
+      introVideoEl.muted = false;
+      introVideoEl.volume = 0.8;
+    }
+    if (resolutionVideoEl) {
+      resolutionVideoEl.muted = false;
+      resolutionVideoEl.volume = 0.8;
+    }
   }
 
   function parseEV(str: string): number {
@@ -206,9 +271,22 @@
         class="theatre-video fade-in"
         src={introSrc}
         autoplay
-        muted
         playsinline
         onended={handleIntroEnded}
+        onplay={onVideoPlay}
+        oncanplay={(e) => {
+          const v = e.currentTarget as HTMLVideoElement;
+          if (!v) return;
+          v.volume = videoMuted ? 0 : 0.8;
+          v.muted = videoMuted;
+          v.play().catch((err: DOMException) => {
+            if (err?.name === 'NotAllowedError') {
+              v.muted = true;
+              v.play().catch(() => {});
+              videoBlocked = true;
+            }
+          });
+        }}
       ></video>
 
     <!-- QUESTION — freeze frame as bg -->
@@ -223,8 +301,8 @@
         class="theatre-video fade-in"
         src={resolutionSrc}
         loop
-        muted
         playsinline
+        onplay={onVideoPlay}
       ></video>
     {/if}
 
@@ -239,8 +317,9 @@
     </svg>
   </button>
 
-  <button class="btn-mute" onclick={toggleMute} title={sfxMuted ? "Unmute" : "Mute"} aria-label="toggle sound">
-    {sfxMuted ? "🔇" : "🔊"}
+  <!-- Video audio toggle (game sound) -->
+  <button class="btn-mute" onclick={toggleVideoMute} title={videoMuted ? "Unmute game audio" : "Mute game audio"} aria-label="toggle game audio">
+    {videoMuted ? "🔇" : "🔊"}
   </button>
 
   <!-- Map + mode badges (top left) -->
@@ -250,6 +329,14 @@
     <span class="tbadge tbadge--side">{puzzle.side}</span>
     <span class="tbadge tbadge--video">VIDEO</span>
   </div>
+
+  <!-- Tap-to-unmute fallback (browser blocked autoplay with audio) -->
+  {#if videoBlocked}
+    <button class="tap-unmute fade-in" onclick={userUnblock} aria-label="Tap to enable game audio">
+      <span class="tap-unmute-icon">🔇</span>
+      <span class="tap-unmute-text">Tap for sound</span>
+    </button>
+  {/if}
 
   <!-- ── PHASE OVERLAYS ── -->
 
@@ -1151,6 +1238,38 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-exit-end:hover { border-color: #334155; color: #94a3b8; }
+
+  /* ── TAP-TO-UNMUTE ── */
+  .tap-unmute {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.72);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 24px;
+    padding: 9px 20px;
+    color: #e2e8f0;
+    font-size: 13px;
+    font-family: 'Space Grotesk', monospace;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s;
+    animation: tap-bounce 2s ease-in-out infinite;
+  }
+  .tap-unmute:hover { background: rgba(0,212,170,0.25); border-color: #00D4AA; }
+  .tap-unmute-icon { font-size: 16px; }
+  .tap-unmute-text { letter-spacing: 0.04em; }
+  @keyframes tap-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-4px); }
+  }
 
   /* ── MOBILE ROTATION HINT ── */
   .rotate-hint {

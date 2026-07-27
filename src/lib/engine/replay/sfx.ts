@@ -37,7 +37,7 @@ export function initSfx() {
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
-function master(ac: AudioContext, vol = 0.18): GainNode {
+function master(ac: AudioContext, vol = 0.12): GainNode {
   const g = ac.createGain();
   g.gain.value = vol;
   g.connect(ac.destination);
