@@ -474,6 +474,114 @@
       linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
   }
 
+  /* ─────────────────────────────────────────────────────────────────────────
+     PORTRAIT MOBILE — stacked layout (video top, panel below, no overlap)
+     Only active on narrow portrait screens (phones).
+     Desktop / landscape: untouched (absolute overlay layout preserved).
+  ───────────────────────────────────────────────────────────────────────── */
+  @media (orientation: portrait) and (max-width: 700px) {
+    /* Switch the theatre root to a normal column flow */
+    .theatre {
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Video layer becomes a static block at the top, 16:9 width-locked */
+    .video-layer {
+      position: relative;
+      inset: unset;
+      width: 100%;
+      /* 16:9 ratio = 56.25% of width, plus safe-area top */
+      padding-top: max(env(safe-area-inset-top, 0px), 0px);
+      flex-shrink: 0;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    /* The <video> / <img> fills its container naturally */
+    .theatre-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Vignette: no bottom gradient in stacked mode (panel is below, not on top) */
+    .vignette,
+    .vignette--heavy {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 25%);
+    }
+
+    /* Question layer: out of absolute flow, stacked below video */
+    .question-layer {
+      position: relative;
+      bottom: unset;
+      left: unset;
+      right: unset;
+      max-height: none;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      background: #0b0d14;
+      flex: 1;
+      /* keep some breathing room at bottom for safe-area */
+      padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
+    }
+
+    /* Reveal layer: out of absolute flow, stacked below video */
+    .reveal-layer {
+      position: relative;
+      bottom: unset;
+      left: unset;
+      right: unset;
+      max-height: none;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      background: #0b0d14;
+      flex: 1;
+      padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
+    }
+
+    /* Grade flash: keep centered over full screen (brief, no content shift) */
+    .grade-flash-overlay {
+      position: fixed;
+    }
+
+    /* End overlay: keep centered full-screen */
+    .end-overlay {
+      position: fixed;
+    }
+
+    /* Intro hint: in portrait stacked layout, render as a normal flow block
+       centered below the video, not absolute */
+    .intro-hint {
+      position: relative;
+      bottom: unset;
+      left: unset;
+      transform: none;
+      align-self: center;
+      margin-top: 12px;
+    }
+
+    /* Controls: keep top-right absolute on-screen */
+    .btn-exit,
+    .btn-mute {
+      position: fixed;
+    }
+
+    .theatre-badges {
+      position: fixed;
+    }
+
+    /* Hide rotate hint — layout is already optimised for portrait */
+    .rotate-hint {
+      display: none !important;
+    }
+  }
+
   /* ── GLOBAL CONTROLS ── */
   .btn-exit {
     position: absolute;
