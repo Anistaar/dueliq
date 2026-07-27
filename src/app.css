@@ -1,24 +1,43 @@
 /* DuelIQ — Global CSS — Not endorsed by Riot Games */
+/* Space Grotesk self-hosted via Google Fonts preconnect */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-  --red:    #FF4655;
-  --teal:   #00D4AA;
-  --slate:  #E8EAF0;
-  --navy:   #0F111A;
-  --navy2:  #0b0d14;
-  --border: #1e293b;
-  --text:   #e2e8f0;
-  --muted:  #94a3b8;
-  --mono:   ui-monospace, Consolas, monospace;
+  --red:       #FF4655;
+  --red-glow:  #FF465540;
+  --red-dim:   #FF465520;
+  --teal:      #00D4AA;
+  --teal-glow: #00D4AA40;
+  --teal-dim:  #00D4AA18;
+  --slate:     #E8EAF0;
+  --navy:      #0F111A;
+  --navy2:     #0b0d14;
+  --navy3:     #13151f;
+  --border:    #1e293b;
+  --border2:   #2a3a52;
+  --text:      #e2e8f0;
+  --muted:     #94a3b8;
+  --mono:      ui-monospace, Consolas, monospace;
+  --display:   'Space Grotesk', system-ui, sans-serif;
+  --body:      'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
+  --shadow-glow-red:  0 0 20px rgba(255,70,85,0.25);
+  --shadow-glow-teal: 0 0 20px rgba(0,212,170,0.25);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   background: var(--navy2);
   color: var(--text);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--body);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
@@ -29,7 +48,8 @@ body {
 
 h1, h2, h3 {
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.15;
+  font-family: var(--display);
 }
 
 p { margin: 0; }
@@ -37,5 +57,54 @@ a { color: var(--teal); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 button {
-  font-family: inherit;
+  font-family: var(--body);
+}
+
+/* ---- GLOBAL KEYFRAMES ---- */
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  50%  { transform: scale(1.15); opacity: 0.5; }
+  100% { transform: scale(1);   opacity: 0.9; }
+}
+
+@keyframes glow-breath {
+  0%   { filter: drop-shadow(0 0 4px var(--teal-glow)); }
+  50%  { filter: drop-shadow(0 0 10px var(--teal-glow)); }
+  100% { filter: drop-shadow(0 0 4px var(--teal-glow)); }
+}
+
+@keyframes token-appear {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fade-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes score-pop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tier-reveal {
+  0%   { transform: scale(0.8) translateY(6px); opacity: 0; filter: blur(4px); }
+  100% { transform: scale(1)   translateY(0);   opacity: 1; filter: blur(0); }
+}
+
+@keyframes bar-fill {
+  from { width: 0; }
+  to   { width: var(--bar-target); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spike-pulse {
+  0%, 100% { r: 14; opacity: 0.3; }
+  50%       { r: 18; opacity: 0.5; }
 }
