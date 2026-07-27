@@ -1,0 +1,150 @@
+{
+  "id": "puzzle-video-003",
+  "version": 2,
+  "map": "haven",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 24,
+    "spike_planted": true,
+    "alive_atk": 3,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "jett",
+      "signature": "tailwind",
+      "ultimate": null,
+      "basic_remaining": ["cloudburst", "updraft"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "mid-courtyard",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 500,
+        "y": 550,
+        "orientation_deg": 0,
+        "label": "JETT",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 380,
+        "y": 500,
+        "orientation_deg": 0,
+        "label": "HARBOR",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 250,
+        "y": 350,
+        "orientation_deg": 270,
+        "label": "REYNA/C",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Haven — ATK, spike planted, 3v3, ~24s on defuse clock. You (your duelist) lurk Mid; a teammate pings DANGER at A Link and NEEDS HELP at C Link. Where do you go?",
+  "options": [
+    {
+      "label": "Hold your Mid crossfire on the spike's defuse line and let the retake come to your team",
+      "tier": "optimal",
+      "ev_delta": "+0.20 R",
+      "freq_elite_estimee": 58,
+      "explication_courte": "Post-plant, time is on your side. Mid covers a defuse line and lets you trade whoever your teammates make contact with. Chasing one ping abandons the spike and lets a defender tap it uncontested.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
+          "citation": "Hold a crossfire covering the spike's approach; forcing the defuser through your angle is how attackers win post-plants at even numbers"
+        }
+      ]
+    },
+    {
+      "label": "Sprint to C Link to answer the NEEDS HELP ping and trade your teammate's fight",
+      "tier": "acceptable",
+      "ev_delta": "-0.12 R",
+      "freq_elite_estimee": 27,
+      "explication_courte": "Trading a fight is rarely wrong, but running fully off the spike into C means if a defender slips to the bomb from the other side, nobody covers the defuse. Do it only if you can arrive in time to trade, not clean up.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Assign coverage per approach line; if everyone leaves the spike to fight, the defuse gets stolen from an uncovered angle"
+        }
+      ]
+    },
+    {
+      "label": "Push toward the A Link DANGER call to hunt the flanker yourself",
+      "tier": "couteux",
+      "ev_delta": "-0.31 R",
+      "freq_elite_estimee": 11,
+      "explication_courte": "Hunting a lurker off a ping burns the clock advantage you already own. You leave the spike, expose yourself in the open, and turn a winning post-plant into a coinflip duel.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+          "citation": "Post-plant you want the enemy to come to you; wandering to chase picks trades your time advantage for unnecessary risk"
+        }
+      ]
+    },
+    {
+      "label": "Dash back toward attacker spawn to fully reset and avoid any fight",
+      "tier": "faute",
+      "ev_delta": "-0.44 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Retreating off a planted 3v3 gives the defenders a free, uncontested defuse. With the spike down and even numbers you must contest a defuse line, not vacate the round.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+          "citation": "An uncontested defuse takes ~7s; leaving every defuse line uncovered post-plant simply hands the round back"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "The instant the spike is down in an even-numbers round, the clock becomes your best weapon. Defenders now have to enter, clear, and physically touch the bomb — roughly seven seconds of exposure if they defuse in the open — while you only have to hold a line that covers it. Your teammates' pings (DANGER A Link, NEEDS HELP C Link) are information, not orders: they tell you the retake is coming from the flanks, which is exactly why your Mid position is valuable. Holding a crossfire that looks at the spike's defuse angle means any defender who commits to the bomb has to cross your sights, and any teammate who makes contact can be traded off your line. Sprinting to a single ping is defensible if you can arrive in time to trade the fight, but running fully off the spike leaves a defuse line naked; hunting the A lurker or retreating to spawn both throw away the time advantage you paid for by planting. Radiant attackers post-plant sit still, cover the bomb, and make the defenders come bleed on their crossfire.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "Post-plant, assign each teammate/utility to a distinct entrance and one to flank duty; hold crossfires covering the spike"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "POV wields a rifle and lurks Mid; the spectated player is labelled Jett in the observer HUD. Duelist framing used ('your duelist') to avoid over-claiming exact abilities remaining"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "Scoreline shown mid-round; 3v3 inferred from alive-icon dimming on the top bar plus two ally pings — exact defender count could be 3v2 in the seconds around the freeze"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "The clip is a Mid lurk view; the actual retake contact happening at A Link / C Link is off-screen and only conveyed by minimap pings, not directly seen"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-003-intro.mp4",
+    "resolution_url": "media/p-video-003-resolution.mp4",
+    "freeze_frame_url": "media/p-video-003-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

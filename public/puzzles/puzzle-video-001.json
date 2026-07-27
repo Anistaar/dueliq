@@ -59,7 +59,7 @@
     "ennemis_connus": [],
     "ennemis_inconnus_count": 2
   },
-  "question": "Haven — DEF, Round 5, 4v2, Spike not planted, 1:17 left. You (Sova) and AtharvaNeO are on A site. 2 ATK alive (last info: A Long push, now unconfirmed). Your 2 other teammates hold B and C. Recon Bolt available. What is the highest-EV play?",
+  "question": "Haven — DEF, 4v2, no spike, 1:17 left. You (Sova) + AtharvaNeO hold A; 2 ATK last seen A Long, now unconfirmed. Recon Bolt up. Highest-EV play?",
   "options": [
     {
       "label": "Fire Recon Bolt across A site to reveal enemy positions, then decide rotation",
@@ -80,7 +80,12 @@
       "ev_delta": "-0.15 R",
       "freq_elite_estimee": 14,
       "explication_courte": "Eco round attackers with 1:17 left rarely push — you're trading positioning advantage for a guessing game on A Long angles. If they're not there, you've crossed open ground for nothing.",
-      "sources_option": []
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Dry-pushing into unknown angles surrenders your held-angle advantage; hold cover when enemy positions are unconfirmed"
+        }
+      ]
     },
     {
       "label": "Hold A site silently — let enemies come to you, set up a 2v2 on site",
@@ -88,15 +93,25 @@
       "ev_delta": "+0.10 R",
       "freq_elite_estimee": 22,
       "explication_courte": "Passive hold is safe but gives up tempo. With 1:17 remaining and no spike info, holding tight means you can't rotate if the 2 ATK go B or C. Acceptable if you lack intel; not optimal when Recon Bolt is free.",
-      "sources_option": []
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Playing purely passive without info can leave you unable to rotate in time if the attack commits elsewhere"
+        }
+      ]
     },
     {
       "label": "Immediately rotate to B — leave A to AtharvaNeO alone",
       "tier": "faute",
       "ev_delta": "-0.31 R",
-      "freq_elite_estimee": 6,
+      "freq_elite_estimee": 4,
       "explication_courte": "Abandoning A with your teammate still there and enemies unlocated creates a stranded 1v2 if ATK is on A. Never split without confirmed intel in a 4v2 — you already have numerical advantage, don't waste it.",
-      "sources_option": []
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Rotating too early lets an enemy take the site you left; never abandon a held site on a guess with a man-advantage"
+        }
+      ]
     }
   ],
   "explication_longue": "In a 4v2 with 1:17 remaining and no planted Spike, the defenders hold a massive advantage — but only if they play it correctly. The key error pros avoid is committing to a site hold or rotation without information. Sova's Recon Bolt is designed for exactly this moment: it reveals enemies across A site, A Long, and can arc toward Mid. If the bolt reveals both attackers on A, you hold. If it hits empty air, you know they're likely pushing B or C, giving you 40-50 seconds to rotate — more than enough on Haven. The 'push A Long' play is low-EV because it forces you into unfavorable duels in an open corridor when you have positional advantage on site. The 'hold silently' play is acceptable but information-deficient. The 'rotate to B' play splits your team without confirmed intel and creates a stranded 1v2 risk. Information-first is the Radiant-level decision in 4v2 scenarios.",

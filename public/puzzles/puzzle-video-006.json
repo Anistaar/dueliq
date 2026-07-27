@@ -1,0 +1,146 @@
+{
+  "id": "puzzle-video-006",
+  "version": 2,
+  "map": "haven",
+  "side": "ATK",
+  "theme": "rotation",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 46,
+    "spike_planted": false,
+    "alive_atk": 2,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "harbor",
+      "signature": "high_tide",
+      "ultimate": null,
+      "basic_remaining": ["cascade", "cove"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 550,
+        "y": 400,
+        "orientation_deg": 180,
+        "label": "HARBOR",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 650,
+        "y": 500,
+        "orientation_deg": 180,
+        "label": "TEAMMATE",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Haven — ATK, 2v3 down after a trade near B, no spike, 0:46 left. You (Harbor) still have Cascade, Cove and High Tide. How do you play the man-down round?",
+  "options": [
+    {
+      "label": "Group with your last teammate and commit one site behind Harbor's wall, not two solo duels",
+      "tier": "optimal",
+      "ev_delta": "+0.17 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Down a man, you can't win two separate fights. Stack with your teammate, use Cascade/High Tide to block the defenders' sightlines, and take one site as a pair so every fight is a 2v1, not a 1v1.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "Concentrate numbers and utility on a single approach; splitting a man-down attack lets defenders isolate and trade you one at a time"
+        }
+      ]
+    },
+    {
+      "label": "Split off solo through Mid to catch a rotating defender out of position",
+      "tier": "acceptable",
+      "ev_delta": "-0.10 R",
+      "freq_elite_estimee": 20,
+      "explication_courte": "A lurk can win by catching a rotator, but going alone 2v3 means if you die first it's an unwinnable 1v3 for your teammate. Only split if you have a real timing read, not on hope.",
+      "sources_option": [
+        {
+          "url": "https://tracker.gg/valorant/articles/how-to-lurk-in-valorant",
+          "citation": "A lurker's first job is to stay alive; dying alone early hands the round to the defense and strands your teammate"
+        }
+      ]
+    },
+    {
+      "label": "Dry-swing B main now to force a fast fight before defenders settle",
+      "tier": "couteux",
+      "ev_delta": "-0.30 R",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Rushing a fight without your smokes down, a man short, throws away the one edge you still have — utility. You feed the defenders' crossfire on their terms instead of yours.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Taking space and executes should be backed by utility; dry-swinging into set defenders when down a player is low-percentage"
+        }
+      ]
+    },
+    {
+      "label": "Fully retreat and play for the clock / next round eco",
+      "tier": "faute",
+      "ev_delta": "-0.42 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "With 46s and full utility in a 2v3 you still have a real chance to plant. Conceding the round outright wastes the tools you're holding and gives the defense a free win.",
+      "sources_option": [
+        {
+          "url": "https://bo3.gg/valorant/articles/how-to-read-rotations-in-valorant-when-and-where-defenders-move",
+          "citation": "A 2v3 with time and utility remains winnable via a coordinated hit; timing the defenders' rotation beats conceding"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A 2v3 down a man is not a lost round — but it is a round you can only win by concentrating force. The core error attackers make here is treating it like a normal round and drifting apart, which lets three defenders take two isolated 1v1s and win both. Harbor's kit is exactly what a man-down attack wants: Cascade and High Tide can wall off the defenders' angles so your pair enters a site with the fight cut down to a single line, turning every duel into a 2v1 on your terms. Grouping with your last teammate behind that water is the highest-EV line. A solo Mid lurk is defensible only with a genuine rotation read, because dying first makes it a 1v3; on a guess it just donates the round. Dry-swinging B with no smokes down burns your only remaining advantage — utility — by fighting on the defense's terms. And with 46 seconds plus full util still in your pocket, fully retreating throws away a live chance to plant. Down a man, you win by stacking bodies and util on one problem, not by spreading yourself across three.",
+  "sources": [
+    {
+      "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+      "citation": "Map-control fundamentals — concentrate numbers and utility to take space; coordinated execs beat scattered solo pushes"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Agent confirmed Harbor: water ability tray (Cascade/High Tide/Cove) visible; spectated player labelled Harbor in observer HUD. Knife out at the freeze = mid-reposition, not a committed peek"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "2v3 read from the alive-icon bar right after a trade shown in the combat report; the count is at its most volatile in the seconds around this freeze and could read 2v2 or 2v3"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "This is the weakest-information clip of the batch: an ATK reposition near B with defenders unlocated. The 'correct' line assumes standard man-down theory; the POV does not reveal where the 3 defenders actually set up"
+    },
+    {
+      "champ": "resolution_payoff",
+      "incertitude": "The resolution clip shows Harbor repositioning rather than a decisive kill — the round outcome after the freeze is not fully captured in the ~10s continuation"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-006-intro.mp4",
+    "resolution_url": "media/p-video-006-resolution.mp4",
+    "freeze_frame_url": "media/p-video-006-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

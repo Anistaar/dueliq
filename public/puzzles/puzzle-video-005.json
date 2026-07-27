@@ -1,0 +1,150 @@
+{
+  "id": "puzzle-video-005",
+  "version": 2,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "retake",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 30,
+    "spike_planted": true,
+    "alive_atk": 3,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "sova",
+      "signature": "recon_bolt",
+      "ultimate": null,
+      "basic_remaining": ["shock_bolt", "recon_bolt"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-link",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 400,
+        "y": 450,
+        "orientation_deg": 0,
+        "label": "SOVA",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 250,
+        "y": 300,
+        "orientation_deg": 0,
+        "label": "A-SHORT",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 300,
+        "y": 600,
+        "orientation_deg": 0,
+        "label": "A-LONG",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Haven — DEF retake, spike planted A, you have the 5v3 man-advantage. You (Sova) hold A Link as teammates converge on site. How do you open the retake?",
+  "options": [
+    {
+      "label": "Fire Recon into A site to locate the 3 planters, then push together with your team",
+      "tier": "optimal",
+      "ev_delta": "+0.24 R",
+      "freq_elite_estimee": 61,
+      "explication_courte": "You're up 5v3 with time — information converts that number into a clean retake. Scan the site, call the post-plant positions, and enter as a group on the reveal instead of trickling in one by one.",
+      "sources_option": [
+        {
+          "url": "https://boosteria.org/guides/valorant-retake-guide-site-retake-strategies-basics",
+          "citation": "Best retakes land a piece of utility and info before the first fight and enter together; don't enter alone unless time forces you"
+        }
+      ]
+    },
+    {
+      "label": "Swing A Link fast alone to catch a planter off-guard before they set up",
+      "tier": "couteux",
+      "ev_delta": "-0.33 R",
+      "freq_elite_estimee": 10,
+      "explication_courte": "Solo-dry-entering a 5v3 retake throws your biggest edge — numbers. You feed the post-plant crossfire one at a time and hand a defender the free trade that swings it back to even.",
+      "sources_option": [
+        {
+          "url": "https://thunderpick.io/blog/how-to-play-retakes-in-valorant",
+          "citation": "Entering a retake alone feeds the post-plant crossfire; grouped entries with utility win far more often"
+        }
+      ]
+    },
+    {
+      "label": "Wait and hold A Link for the attackers to peek out and defend the plant time",
+      "tier": "acceptable",
+      "ev_delta": "-0.08 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Passively holding can steal a pick if they push out, but it burns defuse clock you need. With a man-advantage and ~30s, sitting still risks running out of time to actually clear and defuse.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+          "citation": "Retakers must budget time to clear and defuse; passivity can leave too little of the ~7s defuse window"
+        }
+      ]
+    },
+    {
+      "label": "Rotate off A entirely and concede the site to save your rifles",
+      "tier": "faute",
+      "ev_delta": "-0.47 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Conceding a plant you're winning 5v3 gives up the round for nothing. A man-advantage retake is one of the highest-EV situations in the game — you take it, you don't save it.",
+      "sources_option": [
+        {
+          "url": "https://boostmatch.gg/blog/other-games/articles/valorant-retake-mode-guide",
+          "citation": "With a numbers advantage the retake is heavily favoured; conceding a winnable plant forfeits free round equity"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A 5v3 retake with the spike down is one of the most favourable spots a defense can be in — and the fastest way to throw it is to waste the numbers by entering piecemeal. Sova's Recon Bolt at A Link is the lever that turns 'we have more players' into 'we know exactly where their three are and hit them all at once.' Firing into site reveals the post-plant setup: who's tucked on default, who's playing the flank, who's on the bomb. Your team reads the scan, calls it, and swings together so the attackers can't trade evenly. Solo-swinging A Link throws the man-advantage away by feeding their crossfire one body at a time; a defender only needs one clean trade to drag the round back to a coinflip. Holding passively can bait a pick but eats the defuse clock you still need to clear and tap the spike inside roughly seven seconds. Conceding outright forfeits free round equity. The disciplined play with numbers and time is util-first, group-entry: scan, call, commit as five.",
+  "sources": [
+    {
+      "url": "https://alviran.net/blog/valorant-retake-guide-2026/",
+      "citation": "Group with teammates, use info, land utility before the first fight, and trade the entry rather than entering alone"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Agent confirmed Sova: Recon Bolt equipped (bow reticle) and Marshal held in the retake frames; matches the same spectated Sova (LordFourth07) as video-002"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "5v3 read from the alive-icon bar (five green lit, spike planted red icon). One or two attackers may already be repositioning off-site at the freeze instant"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "The clip shows A Link with allies pushing A Short/A Long on the minimap; the three attackers' exact post-plant positions inside A site are not visible until the scan — which is the point of the puzzle"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-005-intro.mp4",
+    "resolution_url": "media/p-video-005-resolution.mp4",
+    "freeze_frame_url": "media/p-video-005-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

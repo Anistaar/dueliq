@@ -1,0 +1,158 @@
+{
+  "id": "puzzle-video-002",
+  "version": 2,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "util",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 70,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "sova",
+      "signature": "recon_bolt",
+      "ultimate": null,
+      "basic_remaining": ["shock_bolt", "recon_bolt"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-tower",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 300,
+        "y": 250,
+        "orientation_deg": 90,
+        "label": "SOVA",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 200,
+        "y": 350,
+        "orientation_deg": 90,
+        "label": "ALLY-A",
+        "est_joueur_concerne": false
+      },
+      {
+        "id": "P3",
+        "x": 700,
+        "y": 500,
+        "orientation_deg": 180,
+        "label": "MID/C",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 150,
+        "y": 550,
+        "orientation_deg": 270,
+        "label": "A-MAIN"
+      }
+    ],
+    "ennemis_inconnus_count": 4
+  },
+  "question": "Haven — DEF, 3v5 down, no spike, 1:10 left. You (Sova) hold A Tower with Recon up; only 1 ATK is confirmed A Main. What is the highest-EV play?",
+  "options": [
+    {
+      "label": "Fire the Recon Bolt over A to confirm how many are committing before your team over-rotates",
+      "tier": "optimal",
+      "ev_delta": "+0.18 R",
+      "freq_elite_estimee": 62,
+      "explication_courte": "You are a man down and can't watch all three sites. One confirmed body on A means nothing — the Recon tells you if it's a full A hit or 1 baiter while 4 hit C. Scan now, then commit the rotation.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "Defenders cannot watch all sites; a well-timed recon reveals which site is understaffed before your team commits or over-rotates"
+        }
+      ]
+    },
+    {
+      "label": "Push down from Tower into A Main to duel the one enemy you can see",
+      "tier": "couteux",
+      "ev_delta": "-0.34 R",
+      "freq_elite_estimee": 9,
+      "explication_courte": "Dry-swinging one confirmed enemy while 4 are unlocated, a man down, throws your positional edge from Tower. If it's an A hit you walk into a trade you can't win.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Holding a protected angle beats dry-peeking into unknown numbers; you give up cover and the ability to fall back"
+        }
+      ]
+    },
+    {
+      "label": "Hold Tower silently on your Vandal and let A come to you without spending util",
+      "tier": "acceptable",
+      "ev_delta": "+0.06 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Playing the strong Tower angle is safe and can steal a pick. But at 3v5 with util available, staying blind means you can't rotate correctly if the real hit is C — you leave value on the table.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Rotating without info is dangerous; when unsure where the enemy is, play cautious until you have information"
+        }
+      ]
+    },
+    {
+      "label": "Save util and immediately rotate to C to help your third teammate",
+      "tier": "faute",
+      "ev_delta": "-0.41 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Abandoning A on a guess with a confirmed enemy already there hands them the site for free. Blind rotations off a man-down defense are how you get split and lose both sites.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Rotating too early lets an enemy take the site you left; confirm the read before abandoning your position"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Being a man down (3v5) on defense flips Sova's Recon Bolt from a 'nice-to-have' into the decision itself. You cannot cover all three Haven sites with three players, and one confirmed enemy on A Main is exactly the kind of bait that pulls an under-manned defense into the wrong rotation. Firing the Recon over A now costs nothing you need in the next second and answers the only question that matters: is this a committed A hit, or one player holding your attention while four hit C? If the scan lights up A, you and your Tower ally hold your protected angles and trade. If it comes back with one or two bodies, you know the mass is elsewhere and your rotation is informed instead of panicked. Dry-pushing the single enemy throws away Tower's positional advantage; blind-rotating to C gifts A. Radiant defenders in man-down rounds buy information before they buy commitment — the scan is the play.",
+  "sources": [
+    {
+      "url": "https://www.dodge.gg/en-US/valorant/news/sova-guide-2026",
+      "citation": "Sova guide — on defense, use Recon Bolt to get early information on where enemies commit before your team reacts"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Agent confirmed Sova: Recon Bolt equipped (bow + scan reticle visible), Owl Drone + Shock in kit from earlier frames"
+    },
+    {
+      "champ": "eco_context",
+      "incertitude": "Both teams shown on rifles (Vandal/Marshal on POV, full agent icons alive); buy tiers estimated full-buy, not read from credits"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "The POV only shows A Tower's view over Garden/Link. Positions of the 4 unlocated ATK (Mid, C, A Short) are inferred from the minimap, not directly visible in the clip"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee values are V0 estimates from pro guides, not measured from an annotated VOD dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-002-intro.mp4",
+    "resolution_url": "media/p-video-002-resolution.mp4",
+    "freeze_frame_url": "media/p-video-002-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

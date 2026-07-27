@@ -1,0 +1,150 @@
+{
+  "id": "puzzle-video-004",
+  "version": 2,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "rotation",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 61,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "harbor",
+      "signature": "high_tide",
+      "ultimate": null,
+      "basic_remaining": ["cascade", "cove"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "c-garage",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 700,
+        "y": 500,
+        "orientation_deg": 270,
+        "label": "HARBOR",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 300,
+        "y": 300,
+        "orientation_deg": 180,
+        "label": "A/MID",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 600,
+        "y": 620,
+        "orientation_deg": 270,
+        "label": "C-GARAGE (down)"
+      }
+    ],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Haven — DEF, 2v4 down, no spike, ~1:00 left. You (Harbor) just killed one ATK at C Garage doors. Three attackers are still committing C. What now?",
+  "options": [
+    {
+      "label": "Fall back off the doors and reset to a fresh C angle with Cascade/Cove ready to stall",
+      "tier": "optimal",
+      "ev_delta": "+0.16 R",
+      "freq_elite_estimee": 57,
+      "explication_courte": "You just showed your position getting the pick — three more are pushing. Re-angle onto a spot they don't expect and use your wall/smoke to stall the take so your teammate can rotate. Don't re-hold the spot they now pre-aim.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "After a kill, move to an off-angle or a different position — enemies expect you where you got the pick"
+        }
+      ]
+    },
+    {
+      "label": "Hold the exact doorway angle and try to pick a second attacker as they push",
+      "tier": "couteux",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 12,
+      "explication_courte": "Greeding the same angle against three pushers who saw the muzzle flash is how a 1-for-1 becomes a 1-for-you. The next peeker is pre-aimed on your head.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/blogs/valorant/15026/defending-the-most-commonly-pushed-angles-in-valorant",
+          "citation": "Re-holding a burned angle against multiple pushers invites a pre-aimed trade; unpredictability keeps you alive"
+        }
+      ]
+    },
+    {
+      "label": "Use High Tide/Cascade to wall off C and buy time before deciding",
+      "tier": "acceptable",
+      "ev_delta": "+0.04 R",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Walling to stall is a legitimate 2v4 play and delays the plant. But dropping util from the burned doorway without re-angling first can leave you exposed the instant the wall drops — pair it with a reposition.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "Utility to delay a numbers-down site take is sound, but must be combined with repositioning and info to convert the stall"
+        }
+      ]
+    },
+    {
+      "label": "Rotate fully to A now and give up C to the three attackers",
+      "tier": "faute",
+      "ev_delta": "-0.38 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "You just took a fight for C — bailing hands them the site free and puts you in a worse 2v4 on A with no info. Convert the pick you earned into a stall, don't throw it away.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Rotating off a site you're actively contesting gives it up for free and can be punished by an alternate-angle push"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Getting a pick on defense is a gift and a liability at the same time. The kill at C Garage doors bought you a temporary 2v3 on this site — but the muzzle flash also told three living attackers exactly where you are, and they are still pushing with the numbers. The Radiant instinct is to convert, not to greed: step off the burned doorway, re-angle onto a spot the pushers aren't pre-aiming, and use Harbor's kit (Cascade to stall the entry, Cove to block a defuse-line or your reposition, High Tide to wall the choke) to slow the take long enough for your surviving teammate to rotate in. Re-holding the same doorway is the classic tilt-trade — the next peeker is already on your head. Walling is good but only if you move first; drop the water from the exact spot they saw you and you die when it falls. Full-rotating to A throws away the fight you just won and lands you in an even worse 2v4 with zero information. Down a man, your job is to make every meter of the site cost them time and utility, from angles they can't predict.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/lining-yourself-up-to-win-an-aiming-and-positioning-guide-for-valorant",
+      "citation": "Repositioning after duels lets you hold different angles while staying elusive even against a communicating enemy team"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Agent confirmed Harbor: teal water abilities (Cascade/High Tide/Cove) shown in the ability tray and used in adjacent frames; POV on Vandal"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "2v4 read from the alive-icon bar (two green lit) plus the combat report kill; exact ATK survivors between the pick and the next contact could shift by one"
+    },
+    {
+      "champ": "util_remaining",
+      "incertitude": "Which Harbor charges are still up at the freeze is inferred from the tray icons, not confirmed spent/unspent in this exact frame"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-004-intro.mp4",
+    "resolution_url": "media/p-video-004-resolution.mp4",
+    "freeze_frame_url": "media/p-video-004-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

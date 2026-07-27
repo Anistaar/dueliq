@@ -1,7 +1,27 @@
 // DuelIQ — Daily puzzle logic
 // Not endorsed by Riot Games.
 
-// Ordered list of daily puzzle filenames (p001-p030)
+// ─────────────────────────────────────────────────────────────────────────────
+// VIDEO-FIRST DAILY (DESIGN_SPEC v2.1 — real Valorant footage is the product)
+// The daily now serves a video puzzle (clip → freeze → choose → real resolution).
+// The 30 static 2D puzzles are demoted to an internal library, still reachable
+// via ?p=001..030 (deep-links / playtest) but never the served daily.
+//
+// TODO(cadence): runway is only 6 days at 1 video/day. Batch #2 of the VOD (and
+// additional CC-BY sources in footage/SOURCES.md) must extend VIDEO_DAILY before
+// the rotation wraps, or the daily will start repeating video-001 on day 7.
+// ─────────────────────────────────────────────────────────────────────────────
+export const VIDEO_DAILY = [
+  "puzzle-video-001.json",
+  "puzzle-video-002.json",
+  "puzzle-video-003.json",
+  "puzzle-video-004.json",
+  "puzzle-video-005.json",
+  "puzzle-video-006.json",
+] as const;
+
+// Ordered list of static puzzle filenames (p001-p030) — internal library.
+// Still deep-linkable via ?p=NNN; no longer the served daily (video-first).
 // puzzle-000-exemple is excluded from rotation (wrong viewBox baseline)
 export const DAILY_PUZZLES = [
   "puzzle-001-retake-haven.json",
@@ -41,19 +61,24 @@ export function utcDayIndex(): number {
   return Math.floor(Date.now() / 86_400_000);
 }
 
-/** Returns puzzle index (0-based) for today */
+/** Returns video-daily index (0-based) for today */
 export function todayPuzzleIndex(): number {
-  return utcDayIndex() % DAILY_PUZZLES.length;
+  return utcDayIndex() % VIDEO_DAILY.length;
 }
 
-/** Returns puzzle filename for today */
+/** Returns the served daily puzzle filename for today (video-first). */
 export function todayPuzzleFile(): string {
-  return DAILY_PUZZLES[todayPuzzleIndex()];
+  return VIDEO_DAILY[todayPuzzleIndex()];
 }
 
 /** Returns puzzle number (1-based, for display) */
 export function todayPuzzleNumber(): number {
   return todayPuzzleIndex() + 1;
+}
+
+/** Honest content runway in days before the video daily rotation repeats. */
+export function videoRunwayDays(): number {
+  return VIDEO_DAILY.length;
 }
 
 /** Returns #N daily number (days since epoch, unique each day) */
