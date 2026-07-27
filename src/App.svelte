@@ -6,6 +6,7 @@
   import Countdown from "./lib/Countdown.svelte";
   import StreakBadge from "./lib/StreakBadge.svelte";
   import {
+    DAILY_PUZZLES,
     todayPuzzleFile,
     dailyNumber,
     markDailyPlayed,
@@ -21,7 +22,13 @@
   let waitlistEmail = $state("");
 
   const BASE = import.meta.env.BASE_URL; // '/dueliq/'
-  const puzzleFile = todayPuzzleFile();
+  // Preview override: ?p=007 loads a specific puzzle (playtest/deep-links; daily streak logic untouched)
+  const previewParam = new URLSearchParams(location.search).get("p");
+  const previewFile = previewParam
+    ? (DAILY_PUZZLES.find((f) => f.includes(`puzzle-${previewParam.padStart(3, "0")}`)) ?? null)
+    : null;
+  const isPreview = previewFile !== null;
+  const puzzleFile = previewFile ?? todayPuzzleFile();
   const dayNum = dailyNumber();
 
   // ---- Load daily puzzle ----
@@ -42,6 +49,7 @@
 
   // Callback from PuzzleEngine when user reaches end phase
   function onDailyComplete() {
+    if (isPreview) return; // preview runs never touch the daily streak
     markDailyPlayed();
     dailyDone = true;
   }
@@ -146,7 +154,7 @@
           <button class="btn-small" onclick={loadPuzzle}>Retry</button>
         </div>
 
-      {:else if dailyDone}
+      {:else if dailyDone && !isPreview}
         <!-- Puzzle already played today — show teaser -->
         <div class="done-box">
           <div class="done-icon">
