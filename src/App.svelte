@@ -149,11 +149,11 @@
       <div class="hero-badges">
         <span class="hero-badge">
           <span class="hb-icon">◈</span>
-          30 puzzles
+          Real gameplay clips
         </span>
         <span class="hero-badge">
           <span class="hb-icon">◎</span>
-          5 maps
+          New puzzle daily
         </span>
         <span class="hero-badge hero-badge--accent">
           <span class="hb-icon">★</span>
