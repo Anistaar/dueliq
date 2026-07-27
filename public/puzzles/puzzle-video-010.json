@@ -1,0 +1,156 @@
+{
+  "id": "puzzle-video-010",
+  "version": 2,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "util",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 95,
+    "spike_planted": false,
+    "alive_atk": 1,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "recon_reveal",
+      "ultimate": null,
+      "basic_remaining": ["q", "e", "x"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-ramps",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 400,
+        "y": 750,
+        "orientation_deg": 0,
+        "label": "YOU (Phantom)",
+        "est_joueur_concerne": true
+      }
+    ],
+    "ennemis_connus": [
+      {
+        "id": "E1",
+        "x": 350,
+        "y": 400,
+        "orientation_deg": 180,
+        "label": "REVEALED"
+      },
+      {
+        "id": "E2",
+        "x": 430,
+        "y": 380,
+        "orientation_deg": 180,
+        "label": "REVEALED"
+      },
+      {
+        "id": "E3",
+        "x": 700,
+        "y": 420,
+        "orientation_deg": 225,
+        "label": "REVEALED (behind smoke)"
+      }
+    ],
+    "ennemis_inconnus_count": 0
+  },
+  "question": "Ascent — ATK, 1v3 down, 1:35 left. A recon reveal just lit up all three defenders stacked at A Ramps — two grouped left, one behind smoke right. You have a Phantom. How do you use this info?",
+  "options": [
+    {
+      "label": "Use the reveal to avoid the 3-stack: reposition off their known angle and make them rotate to you one at a time",
+      "tier": "optimal",
+      "ev_delta": "+0.19 R",
+      "freq_elite_estimee": 54,
+      "explication_courte": "The scan's real value in a 1v3 is knowing where NOT to walk. You now know all three are grouped on A — so you slip off that angle, use the clock, and force them to break the stack and come to you singly instead of eating a 1v3 crossfire.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "Information is used to avoid disadvantageous fights and reposition, not only to start them; a reveal that shows a stack is a reason to relocate"
+        }
+      ]
+    },
+    {
+      "label": "Push A Ramps now and spray through the green smoke to catch the lurker while he's revealed",
+      "tier": "couteux",
+      "ev_delta": "-0.30 R",
+      "freq_elite_estimee": 12,
+      "explication_courte": "Spraying a revealed body through smoke commits you into a choke where his two teammates are stacked one flick away. Even if you tag the smoked enemy, the other two trade you instantly — you traded a 1v3 for a 1v2 at best, in the open.",
+      "sources_option": [
+        {
+          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
+          "citation": "Spraying into smokes on a reveal wastes ammo and commits you to a choke; only take the fight if the reveal shows the enemy isolated"
+        }
+      ]
+    },
+    {
+      "label": "Wide-swing the two grouped left to try to double-tag them with the Phantom before they react",
+      "tier": "faute",
+      "ev_delta": "-0.46 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Swinging into two pre-aimed, now-alert defenders is a near-guaranteed death — the reveal cut both ways the moment you showed. You throw the round trying to hero-frag a stack that's already looking at your angle.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Swinging into two or more players holding the same angle is a losing duel; isolate the fight rather than challenging a grouped stack"
+        }
+      ]
+    },
+    {
+      "label": "Sit exactly where you are and hold, letting the recon info go stale while the clock runs",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 29,
+      "explication_courte": "Holding is safe and time is on your side, but freezing on the same spot the reveal was fired from lets them predict you; the value is in USING the info to relocate, not in sitting on it until it expires.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Act on information while it's fresh; holding a predictable position after revealing yourself lets the enemy set up on you"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A recon reveal in a 1v3 is worth the most when you read it as a map of danger, not a target list. The scan shows all three defenders bunched near A Ramps — two together on the left, one tucked behind a green smoke on the right. The disciplined line is to treat that as a no-go zone: you are one player against three grouped crosshairs, so you use the clock (you have 1:35), peel off their known angle, and force them to break the stack and rotate to you where you can take them one at a time. Spraying the smoked lurker feels productive but commits you into the exact choke where his two teammates are one flick away; even a successful tag gets you traded immediately, converting a 1v3 into a 1v2 in the open — a bad trade. Wide-swinging the two grouped defenders is worse: the reveal alerted them too, they are pre-aimed on your angle, and you die for nothing. Even pure holding, while safe, wastes the information if you sit on the spot you revealed from and let it go stale. The edge the scan bought you is repositioning knowledge — spend it by relocating, not by charging a stack.",
+  "sources": [
+    {
+      "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+      "citation": "Information control is about avoiding bad fights and repositioning as much as starting good ones; a reveal that shows grouped enemies is a reason to relocate"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Ramps)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "The reveal (enemies highlighted through geometry) confirms a recon effect is active, but the source agent (Sova Recon Bolt, Fade, or KAY/O) is not identifiable from the observer POV. Player holds a Phantom with a full ability bar (Q/E/X shown)"
+    },
+    {
+      "champ": "enemy_positions",
+      "incertitude": "Enemy coordinates are approximated from the revealed silhouettes visible at A Ramps in the freeze; the exact stance/HP of each is not readable. The one behind smoke is inferred to be the tucked lurker"
+    },
+    {
+      "champ": "game_mode",
+      "incertitude": "Spike Rush footage (3v3); 'down 1v3' means last attacker alive. Alive counts read from the icon bar"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-010-intro.mp4",
+    "resolution_url": "media/p-video-010-resolution.mp4",
+    "freeze_frame_url": "media/p-video-010-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+  }
+}

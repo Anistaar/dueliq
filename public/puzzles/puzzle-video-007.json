@@ -1,0 +1,142 @@
+{
+  "id": "puzzle-video-007",
+  "version": 2,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 53,
+    "spike_planted": false,
+    "alive_atk": 3,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": []
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-main",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 250,
+        "y": 700,
+        "orientation_deg": 0,
+        "label": "YOU",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 350,
+        "y": 620,
+        "orientation_deg": 0,
+        "label": "ENTRY",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Ascent — ATK, 3v3, no spike, 0:53 left. Your entry teammate is running out into A Main ahead of you toward the choke into A. As trailing support, what is the highest-EV play?",
+  "options": [
+    {
+      "label": "Trade-hold: swing just behind your entry with your crosshair on the same angle, ready to re-peek and trade if he dies",
+      "tier": "optimal",
+      "ev_delta": "+0.17 R",
+      "freq_elite_estimee": 60,
+      "explication_courte": "The entry's job is to draw the first bullet; yours is to punish it. Staying one step behind on the same angle means if he trades down a defender you instantly re-peek the wounded/reloading enemy and swing the fight back to 3v2 or better.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Support players trade entries by holding a beat behind and re-peeking the same angle the moment the entry fight opens"
+        }
+      ]
+    },
+    {
+      "label": "Sprint out first past your entry to take the A Main duel yourself with more HP",
+      "tier": "couteux",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 10,
+      "explication_courte": "Overtaking your own entry collapses two players into the same opening angle — if the defender holds the pixel, you both die to one hold and there is nobody left to trade. Order of entry is a structure, not a race.",
+      "sources_option": [
+        {
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "The support follows the entry to trade — not ahead of them; the entry clears the angle first and the second player punishes the response"
+        }
+      ]
+    },
+    {
+      "label": "Hold back at spawn side and let the entry clear A Main solo before you commit",
+      "tier": "acceptable",
+      "ev_delta": "-0.06 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Playing safe keeps you alive, but a solo-entry with no trade behind it is a coinflip; if he dies for free you're a slow 2v3 with the clock burning. Passive support wastes the entry's sacrifice.",
+      "sources_option": [
+        {
+          "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
+          "citation": "An entry with no trade support behind it turns a sacrifice into a free kill for the defense; commit close enough to trade"
+        }
+      ]
+    },
+    {
+      "label": "Peel off alone toward mid to look for a flank while your entry hits A",
+      "tier": "faute",
+      "ev_delta": "-0.44 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Splitting off in a 3v3 abandons your entry to a 1v-however-many on A and isolates you on a lurk with no info. You turn one grouped hit into two under-manned fights the defense wins in detail.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Splitting numbers on a low-man round lets the defense fight you piecemeal; stay grouped to keep the trade chain intact"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "In a 3v3 with your entry already committing to A Main, the round is decided by whether his first duel gets traded. That is the entire job of the trailing support: be close enough, on the same angle, that the instant the entry fires (and possibly dies) you re-peek and punish the defender who is now reloading, low, or repositioning off the kill. Swinging one beat behind on the same line keeps the fight a 1-for-1-at-worst instead of a free defensive pick. Overtaking your own entry is the classic support mistake — two bodies pour into one held angle, one defender's pre-aim kills both, and there is nobody left to trade. Holding all the way back keeps you alive but wastes the entry's sacrifice: a solo A Main hit with no trade is a coinflip that leaves you a slow 2v3 on the clock. Peeling to mid for a flank shreds your numbers in a round where you can't afford it — the defense simply fights your two halves one at a time. Elite support play is unglamorous: trail tight, mirror the angle, trade the entry.",
+  "sources": [
+    {
+      "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+      "citation": "The entry-and-trade pair is the core of a site take: entry draws the fight, support trades within a second on the same angle"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Main)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV; the spectated ally 'Serch105' is mid-motion into A Main and his agent/weapon are not clearly readable at the freeze. Agent left as unknown rather than guessed — the puzzle is a role decision (support trade), not agent-specific"
+    },
+    {
+      "champ": "game_mode",
+      "incertitude": "Source is Spike Rush footage (3-player teams, per-round weapon spins), so this is a 3v3 not a 5v5. The trade-support principle is mode-agnostic; alive counts read from the icon bar (3 vs 3)"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "The three defenders' positions inside A are not visible from A Main; 'ennemis_inconnus_count: 3' reflects that the fight has not yet opened at the freeze instant"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-007-intro.mp4",
+    "resolution_url": "media/p-video-007-resolution.mp4",
+    "freeze_frame_url": "media/p-video-007-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+  }
+}

@@ -7,9 +7,9 @@
 // The 30 static 2D puzzles are demoted to an internal library, still reachable
 // via ?p=001..030 (deep-links / playtest) but never the served daily.
 //
-// TODO(cadence): runway is only 6 days at 1 video/day. Batch #2 of the VOD (and
-// additional CC-BY sources in footage/SOURCES.md) must extend VIDEO_DAILY before
-// the rotation wraps, or the daily will start repeating video-001 on day 7.
+// Runway: 15 video puzzles = 15-day rotation (batch #2 added video-007..015 from
+// two additional CC-BY sources — see footage/SOURCES.md). Maps: Haven (001-006,
+// 014-015), Ascent (007-010), Bind (011-013). ≥14-day runway, cadence TODO cleared.
 // ─────────────────────────────────────────────────────────────────────────────
 export const VIDEO_DAILY = [
   "puzzle-video-001.json",
@@ -18,6 +18,15 @@ export const VIDEO_DAILY = [
   "puzzle-video-004.json",
   "puzzle-video-005.json",
   "puzzle-video-006.json",
+  "puzzle-video-007.json",
+  "puzzle-video-008.json",
+  "puzzle-video-009.json",
+  "puzzle-video-010.json",
+  "puzzle-video-011.json",
+  "puzzle-video-012.json",
+  "puzzle-video-013.json",
+  "puzzle-video-014.json",
+  "puzzle-video-015.json",
 ] as const;
 
 // Ordered list of static puzzle filenames (p001-p030) — internal library.

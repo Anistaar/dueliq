@@ -1,0 +1,137 @@
+{
+  "id": "puzzle-video-008",
+  "version": 2,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "eco",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 62,
+    "spike_planted": false,
+    "alive_atk": 1,
+    "alive_def": 3,
+    "eco_atk_approx": "semi-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": [
+        "q",
+        "e"
+      ]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-main",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 550,
+        "y": 650,
+        "orientation_deg": 0,
+        "label": "YOU (SMG)",
+        "est_joueur_concerne": true
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Ascent — ATK, 1v3 down, no spike, 1:02 left. You are the last attacker alive on an SMG, advancing through A Main / A Lobby with two abilities up. How do you play the 1v3?",
+  "options": [
+    {
+      "label": "Slow it down: use the clock, hold a tight off-angle in A Lobby and force them to come clear you one at a time",
+      "tier": "optimal",
+      "ev_delta": "+0.15 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "In a 1vX with time on the clock, the map is your ally — an isolated angle turns a 1v3 into three separate 1v1s you take on your terms. Your SMG wins close and you only ever fight one crosshair at a time.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "In clutches, isolate the fight to one enemy at a time by holding an off-angle rather than exposing yourself to multiple crosshairs"
+        }
+      ]
+    },
+    {
+      "label": "Rush A Main aggressively to catch them mid-rotate before they group up",
+      "tier": "couteux",
+      "ev_delta": "-0.31 R",
+      "freq_elite_estimee": 12,
+      "explication_courte": "Dry-rushing three full-buys with an SMG hands them the numbers duel they want — you run into a stacked A and eat crossfire. Aggression only works if you can guarantee isolation, and open A Main can't.",
+      "sources_option": [
+        {
+          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
+          "citation": "On an under-gunned round, avoid running into grouped full-buys in the open; force isolated close-range fights where the SMG is even"
+        }
+      ]
+    },
+    {
+      "label": "Play purely for time and information, ready to disengage and save your SMG if the fight isn't isolated",
+      "tier": "acceptable",
+      "ev_delta": "+0.02 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Trading the round for economy is a real option down 1v3 on a partial buy — but you still have ~1:00 and two abilities, so pure saving leaves free-fight equity on the table before you've even tried to isolate one.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
+          "citation": "When a round is likely lost, preserving your weapon for the next buy can be worth more than a low-odds fight"
+        }
+      ]
+    },
+    {
+      "label": "Wide-swing the first open angle to start trading immediately and get value",
+      "tier": "faute",
+      "ev_delta": "-0.45 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Wide-swinging blind into a 3-stack is the fastest way to die for nothing — you show yourself to every angle at once and lose the one lever (isolation) that makes a 1v3 winnable at all.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Wide-swinging into unknown numbers exposes you to every held angle simultaneously; jiggle or hold instead until you can isolate"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A 1v3 with a minute on the clock is not a shootout to be rushed — it is a sequencing problem. The three defenders have to come dig you out, and every meter of open ground they cross is a chance to make them do it alone. Holding a tight, unexpected off-angle in A Lobby forces exactly that: they can only funnel one crosshair at a time onto you, so a 1v3 decomposes into three separate 1v1s where your SMG's close-range fire rate is genuinely even or favoured. Rushing A Main instead runs you straight into whatever stack is set up on site, and three full-buys will trade you the instant you show. Pure saving is defensible on a partial buy — economy is round equity too — but with a full minute and two abilities you haven't yet tried the highest-value line, which is to isolate one fight and then reassess. Wide-swinging the first angle is the worst of all: it throws away isolation, the single thing that makes a 1v3 winnable, in exchange for a coinflip you usually lose. Use the clock, pick your angle, take them one at a time.",
+  "sources": [
+    {
+      "url": "https://eloking.com/blog/how-to-eco-in-valorant",
+      "citation": "Under-gunned rounds are won by isolation and patience, not by rushing grouped full-buys into the open"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Main / A Lobby)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV; the player holds an SMG (Stinger/Spectre) but the agent and exact remaining abilities are not clearly readable at the freeze. Q and E show as available on the ability bar; agent left unknown rather than guessed"
+    },
+    {
+      "champ": "eco_context",
+      "incertitude": "'smg-buy' inferred from the SMG in hand; defenders' buy tier estimated full-buy, not read from credits. Game mode is Spike Rush (3v3), so 'down 1v3' means last player alive of a 3-stack"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "The three defenders' positions inside A are not visible from A Main/Lobby; count read from the alive-icon bar (1 green vs 3)"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-008-intro.mp4",
+    "resolution_url": "media/p-video-008-resolution.mp4",
+    "freeze_frame_url": "media/p-video-008-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+  }
+}

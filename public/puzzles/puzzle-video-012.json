@@ -1,0 +1,142 @@
+{
+  "id": "puzzle-video-012",
+  "version": 2,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 90,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 4,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": ["c", "q"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-lobby",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 300,
+        "y": 650,
+        "orientation_deg": 0,
+        "label": "YOU (spike, Judge)",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 450,
+        "y": 550,
+        "orientation_deg": 0,
+        "label": "TEAMMATE",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 4
+  },
+  "question": "Bind — ATK, 4v4, no spike, 1:30 left. You are carrying the spike with a Judge through A Lobby toward A Short; a teammate pinged an angle ahead. As the spike carrier, how should you move?",
+  "options": [
+    {
+      "label": "Let a teammate clear the angle first and stay behind cover — the spike carrier enters last, not first",
+      "tier": "optimal",
+      "ev_delta": "+0.18 R",
+      "freq_elite_estimee": 61,
+      "explication_courte": "If the spike carrier dies entering, the bomb drops in the open and your whole execute stalls while someone re-grabs it under fire. The carrier's job is to survive to the plant — let the others take the opening duels.",
+      "sources_option": [
+        {
+          "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
+          "citation": "The spike carrier should enter behind teammates and stay protected; losing the carrier in the open cripples the site execute"
+        }
+      ]
+    },
+    {
+      "label": "Rush A Short yourself with the Judge to clear close angles before anyone can hold you",
+      "tier": "couteux",
+      "ev_delta": "-0.27 R",
+      "freq_elite_estimee": 11,
+      "explication_courte": "Entering first with the spike bets the round on your one duel. A Judge wins the corner but loses to anyone holding at range in A Short, and if you drop, the bomb is stranded in the open and the execute collapses.",
+      "sources_option": [
+        {
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "Entry duties belong to duelists creating space; the objective carrier should not lead the charge into unknown angles"
+        }
+      ]
+    },
+    {
+      "label": "Wait at A Lobby and default with the team, only pushing when util goes down for the take",
+      "tier": "acceptable",
+      "ev_delta": "+0.06 R",
+      "freq_elite_estimee": 23,
+      "explication_courte": "Slowing to set up a proper util-backed take is fine and often best — but pure waiting without any pressure while a teammate has already committed an angle can leave him unsupported and let the defense re-stack the site.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
+          "citation": "Coordinate the take with utility and support the committed player; don't leave a lone teammate hung out on an angle"
+        }
+      ]
+    },
+    {
+      "label": "Drop the spike to a teammate and swing the pinged angle aggressively yourself",
+      "tier": "faute",
+      "ev_delta": "-0.41 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Dropping the spike mid-lobby to go frag hands the bomb around under time pressure and risks it being lost if that teammate then dies; it also removes your Judge from close-range site defence at the worst moment. Over-complicated for no gain.",
+      "sources_option": [
+        {
+          "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
+          "citation": "Passing the spike around mid-execute creates chaos and risk; keep the carrier protected and plan the plant, don't improvise frags"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "The spike carrier is the one player on the attack whose survival is non-negotiable — if the bomb drops in the open under fire, the entire execute stalls while a teammate scrambles to re-grab it and the defense re-stacks. Moving through A Lobby toward A Short with a Judge and a teammate already pinging an angle, the disciplined line is to let that teammate (or a duelist) take the opening duel while you stay behind cover, ready to move up and plant once the space is cleared. Rushing A Short yourself bets the round on a single close-range duel your Judge only wins at point-blank; the moment someone holds you from range, or you simply lose the coinflip, the spike is stranded and the take falls apart. Pure waiting is acceptable and often ideal when it means setting up a real utility-backed execute — but it must not mean abandoning a teammate who has already committed to the pinged angle. And dropping the spike to go frag is the worst option: it juggles the bomb under time pressure, risks losing it entirely, and pulls your close-range gun off the site. Stay protected, enter last, plant.",
+  "sources": [
+    {
+      "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
+      "citation": "The spike carrier enters behind the entry, stays protected, and survives to the plant; the carrier does not lead the site take"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Bind A Lobby)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV; the 'YOU HAVE THE SPIKE' indicator and Judge shotgun are readable on the HUD, but the player's agent is not confirmed and is left unknown. The decision is role-based (carrier discipline), not agent-specific"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "4v4 read from the alive-icon bar; the teammate's ping (blue line) is visible but the four defenders' positions are not — no contact yet at the freeze"
+    },
+    {
+      "champ": "game_mode",
+      "incertitude": "Spike Rush footage on Bind (short mode). Buy tiers estimated from the Judge/full-alive state, not read from credits"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-012-intro.mp4",
+    "resolution_url": "media/p-video-012-resolution.mp4",
+    "freeze_frame_url": "media/p-video-012-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+  }
+}

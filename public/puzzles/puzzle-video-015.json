@@ -1,0 +1,142 @@
+{
+  "id": "puzzle-video-015",
+  "version": 2,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "retake",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 12,
+    "spike_planted": true,
+    "alive_atk": 4,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": ["q"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 350,
+        "y": 500,
+        "orientation_deg": 90,
+        "label": "YOU (Vandal)",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 500,
+        "y": 400,
+        "orientation_deg": 90,
+        "label": "ALLY",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 4
+  },
+  "question": "Haven — DEF retake, spike planted B, you are 2v4 down with a Vandal in a B doorway, ~12s on the spike. You and one ally must retake against four. What is the highest-EV opener?",
+  "options": [
+    {
+      "label": "Commit together through one entrance on a count, using util to block a crossfire and trading every duel",
+      "tier": "optimal",
+      "ev_delta": "+0.11 R",
+      "freq_elite_estimee": 49,
+      "explication_courte": "Down 2v4 with only ~12s, trickling in loses instantly. Your one chance is a coordinated same-count push through a single entry with util covering their crossfire, so your two guns arrive together and trade rather than dying one at a time.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+          "citation": "Retake together on a count through a chosen entrance with utility to break crossfires; entering split or staggered loses the numbers fight"
+        }
+      ]
+    },
+    {
+      "label": "Split the two of you to hit B from both doors at once to catch them off-guard",
+      "tier": "couteux",
+      "ev_delta": "-0.24 R",
+      "freq_elite_estimee": 14,
+      "explication_courte": "A 2-man split into a 4-stack means each of you takes a 1v-multiple alone; they simply trade you both. Splitting works with numbers and time — you have neither. Concentrate your two guns instead.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "Splitting an already-outnumbered retake feeds isolated duels; concentrate force through one entry to contest the plant together"
+        }
+      ]
+    },
+    {
+      "label": "Hold the doorway and play for the attackers to peek out, defending the plant time",
+      "tier": "acceptable",
+      "ev_delta": "-0.09 R",
+      "freq_elite_estimee": 29,
+      "explication_courte": "Holding can steal a pick if they push out, but with ~12s and the spike ticking, waiting means it detonates and you lose by default. Passivity only makes sense with time you don't have here.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+          "citation": "Retakers must budget the defuse clock; with only seconds left, passive holding lets the spike detonate for a default loss"
+        }
+      ]
+    },
+    {
+      "label": "Peek and spray your Vandal into B site alone to try to break their setup for your ally",
+      "tier": "faute",
+      "ev_delta": "-0.44 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Solo-peeking a 4-stack with a spray is a free kill for them and leaves your ally in a 1v4. You throw the one duel you had to sacrifice yourself for zero information your ally can even use in time.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Solo-peeking a grouped stack donates the duel and abandons your teammate; commit together or not at all"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A 2v4 retake on Haven B with roughly twelve seconds on the spike is one of the hardest spots in the game, and there is essentially one line that gives you real equity: hit together, once, through a single entrance, on a count, with utility covering the crossfire. Down two guns against four, your only asset is that if both of you arrive at the same instant you can trade — the attacker who kills your ally is immediately punished by you, and the fight collapses from 2v4 toward something survivable. Everything else fails against the clock and the numbers. Splitting the two of you into both B doors means each of you fights the whole stack alone and gets traded for nothing; splits need numbers and time, and you have neither. Holding the doorway to bait a peek ignores the ticking spike — with ~12s it simply detonates and you lose by default, so passivity is a slow forfeit. And solo-peeking to spray the site donates your one duel to a four-stack and strands your ally in a 1v4 with no usable info. The math is brutal, but the answer is disciplined: sync up, pick the entrance, throw the util, and commit as two.",
+  "sources": [
+    {
+      "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+      "citation": "Outnumbered retakes are won by committing together on a count through one entry with utility, trading every duel"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source (Haven B Site)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV (spectating 'Jett'); the player holds a Vandal per the HUD. The spectated agent may be Jett, but the puzzle is a generic outnumbered-retake principle and the acting player's kit is not relied upon; agent left unknown"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "2v4 read from the alive-icon bar (two green vs four) with the spike-planted red icon and ~12s timer; the four attackers' positions inside B are not visible from the doorway in the freeze"
+    },
+    {
+      "champ": "game_mode",
+      "incertitude": "Spike Rush footage on Haven. Defuse window read as ~12s from the round timer; buy tiers estimated, not read from credits"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-015-intro.mp4",
+    "resolution_url": "media/p-video-015-resolution.mp4",
+    "freeze_frame_url": "media/p-video-015-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

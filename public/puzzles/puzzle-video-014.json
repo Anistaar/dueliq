@@ -1,0 +1,134 @@
+{
+  "id": "puzzle-video-014",
+  "version": 2,
+  "map": "haven",
+  "side": "DEF",
+  "theme": "clutch",
+  "difficulty_est": 5,
+  "round_state": {
+    "timer_s": 20,
+    "spike_planted": true,
+    "alive_atk": 3,
+    "alive_def": 1,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": ["q", "e"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-lobby",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 300,
+        "y": 700,
+        "orientation_deg": 0,
+        "label": "YOU (Bulldog)",
+        "est_joueur_concerne": true
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Haven — DEF, spike planted A, you are the last defender in a 1v3 with a Bulldog near A Lobby, ~20s left. The three attackers are holding their post-plant. Can you even win this, and how?",
+  "options": [
+    {
+      "label": "Isolate one fight: hold a tight angle they must clear, win the 1v1 you create, then reassess the defuse",
+      "tier": "optimal",
+      "ev_delta": "+0.10 R",
+      "freq_elite_estimee": 50,
+      "explication_courte": "A 1v3 retake is won by never fighting more than one at a time. Use the geometry of A to catch a single attacker off his crossfire, win that duel to make it a 1v2, and let their own post-plant spread work against them.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+          "citation": "In a lopsided retake, isolate one attacker at a time using site geometry rather than challenging the whole post-plant at once"
+        }
+      ]
+    },
+    {
+      "label": "Rush onto site and start defusing immediately to force them to show themselves",
+      "tier": "couteux",
+      "ev_delta": "-0.30 R",
+      "freq_elite_estimee": 12,
+      "explication_courte": "Running straight onto a spike three attackers are watching gets you killed before the defuse bar fills. You have to clear at least some of them first; a naked defuse in a 1v3 is a donation.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+          "citation": "Defusing while enemies still hold the spike is only viable after clearing or forcing them off; a contested defuse needs cover or a cleared angle"
+        }
+      ]
+    },
+    {
+      "label": "Use the clock: delay, reposition, and bait them into over-rotating or pushing you one by one",
+      "tier": "acceptable",
+      "ev_delta": "-0.06 R",
+      "freq_elite_estimee": 28,
+      "explication_courte": "Playing time and repositioning is smart to force isolation — but with only ~20s you can't stall forever; the clock that protects the plant is now the attackers' friend, so passive delay alone eventually just runs out.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+          "citation": "Time pressure cuts both ways on a retake; use repositioning to isolate, but remember the defuse clock forces you to act"
+        }
+      ]
+    },
+    {
+      "label": "Wide-swing into A site spraying the Bulldog to try to catch all three grouped",
+      "tier": "faute",
+      "ev_delta": "-0.48 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Swinging into three post-planted crosshairs is an instant death — you show to all of them at once and lose before you land a burst. The one thing that makes a 1v3 winnable, isolation, is exactly what this throws away.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Swinging into multiple players holding a site simultaneously is a losing duel; isolate rather than challenging the group"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A 1v3 retake with the spike down and ~20 seconds left is hard but not hopeless — and the whole margin lives in one word: isolation. Three attackers holding a post-plant are strong together and weak apart, so your job as the last defender near A Lobby is to use Haven's geometry to only ever face one of them at a time. Hold or bait a tight angle a single attacker has to clear to keep eyes on the spike, win that 1v1, and now it's a 1v2 with their own spread working against them. What you cannot do is rush the spike and defuse in the open — three crosshairs are watching it and the defuse bar never fills before you die. Playing the clock and repositioning is a genuine tool to manufacture that isolation, but it can't be the whole plan: with ~20 seconds the defuse timer that used to protect the plant now works for the attackers, so pure passive delay eventually just expires. And wide-swinging into all three with the Bulldog is the fastest possible loss — you expose yourself to every gun at once and throw away the isolation that is your only path. Pick one fight, win it, then re-solve the round.",
+  "sources": [
+    {
+      "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-retakes-as-defender-703",
+      "citation": "Win lopsided retakes by isolating attackers one at a time with site geometry and clearing before any defuse attempt"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=09boqGUarwU",
+      "citation": "Dope Gameplays — NO COPYRIGHT GAMEPLAY | Valorant | 01 | CC-BY — footage source (Haven A Lobby)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV (spectating 'AtharvaNeo'); the player holds a Bulldog per the HUD but the agent is not confirmed and is left unknown. The decision is a generic clutch principle, not agent-specific"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "1v3 read from the alive-icon bar (one green vs three) with the spike-planted red icon; the three attackers' post-plant positions on A are not visible from A Lobby in the freeze"
+    },
+    {
+      "champ": "game_mode",
+      "incertitude": "Spike Rush footage on Haven (3-player teams). Defuse window read as ~20s; buy tiers estimated, not read from credits"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-014-intro.mp4",
+    "resolution_url": "media/p-video-014-resolution.mp4",
+    "freeze_frame_url": "media/p-video-014-freeze.jpg",
+    "credit": "Dope Gameplays (@DopeGameplays on YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=09boqGUarwU"
+  }
+}

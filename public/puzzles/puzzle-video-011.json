@@ -1,0 +1,142 @@
+{
+  "id": "puzzle-video-011",
+  "version": 2,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 23,
+    "spike_planted": true,
+    "alive_atk": 3,
+    "alive_def": 1,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": ["e"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 300,
+        "y": 350,
+        "orientation_deg": 90,
+        "label": "YOU",
+        "est_joueur_concerne": true
+      },
+      {
+        "id": "P2",
+        "x": 350,
+        "y": 600,
+        "orientation_deg": 45,
+        "label": "ALLY A",
+        "est_joueur_concerne": false
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "Bind — ATK, spike planted A (Reactor), 3v1 up, 23s on defuse. You hold near A Site with an ally; the single surviving defender is somewhere off-site. How do you close the post-plant?",
+  "options": [
+    {
+      "label": "Hold crossfire angles on the spike and let the clock run — force the lone defender into two guns to even try a defuse",
+      "tier": "optimal",
+      "ev_delta": "+0.22 R",
+      "freq_elite_estimee": 63,
+      "explication_courte": "You're 3v1 with the spike down and 23s — time is entirely on your side. Set a crossfire covering the plant so the lone defender has to show himself to defuse and dies to the first gun. You never need to move.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+          "citation": "Post-plant is about holding angles that cover the spike and letting the clock work; make the defender expose himself rather than hunting him"
+        }
+      ]
+    },
+    {
+      "label": "Push out together to hunt down the last defender and guarantee the kill",
+      "tier": "couteux",
+      "ev_delta": "-0.28 R",
+      "freq_elite_estimee": 9,
+      "explication_courte": "Chasing a lone defender off-site with the spike already down throws your whole advantage — you leave the plant unwatched, expose yourselves to his held angle, and give him the isolated 1v1s he needs. Time already wins this for you.",
+      "sources_option": [
+        {
+          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
+          "citation": "With a numbers and time advantage, value staying alive over extra kills; chasing the last defender risks giving the trade back"
+        }
+      ]
+    },
+    {
+      "label": "Split apart to cover two separate entrances to site so he can't sneak in",
+      "tier": "acceptable",
+      "ev_delta": "+0.07 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Covering both entries is reasonable with the man-advantage, but spreading too thin turns your crossfire into two isolated 1v1s; a good defender picks one, wins it, and now it's a 2v1 with the plant contested. Keep the guns mutually supporting.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
+          "citation": "Cover the common defuse approaches, but keep positions mutually supporting so the defender can't isolate a single gun"
+        }
+      ]
+    },
+    {
+      "label": "Both hide off the spike and let him start the defuse, planning to swing on the defuse sound",
+      "tier": "faute",
+      "ev_delta": "-0.42 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Ceding vision of the spike to bait a defuse is a coinflip you don't need in a 3v1 — a fake defuse, a quick tap-defuse, or a util-cover defuse can steal the round outright. With this much advantage you never give up eyes on the bomb.",
+      "sources_option": [
+        {
+          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
+          "citation": "Never fully cede vision of the spike when you can hold it; fake defuses and util-covered defuses punish attackers who give up eyes on the bomb"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "A 3v1 post-plant with 23 seconds on the clock is close to a free round, and the only way to lose it is to over-play. The spike is down at A (Reactor), the clock is running for you, and the last defender must come to the bomb — so the correct play is to set a crossfire that covers the plant and simply wait. To even attempt a defuse he has to expose himself to at least one of your guns while stationary on the spike; against two mutually supporting angles that is suicide. Chasing him off-site inverts everything: you abandon eyes on the bomb, walk into whatever angle he's holding, and hand him the isolated duels a lone defender lives for — all to secure a kill the clock was already going to hand you. Splitting to cover both entrances is defensible but must not become two lone 1v1s; keep the guns close enough to trade. And baiting the defuse — hiding off the spike to swing on the sound — is a needless coinflip in a 3v1: fake defuses, half-defuses, and util-covered defuses all exist to punish attackers who give up vision. Hold the crossfire, watch the spike, let time close the round.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
+      "citation": "Hold angles covering the spike, keep positions mutually supporting, and let the defuse clock force the defender to expose himself"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Bind A Site / Reactor)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV; green toxin visible on A suggests a Viper is on the attacking side, but the spectated player's agent is not confirmed and is left unknown. Player holds a shotgun-class weapon (Judge/Bucky, ~7 shells) per the HUD"
+    },
+    {
+      "champ": "alive_count",
+      "incertitude": "3v1 read from the alive-icon bar (three green vs one red) with the spike-planted red icon centred; the lone defender's location off-site is not visible in the freeze"
+    },
+    {
+      "champ": "game_mode",
+      "incertitude": "Spike Rush footage on Bind; defuse timer read as ~23s from the player HUD. Buy tiers estimated, not read from credits"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-011-intro.mp4",
+    "resolution_url": "media/p-video-011-resolution.mp4",
+    "freeze_frame_url": "media/p-video-011-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "puzzle-video-009",
+  "version": 2,
+  "map": "ascent",
+  "side": "ATK",
+  "theme": "eco",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 83,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "eco",
+    "eco_def_approx": "eco",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": []
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-main",
+    "allies": [
+      {
+        "id": "YOU",
+        "x": 500,
+        "y": 700,
+        "orientation_deg": 0,
+        "label": "YOU (Sheriff)",
+        "est_joueur_concerne": true
+      }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Ascent — ATK pistol round, 5v5, no spike, 1:23 left. You hold a Sheriff pressed against the A Main wall, everyone still alive. What is the highest-EV pistol-round play here?",
+  "options": [
+    {
+      "label": "Hold your crosshair pre-aimed at head level on the A Main choke and take a disciplined first-tap if a defender peeks",
+      "tier": "optimal",
+      "ev_delta": "+0.12 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "Pistol rounds are decided by first bullets and armor math. Pre-aiming head-level at the choke with a Sheriff means one clean tap = one dead defender, swinging the round to a 5v4 before util or numbers even matter.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
+          "citation": "Pistol and eco rounds are won on first-shot discipline and armor value; pre-aim common angles and tap heads rather than spray"
+        }
+      ]
+    },
+    {
+      "label": "Peek out into A Main now to take space early while you have full HP",
+      "tier": "couteux",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 13,
+      "explication_courte": "Peeking first on a pistol hands the defender the pre-aim advantage — they're already sighted on the choke and one tap trades you. On equal pistols, the peeker usually loses the opening duel.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "The player holding a pre-aimed angle beats the player peeking into it; don't hand the defense the reaction advantage on a pistol"
+        }
+      ]
+    },
+    {
+      "label": "Wait for your team to group and default before you commit to any angle",
+      "tier": "acceptable",
+      "ev_delta": "+0.05 R",
+      "freq_elite_estimee": 30,
+      "explication_courte": "Setting up a structured default is genuinely fine on a pistol — but sitting completely passive at the wall with a pre-aimable choke in front of you leaves free opening-pick equity on the table if a defender wanders into your angle.",
+      "sources_option": [
+        {
+          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
+          "citation": "A disciplined default spreads for info; but don't ignore a free angle you already control while waiting to group"
+        }
+      ]
+    },
+    {
+      "label": "Save your Sheriff by falling back to spawn and playing for the bonus round",
+      "tier": "faute",
+      "ev_delta": "-0.40 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "There is nothing to save on a pistol round — everyone is on equal equipment. Conceding the pistol without a fight throws the single highest-swing round of the half and the bonus economy that follows it.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
+          "citation": "The pistol round has outsized economic swing; conceding it without contesting forfeits the round and the follow-on bonus"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Pistol rounds swing on two things: who lands the first clean headshot, and the armor economy behind it. Pressed against the A Main wall with a Sheriff and everyone alive, your job is to convert the angle you already hold into a free opening pick. Pre-aiming head level at the A Main choke means the moment a defender peeks, your Sheriff — a one-tap-to-the-head weapon — turns the round into a 5v4 before numbers, utility, or a plant ever come into play. Peeking out first inverts that: you walk into whatever the defense has pre-aimed, and on equal pistols the peeker loses the reaction duel far more often than they win it. Playing a structured default with your team is a legitimate alternative and often correct — but it is not a reason to sit blind at the wall ignoring a choke you already control; hold the angle while your team spreads. Saving is simply wrong here: on a pistol everyone is on identical equipment, so there is no weapon worth preserving, and conceding the round forfeits both it and the bonus-round economy that a pistol win sets up. Hold, pre-aim, tap.",
+  "sources": [
+    {
+      "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
+      "citation": "Win pistols with first-shot discipline, armor value and controlled angles; the pistol round has outsized economic swing"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Main)"
+    }
+  ],
+  "validation": {
+    "status": "draft",
+    "juges": []
+  },
+  "_gaps": [
+    {
+      "champ": "agent_identity",
+      "incertitude": "Spectator-observer POV; the player holds a Sheriff (pistol/eco loadout) but the agent is not clearly readable at the freeze and is left unknown rather than guessed. Puzzle is loadout/positioning driven, not agent-specific"
+    },
+    {
+      "champ": "eco_context",
+      "incertitude": "'pistol' round inferred from the Sheriff and both teams fully alive with no rifles shown; not read from a credit display. Game mode is Spike Rush (this round appears to be an all-alive round, read as 5-alive from the icon bar)"
+    },
+    {
+      "champ": "pov_blind_spots",
+      "incertitude": "No defenders are visible from A Main at the freeze; 'ennemis_inconnus_count: 5' reflects that no contact has been made yet"
+    },
+    {
+      "champ": "freq_estimates",
+      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
+    }
+  ],
+  "video": {
+    "intro_url": "media/p-video-009-intro.mp4",
+    "resolution_url": "media/p-video-009-resolution.mp4",
+    "freeze_frame_url": "media/p-video-009-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+  }
+}
