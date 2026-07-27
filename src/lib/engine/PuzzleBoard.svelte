@@ -37,8 +37,9 @@
     viewBox={positions.viewBox}
     class="board-svg"
     role="img"
-    aria-label="Carte de la situation tactique — {positions.map_zone}"
+    aria-label="Tactical map — {positions.map_zone}"
   >
+    <title>Tactical map — {positions.map_zone.replace(/-/g, " ")}</title>
     <!-- Background grid -->
     <rect width={VB_W} height={VB_H} fill="#12131a" rx="4" />
     <!-- Subtle grid lines -->
@@ -179,5 +180,8 @@
     border-radius: 6px;
     border: 1px solid #1e293b;
     display: block;
+  }
+  @media (max-width: 600px) {
+    .board-svg { max-height: 200px; }
   }
 </style>

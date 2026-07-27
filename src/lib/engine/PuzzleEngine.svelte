@@ -163,14 +163,17 @@
   <!-- ===== INTRO ===== -->
   {#if phase === "intro"}
     <div class="phase-intro">
-      {#if puzzle.validation.status === "draft"}
-        <div class="draft-banner">Status : DRAFT — non valide par juge Immortal+</div>
-      {/if}
       <div class="meta-row">
         <span class="badge map">{puzzle.map.toUpperCase()}</span>
         <span class="badge theme">{puzzle.theme.toUpperCase()}</span>
         <span class="badge side">{puzzle.side}</span>
         <span class="badge diff">Difficulte {"*".repeat(puzzle.difficulty_est)}</span>
+        {#if puzzle.validation.status === "draft"}
+          <span
+            class="badge beta"
+            title="Answers sourced from pro guides — Immortal+ judge review in progress"
+          >Community beta</span>
+        {/if}
       </div>
       <PuzzleHUD state={puzzle.round_state} side={puzzle.side} />
       <div class="board-section">
@@ -179,15 +182,12 @@
       <div class="question-box">
         <p class="question">{puzzle.question}</p>
       </div>
-      <button class="btn-primary" onclick={startPuzzle}>Commencer (timer 30s optionnel)</button>
+      <button class="btn-primary" tabindex="0" onclick={startPuzzle}>Commencer (timer 30s optionnel)</button>
     </div>
 
   <!-- ===== PLAYING ===== -->
   {:else if phase === "playing"}
     <div class="phase-playing">
-      {#if puzzle.validation.status === "draft"}
-        <div class="draft-banner">Status : DRAFT</div>
-      {/if}
       <div class="meta-row">
         <span class="badge map">{puzzle.map.toUpperCase()}</span>
         <span class="badge theme">{puzzle.theme.toUpperCase()}</span>
@@ -328,17 +328,6 @@
   }
 
   /* ---- SHARED ---- */
-  .draft-banner {
-    background: #1c1917;
-    border: 1px solid #78350f;
-    border-radius: 4px;
-    color: #d97706;
-    font-size: 11px;
-    font-family: monospace;
-    letter-spacing: 0.05em;
-    padding: 4px 10px;
-    text-align: center;
-  }
 
   .meta-row {
     display: flex;
@@ -359,6 +348,7 @@
   .badge.theme { background: #0d1f17; color: #4ade80; border-color: #14532d; }
   .badge.side  { background: #1e1024; color: #c084fc; border-color: #3b0764; }
   .badge.diff  { background: #1c1917; color: #fcd34d; border-color: #78350f; }
+  .badge.beta  { background: #0f172a; color: #64748b; border-color: #1e293b; cursor: help; }
 
   .timer-badge {
     font-family: monospace;
