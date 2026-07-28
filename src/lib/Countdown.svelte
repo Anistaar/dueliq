@@ -12,15 +12,19 @@
   });
 </script>
 
-<span class="countdown">Prochain puzzle dans <strong>{formatCountdown(seconds)}</strong></span>
+<span class="countdown"><strong>{formatCountdown(seconds)}</strong></span>
 
 <style>
   .countdown {
-    font-family: ui-monospace, Consolas, monospace;
-    font-size: 13px;
-    color: #64748b;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12px;
+    color: #7B8FA1;
+    letter-spacing: 0.04em;
   }
   strong {
-    color: #94a3b8;
+    color: #ECE8E1;
+    font-weight: 800;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
   }
 </style>

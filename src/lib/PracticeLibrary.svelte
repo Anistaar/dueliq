@@ -186,9 +186,9 @@
 <style>
   /* ── Section ─────────────────────────────────────────────────────────────── */
   .lib-section {
-    padding: 32px 20px 48px;
-    border-top: 1px solid #1e293b;
-    background: #0b0d14;
+    padding: 32px 20px 52px;
+    border-top: 1px solid #2A3441;
+    background: #0F1923;
   }
 
   /* ── Header ─────────────────────────────────────────────────────────────── */
@@ -207,19 +207,21 @@
   }
 
   .lib-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 22px;
-    font-weight: 800;
-    color: #e2e8f0;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     margin: 0;
   }
 
   .lib-count {
-    font-family: 'Space Grotesk', monospace;
-    font-size: 12px;
-    color: #475569;
-    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    color: #7B8FA1;
+    font-weight: 700;
+    letter-spacing: 0.08em;
   }
 
   /* ── Filters ─────────────────────────────────────────────────────────────── */
@@ -237,11 +239,11 @@
   }
 
   .filter-label {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #334155;
+    letter-spacing: 0.14em;
+    color: #7B8FA1;
     text-transform: uppercase;
     min-width: 38px;
     flex-shrink: 0;
@@ -250,31 +252,31 @@
   .filter-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
   }
 
   .pill {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid #1e293b;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid #2A3441;
     background: transparent;
-    color: #64748b;
+    color: #7B8FA1;
     cursor: pointer;
-    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    transition: border-color 0.1s, color 0.1s, background 0.1s;
     min-height: 28px;
   }
   .pill:hover {
-    border-color: #334155;
-    color: #94a3b8;
+    border-color: #FF4655;
+    color: #ECE8E1;
   }
   .pill--active {
-    border-color: #00D4AA40;
-    background: #00D4AA10;
-    color: #00D4AA;
+    border-color: #FF4655;
+    background: #FF465514;
+    color: #ECE8E1;
   }
 
   /* ── Grid ────────────────────────────────────────────────────────────────── */
@@ -283,13 +285,13 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 8px;
   }
 
   @media (max-width: 599px) {
     .lib-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      gap: 8px;
     }
   }
 
@@ -303,27 +305,25 @@
   .lib-card {
     display: flex;
     flex-direction: column;
-    background: #0f111a;
-    border: 1px solid #1e293b;
-    border-radius: 10px;
+    background: #1C2127;
+    border: 1px solid #2A3441;
     overflow: hidden;
     cursor: pointer;
     text-align: left;
     padding: 0;
-    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
-    min-height: 44px; /* a11y touch target */
+    transition: border-color 0.1s, transform 0.1s;
+    min-height: 44px;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
   }
   .lib-card:hover {
-    border-color: #FF465540;
+    border-color: #FF4655;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 70, 85, 0.12);
   }
   .lib-card--done {
-    border-color: #00D4AA25;
+    border-color: #00D4AA40;
   }
   .lib-card--done:hover {
-    border-color: #00D4AA60;
-    box-shadow: 0 6px 20px rgba(0, 212, 170, 0.1);
+    border-color: #00D4AA;
   }
 
   /* ── Thumbnail ─────────────────────────────────────────────────────────── */
@@ -331,7 +331,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #13151f;
+    background: #0F1923;
     overflow: hidden;
     flex-shrink: 0;
   }
@@ -341,15 +341,15 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: blur(12px) brightness(0.5);
+    transform: scale(1.05); /* compensate blur edges */
   }
 
-  /* Strong blur — no spoiler, just a tease of colour */
+  /* Blur applied via CSS filter on img — no backdrop-filter */
   .card-thumb-blur {
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: rgba(11, 13, 20, 0.55);
+    background: rgba(11,16,22,0.4);
   }
 
   .card-play-icon {
@@ -373,12 +373,12 @@
   }
 
   .done-grade {
-    font-family: 'Space Grotesk', monospace;
-    font-size: 18px;
-    font-weight: 900;
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
     line-height: 1;
-    letter-spacing: -0.02em;
-    text-shadow: 0 0 10px currentColor;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   /* ── Card body ──────────────────────────────────────────────────────────── */
@@ -396,17 +396,16 @@
   }
 
   .card-tag {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 2px 6px;
-    border-radius: 3px;
-    border: 1px solid;
+    padding: 1px 5px;
+    border: 1px solid #2A3441;
+    color: #7B8FA1;
+    background: #0F1923;
   }
-  .card-tag--map   { color: #60a5fa; border-color: #1e3a5f; background: #0f1b2d; }
-  .card-tag--theme { color: #34d399; border-color: #064e3b; background: #0d1f17; }
 
   .card-meta {
     display: flex;
@@ -422,10 +421,9 @@
   }
 
   .pip {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #1e293b;
+    width: 4px;
+    height: 8px;
+    background: #2A3441;
     display: inline-block;
     flex-shrink: 0;
   }
@@ -434,20 +432,22 @@
   }
 
   .card-score {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    font-weight: 800;
+    letter-spacing: 0.04em;
   }
 
   /* ── Empty ────────────────────────────────────────────────────────────────── */
   .lib-empty {
     max-width: 760px;
     margin: 0 auto;
-    color: #475569;
+    color: #7B8FA1;
     font-size: 13px;
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     padding: 32px 0;
     text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 </style>

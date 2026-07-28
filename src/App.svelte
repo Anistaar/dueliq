@@ -222,39 +222,24 @@
 
   <!-- ======= HERO ======= -->
   <section class="hero">
-    <!-- Background decorative elements -->
-    <div class="hero-bg">
-      <div class="hero-orb hero-orb--red"></div>
-      <div class="hero-orb hero-orb--teal"></div>
-      <div class="hero-grid"></div>
-    </div>
     <div class="hero-inner">
       <div class="daily-label">
         <span class="daily-num-badge">#{dayNum}</span>
-        <span class="daily-sep">·</span>
+        <span class="daily-sep">/</span>
         <Countdown />
-        <span class="daily-sep">·</span>
+        <span class="daily-sep">/</span>
         <span class="daily-tag">DAILY PUZZLE</span>
       </div>
       <h1 class="hero-title">
         Make sharper<br/>
-        <span class="hero-title--accent">decisions</span> in Valorant.
+        <span class="hero-title--accent">decisions.</span>
       </h1>
       <p class="hero-sub">One daily scenario puzzle. Free. No account. Pro-level logic, explained.</p>
-      <!-- Badges row -->
+      <!-- Badges row — text only, no glyphs -->
       <div class="hero-badges">
-        <span class="hero-badge">
-          <span class="hb-icon">◈</span>
-          Real gameplay clips
-        </span>
-        <span class="hero-badge">
-          <span class="hb-icon">◎</span>
-          New puzzle daily
-        </span>
-        <span class="hero-badge hero-badge--accent">
-          <span class="hb-icon">★</span>
-          Free
-        </span>
+        <span class="hero-badge">Real gameplay clips</span>
+        <span class="hero-badge">New puzzle daily</span>
+        <span class="hero-badge hero-badge--accent">Free</span>
       </div>
     </div>
   </section>
@@ -282,18 +267,17 @@
       {:else if dailyDone && !isPreview}
         <!-- Puzzle already played today — show teaser -->
         <div class="done-box">
-          <div class="done-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <circle cx="14" cy="14" r="13" stroke="#00D4AA" stroke-width="2" />
-              <path d="M8 14L12 18L20 10" stroke="#00D4AA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="done-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12L10 17L19 8" stroke="#00D4AA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div class="done-content">
-            <div class="done-title">Daily #{dayNum} — Done!</div>
+            <div class="done-title">Daily #{dayNum} — Done</div>
             <p class="done-msg">Come back tomorrow for the next puzzle.</p>
           </div>
           <div class="done-countdown">
-            <div class="done-countdown-label">Next puzzle in</div>
+            <div class="done-countdown-label">Next in</div>
             <Countdown />
           </div>
         </div>
@@ -305,27 +289,26 @@
             <div class="theatre-launcher-meta">
               <span class="tl-badge tl-badge--map">{puzzle.map.toUpperCase()}</span>
               <span class="tl-badge tl-badge--theme">{puzzle.theme.toUpperCase()}</span>
-              <span class="tl-badge tl-badge--side">{puzzle.side}</span>
+              <span class="tl-badge tl-badge--side">{puzzle.side.toUpperCase()}</span>
               <span class="tl-badge tl-badge--video">VIDEO</span>
             </div>
             <div class="theatre-launcher-body">
-              <div class="tl-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <circle cx="24" cy="24" r="23" stroke="#FF4655" stroke-width="1.5" opacity="0.4"/>
-                  <circle cx="24" cy="24" r="23" stroke="#FF4655" stroke-width="1.5" stroke-dasharray="72 144" opacity="0.2"/>
-                  <polygon points="19,15 35,24 19,33" fill="#FF4655"/>
+              <!-- Play icon: simple solid triangle, no glow rings -->
+              <div class="tl-icon" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <rect width="40" height="40" fill="#FF4655"/>
+                  <polygon points="15,11 31,20 15,29" fill="#ECE8E1"/>
                 </svg>
               </div>
               <div class="tl-text">
                 <div class="tl-title">Video Puzzle</div>
-                <p class="tl-desc">Watch the real gameplay clip, freeze on the decision, make your call — full screen.</p>
+                <p class="tl-desc">Watch the real gameplay clip, freeze on the decision, make your call.</p>
               </div>
             </div>
             <button class="btn-theatre" onclick={enterTheatre}>
-              <span class="btn-icon">▶</span>
-              Watch clip full screen →
+              Play →
             </button>
-            <p class="tl-hint">The video opens in immersive mode. Press Esc or × to return.</p>
+            <p class="tl-hint">Opens full screen. Press Esc to return.</p>
           </div>
         {:else}
           <PuzzleEngine {puzzle} onComplete={onDailyComplete} />
@@ -359,7 +342,6 @@
       <div class="steps-grid">
         <div class="step">
           <div class="step-num">01</div>
-          <div class="step-icon">◎</div>
           <div class="step-content">
             <div class="step-title">Read the situation</div>
             <p class="step-desc">See the map, ally and enemy positions, credits. Same information the pros work with.</p>
@@ -368,18 +350,16 @@
         <div class="step-connector"></div>
         <div class="step">
           <div class="step-num">02</div>
-          <div class="step-icon">◈</div>
           <div class="step-content">
             <div class="step-title">Make the call</div>
-            <p class="step-desc">4 real options. 30 seconds. No peeking — just your game sense.</p>
+            <p class="step-desc">4 real options. 15 seconds. No peeking — just your game sense.</p>
           </div>
         </div>
         <div class="step-connector"></div>
         <div class="step">
           <div class="step-num">03</div>
-          <div class="step-icon">★</div>
           <div class="step-content">
-            <div class="step-title">Understand the EV delta</div>
+            <div class="step-title">See the EV delta</div>
             <p class="step-desc">Radiant / Acceptable / Costly / Mistake — with the numbers behind each call.</p>
           </div>
         </div>
@@ -391,25 +371,25 @@
   <section class="coming-section">
     <div class="coming-inner">
       <div class="coming-header">
-        <h2 class="coming-title">Coming soon: full training mode</h2>
+        <h2 class="coming-title">Full training mode</h2>
         <span class="coming-tag">EARLY ACCESS</span>
       </div>
       <ul class="coming-list">
         <li class="coming-item">
-          <span class="coming-dot teal"></span>
+          <span class="coming-dash">—</span>
           <span>Playstyle diagnosis</span>
         </li>
         <li class="coming-item">
-          <span class="coming-dot red"></span>
+          <span class="coming-dash">—</span>
           <span>Personalized training program</span>
         </li>
         <li class="coming-item">
-          <span class="coming-dot teal"></span>
+          <span class="coming-dash">—</span>
           <span>Skill radar by role</span>
         </li>
         <li class="coming-item">
-          <span class="coming-dot red"></span>
-          <span>AI-assisted VOD review</span>
+          <span class="coming-dash">—</span>
+          <span>VOD review</span>
         </li>
       </ul>
     </div>
@@ -418,13 +398,11 @@
   <!-- ======= WAITLIST ======= -->
   <section class="waitlist-section">
     <div class="waitlist-inner">
-      <div class="waitlist-glow"></div>
       <h2 class="waitlist-title">Get notified first</h2>
       <p class="waitlist-sub">Join the list for early access to the full training mode. No spam.</p>
 
       {#if waitlistStatus === "ok"}
         <div class="waitlist-ok">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#00D4AA" stroke-width="1.5"/><path d="M6 10l3 3 5-6" stroke="#00D4AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           You're in. We'll reach out when it launches.
         </div>
       {:else}
@@ -461,7 +439,7 @@
         Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
       </div>
       <div class="footer-links">
-        <span class="footer-wordmark"><span style="color:#FF4655">Duel</span><span style="color:#00D4AA">IQ</span> &copy; 2026</span>
+        <span class="footer-wordmark"><span style="color:#FF4655">Duel</span><span style="color:#ECE8E1">IQ</span> &copy; 2026</span>
         <span class="sep">|</span>
         <span>Analytics: <a href="https://goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> (no cookies)</span>
         <span class="sep">|</span>
@@ -477,37 +455,36 @@
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    background: #0b0d14;
+    background: #0F1923;
   }
 
   /* ---- HEADER ---- */
   .header {
-    border-bottom: 1px solid #1e293b;
-    background: rgba(15,17,26,0.92);
+    border-bottom: 1px solid #2A3441;
+    background: #0F1923;
     position: sticky;
     top: 0;
     z-index: 10;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
   .header-inner {
     max-width: 760px;
     margin: 0 auto;
     padding: 0 20px;
-    height: 56px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
   }
   .wordmark {
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    font-family: 'Anton', Impact, sans-serif;
+    text-transform: uppercase;
   }
   .word-duel { color: #FF4655; }
-  .word-iq   { color: #00D4AA; }
+  .word-iq   { color: #ECE8E1; }
 
   .header-right {
     display: flex;
@@ -516,65 +493,24 @@
   }
   .legal-note {
     font-size: 10px;
-    color: #334155;
-    font-family: ui-monospace, Consolas, monospace;
-    letter-spacing: 0.04em;
+    color: #2A3441;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.06em;
     display: none;
+    text-transform: uppercase;
   }
   @media (min-width: 600px) { .legal-note { display: inline; } }
 
   /* ---- HERO ---- */
   .hero {
-    position: relative;
-    padding: 40px 20px 32px;
-    border-bottom: 1px solid #1e293b;
-    overflow: hidden;
+    padding: 48px 20px 40px;
+    border-bottom: 2px solid #FF4655;
   }
-  @media (min-width: 600px) { .hero { padding: 56px 20px 40px; } }
-
-  /* Decorative background */
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.18;
-  }
-  .hero-orb--red {
-    width: 400px;
-    height: 400px;
-    background: #FF4655;
-    top: -180px;
-    right: -100px;
-  }
-  .hero-orb--teal {
-    width: 300px;
-    height: 300px;
-    background: #00D4AA;
-    bottom: -140px;
-    left: -80px;
-    opacity: 0.12;
-  }
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(#1e293b18 1px, transparent 1px),
-      linear-gradient(90deg, #1e293b18 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-  }
+  @media (min-width: 600px) { .hero { padding: 64px 20px 48px; } }
 
   .hero-inner {
     max-width: 760px;
     margin: 0 auto;
-    position: relative;
   }
 
   .daily-label {
@@ -585,50 +521,49 @@
     margin-bottom: 20px;
   }
   .daily-num-badge {
-    font-family: 'Space Grotesk', monospace;
-    font-size: 12px;
-    font-weight: 800;
-    color: #FF4655;
-    background: #FF465518;
-    border: 1px solid #FF465530;
-    border-radius: 5px;
-    padding: 2px 8px;
-    letter-spacing: 0.05em;
-  }
-  .daily-sep { color: #334155; font-size: 12px; }
-  .daily-tag {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 11px;
+    font-weight: 800;
+    color: #ECE8E1;
+    background: #FF4655;
+    padding: 2px 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%);
+  }
+  .daily-sep { color: #2A3441; font-size: 12px; font-weight: 700; }
+  .daily-tag {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #475569;
+    letter-spacing: 0.14em;
+    color: #7B8FA1;
     text-transform: uppercase;
   }
 
   .hero-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: #e2e8f0;
-    line-height: 1.15;
-    margin-bottom: 14px;
-    letter-spacing: -0.02em;
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 52px;
+    font-weight: 400; /* Anton is inherently bold */
+    color: #ECE8E1;
+    line-height: 1.0;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
   }
   .hero-title--accent {
-    background: linear-gradient(135deg, #FF4655, #ff7b85);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #FF4655;
   }
-  @media (min-width: 600px) { .hero-title { font-size: 44px; } }
+  @media (min-width: 600px) { .hero-title { font-size: 72px; } }
 
   .hero-sub {
     font-size: 15px;
-    color: #64748b;
+    color: #7B8FA1;
     line-height: 1.6;
-    max-width: 520px;
-    margin-bottom: 24px;
-    font-weight: 500;
+    max-width: 480px;
+    margin-bottom: 28px;
+    font-weight: 400;
+    text-transform: none;
   }
 
   .hero-badges {
@@ -637,33 +572,25 @@
     gap: 8px;
   }
   .hero-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Space Grotesk', monospace;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: #94a3b8;
-    background: #0f111a;
-    border: 1px solid #1e293b;
-    border-radius: 20px;
-    padding: 5px 14px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #7B8FA1;
+    border: 1px solid #2A3441;
+    padding: 4px 12px;
+    text-transform: uppercase;
   }
   .hero-badge--accent {
-    color: #00D4AA;
-    border-color: #00D4AA30;
-    background: #00D4AA0a;
-  }
-  .hb-icon {
-    font-size: 10px;
-    opacity: 0.8;
+    color: #ECE8E1;
+    border-color: #FF4655;
+    background: #FF465514;
   }
 
   /* ---- DAILY SECTION ---- */
   .daily-section {
     flex: 1;
-    padding: 28px 20px 48px;
+    padding: 32px 20px 52px;
   }
   .daily-inner {
     max-width: 760px;
@@ -671,21 +598,22 @@
   }
 
   .status-msg {
-    color: #475569;
-    font-family: 'Space Grotesk', monospace;
-    font-size: 14px;
+    color: #7B8FA1;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
     text-align: center;
     padding: 60px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
   .loading-bar {
     width: 120px;
-    height: 3px;
-    background: #1e293b;
-    border-radius: 3px;
+    height: 2px;
+    background: #2A3441;
     overflow: hidden;
     position: relative;
   }
@@ -696,18 +624,18 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, #00D4AA, transparent);
+    background: #FF4655;
     animation: shimmer 1.5s ease-in-out infinite;
     background-size: 200% 100%;
   }
 
   .error-box {
-    background: linear-gradient(135deg, #1c0a0a, #180808);
+    background: #1C2127;
     border: 1px solid #7f1d1d;
-    border-radius: 10px;
+    border-left: 2px solid #FF4655;
     color: #fca5a5;
     font-size: 13px;
-    font-family: ui-monospace, Consolas, monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     padding: 20px 24px;
     max-width: 440px;
     line-height: 1.6;
@@ -717,75 +645,67 @@
     gap: 12px;
   }
   .error-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #7f1d1d;
-    color: #fca5a5;
+    width: 28px;
+    height: 28px;
+    background: #FF4655;
+    color: #ECE8E1;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 14px;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   .btn-small {
-    background: #7f1d1d;
+    background: transparent;
     color: #fca5a5;
-    border: 1px solid #b91c1c;
-    border-radius: 6px;
+    border: 1px solid #7f1d1d;
     padding: 8px 16px;
     min-height: 44px;
     font-size: 12px;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background 0.1s, color 0.1s;
   }
-  .btn-small:hover { background: #991b1b; }
+  .btn-small:hover { background: #7f1d1d; color: #ECE8E1; }
 
   /* Done box */
   .done-box {
-    background: linear-gradient(135deg, #071510, #091a0f);
-    border: 1px solid #14532d;
-    border-radius: 14px;
-    padding: 28px 24px;
+    background: #1C2127;
+    border: 1px solid #2A3441;
+    border-left: 2px solid #00D4AA;
+    padding: 24px;
     max-width: 520px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    box-shadow: 0 4px 32px rgba(0,212,170,0.08);
-    position: relative;
-    overflow: hidden;
-  }
-  .done-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #00D4AA60, transparent);
+    gap: 16px;
   }
   .done-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #00D4AA12;
-    border: 1px solid #00D4AA30;
+    width: 36px;
+    height: 36px;
+    background: #00D4AA;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
   .done-content { display: flex; flex-direction: column; gap: 6px; }
   .done-title {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 18px;
-    font-weight: 800;
-    color: #00D4AA;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   .done-msg {
-    font-size: 14px;
-    color: #64748b;
+    font-size: 13px;
+    color: #7B8FA1;
     line-height: 1.5;
+    text-transform: none;
   }
   .done-countdown {
     display: flex;
@@ -793,31 +713,32 @@
     gap: 4px;
   }
   .done-countdown-label {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #334155;
+    letter-spacing: 0.14em;
+    color: #7B8FA1;
     text-transform: uppercase;
   }
 
   /* ---- HOW IT WORKS ---- */
   .howto-section {
-    background: linear-gradient(180deg, #0b0d14 0%, #0d0f1a 100%);
-    border-top: 1px solid #1e293b;
-    padding: 56px 20px;
+    background: #1C2127;
+    border-top: 1px solid #2A3441;
+    padding: 52px 20px;
   }
   .howto-inner {
     max-width: 760px;
     margin: 0 auto;
   }
   .howto-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 26px;
-    font-weight: 800;
-    color: #e2e8f0;
+    font-weight: 400;
+    color: #ECE8E1;
     margin-bottom: 36px;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   @media (min-width: 600px) { .howto-title { font-size: 32px; } }
 
@@ -837,60 +758,54 @@
   .step {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     flex: 1;
     padding: 20px 0;
-  }
-  @media (min-width: 640px) { .step { padding: 0 24px; } }
-
-  .step-connector {
-    display: none;
+    border-top: 1px solid #2A3441;
   }
   @media (min-width: 640px) {
-    .step-connector {
-      display: block;
-      width: 1px;
-      min-height: 80px;
-      background: linear-gradient(180deg, transparent, #1e293b, transparent);
-      flex-shrink: 0;
-      margin-top: 20px;
+    .step {
+      padding: 0 24px;
+      border-top: none;
+      border-left: 1px solid #2A3441;
     }
+    .step:first-child { border-left: none; padding-left: 0; }
   }
 
+  .step-connector { display: none; }
+
   .step-num {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.12em;
-    color: #334155;
-  }
-  .step-icon {
-    font-size: 28px;
-    color: #00D4AA;
-    opacity: 0.8;
-    line-height: 1;
+    letter-spacing: 0.14em;
+    color: #FF4655;
+    text-transform: uppercase;
   }
   .step-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: 16px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
     font-weight: 700;
-    color: #e2e8f0;
+    color: #ECE8E1;
     margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
   .step-desc {
     font-size: 13px;
-    color: #64748b;
+    color: #7B8FA1;
     line-height: 1.6;
     margin: 0;
+    text-transform: none;
   }
 
   /* ---- COMING SOON ---- */
   .coming-section {
-    background: #0f111a;
-    border-top: 1px solid #1e293b;
-    border-bottom: 1px solid #1e293b;
+    background: #0F1923;
+    border-top: 1px solid #2A3441;
+    border-bottom: 1px solid #2A3441;
     padding: 48px 20px;
-    min-height: 220px;
+    min-height: 200px;
     contain: layout;
   }
   .coming-inner {
@@ -905,22 +820,23 @@
     margin-bottom: 24px;
   }
   .coming-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 22px;
-    font-weight: 800;
-    color: #e2e8f0;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   .coming-tag {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.14em;
-    color: #FF4655;
-    background: #FF465514;
-    border: 1px solid #FF465530;
-    border-radius: 4px;
+    color: #ECE8E1;
+    background: #FF4655;
     padding: 3px 8px;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%);
   }
   .coming-list {
     list-style: none;
@@ -934,130 +850,109 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    color: #94a3b8;
+    color: #7B8FA1;
   }
-  .coming-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+  .coming-dash {
+    color: #FF4655;
+    font-weight: 700;
     flex-shrink: 0;
-    box-shadow: 0 0 8px currentColor;
+    font-family: 'Inter', system-ui, sans-serif;
   }
-  .coming-dot.teal { background: #00D4AA; color: #00D4AA; }
-  .coming-dot.red  { background: #FF4655; color: #FF4655; }
 
   /* ---- WAITLIST ---- */
   .waitlist-section {
     padding: 56px 20px;
-    background: #0b0d14;
-    position: relative;
-    overflow: hidden;
-  }
-  .waitlist-glow {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: #00D4AA;
-    opacity: 0.04;
-    filter: blur(80px);
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
+    background: #1C2127;
   }
   .waitlist-inner {
     max-width: 760px;
     margin: 0 auto;
-    position: relative;
   }
   .waitlist-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 26px;
-    font-weight: 800;
-    color: #e2e8f0;
+    font-weight: 400;
+    color: #ECE8E1;
     margin-bottom: 10px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   .waitlist-sub {
-    font-size: 14px;
-    font-weight: 500;
-    color: #64748b;
+    font-size: 13px;
+    font-weight: 400;
+    color: #7B8FA1;
     margin-bottom: 24px;
     line-height: 1.6;
   }
   .waitlist-form {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     max-width: 480px;
   }
   .waitlist-input {
     flex: 1;
     min-width: 200px;
-    background: #0f111a;
-    border: 1px solid #1e293b;
-    border-radius: 10px;
-    color: #e2e8f0;
+    background: #0F1923;
+    border: 1px solid #2A3441;
+    color: #ECE8E1;
     font-size: 14px;
     font-family: 'Inter', system-ui, sans-serif;
     padding: 13px 16px;
     min-height: 48px;
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.1s;
   }
   .waitlist-input:focus {
-    border-color: #00D4AA;
-    box-shadow: 0 0 0 3px rgba(0,212,170,0.08);
+    border-color: #FF4655;
   }
-  .waitlist-input::placeholder { color: #334155; }
+  .waitlist-input::placeholder { color: #2A3441; }
   .waitlist-input:disabled { opacity: 0.5; }
 
   .btn-waitlist {
-    background: linear-gradient(135deg, #00D4AA 0%, #009980 100%);
-    color: #0b0d14;
+    background: #FF4655;
+    color: #ECE8E1;
     border: none;
-    border-radius: 10px;
     padding: 13px 24px;
     min-height: 48px;
-    font-size: 14px;
-    font-weight: 800;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    transition: background 0.1s, color 0.1s;
     white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0,212,170,0.25);
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
   }
   .btn-waitlist:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0,212,170,0.4);
-    filter: brightness(1.06);
+    background: #ECE8E1;
+    color: #FF4655;
   }
-  .btn-waitlist:disabled { opacity: 0.5; cursor: default; transform: none; }
+  .btn-waitlist:disabled { opacity: 0.5; cursor: default; }
 
   .waitlist-ok {
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'Space Grotesk', monospace;
-    color: #34d399;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #00D4AA;
     padding: 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
   .waitlist-err {
     font-size: 12px;
     color: #f87171;
     margin-top: 10px;
-    font-family: ui-monospace, Consolas, monospace;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   /* ---- FOOTER ---- */
   .footer {
-    background: #0f111a;
-    border-top: 1px solid #1e293b;
+    background: #0F1923;
+    border-top: 1px solid #2A3441;
     padding: 24px 20px;
     margin-top: auto;
   }
@@ -1066,14 +961,14 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
   .footer-disclaimer {
     font-size: 11px;
-    color: #475569;
-    font-family: ui-monospace, Consolas, monospace;
+    color: #2A3441;
+    font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.65;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
   }
   .footer-links {
     display: flex;
@@ -1081,37 +976,30 @@
     gap: 8px;
     align-items: center;
     font-size: 11px;
-    color: #334155;
-    font-family: ui-monospace, Consolas, monospace;
+    color: #2A3441;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.04em;
   }
   .footer-wordmark {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-weight: 700;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
-  .footer-links a { color: #475569; }
-  .footer-links a:hover { color: #64748b; }
-  .sep { color: #1e293b; }
+  .footer-links a { color: #7B8FA1; }
+  .footer-links a:hover { color: #ECE8E1; }
+  .sep { color: #2A3441; }
 
   /* ---- THEATRE LAUNCHER CARD ---- */
   .theatre-launcher {
-    background: linear-gradient(135deg, #0f1117 0%, #13151f 100%);
-    border: 1px solid #1e293b;
-    border-radius: 14px;
+    background: #1C2127;
+    border: 1px solid #2A3441;
+    border-left: 2px solid #FF4655;
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 32px rgba(255,70,85,0.08);
-  }
-  .theatre-launcher::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #FF465540, transparent);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
   }
 
   .theatre-launcher-meta {
@@ -1120,73 +1008,75 @@
     gap: 6px;
   }
   .tl-badge {
-    font-family: 'Space Grotesk', monospace;
-    font-size: 11px;
-    letter-spacing: 0.07em;
-    border-radius: 5px;
-    padding: 3px 9px;
-    border: 1px solid;
-    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #0F1923;
+    border: 1px solid #2A3441;
+    color: #7B8FA1;
   }
-  .tl-badge--map   { background: #0f1b2d; color: #60a5fa; border-color: #1e3a5f; }
-  .tl-badge--theme { background: #0d1f17; color: #34d399; border-color: #064e3b; }
-  .tl-badge--side  { background: #1a0d24; color: #c084fc; border-color: #4c1d95; }
-  .tl-badge--video { background: #1a0a0f; color: #FF4655; border-color: #7f1d1d; font-weight: 700; }
+  .tl-badge--video { background: #FF4655; color: #ECE8E1; border-color: #FF4655; }
 
   .theatre-launcher-body {
     display: flex;
     align-items: flex-start;
-    gap: 18px;
+    gap: 16px;
   }
   .tl-icon { flex-shrink: 0; }
   .tl-text { display: flex; flex-direction: column; gap: 6px; }
   .tl-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 20px;
-    font-weight: 800;
-    color: #e2e8f0;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   .tl-desc {
-    font-size: 14px;
-    color: #64748b;
+    font-size: 13px;
+    color: #7B8FA1;
     line-height: 1.55;
     margin: 0;
     max-width: 400px;
+    font-family: 'Inter', system-ui, sans-serif;
+    text-transform: none;
+    font-weight: 400;
   }
 
   .btn-theatre {
-    background: linear-gradient(135deg, #FF4655 0%, #cc2d3a 100%);
-    color: #fff;
+    background: #FF4655;
+    color: #ECE8E1;
     border: none;
-    border-radius: 10px;
     padding: 14px 24px;
     min-height: 52px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    letter-spacing: 0.02em;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    transition: background 0.1s, color 0.1s;
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 20px rgba(255,70,85,0.35);
-    width: 100%;
     justify-content: center;
+    width: 100%;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
   }
   .btn-theatre:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(255,70,85,0.5);
-    filter: brightness(1.08);
+    background: #ECE8E1;
+    color: #FF4655;
   }
 
   .tl-hint {
     font-size: 11px;
-    color: #334155;
-    font-family: ui-monospace, Consolas, monospace;
+    color: #2A3441;
+    font-family: 'Inter', system-ui, sans-serif;
     text-align: center;
     margin: 0;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 </style>

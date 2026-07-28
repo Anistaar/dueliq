@@ -98,7 +98,13 @@
     <!-- Weakest theme CTA -->
     {#if weakestTheme}
       <div class="weak-banner">
-        <div class="weak-icon" aria-hidden="true">⚠</div>
+            <div class="weak-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2L13 12H1L7 2Z" stroke="#FF4655" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            <line x1="7" y1="6" x2="7" y2="9" stroke="#FF4655" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="7" cy="10.5" r="0.5" fill="#FF4655"/>
+          </svg>
+        </div>
         <div class="weak-text">
           <span class="weak-label">Your weakest theme</span>
           <span class="weak-theme">{themeLabel(weakestTheme)}</span>
@@ -118,8 +124,8 @@
 <style>
   .progress-section {
     padding: 28px 20px 36px;
-    border-top: 1px solid #1e293b;
-    background: #0d0f1a;
+    border-top: 1px solid #2A3441;
+    background: #1C2127;
   }
 
   .progress-inner {
@@ -127,7 +133,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
 
   .progress-header {
@@ -138,33 +144,33 @@
   }
 
   .progress-title {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 20px;
-    font-weight: 800;
-    color: #e2e8f0;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     margin: 0;
   }
 
   .progress-sub {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: #334155;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #2A3441;
     text-transform: uppercase;
   }
 
   .progress-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
   }
 
   .stat-card {
-    background: #0f111a;
-    border: 1px solid #1e293b;
-    border-radius: 10px;
+    background: #0F1923;
+    border: 1px solid #2A3441;
     padding: 14px 18px;
     display: flex;
     flex-direction: column;
@@ -179,40 +185,40 @@
   }
 
   .stat-value {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: 26px;
-    font-weight: 900;
-    color: #e2e8f0;
-    letter-spacing: -0.03em;
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.01em;
     line-height: 1;
+    text-transform: uppercase;
   }
   .stat-denom {
     font-size: 14px;
-    color: #475569;
-    font-weight: 600;
+    color: #7B8FA1;
+    font-weight: 700;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   .stat-label {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #334155;
+    letter-spacing: 0.12em;
+    color: #7B8FA1;
     text-transform: uppercase;
   }
 
   /* Progress bar */
   .prog-bar {
-    height: 3px;
-    background: #1e293b;
-    border-radius: 2px;
+    height: 2px;
+    background: #2A3441;
     overflow: hidden;
-    margin-top: 6px;
+    margin-top: 8px;
   }
   .prog-fill {
     height: 100%;
-    background: linear-gradient(90deg, #00D4AA, #009980);
-    border-radius: 2px;
+    background: #FF4655;
     transition: width 0.5s ease;
   }
 
@@ -220,34 +226,33 @@
   .grades-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
   }
   .grade-pill {
     display: flex;
     align-items: center;
     gap: 4px;
     border: 1px solid;
-    border-radius: 5px;
-    padding: 3px 8px;
+    padding: 2px 8px;
   }
   .grade-letter {
-    font-family: 'Space Grotesk', monospace;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.05em;
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
   .grade-cnt {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 11px;
-    font-weight: 700;
-    opacity: 0.85;
+    font-weight: 800;
   }
 
   /* Weakest theme banner */
   .weak-banner {
-    background: linear-gradient(135deg, #1a1008, #180e04);
-    border: 1px solid #713f1240;
-    border-radius: 10px;
+    background: #0F1923;
+    border: 1px solid #2A3441;
+    border-left: 2px solid #FF4655;
     padding: 14px 18px;
     display: flex;
     align-items: center;
@@ -256,9 +261,9 @@
   }
 
   .weak-icon {
-    font-size: 18px;
-    opacity: 0.8;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
 
   .weak-text {
@@ -270,39 +275,42 @@
   }
 
   .weak-label {
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #334155;
+    letter-spacing: 0.12em;
+    color: #7B8FA1;
     text-transform: uppercase;
   }
 
   .weak-theme {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-size: 16px;
-    font-weight: 800;
-    color: #fbbf24;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .btn-train {
-    background: linear-gradient(135deg, #f97316, #ea6000);
-    color: #fff;
+    background: #FF4655;
+    color: #ECE8E1;
     border: none;
-    border-radius: 8px;
     padding: 10px 18px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
+    transition: background 0.1s, color 0.1s;
     white-space: nowrap;
     min-height: 44px;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
   }
   .btn-train:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+    background: #ECE8E1;
+    color: #FF4655;
   }
 
   @media (max-width: 420px) {
