@@ -955,8 +955,10 @@
     font-weight: 800;
     color: #ECE8E1;
     letter-spacing: -0.02em;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
   }
-  .grade-max { font-size: 18px; color: #7B8FA1; font-weight: 600; }
+  .grade-max { font-size: 18px; color: #7B8FA1; font-weight: 600; font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
 
   /* ── REVEAL LAYER ── */
   .reveal-layer {
@@ -1020,8 +1022,10 @@
     color: #ECE8E1;
     line-height: 1;
     letter-spacing: -0.02em;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
   }
-  .reveal-score-max { font-size: 14px; color: #7B8FA1; font-weight: 600; }
+  .reveal-score-max { font-size: 14px; color: #7B8FA1; font-weight: 600; font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
   .reveal-pick-label {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
@@ -1033,7 +1037,7 @@
   }
 
   .reveal-short {
-    font-size: 13px;
+    font-size: 14px;
     color: #ECE8E1;
     line-height: 1.55;
     margin: 0;
@@ -1064,7 +1068,7 @@
     font-weight: 600;
   }
   .optimal-label {
-    font-size: 13px;
+    font-size: 14px;
     color: #ECE8E1;
     margin: 0;
     font-weight: 600;
@@ -1115,7 +1119,7 @@
   .ev-bar-track { width: 60px; height: 2px; background: #2A3441; overflow: hidden; flex-shrink: 0; }
   .ev-bar-fill { height: 100%; animation: bar-fill 0.6s ease both; animation-delay: inherit; }
   @keyframes bar-fill { from { width: 0% !important; } }
-  .ev-val { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; flex-shrink: 0; min-width: 36px; text-align: right; }
+  .ev-val { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; flex-shrink: 0; min-width: 36px; text-align: right; font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
 
   /* Full analysis */
   .full-analysis {
@@ -1137,7 +1141,7 @@
   .full-analysis summary::-webkit-details-marker { display: none; }
   .analysis-text {
     margin: 10px 0 0;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.65;
     color: #7B8FA1;
     white-space: pre-wrap;
@@ -1147,7 +1151,7 @@
   .credit-line {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
-    color: #2A3441;
+    color: #4A5568;
     line-height: 1.5;
     letter-spacing: 0.04em;
   }
@@ -1204,8 +1208,10 @@
   .end-score-max {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 24px;
-    color: #2A3441;
+    color: #4A5568;
     font-weight: 800;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
   }
   .end-tier {
     font-family: 'Inter', system-ui, sans-serif;
@@ -1316,9 +1322,10 @@
   }
   .tap-unmute:hover { border-color: #FF4655; }
   .tap-unmute-text { letter-spacing: 0.1em; }
+  /* tap-bounce replaced by opacity pulse — bounce on interactive element banned (S14) */
   @keyframes tap-bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-4px); }
+    0%, 100% { opacity: 1; transform: translateX(-50%); }
+    50% { opacity: 0.7; transform: translateX(-50%); }
   }
 
   /* ── MOBILE ROTATION HINT ── */

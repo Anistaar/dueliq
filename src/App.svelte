@@ -493,7 +493,7 @@
   }
   .legal-note {
     font-size: 10px;
-    color: #2A3441;
+    color: #4A5568;
     font-family: 'Inter', system-ui, sans-serif;
     letter-spacing: 0.06em;
     display: none;
@@ -531,7 +531,7 @@
     text-transform: uppercase;
     clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%);
   }
-  .daily-sep { color: #2A3441; font-size: 12px; font-weight: 700; }
+  .daily-sep { color: #4A5568; font-size: 12px; font-weight: 700; }
   .daily-tag {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
@@ -702,7 +702,7 @@
     text-transform: uppercase;
   }
   .done-msg {
-    font-size: 13px;
+    font-size: 14px;
     color: #7B8FA1;
     line-height: 1.5;
     text-transform: none;
@@ -792,7 +792,7 @@
     letter-spacing: 0.06em;
   }
   .step-desc {
-    font-size: 13px;
+    font-size: 14px;
     color: #7B8FA1;
     line-height: 1.6;
     margin: 0;
@@ -850,7 +850,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: #7B8FA1;
   }
@@ -880,7 +880,7 @@
     text-transform: uppercase;
   }
   .waitlist-sub {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     color: #7B8FA1;
     margin-bottom: 24px;
@@ -907,8 +907,10 @@
   }
   .waitlist-input:focus {
     border-color: #FF4655;
+    outline: 2px solid rgba(255,70,85,0.35);
+    outline-offset: 2px;
   }
-  .waitlist-input::placeholder { color: #2A3441; }
+  .waitlist-input::placeholder { color: #4A5568; }
   .waitlist-input:disabled { opacity: 0.5; }
 
   .btn-waitlist {
@@ -965,7 +967,7 @@
   }
   .footer-disclaimer {
     font-size: 11px;
-    color: #2A3441;
+    color: #4A5568;
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.65;
     letter-spacing: 0.03em;
@@ -976,7 +978,7 @@
     gap: 8px;
     align-items: center;
     font-size: 11px;
-    color: #2A3441;
+    color: #4A5568;
     font-family: 'Inter', system-ui, sans-serif;
     letter-spacing: 0.04em;
   }
@@ -988,7 +990,7 @@
   }
   .footer-links a { color: #7B8FA1; }
   .footer-links a:hover { color: #ECE8E1; }
-  .sep { color: #2A3441; }
+  .sep { color: #4A5568; }
 
   /* ---- THEATRE LAUNCHER CARD ---- */
   .theatre-launcher {
@@ -1036,7 +1038,7 @@
     text-transform: uppercase;
   }
   .tl-desc {
-    font-size: 13px;
+    font-size: 14px;
     color: #7B8FA1;
     line-height: 1.55;
     margin: 0;
@@ -1072,7 +1074,7 @@
 
   .tl-hint {
     font-size: 11px;
-    color: #2A3441;
+    color: #4A5568;
     font-family: 'Inter', system-ui, sans-serif;
     text-align: center;
     margin: 0;

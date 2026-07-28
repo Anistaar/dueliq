@@ -68,17 +68,8 @@ button {
 }
 
 /* ---- GLOBAL KEYFRAMES ---- */
-@keyframes pulse-ring {
-  0%   { transform: scale(1);   opacity: 0.9; }
-  50%  { transform: scale(1.15); opacity: 0.5; }
-  100% { transform: scale(1);   opacity: 0.9; }
-}
-
-@keyframes glow-breath {
-  0%   { filter: drop-shadow(0 0 4px var(--teal-glow)); }
-  50%  { filter: drop-shadow(0 0 10px var(--teal-glow)); }
-  100% { filter: drop-shadow(0 0 4px var(--teal-glow)); }
-}
+/* pulse-ring removed — unused, avoid gratuitous loops (S14) */
+/* glow-breath removed — colored glow banned (DESIGN_RULES interdit) + --teal-glow undefined */
 
 @keyframes token-appear {
   from { opacity: 0; transform: scale(0.6); }

@@ -158,7 +158,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #2A3441;
+    color: #4A5568;
     text-transform: uppercase;
   }
 
@@ -192,6 +192,8 @@
     letter-spacing: 0.01em;
     line-height: 1;
     text-transform: uppercase;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
   }
   .stat-denom {
     font-size: 14px;

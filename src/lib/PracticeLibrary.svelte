@@ -137,12 +137,12 @@
               loading="lazy"
             />
             <div class="card-thumb-blur"></div>
-            <!-- Play icon overlay -->
+            <!-- Play icon overlay — solid rect, esport language (no soft circle) -->
             {#if !done}
               <div class="card-play-icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <circle cx="16" cy="16" r="15" stroke="#FF4655" stroke-width="1.5" opacity="0.6"/>
-                  <polygon points="13,10 24,16 13,22" fill="#FF4655"/>
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="#FF4655"/>
+                  <polygon points="11,8 22,14 11,20" fill="#ECE8E1"/>
                 </svg>
               </div>
             {:else}
@@ -261,13 +261,19 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 4px 10px;
+    padding: 6px 10px;
     border: 1px solid #2A3441;
     background: transparent;
     color: #7B8FA1;
     cursor: pointer;
     transition: border-color 0.1s, color 0.1s, background 0.1s;
-    min-height: 28px;
+    min-height: 32px;
+  }
+  @media (max-width: 599px) {
+    .pill {
+      min-height: 44px;
+      padding: 10px 12px;
+    }
   }
   .pill:hover {
     border-color: #FF4655;
@@ -397,9 +403,9 @@
 
   .card-tag {
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 1px 5px;
     border: 1px solid #2A3441;
@@ -436,6 +442,8 @@
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.04em;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
   }
 
   /* ── Empty ────────────────────────────────────────────────────────────────── */

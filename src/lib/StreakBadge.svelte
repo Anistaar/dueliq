@@ -47,7 +47,7 @@
   }
   .best {
     font-size: 10px;
-    color: #2A3441;
+    color: #4A5568;
     margin-left: 4px;
     font-weight: 700;
     letter-spacing: 0.06em;
