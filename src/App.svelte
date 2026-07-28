@@ -4,15 +4,58 @@
   import type { PuzzleSchema } from "./lib/engine/puzzle_types.js";
   import PuzzleEngine from "./lib/engine/PuzzleEngine.svelte";
   import TheatreOverlay from "./lib/engine/TheatreOverlay.svelte";
+  import PracticeLibrary from "./lib/PracticeLibrary.svelte";
+  import ProgressPanel from "./lib/ProgressPanel.svelte";
   import Countdown from "./lib/Countdown.svelte";
   import StreakBadge from "./lib/StreakBadge.svelte";
   import {
     DAILY_PUZZLES,
+    VIDEO_DAILY,
     todayPuzzleFile,
     dailyNumber,
     markDailyPlayed,
     getStreakData,
   } from "./lib/daily.js";
+  import { pickNextPuzzle } from "./lib/progress.js";
+
+  // ── Video puzzle metadata catalog (used by PracticeLibrary + next-puzzle chain) ──
+  // Maps puzzle filenames → { id, map, theme, difficulty } (static, matches JSON schema)
+  const VIDEO_METAS = [
+    { id: "puzzle-video-001", file: "puzzle-video-001.json", map: "haven",  theme: "rotation",  difficulty: 3 },
+    { id: "puzzle-video-002", file: "puzzle-video-002.json", map: "haven",  theme: "util",      difficulty: 3 },
+    { id: "puzzle-video-003", file: "puzzle-video-003.json", map: "haven",  theme: "postplant", difficulty: 3 },
+    { id: "puzzle-video-004", file: "puzzle-video-004.json", map: "haven",  theme: "rotation",  difficulty: 3 },
+    { id: "puzzle-video-005", file: "puzzle-video-005.json", map: "haven",  theme: "retake",    difficulty: 4 },
+    { id: "puzzle-video-006", file: "puzzle-video-006.json", map: "haven",  theme: "rotation",  difficulty: 3 },
+    { id: "puzzle-video-007", file: "puzzle-video-007.json", map: "ascent", theme: "entry",     difficulty: 3 },
+    { id: "puzzle-video-008", file: "puzzle-video-008.json", map: "ascent", theme: "eco",       difficulty: 4 },
+    { id: "puzzle-video-009", file: "puzzle-video-009.json", map: "ascent", theme: "eco",       difficulty: 2 },
+    { id: "puzzle-video-010", file: "puzzle-video-010.json", map: "ascent", theme: "util",      difficulty: 4 },
+    { id: "puzzle-video-011", file: "puzzle-video-011.json", map: "bind",   theme: "postplant", difficulty: 3 },
+    { id: "puzzle-video-012", file: "puzzle-video-012.json", map: "bind",   theme: "entry",     difficulty: 3 },
+    { id: "puzzle-video-013", file: "puzzle-video-013.json", map: "bind",   theme: "rotation",  difficulty: 3 },
+    { id: "puzzle-video-014", file: "puzzle-video-014.json", map: "haven",  theme: "clutch",    difficulty: 5 },
+    { id: "puzzle-video-015", file: "puzzle-video-015.json", map: "haven",  theme: "retake",    difficulty: 4 },
+  ] as const;
+
+  // ---- Base URL ----
+  const BASE = import.meta.env.BASE_URL; // '/dueliq/'
+
+  // ---- Preview override ----
+  // ?p=007 loads a specific puzzle (playtest/deep-links; daily streak logic untouched)
+  // Supports ?p=007 (numeric → looks in DAILY_PUZZLES) or ?p=video-001 (literal slug → direct file)
+  const previewParam = new URLSearchParams(location.search).get("p");
+  let previewFile: string | null = null;
+  if (previewParam) {
+    if (/^\d+$/.test(previewParam)) {
+      previewFile = DAILY_PUZZLES.find((f) => f.includes(`puzzle-${previewParam.padStart(3, "0")}`)) ?? null;
+    } else {
+      previewFile = `puzzle-${previewParam}.json`;
+    }
+  }
+  const isPreview = previewFile !== null;
+  const dailyFile = previewFile ?? todayPuzzleFile();
+  const dayNum = dailyNumber();
 
   // ---- State ----
   let puzzle = $state<PuzzleSchema | null>(null);
@@ -22,41 +65,25 @@
   let waitlistStatus = $state<"idle" | "sending" | "ok" | "err">("idle");
   let waitlistEmail = $state("");
 
-  // ---- Theatre mode (video puzzles only) ----
-  let theatreActive = $state(false);
+  // ---- Theatre mode ----
+  // theatrePuzzle: the PuzzleSchema currently open in theatre (daily or lib selection)
+  let theatrePuzzle = $state<PuzzleSchema | null>(null);
+  let theatreCurrentMeta = $state<typeof VIDEO_METAS[number] | null>(null);
+  let theatreActive = $derived(theatrePuzzle !== null);
 
-  function enterTheatre() {
-    theatreActive = true;
-  }
+  // ---- Progress panel / library refs ----
+  let progressPanelRef = $state<{ refresh: () => void } | null>(null);
+  let libraryRef = $state<{ refreshPlayed: () => void } | null>(null);
 
-  function exitTheatre() {
-    theatreActive = false;
-  }
+  // ---- Library filter (from CTA "Train [theme]") ----
+  let libraryFilterTheme = $state<string | null>(null);
 
-  const BASE = import.meta.env.BASE_URL; // '/dueliq/'
-  // Preview override: ?p=007 loads a specific puzzle (playtest/deep-links; daily streak logic untouched)
-  // Supports ?p=007 (numeric → looks in DAILY_PUZZLES) or ?p=video-001 (literal slug → direct file)
-  const previewParam = new URLSearchParams(location.search).get("p");
-  let previewFile: string | null = null;
-  if (previewParam) {
-    if (/^\d+$/.test(previewParam)) {
-      // Numeric: find in daily rotation
-      previewFile = DAILY_PUZZLES.find((f) => f.includes(`puzzle-${previewParam.padStart(3, "0")}`)) ?? null;
-    } else {
-      // Slug: direct filename, e.g. "video-001" → "puzzle-video-001.json"
-      previewFile = `puzzle-${previewParam}.json`;
-    }
-  }
-  const isPreview = previewFile !== null;
-  const puzzleFile = previewFile ?? todayPuzzleFile();
-  const dayNum = dailyNumber();
-
-  // ---- Load daily puzzle ----
+  // ── Load daily puzzle ──────────────────────────────────────────────────────
   async function loadPuzzle() {
     loading = true;
     error = null;
     try {
-      const url = `${BASE}puzzles/${puzzleFile}`;
+      const url = `${BASE}puzzles/${dailyFile}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       puzzle = (await res.json()) as PuzzleSchema;
@@ -67,14 +94,80 @@
     }
   }
 
-  // Callback from PuzzleEngine when user reaches end phase
-  function onDailyComplete() {
-    if (isPreview) return; // preview runs never touch the daily streak
-    markDailyPlayed();
-    dailyDone = true;
+  // ── Load any puzzle by file (for library) ────────────────────────────────
+  async function loadPuzzleFile(file: string): Promise<PuzzleSchema | null> {
+    try {
+      const url = `${BASE}puzzles/${file}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return (await res.json()) as PuzzleSchema;
+    } catch {
+      return null;
+    }
   }
 
-  // ---- Waitlist ----
+  // ── Theatre open/close ────────────────────────────────────────────────────
+  function enterTheatre() {
+    if (!puzzle) return;
+    // Daily puzzle in theatre
+    const meta = VIDEO_METAS.find((m) => m.id === puzzle!.id) ?? null;
+    theatreCurrentMeta = meta;
+    theatrePuzzle = puzzle;
+  }
+
+  async function openLibraryPuzzle(file: string) {
+    const meta = VIDEO_METAS.find((m) => m.file === file) ?? null;
+    const loaded = await loadPuzzleFile(file);
+    if (!loaded) return;
+    theatreCurrentMeta = meta;
+    theatrePuzzle = loaded;
+  }
+
+  function exitTheatre() {
+    theatrePuzzle = null;
+    theatreCurrentMeta = null;
+    // Refresh progress + library badges after any puzzle completion
+    progressPanelRef?.refresh();
+    libraryRef?.refreshPlayed();
+  }
+
+  // ── Next puzzle chain ─────────────────────────────────────────────────────
+  async function goNextPuzzle() {
+    if (!theatreCurrentMeta) { exitTheatre(); return; }
+    const currentId = theatreCurrentMeta.id;
+    const currentTheme = theatreCurrentMeta.theme;
+    // pickNextPuzzle reads localStorage progress internally
+    const next = pickNextPuzzle(
+      VIDEO_METAS.map((m) => ({ id: m.id, theme: m.theme })),
+      currentId,
+      // pass theme as "failed theme" if last result was C or X — progress.ts will handle
+      currentTheme
+    );
+    if (!next) { exitTheatre(); return; }
+    const nextMeta = VIDEO_METAS.find((m) => m.id === next.id) ?? null;
+    const loaded = await loadPuzzleFile(nextMeta?.file ?? `${next.id}.json`);
+    if (!loaded) { exitTheatre(); return; }
+    theatreCurrentMeta = nextMeta;
+    theatrePuzzle = loaded;
+  }
+
+  // ── Daily complete ─────────────────────────────────────────────────────────
+  function onDailyComplete() {
+    if (isPreview) return;
+    markDailyPlayed();
+    dailyDone = true;
+    progressPanelRef?.refresh();
+    libraryRef?.refreshPlayed();
+  }
+
+  // ── Library: train weakest theme ──────────────────────────────────────────
+  function onTrainTheme(theme: string) {
+    libraryFilterTheme = theme;
+    // Scroll to library
+    document.getElementById("practice-library")?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  // ── Waitlist ───────────────────────────────────────────────────────────────
   async function submitWaitlist(e: SubmitEvent) {
     e.preventDefault();
     if (!waitlistEmail.trim()) return;
@@ -101,12 +194,15 @@
 </script>
 
 <!-- ======= THEATRE MODE (full viewport, outside page flow) ======= -->
-{#if theatreActive && puzzle?.video}
-  <TheatreOverlay
-    {puzzle}
-    onComplete={onDailyComplete}
-    onExit={exitTheatre}
-  />
+{#if theatreActive && theatrePuzzle?.video}
+  {#key theatrePuzzle?.id}
+    <TheatreOverlay
+      puzzle={theatrePuzzle}
+      onComplete={theatrePuzzle?.id === puzzle?.id ? onDailyComplete : undefined}
+      onExit={exitTheatre}
+      onNext={goNextPuzzle}
+    />
+  {/key}
 {/if}
 
 <div class="page">
@@ -238,6 +334,23 @@
 
     </div>
   </section>
+
+  <!-- ======= PROGRESS PANEL ======= -->
+  <ProgressPanel
+    bind:this={progressPanelRef}
+    totalPuzzles={VIDEO_METAS.length}
+    onTrainTheme={onTrainTheme}
+  />
+
+  <!-- ======= PRACTICE LIBRARY ======= -->
+  <div id="practice-library">
+    <PracticeLibrary
+      bind:this={libraryRef}
+      puzzleMetas={VIDEO_METAS}
+      onSelectPuzzle={openLibraryPuzzle}
+      filterTheme={libraryFilterTheme}
+    />
+  </div>
 
   <!-- ======= HOW IT WORKS ======= -->
   <section class="howto-section">

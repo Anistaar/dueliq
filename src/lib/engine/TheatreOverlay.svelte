@@ -5,12 +5,14 @@
   import type { PuzzleSchema, PuzzleOptionSchema, OptionTier } from "./puzzle_types.js";
   import { computeScore, tierLabel, tierColor } from "./puzzle_types.js";
   import { initSfx, getMuted, setMuted, playSfxTick, playSfxGrade } from "./replay/sfx.js";
+  import { recordResult } from "../progress.js";
   import { onMount } from "svelte";
 
-  const { puzzle, onComplete, onExit } = $props<{
+  const { puzzle, onComplete, onExit, onNext } = $props<{
     puzzle: PuzzleSchema;
     onComplete?: () => void;
     onExit: () => void;
+    onNext?: () => void;
   }>();
 
   // ── Types ─────────────────────────────────────────────────────────────────
@@ -153,6 +155,27 @@
 
   function goEnd() {
     phase = "end";
+    // Persist result to localStorage progress
+    if (chosenOption) {
+      const tier = chosenOption.tier;
+      const grade = (() => {
+        switch (tier) {
+          case "optimal": return "S" as const;
+          case "acceptable": return "A" as const;
+          case "couteux": return "C" as const;
+          default: return "X" as const;
+        }
+      })();
+      recordResult({
+        puzzle: puzzle.id,
+        tier,
+        grade,
+        score: userScore,
+        theme: puzzle.theme,
+        map: puzzle.map,
+        date: new Date().toISOString(),
+      });
+    }
     onComplete?.();
   }
 
@@ -495,11 +518,16 @@
         {/if}
       {/if}
       <div class="end-btns">
+        {#if onNext}
+          <button class="btn-next-puzzle" onclick={onNext} data-testid="btn-next-puzzle">
+            Next puzzle →
+          </button>
+        {/if}
         <button class="btn-share" onclick={copyShare}>
           {copySuccess ? "✓ Copied!" : "⎘ Copy result"}
         </button>
         <button class="btn-exit-end" onclick={handleExit}>
-          ↩ Back to landing
+          ↩ Back
         </button>
       </div>
     </div>
@@ -1224,6 +1252,27 @@
     transition: transform 0.15s, box-shadow 0.15s;
   }
   .btn-share:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,212,170,0.45); }
+  .btn-next-puzzle {
+    background: linear-gradient(135deg, #FF4655 0%, #cc2d3a 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 24px;
+    min-height: 52px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    box-shadow: 0 4px 20px rgba(255,70,85,0.35);
+    letter-spacing: 0.02em;
+  }
+  .btn-next-puzzle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(255,70,85,0.5);
+    filter: brightness(1.08);
+  }
   .btn-exit-end {
     background: transparent;
     color: #64748b;
