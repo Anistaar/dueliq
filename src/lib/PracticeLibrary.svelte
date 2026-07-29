@@ -1,17 +1,22 @@
 <script lang="ts">
   // PracticeLibrary — Grid of 15 video puzzles with filters, blur vignette, done badges.
+  // Supports personalized "Recommended for you" section when onboarding profile is set.
   // Not endorsed by Riot Games.
   import type { PuzzleSchema } from "./engine/puzzle_types.js";
   import { getPlayedIds, getResultFor, type PuzzleResult } from "./progress.js";
+  import type { OnboardingProfile } from "./onboarding.js";
+  import { getPuzzleRelevanceScore } from "./onboarding.js";
 
   const {
     puzzleMetas,
     onSelectPuzzle,
     filterTheme = null,
+    profile = null,
   }: {
     puzzleMetas: { id: string; file: string; map: string; theme: string; difficulty: number }[];
     onSelectPuzzle: (file: string) => void;
     filterTheme?: string | null;
+    profile?: OnboardingProfile | null;
   } = $props();
 
   // ── Filters ────────────────────────────────────────────────────────────────
@@ -32,6 +37,25 @@
       if (activeTheme !== "all" && p.theme !== activeTheme) return false;
       return true;
     })
+  );
+
+  // ── Recommended section ────────────────────────────────────────────────────
+  // "Recommended for you" — shown above the full grid when profile is set.
+  // Sorted by relevance score (role themes + rank difficulty window).
+  // Shows top 4 puzzles scored ≥ 1. Falls back to empty (section hidden) if no profile.
+  //
+  // Mapping documented in onboarding.ts:
+  //   - Role → priority themes (ROLE_THEMES)
+  //   - Rank → difficulty window (RANK_DIFFICULTY)
+  //   Score: 0-4 per puzzle. Ties broken by original catalog order.
+  const recommended = $derived(
+    profile
+      ? [...puzzleMetas]
+          .map((p) => ({ ...p, _score: getPuzzleRelevanceScore(p, profile) }))
+          .filter((p) => p._score >= 1)
+          .sort((a, b) => b._score - a._score)
+          .slice(0, 4)
+      : []
   );
 
   // ── Played state ────────────────────────────────────────────────────────────
@@ -69,6 +93,78 @@
 </script>
 
 <section class="lib-section" aria-label="Practice Library">
+
+  <!-- ── Recommended for you ─────────────────────────────────────────────────
+       Shown only when onboarding profile is set. 4 top-scored puzzles.
+       Role/rank → theme/difficulty relevance — see onboarding.ts for mapping.
+  ─────────────────────────────────────────────────────────────────────────── -->
+  {#if recommended.length > 0 && profile}
+    <div class="rec-section" data-testid="recommended-section">
+      <div class="rec-header">
+        <span class="rec-title">Recommended for you</span>
+        <span class="rec-meta">{profile.role} · {profile.rank}</span>
+      </div>
+      <div class="rec-grid" data-testid="recommended-grid">
+        {#each recommended as p}
+          {@const result = getResult(p.id)}
+          {@const done = playedIds.has(p.id)}
+          <button
+            class="lib-card"
+            class:lib-card--done={done}
+            onclick={() => onSelectPuzzle(p.file)}
+            aria-label="Recommended: {mapLabel(p.map)} {themeLabel(p.theme)} puzzle{done ? ' — played' : ''}"
+            data-testid="rec-card-{p.id}"
+          >
+            <div class="card-thumb">
+              <img
+                class="card-thumb-img"
+                src="{import.meta.env.BASE_URL}media/p-{p.id.replace('puzzle-','')}-freeze.jpg"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+              <div class="card-thumb-blur"></div>
+              {#if !done}
+                <div class="card-play-icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect width="28" height="28" fill="#FF4655"/>
+                    <polygon points="11,8 22,14 11,20" fill="#ECE8E1"/>
+                  </svg>
+                </div>
+              {:else}
+                <div class="card-done-badge" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="9" fill="#00D4AA20" stroke="#00D4AA" stroke-width="1.5"/>
+                    <path d="M6 10l3 3 5-5" stroke="#00D4AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {#if result}
+                    <span class="done-grade" style="color: {gradeColor[result.grade]}">{result.grade}</span>
+                  {/if}
+                </div>
+              {/if}
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag card-tag--map">{mapLabel(p.map)}</span>
+                <span class="card-tag card-tag--theme">{themeLabel(p.theme)}</span>
+              </div>
+              <div class="card-meta">
+                <div class="card-diff" aria-label="Difficulty {p.difficulty}/5">
+                  {#each pips(5) as pip}
+                    <span class="pip" class:pip--filled={pip <= p.difficulty}></span>
+                  {/each}
+                </div>
+                {#if done && result}
+                  <span class="card-score" style="color: {gradeColor[result.grade]}">{result.score}/1000</span>
+                {/if}
+              </div>
+            </div>
+          </button>
+        {/each}
+      </div>
+    </div>
+  {/if}
+
   <div class="lib-header">
     <div class="lib-title-row">
       <h2 class="lib-title">Practice Library</h2>
@@ -189,6 +285,52 @@
     padding: 32px 20px 52px;
     border-top: 1px solid #2A3441;
     background: #0F1923;
+  }
+
+  /* ── Recommended section ─────────────────────────────────────────────────── */
+  .rec-section {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rec-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .rec-title {
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ECE8E1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .rec-meta {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #FF4655;
+    text-transform: uppercase;
+  }
+
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  @media (min-width: 480px) {
+    .rec-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   /* ── Header ─────────────────────────────────────────────────────────────── */

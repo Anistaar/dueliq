@@ -17,6 +17,12 @@
     getStreakData,
   } from "./lib/daily.js";
   import { pickNextPuzzle } from "./lib/progress.js";
+  import OnboardingBanner from "./lib/OnboardingBanner.svelte";
+  import type { OnboardingProfile, Role, RankBand } from "./lib/onboarding.js";
+  import {
+    loadProfile,
+    shouldShowBanner,
+  } from "./lib/onboarding.js";
 
   // ── Video puzzle metadata catalog (used by PracticeLibrary + next-puzzle chain) ──
   // Maps puzzle filenames → { id, map, theme, difficulty } (static, matches JSON schema)
@@ -78,6 +84,23 @@
   // ---- Library filter (from CTA "Train [theme]") ----
   let libraryFilterTheme = $state<string | null>(null);
 
+  // ---- Onboarding ----
+  let onboardingProfile = $state<OnboardingProfile | null>(loadProfile());
+  let showOnboarding = $state(shouldShowBanner());
+
+  function onOnboardingComplete(role: Role, rank: RankBand) {
+    onboardingProfile = { role, rank };
+    showOnboarding = false;
+  }
+
+  function onOnboardingSkip() {
+    showOnboarding = false;
+  }
+
+  function onEditProfile() {
+    showOnboarding = true;
+  }
+
   // ── Load daily puzzle ──────────────────────────────────────────────────────
   async function loadPuzzle() {
     loading = true;
@@ -136,12 +159,14 @@
     if (!theatreCurrentMeta) { exitTheatre(); return; }
     const currentId = theatreCurrentMeta.id;
     const currentTheme = theatreCurrentMeta.theme;
-    // pickNextPuzzle reads localStorage progress internally
+    // pickNextPuzzle reads localStorage progress internally.
+    // When a profile is set, role/rank relevance scores are used to weight
+    // the next puzzle selection toward the user's role themes + rank difficulty.
     const next = pickNextPuzzle(
-      VIDEO_METAS.map((m) => ({ id: m.id, theme: m.theme })),
+      VIDEO_METAS.map((m) => ({ id: m.id, theme: m.theme, difficulty: m.difficulty })),
       currentId,
-      // pass theme as "failed theme" if last result was C or X — progress.ts will handle
-      currentTheme
+      currentTheme,
+      onboardingProfile ?? undefined
     );
     if (!next) { exitTheatre(); return; }
     const nextMeta = VIDEO_METAS.find((m) => m.id === next.id) ?? null;
@@ -323,15 +348,29 @@
     bind:this={progressPanelRef}
     totalPuzzles={VIDEO_METAS.length}
     onTrainTheme={onTrainTheme}
+    profile={onboardingProfile}
+    onEditProfile={onEditProfile}
   />
 
   <!-- ======= PRACTICE LIBRARY ======= -->
   <div id="practice-library">
+    <!-- Onboarding banner: inline above library, skippable, no blocking modal -->
+    {#if showOnboarding}
+      <div class="ob-wrapper">
+        <div class="ob-inner">
+          <OnboardingBanner
+            onComplete={onOnboardingComplete}
+            onSkip={onOnboardingSkip}
+          />
+        </div>
+      </div>
+    {/if}
     <PracticeLibrary
       bind:this={libraryRef}
       puzzleMetas={VIDEO_METAS}
       onSelectPuzzle={openLibraryPuzzle}
       filterTheme={libraryFilterTheme}
+      profile={onboardingProfile}
     />
   </div>
 
@@ -991,6 +1030,19 @@
   .footer-links a { color: #7B8FA1; }
   .footer-links a:hover { color: #ECE8E1; }
   .sep { color: #4A5568; }
+
+  /* ---- ONBOARDING BANNER WRAPPER ---- */
+  .ob-wrapper {
+    padding: 0 20px;
+    border-top: 1px solid #2A3441;
+    background: #0F1923;
+    padding-top: 20px;
+  }
+  .ob-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
 
   /* ---- THEATRE LAUNCHER CARD ---- */
   .theatre-launcher {

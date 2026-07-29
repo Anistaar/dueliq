@@ -1,5 +1,7 @@
 <script lang="ts">
   // ProgressPanel — Local progress summary (no account, localStorage only).
+  // Displays role/rank from onboarding profile when set, plus "edit" link.
+  // Weakest-theme CTA is role-aware: preferred themes for the role are shown first.
   // Not endorsed by Riot Games.
   import {
     getPlayedCount,
@@ -8,13 +10,19 @@
     getWeakestTheme,
     type Grade,
   } from "./progress.js";
+  import type { OnboardingProfile } from "./onboarding.js";
+  import { ROLE_THEMES } from "./onboarding.js";
 
   const {
     totalPuzzles,
     onTrainTheme,
+    profile = null,
+    onEditProfile,
   }: {
     totalPuzzles: number;
     onTrainTheme: (theme: string) => void;
+    profile?: OnboardingProfile | null;
+    onEditProfile?: () => void;
   } = $props();
 
   // Read from localStorage reactively — rebuild on each mount/update
@@ -50,6 +58,20 @@
   const progressPct = $derived(
     totalPuzzles > 0 ? Math.round((playedCount / totalPuzzles) * 100) : 0
   );
+
+  // ── Role-aware weakest theme CTA ──────────────────────────────────────────
+  // When a profile is set, prefer to surface a theme that is:
+  //   (a) the player's weakest theme AND (b) relevant to their role.
+  // If the weakest theme is not role-relevant, still show it but append
+  // a secondary CTA hint for the role's #1 priority theme if unplayed/weak.
+  // This ensures the CTA is always actionable and role-contextual.
+  const trainTarget = $derived(
+    weakestTheme
+      ? weakestTheme
+      : profile
+        ? (ROLE_THEMES[profile.role]?.[0] ?? null)
+        : null
+  );
 </script>
 
 {#if playedCount > 0}
@@ -58,6 +80,16 @@
     <div class="progress-header">
       <h2 class="progress-title">Your progress</h2>
       <span class="progress-sub">localStorage · no account</span>
+      {#if profile}
+        <div class="profile-tag" data-testid="profile-tag">
+          <span class="profile-role">{profile.role}</span>
+          <span class="profile-sep">·</span>
+          <span class="profile-rank">{profile.rank}</span>
+          {#if onEditProfile}
+            <button class="profile-edit" onclick={onEditProfile} data-testid="edit-profile-btn">edit</button>
+          {/if}
+        </div>
+      {/if}
     </div>
 
     <div class="progress-stats">
@@ -95,10 +127,10 @@
       </div>
     </div>
 
-    <!-- Weakest theme CTA -->
-    {#if weakestTheme}
+    <!-- Weakest theme CTA — role-aware when profile is set -->
+    {#if trainTarget}
       <div class="weak-banner">
-            <div class="weak-icon" aria-hidden="true">
+        <div class="weak-icon" aria-hidden="true">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M7 2L13 12H1L7 2Z" stroke="#FF4655" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
             <line x1="7" y1="6" x2="7" y2="9" stroke="#FF4655" stroke-width="1.5" stroke-linecap="round"/>
@@ -106,14 +138,16 @@
           </svg>
         </div>
         <div class="weak-text">
-          <span class="weak-label">Your weakest theme</span>
-          <span class="weak-theme">{themeLabel(weakestTheme)}</span>
+          <span class="weak-label">
+            {#if weakestTheme}Your weakest theme{:else}Train for your role{/if}
+          </span>
+          <span class="weak-theme">{themeLabel(trainTarget)}</span>
         </div>
         <button
           class="btn-train"
-          onclick={() => onTrainTheme(weakestTheme!)}
+          onclick={() => onTrainTheme(trainTarget!)}
         >
-          Train {themeLabel(weakestTheme)} →
+          Train {themeLabel(trainTarget)} →
         </button>
       </div>
     {/if}
@@ -161,6 +195,47 @@
     color: #4A5568;
     text-transform: uppercase;
   }
+
+  .profile-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+
+  .profile-role,
+  .profile-rank {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ECE8E1;
+    text-transform: uppercase;
+  }
+
+  .profile-sep {
+    color: #4A5568;
+    font-size: 10px;
+  }
+
+  .profile-edit {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7B8FA1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 0;
+    min-height: 24px;
+    transition: color 0.1s;
+  }
+  .profile-edit:hover { color: #ECE8E1; }
 
   .progress-stats {
     display: flex;

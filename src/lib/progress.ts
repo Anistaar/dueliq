@@ -1,5 +1,8 @@
 // DuelIQ — Local progress tracking (localStorage, no account)
 // Not endorsed by Riot Games.
+// Role/rank-aware next puzzle selection: when a profile is provided, unplayed
+// candidates are scored by getPuzzleRelevanceScore and the highest-score puzzle
+// is picked instead of a random one. Played fallback remains oldest-first.
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -117,13 +120,17 @@ export function getWeakestTheme(): string | null {
 /** Given the list of all video puzzle ids and the themes of puzzles user got wrong (C/X),
  *  picks the next unplayed puzzle. Priority:
  *  1. Unplayed, same theme as recently failed
- *  2. Any unplayed
+ *  2a. If profile: highest-relevance-score unplayed (role themes + rank difficulty window)
+ *  2b. No profile: any unplayed (random)
  *  3. Oldest-played (least recent) if all played
+ *
+ *  Profile scoring delegated to getPuzzleRelevanceScore (onboarding.ts) — no logic duplication.
  */
 export function pickNextPuzzle(
-  allPuzzles: { id: string; theme: string }[],
+  allPuzzles: { id: string; theme: string; difficulty?: number }[],
   currentId: string,
-  recentFailedTheme?: string
+  recentFailedTheme?: string,
+  profile?: { role: string; rank: string } | null
 ): { id: string; theme: string } | null {
   const played = getPlayedIds();
   const candidates = allPuzzles.filter((p) => p.id !== currentId);
@@ -138,9 +145,45 @@ export function pickNextPuzzle(
     }
   }
 
-  // Priority 2: any unplayed
+  // Priority 2: any unplayed — weighted by profile if available
   const unplayed = candidates.filter((p) => !played.has(p.id));
   if (unplayed.length > 0) {
+    if (profile) {
+      // Inline scoring to avoid circular import — mirrors getPuzzleRelevanceScore logic
+      // Role themes: Duelist=entry/clutch, Initiator=util/info, Controller=util/postplant,
+      //              Sentinel=retake/rotation, Flex=all equally
+      const ROLE_THEMES_MAP: Record<string, string[]> = {
+        Duelist:    ["entry", "clutch", "eco", "postplant"],
+        Initiator:  ["util", "info", "entry", "eco"],
+        Controller: ["util", "postplant", "rotation", "eco"],
+        Sentinel:   ["retake", "rotation", "util", "postplant"],
+        Flex:       ["entry", "clutch", "util", "postplant", "retake", "rotation", "eco", "info"],
+      };
+      const RANK_DIFF_MAP: Record<string, [number, number]> = {
+        "Iron-Silver":       [2, 3],
+        "Gold-Plat":         [3, 3],
+        "Diamond-Ascendant": [3, 4],
+        "Immortal+":         [4, 5],
+      };
+      const themeList = ROLE_THEMES_MAP[profile.role] ?? [];
+      const [minD, maxD] = RANK_DIFF_MAP[profile.rank] ?? [1, 5];
+
+      const scored = unplayed.map((p) => {
+        let s = 0;
+        const idx = themeList.indexOf(p.theme);
+        if (idx === 0) s += 2;
+        else if (idx > 0 && idx <= 2) s += 1;
+        const diff = p.difficulty ?? 3;
+        if (diff >= minD && diff <= maxD) s += 2;
+        else if (diff === minD - 1 || diff === maxD + 1) s += 1;
+        return { p, s };
+      });
+      scored.sort((a, b) => b.s - a.s);
+      // Pick best-scored, break ties randomly among top scorers
+      const topScore = scored[0].s;
+      const topTier = scored.filter((x) => x.s === topScore);
+      return topTier[Math.floor(Math.random() * topTier.length)].p;
+    }
     return unplayed[Math.floor(Math.random() * unplayed.length)];
   }
 
@@ -155,3 +198,6 @@ export function pickNextPuzzle(
   });
   return sorted[0] ?? null;
 }
+
+// Re-export alias for App.svelte (profile-aware entry point)
+export { pickNextPuzzle as pickNextPuzzlePersonalized };
