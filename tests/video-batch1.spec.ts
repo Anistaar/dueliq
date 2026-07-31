@@ -26,7 +26,7 @@ async function playPuzzle(page: import("@playwright/test").Page, slug: string, c
     await page.screenshot({ path: `${SHOTS}/batch1-daily-landing.png`, fullPage: false });
   }
   // Enter theatre
-  await page.getByRole("button", { name: /Watch clip full screen/i }).click();
+  await page.getByRole("button", { name: /Play/i }).click();
   // Intro phase — hint visible
   await expect(page.getByText(/Watch the situation/i)).toBeVisible({ timeout: 10000 });
   await page.screenshot({ path: `${SHOTS}/batch1-${slug}-intro.png` });

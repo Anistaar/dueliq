@@ -115,6 +115,8 @@ const LS_STREAK_KEY = "dueliq_streak";
 const LS_LAST_DAY_KEY = "dueliq_last_day";
 const LS_BEST_KEY = "dueliq_best";
 const LS_PLAYED_TODAY_KEY = "dueliq_played_today";
+const LS_FREEZE_WEEK_KEY = "dueliq_freeze_used_week";
+const LS_FIRST_VISIT_KEY = "dueliq_first_visit";
 
 interface StreakData {
   streak: number;
@@ -131,12 +133,44 @@ export function getStreakData(): StreakData {
     const best = parseInt(localStorage.getItem(LS_BEST_KEY) ?? "0", 10);
     const playedToday = localStorage.getItem(LS_PLAYED_TODAY_KEY) === String(today);
 
-    // If last played was 2+ days ago, streak is broken
-    const activStreak = (today - lastDay <= 1) ? streak : 0;
+    // Grace window: 48h (2 days) — streak survives if last played yesterday or today
+    const activStreak = (today - lastDay <= 2) ? streak : 0;
 
     return { streak: activStreak, best, lastDay, playedToday };
   } catch {
     return { streak: 0, best: 0, lastDay: 0, playedToday: false };
+  }
+}
+
+/** Returns the ISO week number (Mon-based) for a UTC day index */
+function isoWeekOfDay(dayIndex: number): number {
+  // dayIndex 0 = Thu 1970-01-01 (Thu = day 4 of week). Shift to Mon-based.
+  return Math.floor((dayIndex + 3) / 7);
+}
+
+/**
+ * Use one freeze this week. Returns true if the freeze was applied (streak saved),
+ * false if already used this week or no freeze available.
+ */
+export function useStreakFreeze(): boolean {
+  try {
+    const week = isoWeekOfDay(utcDayIndex());
+    const usedWeek = parseInt(localStorage.getItem(LS_FREEZE_WEEK_KEY) ?? "-1", 10);
+    if (usedWeek === week) return false; // already used this week
+    localStorage.setItem(LS_FREEZE_WEEK_KEY, String(week));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** True if freeze has already been used this calendar week */
+export function freezeUsedThisWeek(): boolean {
+  try {
+    const week = isoWeekOfDay(utcDayIndex());
+    return parseInt(localStorage.getItem(LS_FREEZE_WEEK_KEY) ?? "-1", 10) === week;
+  } catch {
+    return false;
   }
 }
 
@@ -156,4 +190,24 @@ export function markDailyPlayed(): void {
   } catch {
     // localStorage unavailable (private mode etc.) — silent fail
   }
+}
+
+/**
+ * Starter puzzle logic:
+ * - First visit → serve video-009 (diff 2, Ascent eco) with badge "starter"
+ * - Subsequent visits → normal rotation
+ * Returns { file, isStarter }
+ */
+export function getStarterOrDaily(): { file: string; isStarter: boolean } {
+  try {
+    const visited = localStorage.getItem(LS_FIRST_VISIT_KEY);
+    if (!visited) {
+      // Mark first visit immediately so a hard reload doesn't re-trigger
+      localStorage.setItem(LS_FIRST_VISIT_KEY, "1");
+      return { file: "puzzle-video-009.json", isStarter: true };
+    }
+  } catch {
+    // localStorage unavailable — fall through to normal daily
+  }
+  return { file: todayPuzzleFile(), isStarter: false };
 }

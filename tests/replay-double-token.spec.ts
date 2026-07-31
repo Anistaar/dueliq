@@ -11,8 +11,8 @@ test.describe("Replay double-token fix", () => {
   test("p007 replay: token-layer hidden during replay, visible after", async ({
     page,
   }) => {
-    // Navigate to the app (adjust URL to local preview)
-    await page.goto("http://localhost:4173");
+    // Navigate to the app — use ?p=007 to load a static puzzle with replay
+    await page.goto("http://localhost:4173/dueliq/?p=007");
 
     // Find puzzle-007 or navigate there
     // The app renders a daily/random puzzle — we trigger Play and check overlay state

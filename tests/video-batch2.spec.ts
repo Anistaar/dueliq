@@ -19,7 +19,7 @@ async function skipIntro(page: import("@playwright/test").Page) {
 async function playPuzzle(page: import("@playwright/test").Page, slug: string, chooseLabelIncludes: string) {
   await page.goto(`${PREVIEW}/?p=${slug}`, { waitUntil: "domcontentloaded" });
   await expect(page.getByText("Video Puzzle").first()).toBeVisible({ timeout: 15000 });
-  await page.getByRole("button", { name: /Watch clip full screen/i }).click();
+  await page.getByRole("button", { name: /Play/i }).click();
   await expect(page.getByText(/Watch the situation/i)).toBeVisible({ timeout: 10000 });
 
   await skipIntro(page);

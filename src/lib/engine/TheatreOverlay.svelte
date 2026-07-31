@@ -6,6 +6,8 @@
   import { computeScore, tierLabel, tierColor } from "./puzzle_types.js";
   import { initSfx, getMuted, setMuted, playSfxTick, playSfxGrade } from "./replay/sfx.js";
   import { recordResult } from "../progress.js";
+  import { getStreakData, dailyNumber } from "../daily.js";
+  import { trackDailyCompletion, fetchDailyPercentile, formatPercentile, type PercentileResult } from "../analytics.js";
   import { onMount } from "svelte";
 
   const { puzzle, onComplete, onExit, onNext } = $props<{
@@ -26,6 +28,7 @@
   let sfxMuted = $state(false);
   let copySuccess = $state(false);
   let gradeGrade = $state<"S" | "A" | "C" | "X">("S");
+  let percentileResult = $state<PercentileResult | null>(null);
 
   // Video audio — separate from SFX mute
   // Default: unmuted at 0.8 (game audio is the experience)
@@ -175,6 +178,14 @@
         map: puzzle.map,
         date: new Date().toISOString(),
       });
+
+      // P0 — track completion to GoatCounter (fire-and-forget)
+      trackDailyCompletion(tier);
+
+      // P0 — fetch percentile for end screen display (async, non-blocking)
+      fetchDailyPercentile(tier).then((result) => {
+        percentileResult = result;
+      });
     }
     onComplete?.();
   }
@@ -254,13 +265,49 @@
     return indices;
   });
 
-  async function copyShare() {
-    const lines = [
-      `DuelIQ — ${puzzle.id} | ${puzzle.map.toUpperCase()} VIDEO PUZZLE`,
-      `Score: ${userScore}/1000  ${chosenOption ? tierLabel(chosenOption.tier) : ""}`,
+  function tierEmoji(tier: OptionTier): string {
+    switch (tier) {
+      case "optimal":    return "🟢";
+      case "acceptable": return "🟡";
+      case "couteux":    return "🟠";
+      case "faute":      return "🔴";
+    }
+  }
+
+  function buildShareText(): string {
+    const streakData = getStreakData();
+    const dayN = dailyNumber();
+
+    // Emoji spoiler-free grid: show user's pick as emoji, others as ⬛
+    const grid = puzzle.options.map((opt: PuzzleOptionSchema) =>
+      opt === chosenOption ? tierEmoji(opt.tier) : "⬛"
+    ).join("");
+
+    const streakStr = streakData.streak >= 2 ? `\n🔥 Day ${streakData.streak}` : "";
+
+    return [
+      `DuelIQ #${dayN} — ${puzzle.map.toUpperCase()}`,
+      `${grid} ${userScore}/1000${streakStr}`,
       "anistaar.github.io/dueliq",
-    ];
-    const text = lines.join("\n");
+    ].join("\n");
+  }
+
+  async function copyShare() {
+    const text = buildShareText();
+
+    // Try native share (mobile) first
+    if (navigator.share) {
+      try {
+        await navigator.share({ text });
+        copySuccess = true;
+        setTimeout(() => { copySuccess = false; }, 2000);
+        return;
+      } catch {
+        // User cancelled or share failed → fall through to clipboard
+      }
+    }
+
+    // Clipboard fallback
     try {
       await navigator.clipboard.writeText(text);
       copySuccess = true;
@@ -526,6 +573,9 @@
           <p class="end-msg end-msg--error">Tactical mistake. Every rep sharpens the read.</p>
         {/if}
       {/if}
+      {#if percentileResult}
+        <p class="end-percentile">{formatPercentile(percentileResult)}</p>
+      {/if}
       <div class="end-btns">
         {#if onNext}
           <button class="btn-next-puzzle" onclick={onNext} data-testid="btn-next-puzzle">
@@ -533,7 +583,7 @@
           </button>
         {/if}
         <button class="btn-share" onclick={copyShare}>
-          {copySuccess ? "Copied!" : "Copy result"}
+          {copySuccess ? "Copied!" : "Share result"}
         </button>
         <button class="btn-exit-end" onclick={handleExit}>
           ↩ Back
@@ -1234,6 +1284,18 @@
   .end-msg--success { color: #00D4AA; }
   .end-msg--warn    { color: #f97316; }
   .end-msg--error   { color: #f87171; }
+
+  .end-percentile {
+    font-size: 12px;
+    color: #00D4AA;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    opacity: 0.9;
+  }
 
   .end-btns {
     display: flex;

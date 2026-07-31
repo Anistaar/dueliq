@@ -15,6 +15,7 @@
     dailyNumber,
     markDailyPlayed,
     getStreakData,
+    getStarterOrDaily,
   } from "./lib/daily.js";
   import { pickNextPuzzle } from "./lib/progress.js";
   import OnboardingBanner from "./lib/OnboardingBanner.svelte";
@@ -60,7 +61,12 @@
     }
   }
   const isPreview = previewFile !== null;
-  const dailyFile = previewFile ?? todayPuzzleFile();
+
+  // Starter puzzle: first visit → video-009 (diff 2) with badge; else normal rotation
+  const starterResult = isPreview ? { file: previewFile!, isStarter: false } : getStarterOrDaily();
+  const dailyFile = starterResult.file;
+  const isStarter = starterResult.isStarter;
+
   const dayNum = dailyNumber();
 
   // ---- State ----
@@ -192,16 +198,24 @@
     document.getElementById("practice-library")?.scrollIntoView({ behavior: "smooth" });
   }
 
-  // ── Waitlist ───────────────────────────────────────────────────────────────
+  // ── Waitlist (FormSubmit.co hash mode — email never in source) ────────────
+  // Hash derived from victor.winckel.2004@gmail.com via FormSubmit hash tool.
+  // First submission triggers an activation email to that Gmail — click the link.
+  const FORMSUBMIT_HASH = "a1b9d6a3c8e2f4b7c0d5e8f1a4b7c0d5"; // placeholder: replace after activation
   async function submitWaitlist(e: SubmitEvent) {
     e.preventDefault();
     if (!waitlistEmail.trim()) return;
     waitlistStatus = "sending";
     try {
-      const res = await fetch("https://formspree.io/f/xnnvoqew", {
+      const res = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_HASH}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email: waitlistEmail, source: "dueliq-landing" }),
+        body: JSON.stringify({
+          email: waitlistEmail,
+          source: "dueliq-landing",
+          _subject: "DuelIQ Waitlist",
+          _captcha: "false",
+        }),
       });
       if (res.ok) {
         waitlistStatus = "ok";
@@ -316,6 +330,9 @@
               <span class="tl-badge tl-badge--theme">{puzzle.theme.toUpperCase()}</span>
               <span class="tl-badge tl-badge--side">{puzzle.side.toUpperCase()}</span>
               <span class="tl-badge tl-badge--video">VIDEO</span>
+              {#if isStarter}
+                <span class="tl-badge tl-badge--starter">STARTER</span>
+              {/if}
             </div>
             <div class="theatre-launcher-body">
               <!-- Play icon: simple solid triangle, no glow rings -->
@@ -1073,6 +1090,7 @@
     color: #7B8FA1;
   }
   .tl-badge--video { background: #FF4655; color: #ECE8E1; border-color: #FF4655; }
+  .tl-badge--starter { background: #00D4AA; color: #0F1923; border-color: #00D4AA; }
 
   .theatre-launcher-body {
     display: flex;
