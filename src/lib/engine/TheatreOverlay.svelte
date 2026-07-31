@@ -30,6 +30,12 @@
   let gradeGrade = $state<"S" | "A" | "C" | "X">("S");
   let percentileResult = $state<PercentileResult | null>(null);
 
+  // VO state
+  let voAudio = $state<HTMLAudioElement | null>(null);
+  let voPlaying = $state(false);
+  let voAvailable = $state(false);
+  let voLoaded = $state(false);
+
   // Video audio — separate from SFX mute
   // Default: unmuted at 0.8 (game audio is the experience)
   // Persisted in localStorage so user preference survives sessions
@@ -235,6 +241,69 @@
     if (resolutionVideoEl) {
       resolutionVideoEl.muted = false;
       resolutionVideoEl.volume = 0.8;
+    }
+  }
+
+  // ── VO Audio ─────────────────────────────────────────────────────────────
+  function voUrl(): string {
+    return `${BASE}media/vo/${puzzle.id}.wav`;
+  }
+
+  // Check if VO file exists and wire up audio element when entering reveal
+  $effect(() => {
+    if (phase === "reveal") {
+      const url = voUrl();
+      const audio = new Audio(url);
+      audio.preload = "metadata";
+      audio.onloadedmetadata = () => {
+        voAvailable = true;
+        voLoaded = true;
+        voAudio = audio;
+      };
+      audio.onerror = () => {
+        voAvailable = false;
+        voLoaded = true;
+      };
+      audio.onended = () => { voPlaying = false; };
+    } else {
+      // Clean up when leaving reveal
+      if (voAudio) {
+        voAudio.pause();
+        voAudio = null;
+      }
+      voPlaying = false;
+      voAvailable = false;
+      voLoaded = false;
+    }
+  });
+
+  function toggleVO() {
+    if (!voAudio) return;
+    if (voPlaying) {
+      voAudio.pause();
+      voPlaying = false;
+    } else {
+      voAudio.play().catch(() => {});
+      voPlaying = true;
+    }
+  }
+
+  // Verdict label + CSS class for each tier
+  function verdictLabel(tier: OptionTier): string {
+    switch (tier) {
+      case "optimal":    return "Radiant";
+      case "acceptable": return "Acceptable";
+      case "couteux":    return "Costly";
+      case "faute":      return "Mistake";
+    }
+  }
+
+  function verdictClass(tier: OptionTier): string {
+    switch (tier) {
+      case "optimal":    return "verdict--radiant";
+      case "acceptable": return "verdict--acceptable";
+      case "couteux":    return "verdict--costly";
+      case "faute":      return "verdict--mistake";
     }
   }
 
@@ -492,53 +561,72 @@
   <!-- REVEAL — resolution panel overlay (bottom + scrollable) -->
   {#if phase === "reveal" && chosenOption}
     <div class="reveal-layer fade-in">
-      <!-- Tier badge -->
-      <div class="reveal-header" style="--tc: {tierColor(chosenOption.tier)}">
-        <div class="reveal-grade" style="color:{tierColor(chosenOption.tier)}; border-color:{tierColor(chosenOption.tier)}40">
-          {tierToGrade(chosenOption.tier)}
+
+      <!-- Header row: grade + score + VO button -->
+      <div class="reveal-topbar">
+        <div class="reveal-header" style="--tc: {tierColor(chosenOption.tier)}">
+          <div class="reveal-grade" style="color:{tierColor(chosenOption.tier)}; border-color:{tierColor(chosenOption.tier)}40">
+            {tierToGrade(chosenOption.tier)}
+          </div>
+          <div class="reveal-info">
+            <div class="reveal-tier-name" style="color:{tierColor(chosenOption.tier)}">{tierLabel(chosenOption.tier)}</div>
+            <div class="reveal-score">{userScore}<span class="reveal-score-max">/1000</span></div>
+          </div>
+          <div class="reveal-pick-label">YOUR PICK</div>
         </div>
-        <div class="reveal-info">
-          <div class="reveal-tier-name" style="color:{tierColor(chosenOption.tier)}">{tierLabel(chosenOption.tier)}</div>
-          <div class="reveal-score">{userScore}<span class="reveal-score-max">/1000</span></div>
-        </div>
-        <div class="reveal-pick-label">YOUR PICK</div>
+
+        <!-- VO Player — only shown if audio file exists, autoplay OFF -->
+        {#if voLoaded && voAvailable}
+          <button class="btn-vo" onclick={toggleVO} title={voPlaying ? "Pause coach audio" : "Play coach audio"} aria-label="Play coach audio">
+            {#if voPlaying}
+              <!-- Pause icon -->
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                <rect x="2" y="2" width="4" height="10" rx="0"/>
+                <rect x="8" y="2" width="4" height="10" rx="0"/>
+              </svg>
+              <span class="btn-vo-label">PAUSE</span>
+            {:else}
+              <!-- Play icon -->
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                <path d="M3 2L12 7L3 12V2Z"/>
+              </svg>
+              <span class="btn-vo-label">COACH AUDIO</span>
+            {/if}
+          </button>
+        {/if}
       </div>
 
-      <!-- Short explanation -->
-      <p class="reveal-short">{chosenOption.explication_courte}</p>
+      <!-- ─── ANALYSIS BREAKDOWN (MOBA Trainer style) ─── -->
+      <div class="analysis-section">
+        <div class="analysis-title">BREAKDOWN — ALL OPTIONS</div>
 
-      <!-- Optimal (if missed) -->
-      {#if chosenOption.tier !== "optimal"}
-        <div class="reveal-optimal">
-          <span class="optimal-tag">RADIANT CHOICE</span>
-          <span class="optimal-freq">{optimalOption.freq_elite_estimee}% of pros</span>
-          <p class="optimal-label">{optimalOption.label}</p>
-        </div>
-      {/if}
-
-      <!-- EV table -->
-      <div class="ev-table">
-        <div class="ev-title">EV BREAKDOWN</div>
-        {#each puzzle.options as opt, i}
-          {@const color = tierColor(opt.tier)}
-          {@const barW = evBarPercent(opt)}
+        {#each puzzle.options as opt}
           {@const isChosen = opt === chosenOption}
-          <div class="ev-row" class:is-chosen={isChosen} style="animation-delay:{i*80}ms">
-            <span class="ev-grade" style="color:{color};border-color:{color}40;background:{color}12">{tierToGrade(opt.tier)}</span>
-            <span class="ev-label" class:ev-chosen={isChosen}>{opt.label.slice(0,45)}{opt.label.length>45?"…":""}</span>
-            <div class="ev-bar-track">
-              <div class="ev-bar-fill" style="width:{barW}%;background:{color}"></div>
+          {@const isOptimal = opt.tier === "optimal"}
+          <div class="option-card" class:option-card--chosen={isChosen} class:option-card--optimal={isOptimal} style="--oc: {tierColor(opt.tier)}">
+            <div class="option-card-header">
+              <span class="option-verdict {verdictClass(opt.tier)}">{verdictLabel(opt.tier)}</span>
+              {#if isChosen}
+                <span class="option-your-pick">YOUR PICK</span>
+              {/if}
+              <span class="option-freq">{opt.freq_elite_estimee}% of pros</span>
+              <span class="option-ev" style="color:{tierColor(opt.tier)}">{opt.ev_delta}</span>
             </div>
-            <span class="ev-val" style="color:{color}">{opt.ev_delta}</span>
+            <p class="option-label-text">{opt.label}</p>
+            <p class="option-explanation">{opt.explication_courte}</p>
           </div>
         {/each}
       </div>
 
-      <!-- Full analysis (collapsible) -->
-      <details class="full-analysis">
-        <summary>Full analysis ▸</summary>
+      <!-- ─── RADIANT CALL DEEP DIVE ─── -->
+      <div class="radiant-section">
+        <div class="radiant-title">
+          <span class="radiant-tag">RADIANT CALL</span>
+          <span class="radiant-freq">{optimalOption.freq_elite_estimee}% of pros</span>
+        </div>
+        <p class="radiant-label">{optimalOption.label}</p>
         <p class="analysis-text">{puzzle.explication_longue}</p>
-      </details>
+      </div>
 
       <!-- Credit (mandatory CC-BY) -->
       <div class="credit-line">
@@ -1094,36 +1182,7 @@
     padding: 0 2px;
   }
 
-  .reveal-optimal {
-    background: #1C2127;
-    border: 1px solid #2A3441;
-    border-left: 2px solid #00D4AA;
-    padding: 10px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .optimal-tag {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #00D4AA;
-    text-transform: uppercase;
-  }
-  .optimal-freq {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 11px;
-    color: #00D4AA;
-    font-weight: 600;
-  }
-  .optimal-label {
-    font-size: 14px;
-    color: #ECE8E1;
-    margin: 0;
-    font-weight: 600;
-    line-height: 1.4;
-  }
+  /* reveal-optimal removed — replaced by option-card--optimal + radiant-section */
 
   /* EV table */
   .ev-table {
@@ -1171,31 +1230,7 @@
   @keyframes bar-fill { from { width: 0% !important; } }
   .ev-val { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; flex-shrink: 0; min-width: 36px; text-align: right; font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
 
-  /* Full analysis */
-  .full-analysis {
-    background: #1C2127;
-    border: 1px solid #2A3441;
-    padding: 10px 14px;
-  }
-  .full-analysis summary {
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 700;
-    color: #7B8FA1;
-    font-family: 'Inter', system-ui, sans-serif;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    list-style: none;
-    user-select: none;
-  }
-  .full-analysis summary::-webkit-details-marker { display: none; }
-  .analysis-text {
-    margin: 10px 0 0;
-    font-size: 13px;
-    line-height: 1.65;
-    color: #7B8FA1;
-    white-space: pre-wrap;
-  }
+  /* full-analysis removed — replaced by radiant-section with .analysis-text */
 
   /* Credit line */
   .credit-line {
@@ -1423,5 +1458,189 @@
   @keyframes slide-up {
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── REVEAL TOPBAR (header + VO button on same row) ── */
+  .reveal-topbar {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .reveal-topbar .reveal-header {
+    flex: 1;
+  }
+
+  /* ── VO PLAYER BUTTON ── */
+  .btn-vo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #1C2127;
+    border: 1px solid #2A3441;
+    color: #ECE8E1;
+    padding: 8px 14px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.1s, color 0.1s, background 0.1s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: center;
+    min-height: 40px;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  }
+  .btn-vo:hover {
+    border-color: #FF4655;
+    color: #FF4655;
+  }
+  .btn-vo-label { letter-spacing: 0.1em; }
+
+  /* ── ANALYSIS BREAKDOWN SECTION ── */
+  .analysis-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .analysis-title {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #7B8FA1;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  /* ── OPTION CARD ── */
+  .option-card {
+    background: #1C2127;
+    border: 1px solid #2A3441;
+    border-left: 2px solid var(--oc, #2A3441);
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    animation: slide-up 0.3s ease both;
+  }
+  .option-card--chosen {
+    background: #0F1923;
+    border-color: var(--oc, #2A3441);
+  }
+  .option-card--optimal {
+    border-left-color: #00D4AA;
+  }
+
+  .option-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .option-verdict {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%);
+  }
+  .verdict--radiant   { background: #00D4AA; color: #0F1923; }
+  .verdict--acceptable{ background: #eab308; color: #0F1923; }
+  .verdict--costly    { background: #f97316; color: #0F1923; }
+  .verdict--mistake   { background: #ef4444; color: #0F1923; }
+
+  .option-your-pick {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ECE8E1;
+    border: 1px solid #2A3441;
+    padding: 1px 6px;
+  }
+  .option-freq {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    color: #7B8FA1;
+    font-weight: 600;
+    margin-left: auto;
+  }
+  .option-ev {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  .option-label-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ECE8E1;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .option-explanation {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12px;
+    color: #7B8FA1;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .option-card--chosen .option-explanation {
+    color: #A8B5C4;
+  }
+
+  /* ── RADIANT DEEP DIVE SECTION ── */
+  .radiant-section {
+    background: #1C2127;
+    border: 1px solid #2A3441;
+    border-left: 2px solid #00D4AA;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radiant-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .radiant-tag {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #00D4AA;
+    text-transform: uppercase;
+  }
+  .radiant-freq {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    color: #00D4AA;
+    font-weight: 600;
+  }
+  .radiant-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ECE8E1;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .analysis-text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #7B8FA1;
+    white-space: pre-wrap;
   }
 </style>
