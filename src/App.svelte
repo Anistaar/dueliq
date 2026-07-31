@@ -325,11 +325,9 @@
         {#if puzzle.video}
           <!-- Video puzzle: theatre launcher card -->
           <div class="theatre-launcher">
+            <!-- Méta dégraissée (feedback 2026-07-31) : map visible dans le clip, thème = spoiler -->
             <div class="theatre-launcher-meta">
               <span class="tl-badge tl-badge--map">{puzzle.map.toUpperCase()}</span>
-              <span class="tl-badge tl-badge--theme">{puzzle.theme.toUpperCase()}</span>
-              <span class="tl-badge tl-badge--side">{puzzle.side.toUpperCase()}</span>
-              <span class="tl-badge tl-badge--video">VIDEO</span>
               {#if isStarter}
                 <span class="tl-badge tl-badge--starter">STARTER</span>
               {/if}

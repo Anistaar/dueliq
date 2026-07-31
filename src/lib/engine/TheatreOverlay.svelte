@@ -470,13 +470,8 @@
     </svg>
   </button>
 
-  <!-- Map + mode badges (top left) -->
-  <div class="theatre-badges">
-    <span class="tbadge tbadge--map">{puzzle.map.toUpperCase()}</span>
-    <span class="tbadge tbadge--theme">{puzzle.theme.toUpperCase()}</span>
-    <span class="tbadge tbadge--side">{puzzle.side}</span>
-    <span class="tbadge tbadge--video">VIDEO</span>
-  </div>
+  <!-- Meta badges supprimés (feedback fondateur 2026-07-31 : « trop d'informations, la map le side etc » —
+       le HUD du jeu montre déjà map/side ; le thème spoilait la réponse) -->
 
   <!-- Tap-to-unmute fallback (browser blocked autoplay with audio) -->
   {#if videoBlocked}
@@ -499,15 +494,12 @@
   <!-- QUESTION overlay — centered on desktop, stacked on portrait mobile -->
   {#if phase === "question"}
     <div class="question-layer fade-in">
-      <!-- Question banner (top of the centred block) -->
-      <div class="q-banner">
-        <div class="q-tag">WHAT DO YOU DO?</div>
-        <p class="q-text">{puzzle.question}</p>
-      </div>
-
-      <!-- Timer row (sits just above the cards grid) -->
-      <div class="timer-row">
-        <svg class="timer-svg" viewBox="0 0 40 40" width="40" height="40">
+      <!-- Une seule ligne fine : question + timer — la frame reste visible -->
+      <div class="q-row">
+        <div class="q-banner">
+          <p class="q-text">{puzzle.question}</p>
+        </div>
+        <svg class="timer-svg" viewBox="0 0 40 40" width="36" height="36" aria-label="timer">
           <circle cx="20" cy="20" r="16" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" />
           <circle
             cx="20" cy="20" r="16"
@@ -524,9 +516,6 @@
             fill={timer <= 5 && timerActive ? "#FF4655" : "#e2e8f0"}
             font-family="monospace" font-weight="700">{timer > 0 ? timer : "—"}</text>
         </svg>
-        <span class="timer-label" class:urgent={timer <= 5 && timerActive}>
-          {timer > 0 ? `${timer}s` : "Make your call"}
-        </span>
       </div>
 
       <!-- Choices -->
@@ -736,24 +725,35 @@
       linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
   }
 
-  /* ── QUESTION LAYER — centred over the video on desktop/landscape ── */
+  /* ── QUESTION LAYER — SUR la vidéo (bande basse, pas de popup) ──
+     Feedback fondateur 2026-07-31 : les choix se prennent sur l'image, pas dans
+     un panneau qui la masque. Aucun conteneur visuel : la vignette basse assure
+     la lisibilité, chaque élément porte sa propre translucidité. */
   .question-layer {
-    /* Desktop default: absolute, dead-centre of the theatre */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 60;
-    width: min(720px, 80vw);
-    padding: 20px 24px 24px;
+    width: 100%;
+    padding: 0 max(24px, 5vw) max(18px, env(safe-area-inset-bottom, 18px));
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    pointer-events: none; /* la frame reste "présente" ; seuls les éléments cliquent */
+  }
+  .question-layer > * { pointer-events: auto; }
+
+  .q-row {
+    display: flex;
+    align-items: center;
     gap: 12px;
-    /* Opaque panel — no glassmorphism */
-    background: rgba(11,16,22,0.92);
-    border: 1px solid #2A3441;
-    border-top: 2px solid #FF4655;
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+    max-width: 900px;
+    width: 100%;
+    justify-content: center;
   }
 
   /* ─────────────────────────────────────────────────────────────────────────
@@ -863,10 +863,6 @@
       position: fixed;
     }
 
-    .theatre-badges {
-      position: fixed;
-    }
-
     /* Hide rotate hint — layout is already optimised for portrait */
     .rotate-hint {
       display: none !important;
@@ -909,29 +905,6 @@
   }
   .btn-mute:hover { background: rgba(42,52,65,0.9); }
 
-  /* ── BADGES (top left) ── */
-  .theatre-badges {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 100;
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-  }
-  .tbadge {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border: 1px solid #2A3441;
-    background: rgba(11,16,22,0.92);
-    color: #7B8FA1;
-  }
-  .tbadge--video { background: #FF4655; color: #ECE8E1; border-color: #FF4655; }
-
   /* ── INTRO HINT ── */
   .intro-hint {
     position: absolute;
@@ -965,62 +938,41 @@
     50% { opacity: 0.3; }
   }
 
-  /* Timer row */
-  .timer-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
   .timer-svg { display: block; flex-shrink: 0; }
-  .timer-label {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(236,232,225,0.7);
-    transition: color 0.3s;
-  }
-  .timer-label.urgent { color: #FF4655; }
 
-  /* Question banner */
+  /* Question banner — une ligne fine translucide, jamais un bloc */
   .q-banner {
-    background: #0F1923;
-    border: 1px solid #2A3441;
-    padding: 12px 16px;
-  }
-  .q-tag {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #7B8FA1;
-    text-transform: uppercase;
-    margin-bottom: 6px;
+    background: rgba(15, 25, 35, 0.72);
+    border: none;
+    border-left: 2px solid #FF4655;
+    padding: 8px 14px;
+    min-width: 0;
   }
   .q-text {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #ECE8E1;
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
   }
-  @media (min-width: 800px) { .q-text { font-size: 16px; } }
+  @media (min-width: 800px) { .q-text { font-size: 15px; } }
 
-  /* Choices — always 2×2 inside the centred card on desktop */
+  /* Choices — 2×2 en bas de l'image, translucides, le centre de la frame reste lisible */
   .choices {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px;
+    max-width: 900px;
+    width: 100%;
   }
 
   .choice-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #1C2127;
-    border: 1px solid #2A3441;
+    background: rgba(18, 24, 31, 0.78);
+    border: 1px solid rgba(42, 52, 65, 0.9);
     padding: 11px 14px;
     color: #ECE8E1;
     text-align: left;

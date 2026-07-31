@@ -146,11 +146,12 @@ for (const vp of PORTRAIT_VIEWPORTS) {
   });
 }
 
-// ── Desktop: cards centred over the video ───────────────────────────────────
-test.describe("Desktop 1440x900 — cards centred over video", () => {
+// ── Desktop: choices ON the video (bottom strip, frame stays visible) ────────
+// Feedback fondateur 2026-07-31 : « on soit sur la vidéo pour cliquer, pas un popup »
+test.describe("Desktop 1440x900 — choices overlaid on video, no popup", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
-  test("question phase: cards are centred over the freeze frame (video visible)", async ({ page }) => {
+  test("question phase: bottom strip on the freeze frame, centre of frame unobstructed", async ({ page }) => {
     await openTheatre(page);
 
     const questionLayer = page.locator(".question-layer");
@@ -167,17 +168,15 @@ test.describe("Desktop 1440x900 — cards centred over video", () => {
     expect(videoBox!.width).toBeCloseTo(1440, -1);
     expect(videoBox!.height).toBeCloseTo(900, -1);
 
-    // Cards panel is inside the viewport (overlays the video)
-    expect(questionBox!.y).toBeGreaterThanOrEqual(0);
-    expect(questionBox!.y + questionBox!.height).toBeLessThanOrEqual(900 + 4);
+    // Strip is anchored at the BOTTOM of the viewport (no centered popup)
+    expect(questionBox!.y + questionBox!.height).toBeGreaterThan(880);
+    // Strip leaves the centre of the frame visible (starts below 55% of viewport height)
+    expect(questionBox!.y).toBeGreaterThan(900 * 0.45);
+    // Full-width strip
+    expect(questionBox!.width).toBeCloseTo(1440, -2);
 
-    // Cards panel is horizontally centred (centre x within 80px of viewport centre)
-    const panelCentreX = questionBox!.x + questionBox!.width / 2;
-    expect(Math.abs(panelCentreX - 720)).toBeLessThan(80);
-
-    // Cards panel is vertically centred (centre y within 150px of viewport centre)
-    const panelCentreY = questionBox!.y + questionBox!.height / 2;
-    expect(Math.abs(panelCentreY - 450)).toBeLessThan(150);
+    // No meta badges in theatre (map/theme/side removed)
+    await expect(page.locator(".theatre-badges")).toHaveCount(0);
 
     await page.screenshot({
       path: "tests/screenshots/desktop-1440x900-question.png",
