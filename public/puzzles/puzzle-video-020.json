@@ -1,0 +1,112 @@
+{
+  "id": "puzzle-video-020",
+  "version": 2,
+  "map": "bind",
+  "side": "DEF",
+  "theme": "util",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 95,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic", "basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-site",
+    "allies": [
+      { "id": "YOU", "x": 300, "y": 560, "orientation_deg": 20, "label": "YOU-ANCHOR", "est_joueur_concerne": true }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind — DEF, buy phase ending, you are the solo A-site anchor with your sentinel/controller util. How do you set up to hold A alone against a possible 5-man hit?",
+  "options": [
+    {
+      "label": "Set traps/util on the entries and hold an angle your OWN util does NOT cover, playing behind it for delay",
+      "tier": "optimal",
+      "ev_delta": "+0.15 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "An anchor's job is to delay and survive, not to win a 1v5. Put your util between you and the attackers to cover one entrance, then hold the other angle yourself — if a trip triggers you react from safety, and you buy time for rotations while staying alive to report.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/role-breakdown-an-in-depth-overview-of-sentinel-in-valorant",
+          "citation": "Play behind your utility, not on top of it; cover one entrance with traps and hold an uncovered angle so a trigger gives you time to react"
+        }
+      ]
+    },
+    {
+      "label": "Push up aggressively into A Lobby/Short to look for an early pick before they group",
+      "tier": "couteux",
+      "ev_delta": "-0.23 R",
+      "freq_elite_estimee": 18,
+      "explication_courte": "As the lone anchor, dying in the enemy's half means the site is undefended and your rotators walk into a 4v5 retake. An aggressive push can get info but far more often trades your life for nothing — the opposite of your role.",
+      "sources_option": [
+        {
+          "url": "https://theguide.gg/improve/lessons/valorant/how-to-play-off-sentinel-agents-745",
+          "citation": "The anchor's value is staying alive to delay and inform; over-aggression that gets the anchor killed early collapses the defense"
+        }
+      ]
+    },
+    {
+      "label": "Save all your util uncommitted and just hold a default angle, keeping abilities for the retake",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Holding util for a retake is a valid resource idea, but as the on-site anchor your traps deployed on the entries are what actually buy the delay you exist to provide. Sitting on all of it often means the site falls before your team arrives.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/learn-to-take-control-of-your-valorant-games-a-breakdown-of-map-control",
+          "citation": "Defenders can save non-regenerable util for retakes, but the anchor's setup util is what delays the initial hit"
+        }
+      ]
+    },
+    {
+      "label": "Stack tight on the spike-plant spot in the open so you can contest the plant directly",
+      "tier": "faute",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Sitting exposed on the default plant spot lets the entry pack pre-aim and trade you instantly on the hit. You give up your delay, your info, and your life in the first two seconds of the execute.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Holding a predictable, exposed spot into a coordinated entry gets you pre-fired and traded before you can react"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Site anchoring is one of the most under-valued decisions in the game because it rewards patience over kills. As the solo A anchor on Bind, you are not there to win a 1v5 — you are there to delay the hit long enough for your rotators to arrive and to stay alive to tell them what is coming. The optimal setup embodies both: put your utility (traps, a smoke, a slow) on the entries so it sits between you and the attackers, then personally hold an angle your own util does NOT cover. That way a triggered trip gives you a free beat to react from safety, one entrance is watched by util while you watch the other, and crucially you survive to call the numbers and rotate to the retake if the site falls. Pushing up aggressively for an early pick is the seductive error — as the lone anchor, dying in the enemy half leaves the site naked and drops your team into a 4v5 retake. Saving all your util 'for the retake' is defensible resource-thinking but usually self-defeating here: the traps you deploy on the entries ARE the delay you exist to create, and hoarding them lets the site fall before help comes. Stacking exposed on the plant spot is the outright faute — you get pre-aimed and traded in the first two seconds. Play behind your util, hold the uncovered angle, delay and survive.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/role-breakdown-an-in-depth-overview-of-sentinel-in-valorant",
+      "citation": "Anchor play: place util on entrances, hold an uncovered angle, play behind your traps, and prioritise delay and survival over kills"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use Gameplay (60 Fps) | CC-BY — footage source (Bind, A Site DEF, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (defensive setup with deployable util visible, Stinger out). Puzzle is a generic anchor-setup decision, not tied to a specific sentinel." },
+    { "champ": "buy_phase_freeze", "incertitude": "The freeze is late buy-phase (defensive setup), so no attacker is visible (ennemis_inconnus_count: 5). The setup principle is independent of the hit direction." },
+    { "champ": "util_layout", "incertitude": "Exact trap/smoke placements are not geometrised in the 2D token; the principle (util on entries, hold uncovered angle) is what the puzzle trains." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-020-intro.mp4",
+    "resolution_url": "media/p-video-020-resolution.mp4",
+    "freeze_frame_url": "media/p-video-020-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
+  }
+}

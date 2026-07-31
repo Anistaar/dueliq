@@ -1,0 +1,113 @@
+{
+  "id": "puzzle-video-021",
+  "version": 2,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 99,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-link",
+    "allies": [
+      { "id": "YOU", "x": 560, "y": 700, "orientation_deg": 270, "label": "YOU-SPIKE-OP", "est_joueur_concerne": true },
+      { "id": "P2", "x": 460, "y": 640, "orientation_deg": 270, "label": "ENTRY", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind — ATK, 8-7, 5v5, no spike, you carry the spike AND an Operator, pushing A Link behind your entry teammate. How do you play the spike-carrier-with-Op on this A execute?",
+  "options": [
+    {
+      "label": "Sit back one beat behind the entry, hold the Op on the deep angle, and only plant once the space is cleared",
+      "tier": "optimal",
+      "ev_delta": "+0.17 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "The spike carrier must be the LAST to die, and the Op is a hold weapon. Trailing the entry lets them draw first contact while you lock the long angle; you convert their opening into a pick and stay alive to plant. Two jobs, one disciplined position.",
+      "sources_option": [
+        {
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "The entry takes first contact; the follow player trades and protects the plant — the spike carrier plays last and safe"
+        }
+      ]
+    },
+    {
+      "label": "Push in front of your entry to Op-peek the site opening yourself and win the first duel",
+      "tier": "couteux",
+      "ev_delta": "-0.26 R",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Leading the entry with an Op and the spike risks the worst outcome: you eat first contact, lose the Op AND drop the spike forward, and there is nobody left to trade the angle you exposed. The carrier should never take first contact.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Peeking first with an Operator forfeits its holding advantage; doing it as the spike carrier compounds the risk of dropping the objective"
+        }
+      ]
+    },
+    {
+      "label": "Drop the Op mentality, rush in with the entry, and plant fast for a default before they set",
+      "tier": "acceptable",
+      "ev_delta": "-0.06 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "A fast grouped plant is a valid tempo call, but abandoning the Op's long-angle control on a full-buy gun round leaves your execute without its strongest hold. Often you plant fast AND keep the Op perch — not one at the cost of the other.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Fast plants win tempo, but discarding a controlling weapon's sightline can leave the post-plant weaker than it should be"
+        }
+      ]
+    },
+    {
+      "label": "Peel off alone toward Hookah to flank while your team hits A",
+      "tier": "faute",
+      "ev_delta": "-0.30 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Taking the spike carrier away from the execute abandons the plant plan and isolates the objective on a solo lurk. If you die, the round's win condition (the plant) walks off the map with you.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Splitting the spike carrier off the main hit isolates the objective and hands the defense a piecemeal fight"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "This puzzle stacks two role rules that both point the same way: the spike carrier must survive to plant, and the Operator is a weapon you hold with, not push with. On an 8-7 full-buy A execute on Bind, you are carrying both the spike and the Op behind your entry — so the highest-EV line is to trail one beat behind, lock the Op on the deepest angle into site, and plant only once your entry has cleared the space and drawn first contact. That single disciplined position does everything: the entry takes the opening duel, you convert their contact into a pick from your held angle, and you stay alive as the last-to-die carrier to complete the plant. Pushing in front to Op-peek yourself is the costly error — you take first contact as the carrier, and losing that duel means the Op AND the spike are forward with no trade behind them. Dropping the Op mindset for a fast grouped plant is a reasonable tempo choice and genuinely acceptable, but on a gun round it usually surrenders your strongest post-plant hold; good players plant fast and keep the perch. Peeling off to Hookah alone is the faute: you remove the objective from the execute and gamble the entire round's win condition on a solo lurk. Trail, hold, plant last.",
+  "sources": [
+    {
+      "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+      "citation": "Entry draws first contact, the follow trades, and the spike carrier plays last and safe to secure the plant"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use Gameplay (60 Fps) | CC-BY — footage source (Bind, A Link, spike carrier POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (Operator + spike carried, signature available). Decision is a carrier/Op role call, not agent-specific." },
+    { "champ": "ally_util", "incertitude": "A teammate (LexTK) is deploying util at A Link (a wall/flash), inferred from the freeze; exact ability not identified, but the carrier's positioning decision is independent of it." },
+    { "champ": "defender_positions", "incertitude": "No defender is confirmed at the freeze (ennemis_inconnus_count: 5); the trail-and-hold principle is robust to their setup." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-021-intro.mp4",
+    "resolution_url": "media/p-video-021-resolution.mp4",
+    "freeze_frame_url": "media/p-video-021-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
+  }
+}

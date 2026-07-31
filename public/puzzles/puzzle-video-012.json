@@ -6,130 +6,100 @@
   "theme": "entry",
   "difficulty_est": 3,
   "round_state": {
-    "timer_s": 90,
+    "timer_s": 57,
     "spike_planted": false,
-    "alive_atk": 4,
-    "alive_def": 4,
+    "alive_atk": 3,
+    "alive_def": 2,
     "eco_atk_approx": "full-buy",
     "eco_def_approx": "full-buy",
     "util_joueur": {
       "agent": "unknown",
-      "signature": null,
+      "signature": "available",
       "ultimate": null,
-      "basic_remaining": ["c", "q"]
+      "basic_remaining": ["basic"]
     }
   },
   "positions": {
     "viewBox": "0 0 1000 1000",
-    "map_zone": "a-lobby",
+    "map_zone": "a-short",
     "allies": [
-      {
-        "id": "YOU",
-        "x": 300,
-        "y": 650,
-        "orientation_deg": 0,
-        "label": "YOU (spike, Judge)",
-        "est_joueur_concerne": true
-      },
-      {
-        "id": "P2",
-        "x": 450,
-        "y": 550,
-        "orientation_deg": 0,
-        "label": "TEAMMATE",
-        "est_joueur_concerne": false
-      }
+      { "id": "YOU", "x": 380, "y": 560, "orientation_deg": 30, "label": "YOU-OP-SPIKE", "est_joueur_concerne": true }
     ],
     "ennemis_connus": [],
-    "ennemis_inconnus_count": 4
+    "ennemis_inconnus_count": 2
   },
-  "question": "Bind — ATK, 4v4, no spike, 1:30 left. You are carrying the spike with a Judge through A Lobby toward A Short; a teammate pinged an angle ahead. As the spike carrier, how should you move?",
+  "question": "Bind — ATK, 8-7, you are UP 3v2 and carry the spike with an Operator scoped down A Short. One defender was just traded on A. How do you play the spike-carrier-with-Op?",
   "options": [
     {
-      "label": "Let a teammate clear the angle first and stay behind cover — the spike carrier enters last, not first",
+      "label": "Hold the Op locked on A Short, let your two teammates take the space, and plant only once it's safe",
       "tier": "optimal",
-      "ev_delta": "+0.18 R",
-      "freq_elite_estimee": 61,
-      "explication_courte": "If the spike carrier dies entering, the bomb drops in the open and your whole execute stalls while someone re-grabs it under fire. The carrier's job is to survive to the plant — let the others take the opening duels.",
+      "ev_delta": "+0.16 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Up 3v2 as the spike carrier, you must be the last to die and the Op is a hold weapon. Locking A Short punishes any defender re-peek from the choke while your mates clear the site, then you plant safe — numbers advantage preserved.",
       "sources_option": [
         {
-          "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
-          "citation": "The spike carrier should enter behind teammates and stay protected; losing the carrier in the open cripples the site execute"
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "The Op holds an angle the enemy must cross; the spike carrier plays last and safe to convert a numbers lead into a plant"
         }
       ]
     },
     {
-      "label": "Rush A Short yourself with the Judge to clear close angles before anyone can hold you",
+      "label": "Wide-swing A Short with the Op to hunt the last two defenders yourself",
       "tier": "couteux",
-      "ev_delta": "-0.27 R",
-      "freq_elite_estimee": 11,
-      "explication_courte": "Entering first with the spike bets the round on your one duel. A Judge wins the corner but loses to anyone holding at range in A Short, and if you drop, the bomb is stranded in the open and the execute collapses.",
+      "ev_delta": "-0.25 R",
+      "freq_elite_estimee": 16,
+      "explication_courte": "Swinging the Op forfeits its holding advantage and exposes the spike carrier to a trade — losing that duel drops your 3v2 to a 2v2 with the objective forward and no cover.",
       "sources_option": [
         {
-          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
-          "citation": "Entry duties belong to duelists creating space; the objective carrier should not lead the charge into unknown angles"
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Wide-swinging with an Operator surrenders its holding advantage; doing it as the carrier risks the objective"
         }
       ]
     },
     {
-      "label": "Wait at A Lobby and default with the team, only pushing when util goes down for the take",
+      "label": "Plant immediately where you stand to bank the plant before contesting anything",
       "tier": "acceptable",
-      "ev_delta": "+0.06 R",
-      "freq_elite_estimee": 23,
-      "explication_courte": "Slowing to set up a proper util-backed take is fine and often best — but pure waiting without any pressure while a teammate has already committed an angle can leave him unsupported and let the defense re-stack the site.",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Getting the plant down is valuable, but planting too early in an exposed spot without your Op holding the choke can let the two defenders re-peek and contest the plant. Usually you secure the angle first, then plant.",
       "sources_option": [
         {
-          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
-          "citation": "Coordinate the take with utility and support the committed player; don't leave a lone teammate hung out on an angle"
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "A plant secures round equity, but planting exposed before the entries are controlled invites a contested defuse fight"
         }
       ]
     },
     {
-      "label": "Drop the spike to a teammate and swing the pinged angle aggressively yourself",
+      "label": "Leave A entirely and rotate the spike toward B for a re-fake",
       "tier": "faute",
-      "ev_delta": "-0.41 R",
-      "freq_elite_estimee": 5,
-      "explication_courte": "Dropping the spike mid-lobby to go frag hands the bomb around under time pressure and risks it being lost if that teammate then dies; it also removes your Judge from close-range site defence at the worst moment. Over-complicated for no gain.",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Abandoning a won 3v2 on A to walk the spike across the map wastes your advantage and the clock, and risks running the objective into an unknown rotation. When you're up on-site, you close it out, not re-fake.",
       "sources_option": [
         {
-          "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
-          "citation": "Passing the spike around mid-execute creates chaos and risk; keep the carrier protected and plan the plant, don't improvise frags"
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Walking the objective away from a won site position surrenders tempo and the numbers advantage you already earned"
         }
       ]
     }
   ],
-  "explication_longue": "The spike carrier is the one player on the attack whose survival is non-negotiable — if the bomb drops in the open under fire, the entire execute stalls while a teammate scrambles to re-grab it and the defense re-stacks. Moving through A Lobby toward A Short with a Judge and a teammate already pinging an angle, the disciplined line is to let that teammate (or a duelist) take the opening duel while you stay behind cover, ready to move up and plant once the space is cleared. Rushing A Short yourself bets the round on a single close-range duel your Judge only wins at point-blank; the moment someone holds you from range, or you simply lose the coinflip, the spike is stranded and the take falls apart. Pure waiting is acceptable and often ideal when it means setting up a real utility-backed execute — but it must not mean abandoning a teammate who has already committed to the pinged angle. And dropping the spike to go frag is the worst option: it juggles the bomb under time pressure, risks losing it entirely, and pulls your close-range gun off the site. Stay protected, enter last, plant.",
+  "explication_longue": "This is a carrier-and-Op discipline decision with a numbers lead. Up 8-7 in a 3v2 on Bind, you hold an Operator scoped down A Short and carry the spike after your team traded a defender on A. The optimal line stacks two rules that agree: the spike carrier must be the last to die, and the Op is a weapon you hold with. Locking A Short punishes any defender who re-peeks the choke while your two teammates take the space, and then you plant only once it is safe — your 3v2 stays intact and the round is nearly closed. Wide-swinging the Op to hunt the last two yourself is the costly error: you forfeit the Op's holding edge and expose the carrier to a trade that would drop you to a 2v2 with the objective forward. Planting immediately where you stand is genuinely acceptable — banking the plant has value — but doing it exposed, before your Op has locked the choke, invites the two defenders to re-peek and contest the defuse; usually you secure the angle first. Leaving A to re-fake toward B is the faute: it throws away a won 3v2 and the clock, and risks running the spike into an unknown rotation. Hold the choke, let your mates clear, plant safe.",
   "sources": [
     {
-      "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
-      "citation": "The spike carrier enters behind the entry, stays protected, and survives to the plant; the carrier does not lead the site take"
+      "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+      "citation": "Spike carrier with an Op: hold the choke the enemy must cross, play last and safe, and plant once the site is controlled"
     },
     {
-      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
-      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Bind A Lobby)"
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use Gameplay (60 Fps) | CC-BY — footage source (Bind, A Short, Op+spike, ranked POV) — replaces the prior muted Spike Rush clip"
     }
   ],
-  "validation": {
-    "status": "draft",
-    "juges": []
-  },
+  "validation": { "status": "draft", "juges": [] },
   "_gaps": [
-    {
-      "champ": "agent_identity",
-      "incertitude": "Spectator-observer POV; the 'YOU HAVE THE SPIKE' indicator and Judge shotgun are readable on the HUD, but the player's agent is not confirmed and is left unknown. The decision is role-based (carrier discipline), not agent-specific"
-    },
-    {
-      "champ": "alive_count",
-      "incertitude": "4v4 read from the alive-icon bar; the teammate's ping (blue line) is visible but the four defenders' positions are not — no contact yet at the freeze"
-    },
-    {
-      "champ": "game_mode",
-      "incertitude": "Spike Rush footage on Bind (short mode). Buy tiers estimated from the Judge/full-alive state, not read from credits"
-    },
-    {
-      "champ": "freq_estimates",
-      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
-    }
+    { "champ": "agent_identity", "incertitude": "Ranked player-POV clip (upgrade from the prior Spike Rush footage); agent not read from the freeze (Operator scoped + spike carried). Decision is a carrier/Op role call, not agent-specific." },
+    { "champ": "trade_context", "incertitude": "A downed body is visible on A; that a defender was just traded (making it 3v2) is inferred from the alive-icon bar (3 vs 2)." },
+    { "champ": "defender_positions", "incertitude": "The two remaining defenders are unseen at the freeze (ennemis_inconnus_count: 2); the hold-the-choke principle is robust to their positions." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
   ],
   "video": {
     "intro_url": "media/p-video-012-intro.mp4",
@@ -137,6 +107,6 @@
     "freeze_frame_url": "media/p-video-012-freeze.jpg",
     "credit": "No Copyright Gameplay (YouTube)",
     "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
-    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
   }
 }

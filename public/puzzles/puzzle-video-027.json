@@ -1,0 +1,114 @@
+{
+  "id": "puzzle-video-027",
+  "version": 2,
+  "map": "pearl",
+  "side": "ATK",
+  "theme": "rotation",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 73,
+    "spike_planted": false,
+    "alive_atk": 3,
+    "alive_def": 4,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "mid-link",
+    "allies": [
+      { "id": "YOU", "x": 480, "y": 640, "orientation_deg": 0, "label": "YOU", "est_joueur_concerne": true }
+    ],
+    "ennemis_connus": [
+      { "id": "E1", "x": 560, "y": 420, "orientation_deg": 180, "label": "E", "est_joueur_concerne": false }
+    ],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Pearl — ATK, 3-2, you are DOWN 3v4 at Mid Link. An enemy is peeking mid at range through molly fire; you have a Vandal and your setup util is out. Do you take this mid duel?",
+  "options": [
+    {
+      "label": "Refuse the low-percentage mid duel: hold your util, break contact, and re-group with your team for a numbers-safe hit",
+      "tier": "optimal",
+      "ev_delta": "+0.15 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "Down a man, a long mid duel through fire against an unknown backline is exactly the fight you must decline — win or lose, you can get traded by the 3 you can't see. Break off, keep your util, and pick a fight where your team can trade for you.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+          "citation": "Down a man, decline isolated long-range duels with an unseen backline; regroup so any fight you take can be traded"
+        }
+      ]
+    },
+    {
+      "label": "Take the duel now — swing the mid angle and try to win the 1-tap to even the numbers",
+      "tier": "couteux",
+      "ev_delta": "-0.23 R",
+      "freq_elite_estimee": 18,
+      "explication_courte": "Even if you win the peek, you're exposed to the 3 unseen defenders who can trade you instantly — and if you lose, you drop to a 2v4. A solo mid duel while down is a high-variance bet that usually costs more than it wins.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Peeking a duel with an unseen enemy backline invites an instant trade; the reward rarely justifies the exposure"
+        }
+      ]
+    },
+    {
+      "label": "Use your util to pressure/clear the mid angle for info, then decide with your team",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Spending util to gather info and pressure the angle is reasonable, but with limited numbers you may want that util for the actual committed hit. It's a fine tempo option, just slightly lower EV than cleanly disengaging and regrouping.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Util can buy info and pressure a chokepoint, but resources spent mid-round are unavailable for the committed execute"
+        }
+      ]
+    },
+    {
+      "label": "Push through the molly fire into mid to force the fight fast",
+      "tier": "faute",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Walking through the fire takes chip damage AND commits you into a 1v4 in the enemy's mid with no trade — the single worst duel selection available while already down a man.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Pushing into contested space while down a man and taking util damage isolates you for a piecemeal loss"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "This is duel selection under a numbers deficit, the moment where discipline earns rounds. Down 3v4 at Mid Link on Pearl with an enemy peeking mid at range through molly fire, the instinct is to take the shot — but the highest-EV play is to refuse it. A long mid duel against a single visible enemy while three more defenders sit unseen is a trap: even a clean win exposes you to an instant trade from the backline you can't see, and a loss drops you to 2v4. So you break contact, hold your util, and regroup with your two teammates for a hit where the numbers can trade for you. Taking the duel now is the costly error — high variance, low reward, and it gambles the man-disadvantage further. Spending util to pressure and gather info on the angle is genuinely acceptable and sometimes right, but with limited bodies you usually want that util saved for the committed execute, so it edges just below a clean disengage. Pushing through the molly fire into mid is the outright faute: you eat chip damage and walk into a 1v4 in the enemy's space with no trade — the worst duel selection available while down. When you're down and the fight is isolated and long, the winning move is often not to fight at all: reset, regroup, and choose a fight your team can trade.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+      "citation": "Down a man, refuse isolated long-range duels with an unseen backline; regroup so every fight can be traded"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rPFcvli4m7s",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Pearl, Mid Link, 3v4 down, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (Vandal + a deployable turret/util visible). Decision is a duel-selection principle, not agent-specific." },
+    { "champ": "theme_mapping", "incertitude": "The taxonomy tags trained are 'duel-selection' and 'timing'; the schema theme enum lacks both, so 'rotation' is used (the decision is whether to disengage and regroup). Question/explanation make the duel-selection focus explicit." },
+    { "champ": "backline_positions", "incertitude": "One enemy is visible mid (ennemis_connus: 1); the other three defenders are unseen (ennemis_inconnus_count: 3) — that hidden backline is the crux of the decision." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-027-intro.mp4",
+    "resolution_url": "media/p-video-027-resolution.mp4",
+    "freeze_frame_url": "media/p-video-027-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=rPFcvli4m7s"
+  }
+}

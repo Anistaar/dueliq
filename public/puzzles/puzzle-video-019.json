@@ -1,0 +1,113 @@
+{
+  "id": "puzzle-video-019",
+  "version": 2,
+  "map": "icebox",
+  "side": "ATK",
+  "theme": "postplant",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 40,
+    "spike_planted": true,
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": "available",
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-tower",
+    "allies": [
+      { "id": "YOU", "x": 300, "y": 620, "orientation_deg": 0, "label": "YOU-OP", "est_joueur_concerne": true },
+      { "id": "P2", "x": 420, "y": 760, "orientation_deg": 340, "label": "MATE", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 2
+  },
+  "question": "Icebox — ATK post-plant A, 2v2, spike down, ~0:40 on the plant. You hold an Operator scoped from A Tower onto the site. How do you play your Op in this post-plant?",
+  "options": [
+    {
+      "label": "Hold your scoped Op locked on the tightest defuse angle and let the clock force the defenders to come to you",
+      "tier": "optimal",
+      "ev_delta": "+0.18 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Post-plant, time is on the attacker: the defenders must expose themselves to defuse. An Op pre-scoped on the one lane they have to cross converts that forced movement into a near-free pick — you make them fight your setup, not the other way around.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Holding a pre-aimed angle on the path the enemy must cross is the highest-percentage duel; make them move into your shot"
+        }
+      ]
+    },
+    {
+      "label": "Dry-peek off the Op to hunt the defenders before they group for the retake",
+      "tier": "couteux",
+      "ev_delta": "-0.25 R",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Peeking with an Op sacrifices its whole advantage — the slow ADS and re-scope leave you exposed to a wide-swing trade. You give away your held angle and your positional edge to chase a kill the clock would have handed you.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "The Operator is a holding weapon; peeking with it forfeits the pre-aim and re-scope advantage that makes it strong"
+        }
+      ]
+    },
+    {
+      "label": "Reposition off A Tower to a closer off-angle so you can swap to your sidearm if they get near the spike",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Taking a fresh off-angle is a reasonable anti-pre-fire adjustment, but leaving a strong long Op perch mid-round can surrender the exact sightline that makes a defuse costly for them. Often you keep the perch and only rotate if pushed.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Repositioning to an off-angle can beat a pre-fire, but abandoning a dominant post-plant sightline can hand the defusers a free lane"
+        }
+      ]
+    },
+    {
+      "label": "Dump your ultimate and signature onto the spike immediately to zone the defuse",
+      "tier": "faute",
+      "ev_delta": "-0.28 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Blowing all your util the instant the spike lands wastes it — post-plant util is most valuable timed to the actual defuse attempt. Spending it early leaves you with nothing when they commit to the defuse with 7 seconds left.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/a-guide-on-creating-taking-and-controlling-space-in-valorant",
+          "citation": "Post-plant utility should be timed to deny the defuse itself; dumping it early leaves you empty for the moment that decides the round"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Post-plant is the clearest place where the clock is a teammate. With the spike down in a 2v2 on A Icebox and ~40 seconds left, the defenders cannot win by waiting — they must expose themselves to reach and defuse the spike. Your job with the Operator held from A Tower is to make that forced movement as expensive as possible. Pre-scoping the tightest angle they have to cross to touch the spike converts their obligation into a near-free pick: you fight on your terms, from your setup, at the range where the Op is strongest. Dry-peeking off the Op is the costly error — you surrender its entire advantage (the slow ADS and re-scope) and expose yourself to a wide-swing trade, chasing a kill the timer would have delivered. Repositioning to a closer off-angle is a defensible anti-pre-fire tweak, but abandoning a dominant long perch mid-round can hand the defusers exactly the lane you wanted to lock; usually you keep the perch and only move if actively pushed. Dumping all your util the instant the spike lands is the faute: post-plant utility is worth most timed to the real defuse attempt, so spending it early leaves you empty at the 7-second moment that decides the round. Hold the angle, keep your util, let the clock do the work.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+      "citation": "The Op is a holding weapon; pre-aim the forced lane and let the enemy move into your shot rather than peeking or repositioning away"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LEpGr12MYjM",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use (60 FPS) | CC-BY — footage source (Icebox, A Tower, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (Operator scoped, signature+ult available on HUD). Decision is an Op post-plant call, not agent-specific." },
+    { "champ": "spike_context", "incertitude": "Spike-planted is inferred from the plant timer icon on the HUD; the exact plant spot on A Icebox is not geometrised in the 2D token." },
+    { "champ": "defender_positions", "incertitude": "Both remaining defenders are unseen at the freeze (ennemis_inconnus_count: 2); the hold-the-lane principle is robust to their exact route." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-019-intro.mp4",
+    "resolution_url": "media/p-video-019-resolution.mp4",
+    "freeze_frame_url": "media/p-video-019-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=LEpGr12MYjM"
+  }
+}

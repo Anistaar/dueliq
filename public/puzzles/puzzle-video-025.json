@@ -1,0 +1,114 @@
+{
+  "id": "puzzle-video-025",
+  "version": 2,
+  "map": "pearl",
+  "side": "ATK",
+  "theme": "clutch",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 39,
+    "spike_planted": false,
+    "alive_atk": 3,
+    "alive_def": 1,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": "available",
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-main",
+    "allies": [
+      { "id": "YOU", "x": 320, "y": 640, "orientation_deg": 0, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 260, "y": 720, "orientation_deg": 0, "label": "MATE", "est_joueur_concerne": false },
+      { "id": "P3", "x": 380, "y": 560, "orientation_deg": 0, "label": "MATE", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 1
+  },
+  "question": "Pearl — ATK, MATCH POINT 12-10, you are UP 3v1 with 0:39 left, pushing A Main, one defender left somewhere (Omen just pinged DANGER near Mid Bottom). How do you convert the 3v1?",
+  "options": [
+    {
+      "label": "Play slow and together, trade-spaced, and take the site as a group so the lone defender can never isolate a 1v1",
+      "tier": "optimal",
+      "ev_delta": "+0.16 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Up 3v1 the only way to lose is to feed the defender isolated duels. Moving slowly as a trade-spaced group means any peek he takes gets instantly traded — you turn your numbers into an unloseable series of 3v1 refrags and close out the round.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+          "citation": "With a man advantage, move together and trade-spaced so the outnumbered enemy can never win an isolated duel"
+        }
+      ]
+    },
+    {
+      "label": "Rush in fast to close the round before the clock runs, each taking a lane",
+      "tier": "couteux",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 16,
+      "explication_courte": "Splitting into lanes to rush gives the lone defender exactly what he wants: three isolated 1v1s where his positioning and pre-aim can pick you off one at a time. Over-pressing a numbers lead is how 3v1s become 2v1s and 1v1s.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Splitting lanes while up in numbers lets the outnumbered player fight each attacker one-on-one and claw the round back"
+        }
+      ]
+    },
+    {
+      "label": "Slow-play for the plant, using util to clear the DANGER-pinged Mid before committing to A",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Clearing the pinged flank with util is prudent and low-risk, but with 0:39 you must still convert to a plant or a kill — spending too long clearing can let the defender re-position and burn the clock in a must-plant.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Clearing a flagged flank with util is safe, but attackers must still convert to a plant before the timer forces the issue"
+        }
+      ]
+    },
+    {
+      "label": "Solo-push ahead of your teammates to find the last defender yourself",
+      "tier": "faute",
+      "ev_delta": "-0.30 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Peeling ahead alone throws away your entire advantage — you hand the defender the isolated 1v1 he needs and, if you die, drop the round to a 2v1 you should have won for free. Never break the group when up big.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+          "citation": "Pushing ahead of your team while up gives the enemy the isolated duel; the man advantage only holds if you stay grouped"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Converting a numbers advantage is a discipline most players fail because it feels too easy to bother thinking about. At match point 12-10, up 3v1 on Pearl with 0:39 pushing A Main and the last defender pinged near Mid Bottom, the only way to lose is to hand him isolated duels — so the optimal line is to move slowly and together, trade-spaced, and take the site as a group. Played that way, any peek the lone defender risks gets instantly traded, your three become an unloseable series of 3v1 refrags, and you close out the map. Rushing in with each player taking a lane is the costly error: splitting gives the defender exactly the three isolated 1v1s where his pre-aim and positioning can pick you apart, and that is how 3v1s decay into 1v1s. Slow-playing to clear the DANGER-pinged Mid with utility first is genuinely acceptable — it neutralises the flank cheaply — but with 39 seconds you still must convert to a plant or a kill, so over-clearing risks burning the clock in a must-plant. Solo-pushing ahead to find him yourself is the faute: it throws away the entire advantage, gifts him the isolated duel, and can drop a free round to a 2v1. Up big, you stay grouped, move slow, and let your numbers do the work.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+      "citation": "Advantage conversion: stay grouped and trade-spaced so the outnumbered enemy never gets an isolated duel"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rPFcvli4m7s",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Pearl, A Main, 3v1 up, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip inside a Viper toxin screen (green DECAY); the player's agent isn't confirmed from the freeze. The 'esc0bruh (Omen)' ping is a teammate's comm, not the player. Decision is a 3v1 conversion principle, not agent-specific." },
+    { "champ": "theme_mapping", "incertitude": "The taxonomy tag trained here is 'advantage' (conversion of a numbers lead); the schema theme enum lacks it, so 'clutch' is used as the closest man-advantage / duel-isolation category. Question and explanation make the advantage focus explicit." },
+    { "champ": "last_defender_pos", "incertitude": "The single remaining defender's exact position is unknown (DANGER pinged near Mid Bottom, ennemis_inconnus_count: 1); the stay-grouped principle is robust to it." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-025-intro.mp4",
+    "resolution_url": "media/p-video-025-resolution.mp4",
+    "freeze_frame_url": "media/p-video-025-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=rPFcvli4m7s"
+  }
+}

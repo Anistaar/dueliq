@@ -1,0 +1,114 @@
+{
+  "id": "puzzle-video-016",
+  "version": 2,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 86,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-long",
+    "allies": [
+      { "id": "YOU", "x": 620, "y": 760, "orientation_deg": 300, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 300, "y": 700, "orientation_deg": 270, "label": "A", "est_joueur_concerne": false },
+      { "id": "P3", "x": 480, "y": 640, "orientation_deg": 270, "label": "MID", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind — ATK, 5v5 full-buy, 1:26 left, no spike. You are alone entering B Long, the rest of your team is spread toward A and Mid, no defender has been seen yet. How do you take this space?",
+  "options": [
+    {
+      "label": "Slice B Long tight against cover, clear one angle at a time, and hold for a teammate before committing deep",
+      "tier": "optimal",
+      "ev_delta": "+0.14 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Map control is the space you can move through safely — you win it by clearing angle-by-angle and only pushing as deep as you can trade. Taking B Long methodically denies the defender a free pick and keeps the whole default flexible (still able to hit A, B, or split).",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Map control is the set of spaces your team can safely move through; a default takes early space without committing, then decides which site to hit"
+        }
+      ]
+    },
+    {
+      "label": "Dry-sprint all the way down B Long to Hookah/site to grab the space fast before defenders set up",
+      "tier": "couteux",
+      "ev_delta": "-0.26 R",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Running into unknown space with no util and no trade behind you hands the defender a free wide-swing pick. You can lose the man AND the space, turning a 5v5 default into a 4v5 with the round plan blown.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/a-guide-on-creating-taking-and-controlling-space-in-valorant",
+          "citation": "Taking space recklessly without trades or utility gives it straight back — space is only controlled if you can hold or refrag on it"
+        }
+      ]
+    },
+    {
+      "label": "Throw your signature to block/deny the B Long angle, then step out under it to secure the first third of the lane",
+      "tier": "acceptable",
+      "ev_delta": "-0.04 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Using util to deny the sightline is a valid way to claim space, but spending your signature this early with nobody committing behind you can be premature — you may want it saved for the actual site hit.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/learn-to-take-control-of-your-valorant-games-a-breakdown-of-map-control",
+          "citation": "Utility that cuts a chokepoint's sightline lets attackers claim space, but util spent early is util you don't have for the execute"
+        }
+      ]
+    },
+    {
+      "label": "Back off B Long entirely and rotate to stack Mid/A with the rest of the team",
+      "tier": "faute",
+      "ev_delta": "-0.31 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Abandoning B Long for free gives the defense the entire B half of the map and lets them collapse and flank into your Mid/A stack. Ceding a whole lane on a full-buy round with a numbers-even count is throwing away tempo.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Giving up a chokepoint without contest hands the defense free rotations and flank timing on your remaining players"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "This is a pure map-control decision, the layer of Valorant that decides most rounds 20 seconds before any bullet is fired. As the lone attacker in B Long on a full-buy 5v5 default, your job is to claim the space you can actually hold and refrag on — not to win a duel and not to give the lane away. Slicing B Long tight against cover, clearing one angle at a time, and pausing for a teammate before you commit deep is how elite attackers convert territory: you deny the defender a free wide-swing pick, you keep information flowing, and you keep the whole default alive (the team can still choose A, B, or a split once space is banked). Dry-sprinting to site is the classic low-elo mistake — you trade the certainty of controlled space for a coinflip duel with no trade behind you, and losing it costs both the man and the plan. Spending your signature to deny the angle is defensible but often premature; that utility is usually worth more on the actual site execute. Backing off entirely is the worst line: ceding the whole B half for free lets the defense rotate and flank into your Mid/A group. Take the space, don't gamble it, don't give it away.",
+  "sources": [
+    {
+      "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+      "citation": "Map control = space you can safely move through, communicate across, and hold if pushed; defaults bank space before choosing a site"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LEpGr12MYjM",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use (60 FPS) | CC-BY — footage source (Bind, B Long, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; the agent is not read from the freeze (Bulldog out, signature+basic available on the HUD). Puzzle is a role/space decision, not agent-specific, so the agent is left as unknown rather than guessed." },
+    { "champ": "network_state", "incertitude": "The source POV shows 'HIGH AVERAGE PING / NETWORK PROBLEM' banners — cosmetic to the tactical decision, noted for honesty." },
+    { "champ": "defender_positions", "incertitude": "No defender is visible at the freeze (ennemis_inconnus_count: 5). The space-take principle holds regardless of exact defender setup." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-016-intro.mp4",
+    "resolution_url": "media/p-video-016-resolution.mp4",
+    "freeze_frame_url": "media/p-video-016-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=LEpGr12MYjM"
+  }
+}

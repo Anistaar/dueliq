@@ -1,0 +1,114 @@
+{
+  "id": "puzzle-video-018",
+  "version": 2,
+  "map": "split",
+  "side": "ATK",
+  "theme": "eco",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 88,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 4,
+    "eco_atk_approx": "eco",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": null,
+      "ultimate": null,
+      "basic_remaining": []
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "mid-bottom",
+    "allies": [
+      { "id": "YOU", "x": 300, "y": 640, "orientation_deg": 0, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 240, "y": 720, "orientation_deg": 0, "label": "MATE", "est_joueur_concerne": false },
+      { "id": "P3", "x": 200, "y": 560, "orientation_deg": 0, "label": "MATE", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 4
+  },
+  "question": "Split — ATK on an eco (pistol/Ghost, 0 credits), 4v4 vs a full-buy defense, 1:28 left. You're near Mid Bottom. How do you play the eco to maximise the money you deny AND your win equity?",
+  "options": [
+    {
+      "label": "Group up close-range and take one short fight together (stack Mid Bottom) to trade damage into their rifles",
+      "tier": "optimal",
+      "ev_delta": "+0.11 R",
+      "freq_elite_estimee": 50,
+      "explication_courte": "On an eco your only edge is concentration at close range where pistols compete with rifles. Grouping to win one short fight either steals the round or, more reliably, banks 1-2 rifle kills that cripple the enemy economy for next round.",
+      "sources_option": [
+        {
+          "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+          "citation": "On a save/eco, group and fight at close range where pistols are viable; the goal is damaging the enemy economy by trading into their rifles"
+        }
+      ]
+    },
+    {
+      "label": "Spread out solo across Mid and A to grab as much info and as many chip-damage angles as possible",
+      "tier": "couteux",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Five (or four) solo pistols at range is exactly the fight full-buy rifles want — they pick you off one by one from distance. Spreading throws away the only eco advantage you have, which is close-range concentration.",
+      "sources_option": [
+        {
+          "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+          "citation": "Playing spread solo on an eco lets rifles win every long-range duel; you must stack to have any chance"
+        }
+      ]
+    },
+    {
+      "label": "Save fully — avoid all fights, hide, and keep your credits and pistols for next round",
+      "tier": "acceptable",
+      "ev_delta": "-0.06 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "A full save is legitimate to guarantee a stronger next buy, but with a 4v4 and a full round of time, refusing to contest anything also lets the enemy bank the round for free with zero damage taken. Pure save trades this round's upside for certainty.",
+      "sources_option": [
+        {
+          "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+          "citation": "A save preserves credits for a full buy next round, but a total save concedes the current round and does no damage to the enemy bank"
+        }
+      ]
+    },
+    {
+      "label": "Force a fast 4-man rush toward A site deep into the full-buy defenders",
+      "tier": "faute",
+      "ev_delta": "-0.30 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Rushing pistols into a set full-buy site is a low-percentage gamble: the defenders hold the angles with rifles and util and win the trade. A blind eco rush usually loses the round AND all your pistols with little damage dealt.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Rushing into a prepared, buying defense on an eco surrenders the range and util advantage to the defenders holding angles"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Eco decisions are the clearest expression of EV thinking: a round you are unlikely to win outright is still worth playing for the money you deny the enemy. On a full eco (pistol, 0 credits) in a 4v4 versus a full-buy defense, your single structural advantage is concentration at close range — the only distance where a pistol competes with a rifle. Grouping up and taking one short, chosen fight (stacking Mid Bottom) is the optimal line: it either steals the round outright, or, far more reliably, banks one or two rifle kills that wreck the enemy economy and set up your next two rounds. Spreading out solo is the costly error — four pistols at range is precisely the fight the rifles want, and they pick you apart one by one from distance. A full save is genuinely acceptable: it guarantees a stronger next buy, and disciplined teams save to reset. But with a full round of time and even numbers, a total save also concedes this round for free with zero damage dealt, so it trades upside for certainty. Force-rushing a set A site is the faute: pistols charging into prepared rifles and utility is a low-percentage gamble that usually loses the round and all your guns while dealing little damage. Stack, pick your fight, damage their bank.",
+  "sources": [
+    {
+      "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+      "citation": "Economy is a team system; on an eco the correct play is a grouped close-range fight to damage the enemy bank, not spread solos or blind rushes"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LEpGr12MYjM",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use (60 FPS) | CC-BY — footage source (Split, Mid Bottom, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (Ghost pistol, 0 credits, no util bought). Decision is an eco principle, not agent-specific." },
+    { "champ": "eco_read", "incertitude": "The exact ATK bank and whether the team plans a save vs a light-buy next round is not fully readable — the freeze shows 0 credits and pistol only, so 'eco' is inferred from the HUD." },
+    { "champ": "opt_acc_border", "incertitude": "The border between 'group-and-contest' (optimal) and 'full save' (acceptable) depends on team bank and score context, which the single freeze does not fully fix." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-018-intro.mp4",
+    "resolution_url": "media/p-video-018-resolution.mp4",
+    "freeze_frame_url": "media/p-video-018-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=LEpGr12MYjM"
+  }
+}

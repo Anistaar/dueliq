@@ -1,0 +1,113 @@
+{
+  "id": "puzzle-video-022",
+  "version": 2,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "rotation",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 84,
+    "spike_planted": false,
+    "alive_atk": 4,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic", "basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-teleporter",
+    "allies": [
+      { "id": "YOU", "x": 640, "y": 720, "orientation_deg": 250, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 720, "y": 660, "orientation_deg": 250, "label": "OMEN", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind — ATK, 1-0, you are DOWN a man (4v5) early in the round at B Teleporter, your Omen is putting a smoke down. How should the attackers play this man-disadvantage?",
+  "options": [
+    {
+      "label": "Group the 4 tightly behind the Omen smoke and take ONE site slowly with util, refusing to spread",
+      "tier": "optimal",
+      "ev_delta": "+0.13 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "When you're down a man you cannot afford isolated duels — you must concentrate the 4 so every fight is a trade in your favour on one chokepoint. A slow, util-backed, grouped hit on a single site is how a 4v5 wins: pick your battle, never split.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+          "citation": "Down a man, grouping and committing everything to one point keeps every duel traded; spreading lets the extra defender clean up"
+        }
+      ]
+    },
+    {
+      "label": "Play for picks and info first, then decide the site once you even the numbers",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Trading back to a 4v4 before committing is sound, but pure pick-hunting burns clock and can let the defense play the timer against your man-down team. It's a reasonable slow-play, just lower EV than a decisive grouped hit here.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/learn-to-take-control-of-your-valorant-games-a-breakdown-of-map-control",
+          "citation": "Even numbers with picks before committing, but excessive info-gathering hands the clock advantage back to the defense"
+        }
+      ]
+    },
+    {
+      "label": "Rush the site fast and loud to catch the defense before their extra man rotates",
+      "tier": "couteux",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 16,
+      "explication_courte": "A fast rush can beat rotations, but running 4 into 5 without full util control means you meet more guns than you can trade. Down a man, tempo without a trade chain usually loses the numbers fight at the choke.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+          "citation": "A fast rush needs full numbers and util to overwhelm a hold; a man-down rush meets more defenders than it can trade"
+        }
+      ]
+    },
+    {
+      "label": "Split the 4 into two 2-man hits on both sites to stretch the defense",
+      "tier": "faute",
+      "ev_delta": "-0.31 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Splitting a 4-man into two pairs versus 5 lets the defense fight each half with a numbers edge and win both in detail. Man-down is exactly when you concentrate, not when you dilute.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Splitting into smaller groups while already outnumbered lets the defense win each isolated fight with the extra man"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Playing down a man is a discipline test: the whole round now hinges on refusing the fights that a 4v5 loses and forcing the one it can win. Early in this Bind round at 1-0, having lost a man to a 4v5 at B Teleporter with your Omen laying a smoke, the highest-EV line is to group the four tightly behind that smoke and take ONE site slowly with utility — never spreading. The logic is trade math: with fewer bodies you cannot survive isolated duels, so you concentrate so that every contact is a trade in your favour on a single chokepoint, and you lean on util to make the defenders fight on your terms. Playing for picks and info first to claw back to a 4v4 is genuinely acceptable and sometimes better against a passive defense, but pure pick-hunting burns clock and lets a smart defense play the timer against your short-handed team. Rushing fast and loud is the costly option — tempo can beat rotations, but four into five without full util control simply meets more guns than you can trade at the choke. Splitting the four into two pairs on both sites is the clear faute: you hand the defense a numbers edge in each isolated fight and they win both. When you are down, you concentrate — you do not dilute. Group, smoke, one site, slow.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+      "citation": "Man-down play: concentrate numbers on one point behind utility so every duel is traded, rather than spreading or splitting"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use Gameplay (60 Fps) | CC-BY — footage source (Bind, B Teleporter, 4v5 down, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; the player's agent isn't read from the freeze (rifle out, signature+basics available). The ally Omen is identified by the purple smoke he is deploying." },
+    { "champ": "how_man_lost", "incertitude": "How the attackers dropped to 4v5 (the first pick) is not visible at the freeze; the man-down principle holds regardless of cause." },
+    { "champ": "opt_acc_border", "incertitude": "The border between 'grouped one-site hit' (optimal) and 'trade-back-first' (acceptable) depends on how passive the defense is and the clock — a judge could narrow it." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-022-intro.mp4",
+    "resolution_url": "media/p-video-022-resolution.mp4",
+    "freeze_frame_url": "media/p-video-022-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
+  }
+}

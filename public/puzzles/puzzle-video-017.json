@@ -1,0 +1,113 @@
+{
+  "id": "puzzle-video-017",
+  "version": 2,
+  "map": "split",
+  "side": "ATK",
+  "theme": "entry",
+  "difficulty_est": 4,
+  "round_state": {
+    "timer_s": 50,
+    "spike_planted": false,
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": "available",
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "b-link",
+    "allies": [
+      { "id": "YOU", "x": 520, "y": 720, "orientation_deg": 315, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 400, "y": 800, "orientation_deg": 315, "label": "MATE", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 2
+  },
+  "question": "Split — ATK, 2v2, 12-12, only 0:50 left, no spike, you and your last teammate are stacked at B Link with the site not yet taken. What is the highest-EV way to play the clock and the 2v2?",
+  "options": [
+    {
+      "label": "Commit B together on a util-backed hit right now, using the clock pressure to force the two defenders to react",
+      "tier": "optimal",
+      "ev_delta": "+0.16 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "With 0:50 and no plant, the clock is your enemy: you must take a site and plant. A coordinated 2-man hit with utility (one entry, one trade) forces the outnumbered-nowhere 2 defenders to answer on your terms rather than letting them play the timer against you.",
+      "sources_option": [
+        {
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "Site takes are won by a util-backed entry-and-trade pair; committing together forces the defense to react instead of holding the clock"
+        }
+      ]
+    },
+    {
+      "label": "Both hold B Link passively and wait to react to any defender peek",
+      "tier": "faute",
+      "ev_delta": "-0.33 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Sitting still with 0:50 and no plant hands the round to the defenders — they only need to run the clock down. Playing reactive in a must-plant situation is how attackers lose 2v2s they should win.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Attackers must convert space into a plant before the timer expires; passively holding lets defenders win by default"
+        }
+      ]
+    },
+    {
+      "label": "Split up — you push B while your teammate lurks around for a flank pick",
+      "tier": "couteux",
+      "ev_delta": "-0.24 R",
+      "freq_elite_estimee": 18,
+      "explication_courte": "In a 2v2 with almost no clock, splitting your two bodies lets the defense fight each of you 1v1 in isolation and win in detail. You also can't trade — if your entry dies, the flank arrives too late to plant.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Splitting your numbers in a low-man situation lets the enemy fight you piecemeal; stay paired to keep the trade alive"
+        }
+      ]
+    },
+    {
+      "label": "Push B together but hold your ultimate and signature to save util for a possible retake",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Committing together is right, but hoarding util in a 2v2 must-plant with 50s is usually too conservative — the round rarely reaches a retake if you never plant. Dumping now to guarantee the plant is generally higher EV.",
+      "sources_option": [
+        {
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "Utility saved for a hypothetical later phase is wasted if it costs you the entry you needed to plant in the first place"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "This is a timing-and-duel-selection decision under a hard clock. At 12-12 in a 2v2 with 0:50 and no plant, the situation is deceptively simple: the defenders win if the timer expires, so you cannot afford to play reactive — you must take a site and plant. The highest-EV line is to commit B together on a utility-backed hit now: one of you takes the entry angle while the other trades, and your util forces the two defenders to answer the way you dictate. Because it is 2v2, keeping your two bodies paired is non-negotiable — that is what lets you trade the entry and turn any duel into a 2-for-1 in your favor. Holding B Link passively is the outright mistake: with no plant, doing nothing simply gifts the defense the clock. Splitting for a lurk/flank is the seductive-but-wrong option — it feels aggressive, but it lets the defenders fight each of you in isolation and win both duels, and even if your flank lands a kill it often arrives too late to plant. Saving your ultimate and signature 'for the retake' is over-conservative here: the round rarely reaches a retake if you never plant, so dumping util to guarantee the entry-and-plant is the right resource call. Commit, together, now, with util.",
+  "sources": [
+    {
+      "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+      "citation": "Site takes are decided by a util-backed entry-and-trade pair committing together, not by passive holds or isolated lurks"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LEpGr12MYjM",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use (60 FPS) | CC-BY — footage source (Split, B Link, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip on Split; agent not read from the freeze (SMG out, Q signature + X ult available on HUD). Decision is a timing/commit call, not agent-specific." },
+    { "champ": "defender_positions", "incertitude": "Both remaining defenders' exact positions are unknown at the freeze (ennemis_inconnus_count: 2). The clock-pressure principle holds regardless." },
+    { "champ": "opt_acc_border", "incertitude": "The border between 'commit + dump util' (optimal) and 'commit + hold util' (acceptable) depends on how much util each carries and the exact plant spot — a real judge could narrow it." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-017-intro.mp4",
+    "resolution_url": "media/p-video-017-resolution.mp4",
+    "freeze_frame_url": "media/p-video-017-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=LEpGr12MYjM"
+  }
+}

@@ -1,130 +1,106 @@
 {
   "id": "puzzle-video-008",
   "version": 2,
-  "map": "ascent",
+  "map": "split",
   "side": "ATK",
   "theme": "eco",
-  "difficulty_est": 4,
+  "difficulty_est": 2,
   "round_state": {
-    "timer_s": 62,
+    "timer_s": 65,
     "spike_planted": false,
-    "alive_atk": 1,
-    "alive_def": 3,
-    "eco_atk_approx": "semi-buy",
+    "alive_atk": 2,
+    "alive_def": 2,
+    "eco_atk_approx": "eco",
     "eco_def_approx": "full-buy",
     "util_joueur": {
       "agent": "unknown",
-      "signature": null,
+      "signature": "available",
       "ultimate": null,
-      "basic_remaining": [
-        "q",
-        "e"
-      ]
+      "basic_remaining": ["basic"]
     }
   },
   "positions": {
     "viewBox": "0 0 1000 1000",
-    "map_zone": "a-main",
+    "map_zone": "a-rafters",
     "allies": [
-      {
-        "id": "YOU",
-        "x": 550,
-        "y": 650,
-        "orientation_deg": 0,
-        "label": "YOU (SMG)",
-        "est_joueur_concerne": true
-      }
+      { "id": "YOU", "x": 320, "y": 520, "orientation_deg": 20, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 380, "y": 600, "orientation_deg": 20, "label": "MATE", "est_joueur_concerne": false }
     ],
     "ennemis_connus": [],
-    "ennemis_inconnus_count": 3
+    "ennemis_inconnus_count": 2
   },
-  "question": "Ascent — ATK, 1v3 down, no spike, 1:02 left. You are the last attacker alive on an SMG, advancing through A Main / A Lobby with two abilities up. How do you play the 1v3?",
+  "question": "Split — ATK on an eco (Ghost, 0 credits), 2v2 vs full-buy, 7-5, near A Rafters. You and your last teammate have pistols. How do you play the eco 2v2?",
   "options": [
     {
-      "label": "Slow it down: use the clock, hold a tight off-angle in A Lobby and force them to come clear you one at a time",
+      "label": "Stick together at close range and take one short A fight as a pair to trade damage into their rifles",
       "tier": "optimal",
-      "ev_delta": "+0.15 R",
-      "freq_elite_estimee": 55,
-      "explication_courte": "In a 1vX with time on the clock, the map is your ally — an isolated angle turns a 1v3 into three separate 1v1s you take on your terms. Your SMG wins close and you only ever fight one crosshair at a time.",
+      "ev_delta": "+0.12 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "On an eco your only edge is close-range concentration. Pairing up on one short A fight means any duel is traded and you either steal the round or bank a rifle kill that hurts their economy — the whole point of an eco.",
       "sources_option": [
         {
-          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
-          "citation": "In clutches, isolate the fight to one enemy at a time by holding an off-angle rather than exposing yourself to multiple crosshairs"
+          "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+          "citation": "On an eco, group at close range where pistols compete with rifles; the goal is to trade damage into the enemy economy"
         }
       ]
     },
     {
-      "label": "Rush A Main aggressively to catch them mid-rotate before they group up",
+      "label": "Split up to grab two separate angles and info across A",
       "tier": "couteux",
-      "ev_delta": "-0.31 R",
-      "freq_elite_estimee": 12,
-      "explication_courte": "Dry-rushing three full-buys with an SMG hands them the numbers duel they want — you run into a stacked A and eat crossfire. Aggression only works if you can guarantee isolation, and open A Main can't.",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 20,
+      "explication_courte": "Two lone pistols on separate angles is the long-range fight full-buys want — they pick you off one at a time and you can't trade. Splitting throws away the only eco advantage you have.",
       "sources_option": [
         {
-          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
-          "citation": "On an under-gunned round, avoid running into grouped full-buys in the open; force isolated close-range fights where the SMG is even"
+          "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+          "citation": "Spreading solo on an eco lets rifles win every long-range duel; concentration is the only edge pistols have"
         }
       ]
     },
     {
-      "label": "Play purely for time and information, ready to disengage and save your SMG if the fight isn't isolated",
+      "label": "Play a full save — avoid contact and keep your pistols and credits for next round",
       "tier": "acceptable",
-      "ev_delta": "+0.02 R",
+      "ev_delta": "-0.06 R",
       "freq_elite_estimee": 24,
-      "explication_courte": "Trading the round for economy is a real option down 1v3 on a partial buy — but you still have ~1:00 and two abilities, so pure saving leaves free-fight equity on the table before you've even tried to isolate one.",
+      "explication_courte": "A save guarantees a stronger next buy and is legitimate, but with even 2v2 numbers and a full minute, refusing any fight also concedes the round for free with zero damage to their bank.",
       "sources_option": [
         {
-          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
-          "citation": "When a round is likely lost, preserving your weapon for the next buy can be worth more than a low-odds fight"
+          "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+          "citation": "A save preserves credits for a full buy but concedes the round and does no damage to the enemy economy"
         }
       ]
     },
     {
-      "label": "Wide-swing the first open angle to start trading immediately and get value",
+      "label": "Rush deep into A site fast to try to overwhelm the full-buy defenders",
       "tier": "faute",
-      "ev_delta": "-0.45 R",
-      "freq_elite_estimee": 5,
-      "explication_courte": "Wide-swinging blind into a 3-stack is the fastest way to die for nothing — you show yourself to every angle at once and lose the one lever (isolation) that makes a 1v3 winnable at all.",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Charging pistols into a set full-buy site lets the defenders hold angles with rifles and util and win the trade. A blind eco rush usually loses the round and all your guns for little damage.",
       "sources_option": [
         {
-          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
-          "citation": "Wide-swinging into unknown numbers exposes you to every held angle simultaneously; jiggle or hold instead until you can isolate"
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Rushing into a prepared, buying defense on an eco surrenders the range and util advantage to the holders"
         }
       ]
     }
   ],
-  "explication_longue": "A 1v3 with a minute on the clock is not a shootout to be rushed — it is a sequencing problem. The three defenders have to come dig you out, and every meter of open ground they cross is a chance to make them do it alone. Holding a tight, unexpected off-angle in A Lobby forces exactly that: they can only funnel one crosshair at a time onto you, so a 1v3 decomposes into three separate 1v1s where your SMG's close-range fire rate is genuinely even or favoured. Rushing A Main instead runs you straight into whatever stack is set up on site, and three full-buys will trade you the instant you show. Pure saving is defensible on a partial buy — economy is round equity too — but with a full minute and two abilities you haven't yet tried the highest-value line, which is to isolate one fight and then reassess. Wide-swinging the first angle is the worst of all: it throws away isolation, the single thing that makes a 1v3 winnable, in exchange for a coinflip you usually lose. Use the clock, pick your angle, take them one at a time.",
+  "explication_longue": "Eco rounds are a lesson in EV thinking: a round you probably won't win is still worth the money you deny the enemy. On a full eco (Ghost, 0 credits) in a 2v2 on Split near A Rafters versus full-buys, your one structural advantage is concentration at close range — the only distance where a pistol competes with a rifle. Sticking together for one short A fight is the optimal line: any duel is traded because you're paired, and you either steal the round outright or bank a rifle kill that damages their economy and sets up your next buy. Splitting to two angles is the costly error — two lone pistols at range is exactly the fight rifles want, and they pick you apart without a trade. A full save is genuinely acceptable: it guarantees a stronger next round and disciplined teams do it, but with even numbers and a full minute it also concedes this round for free with no damage dealt, trading upside for certainty. Rushing deep into a set A site is the faute: pistols into prepared rifles and utility is a low-percentage gamble that usually loses everything for nothing. Stay together, pick one close fight, damage their bank.",
   "sources": [
     {
-      "url": "https://eloking.com/blog/how-to-eco-in-valorant",
-      "citation": "Under-gunned rounds are won by isolation and patience, not by rushing grouped full-buys into the open"
+      "url": "https://immortalboost.com/blog/valorant/valorant-economy-system-guide/",
+      "citation": "Economy is a team system; on an eco, group at close range to damage the enemy bank rather than spread, save-solo, or blind-rush"
     },
     {
-      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
-      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Main / A Lobby)"
+      "url": "https://www.youtube.com/watch?v=LEpGr12MYjM",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use (60 FPS) | CC-BY — footage source (Split, A Rafters, ranked eco POV) — replaces the prior muted Spike Rush clip"
     }
   ],
-  "validation": {
-    "status": "draft",
-    "juges": []
-  },
+  "validation": { "status": "draft", "juges": [] },
   "_gaps": [
-    {
-      "champ": "agent_identity",
-      "incertitude": "Spectator-observer POV; the player holds an SMG (Stinger/Spectre) but the agent and exact remaining abilities are not clearly readable at the freeze. Q and E show as available on the ability bar; agent left unknown rather than guessed"
-    },
-    {
-      "champ": "eco_context",
-      "incertitude": "'smg-buy' inferred from the SMG in hand; defenders' buy tier estimated full-buy, not read from credits. Game mode is Spike Rush (3v3), so 'down 1v3' means last player alive of a 3-stack"
-    },
-    {
-      "champ": "pov_blind_spots",
-      "incertitude": "The three defenders' positions inside A are not visible from A Main/Lobby; count read from the alive-icon bar (1 green vs 3)"
-    },
-    {
-      "champ": "freq_estimates",
-      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
-    }
+    { "champ": "agent_identity", "incertitude": "Ranked player-POV clip (upgrade from the prior Spike Rush footage); agent not read from the freeze (Ghost, 0 credits, one signature charge). Decision is an eco principle, not agent-specific." },
+    { "champ": "eco_read", "incertitude": "'eco' inferred from the Ghost + 0 credits on the HUD; the defenders' full-buy is estimated, not read from their credits." },
+    { "champ": "defender_positions", "incertitude": "Both remaining defenders are unseen at the freeze (ennemis_inconnus_count: 2); the group-and-contest principle is robust to their setup." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
   ],
   "video": {
     "intro_url": "media/p-video-008-intro.mp4",
@@ -132,6 +108,6 @@
     "freeze_frame_url": "media/p-video-008-freeze.jpg",
     "credit": "No Copyright Gameplay (YouTube)",
     "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
-    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+    "license_url": "https://www.youtube.com/watch?v=LEpGr12MYjM"
   }
 }

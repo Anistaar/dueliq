@@ -1,0 +1,112 @@
+{
+  "id": "puzzle-video-024",
+  "version": 2,
+  "map": "pearl",
+  "side": "DEF",
+  "theme": "rotation",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 71,
+    "spike_planted": false,
+    "alive_atk": 3,
+    "alive_def": 3,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "full-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": "available",
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-ramps",
+    "allies": [
+      { "id": "YOU", "x": 300, "y": 500, "orientation_deg": 20, "label": "YOU", "est_joueur_concerne": true }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 3
+  },
+  "question": "Pearl — DEF, 11-9, a 5v5 has just traded down to 3v3, you are holding A (near A Ramps / A Main) after your team picked two attackers. No push is confirmed yet. How do you play the hold?",
+  "options": [
+    {
+      "label": "Hold your angle and gather info before committing — let the minimap and sound tell you where the 3 attackers actually go",
+      "tier": "optimal",
+      "ev_delta": "+0.14 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "In an even 3v3 mid-round, information is the highest-value resource: don't over-rotate or over-peek on a guess. Holding a safe angle and reading the minimap/sound lets you commit only when you KNOW the attack's direction, keeping every duel on your terms.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Defenders extract decisions from the minimap and sound; commit rotations only on confirmed info, not on a guess"
+        }
+      ]
+    },
+    {
+      "label": "Push out into A Main aggressively to hunt a third pick and take control before they group",
+      "tier": "couteux",
+      "ev_delta": "-0.23 R",
+      "freq_elite_estimee": 16,
+      "explication_courte": "Pushing out in a 3v3 gambles the numbers you just earned — if you die into their space, your two teammates are now defending short-handed. Aggression here trades a solid even hold for a coinflip you didn't need.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Pushing into unknown space when even on numbers risks giving back the advantage; hold and let them come to you"
+        }
+      ]
+    },
+    {
+      "label": "Rotate early toward the other site to reinforce, assuming the attack goes elsewhere",
+      "tier": "acceptable",
+      "ev_delta": "-0.06 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Reinforcing can be right if you have a read, but rotating on assumption abandons your area for free and can be faked. Without confirmed info, leaving A early risks handing the attackers exactly the site you just vacated.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Rotate on confirmed information; rotating early on an unconfirmed read can be baited by a fake and opens your vacated site"
+        }
+      ]
+    },
+    {
+      "label": "Dump your ultimate and util into A now to zone the choke pre-emptively",
+      "tier": "faute",
+      "ev_delta": "-0.28 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Spending your ult and util on empty space before any push is confirmed wastes them — if the attackers hit the other site or wait you out, you've burned resources you needed for the actual fight or retake.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/learn-to-take-control-of-your-valorant-games-a-breakdown-of-map-control",
+          "citation": "Deploying util into empty space on a guess wastes non-regenerable resources needed for the confirmed engagement"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "This is an information-discipline decision, the defensive twin of duel selection. On Pearl at 11-9, your team has just traded a 5v5 down to an even 3v3, and you are holding A near the Ramps/Main with no push yet confirmed. The highest-EV move is the patient one: hold a safe angle and let the minimap and sound tell you where the three attackers are actually going before you do anything. Information is the resource that decides even mid-rounds — over-rotating or over-peeking on a guess is how defenders throw away numbers they just earned. Pushing out into A Main to hunt a third pick is the costly error: in a 3v3 you gamble the advantage, and dying into their space leaves your two teammates short-handed. Rotating early to reinforce the other site is genuinely acceptable if you have a read, but on an unconfirmed assumption it abandons your area for free and is exactly what a fake exploits — leave A too early and the attackers take the site you just vacated. Dumping your ult and util into an empty A pre-emptively is the faute: spent on a guess, those resources are gone when the real fight or retake arrives. Hold, read, and commit only when the info is real.",
+  "sources": [
+    {
+      "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+      "citation": "Defensive decisions run on confirmed information from minimap and sound; hold and commit only when the attack's direction is known"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rPFcvli4m7s",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Pearl, A Ramps/Main DEF, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (rifle, C-trip + ult available on HUD suggest a sentinel, not confirmed). Decision is an info/hold principle, not agent-specific." },
+    { "champ": "theme_mapping", "incertitude": "The taxonomy tag trained here is 'info'; the schema theme enum lacks it, so 'rotation' is used (the decision is whether/when to rotate on info). The question and explanation make the info focus explicit." },
+    { "champ": "attack_direction", "incertitude": "The 3 attackers' route is unconfirmed at the freeze (ennemis_inconnus_count: 3) — that uncertainty is the whole point of the puzzle." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-024-intro.mp4",
+    "resolution_url": "media/p-video-024-resolution.mp4",
+    "freeze_frame_url": "media/p-video-024-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=rPFcvli4m7s"
+  }
+}

@@ -6,130 +6,100 @@
   "theme": "rotation",
   "difficulty_est": 3,
   "round_state": {
-    "timer_s": 65,
+    "timer_s": 75,
     "spike_planted": false,
     "alive_atk": 4,
-    "alive_def": 2,
+    "alive_def": 3,
     "eco_atk_approx": "full-buy",
     "eco_def_approx": "full-buy",
     "util_joueur": {
       "agent": "unknown",
-      "signature": null,
+      "signature": "available",
       "ultimate": null,
-      "basic_remaining": ["c", "q", "e", "x"]
+      "basic_remaining": ["basic"]
     }
   },
   "positions": {
     "viewBox": "0 0 1000 1000",
     "map_zone": "b-window",
     "allies": [
-      {
-        "id": "YOU",
-        "x": 400,
-        "y": 550,
-        "orientation_deg": 0,
-        "label": "YOU (Odin)",
-        "est_joueur_concerne": true
-      },
-      {
-        "id": "P2",
-        "x": 250,
-        "y": 500,
-        "orientation_deg": 0,
-        "label": "ALLY (shotgun)",
-        "est_joueur_concerne": false
-      }
+      { "id": "YOU", "x": 640, "y": 460, "orientation_deg": 250, "label": "YOU", "est_joueur_concerne": true }
     ],
     "ennemis_connus": [],
-    "ennemis_inconnus_count": 2
+    "ennemis_inconnus_count": 3
   },
-  "question": "Bind — ATK, 4v2 up, no spike, 1:05 left. You are pushing B (near B Window) with an Odin and full util, up two players. Only two defenders remain, positions unknown. How do you convert the numbers?",
+  "question": "Bind — ATK, 6-7, you are UP 4v3 after a Window pick, holding B Window on Bind with a rifle. The team is not yet committed to a site. How do you convert the 4v3?",
   "options": [
     {
-      "label": "Play the man-advantage patiently: clear with util and trade-pairs, taking space you can't lose so the 4v2 stays a 4v2",
+      "label": "Consolidate the man-advantage: group with your team and commit to ONE site with trade-spacing",
       "tier": "optimal",
-      "ev_delta": "+0.20 R",
-      "freq_elite_estimee": 60,
-      "explication_courte": "Up 4v2, the enemy needs multi-kills to get back in it — so deny them exactly that. Advance in trade pairs, use util to clear angles instead of your body, and never give a defender an isolated 1v1. Numbers win if you don't gift them back.",
+      "ev_delta": "+0.15 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "A 4v3 is only worth something if you fight where the extra man can trade. Regrouping and hitting one site trade-spaced turns your lead into a series of favourable fights — you press the advantage without diluting it.",
       "sources_option": [
         {
-          "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
-          "citation": "With a man-advantage, take space methodically in trade pairs and use utility to clear; avoid isolated duels that let the enemy even the count"
+          "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+          "citation": "With a man advantage, commit together to one point trade-spaced so the extra man converts into traded duels"
         }
       ]
     },
     {
-      "label": "Spray the Odin through the B Window wall on a common hold to try for a free wallbang pick",
+      "label": "Hold B Window alone and wait to see where the 3 defenders rotate",
       "tier": "acceptable",
-      "ev_delta": "+0.04 R",
-      "freq_elite_estimee": 22,
-      "explication_courte": "The Odin's wall penetration can pressure a known hold, but blind-spraying with only two enemies left mostly wastes a huge mag and reveals your position; do it off real info, not on spec, or you're reloading when they peek.",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Sitting on the info from Window is reasonable, but holding solo with a 4v3 lets the defense reset and play the clock. You have the advantage — passivity slowly gives it back rather than pressing it.",
       "sources_option": [
         {
-          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
-          "citation": "Wallbang pressure works off information, not blind spray; an empty mag and a revealed position undoes the advantage"
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Info-holding is safe, but sitting on a numbers lead lets the defense reset and use the clock against you"
         }
       ]
     },
     {
-      "label": "Rush B fast and loud to overwhelm the two defenders before they can rotate for help",
+      "label": "Push B fast and alone through Window to press before they group",
       "tier": "couteux",
-      "ev_delta": "-0.26 R",
-      "freq_elite_estimee": 13,
-      "explication_courte": "There is no help coming — it's 4v2. Rushing loud into two set defenders trades your safety for speed you don't need and can walk your trade-pairs into a double-peek that clips two of you and evens the round.",
+      "ev_delta": "-0.23 R",
+      "freq_elite_estimee": 16,
+      "explication_courte": "Solo-pushing B ahead of your team gives up the trade — if you die, your 4v3 collapses back to an even 3v3 and you've spent your advantage on one duel. Numbers advantages are pressed together, not alone.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Pushing ahead of your team while up hands the enemy an isolated duel and can erase the numbers lead"
+        }
+      ]
+    },
+    {
+      "label": "Split the 4 across A and B to double-threat both sites",
+      "tier": "faute",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Splitting a 4-man into two pairs versus 3 defenders wastes your extra man and lets them meet each half on even or favourable terms. Consolidate the lead; don't scatter it.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
-          "citation": "Don't rush when time and numbers favour you; the only way to lose a man-advantage is to hand the enemy quick multi-kills"
-        }
-      ]
-    },
-    {
-      "label": "Split your four players two-and-two to hit B from two angles at once",
-      "tier": "faute",
-      "ev_delta": "-0.40 R",
-      "freq_elite_estimee": 5,
-      "explication_courte": "Splitting a 4v2 into two 2-mans throws away the crushing advantage — you create two even-ish fights where a defender can win a duel and suddenly it's 3v2 or worse. Stack your numbers, don't dilute them.",
-      "sources_option": [
-        {
-          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
-          "citation": "Diluting a numbers advantage into split pushes creates near-even fights; concentrate force to keep the advantage decisive"
+          "citation": "Splitting a grouped numbers advantage into smaller pieces lets the defense fight each half on better terms"
         }
       ]
     }
   ],
-  "explication_longue": "Up 4v2 with a minute left, the round is yours to lose, and there is exactly one way to lose it: give the two remaining defenders the quick multi-kills they need to climb back into the round. Everything about the correct play flows from that. Pushing B near B Window with an Odin and full util, you advance in trade pairs — two players covering each other so any defender who takes a duel is instantly traded — and you use utility to clear the dangerous angles instead of walking your body into them. That keeps every fight a 2-on-1 in your favour and the count stuck at 4v2. Wallbanging with the Odin is a real tool but only off information; blind-spraying a wall with two enemies left mostly empties a huge magazine and pinpoints you, so you're reloading when they peek. Rushing loud is pointless — no defensive reinforcement is coming in a 4v2 — and it risks a double-peek clipping two of you at once. Worst is splitting two-and-two: that dissolves a crushing advantage into two near-even fights where a single lost duel flips the momentum. Stack the numbers, trade every entry, take space you can't lose.",
+  "explication_longue": "Converting a mid-round numbers lead is where good teams win rounds they've already half-won. Up 6-7 in a 4v3 on Bind after picking a defender at Window, holding B Window with a rifle, the highest-EV line is to consolidate: regroup with your team and commit to ONE site with trade-spacing. A 4v3 is only worth something when you fight where the extra man can actually trade, so a grouped, spaced hit on a single site turns your lead into a run of favourable duels — you press the advantage without diluting it. Holding B Window alone to read the rotation is genuinely acceptable — the info has value — but sitting on a numbers lead lets the defense reset and burn the clock, slowly giving your edge back instead of pressing it. Solo-pushing B fast through Window is the costly error: peeling ahead of your team surrenders the trade, and if you die your 4v3 collapses to an even 3v3, your whole advantage spent on one duel. Splitting the four across A and B is the faute: two pairs versus three defenders wastes the extra man and lets them meet each half on even terms. Group up, space out, hit one site, and let the extra man do its job.",
   "sources": [
     {
-      "url": "https://www.hotspawn.com/valorant/guide/how-to-play-attackers-in-valorant",
-      "citation": "Convert a man-advantage by taking space in trade pairs with utility; the enemy needs multi-kills, so never give an isolated duel"
+      "url": "https://dignitas.gg/articles/when-should-you-actually-5-man-push-in-valorant",
+      "citation": "Convert a numbers lead by committing together to one point trade-spaced, not by holding passively, solo-pushing, or splitting"
     },
     {
-      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
-      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Bind B Window)"
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use Gameplay (60 Fps) | CC-BY — footage source (Bind, B Window, 4v3 up, ranked POV) — replaces the prior muted Spike Rush clip"
     }
   ],
-  "validation": {
-    "status": "draft",
-    "juges": []
-  },
+  "validation": { "status": "draft", "juges": [] },
   "_gaps": [
-    {
-      "champ": "agent_identity",
-      "incertitude": "Spectator-observer POV; the player holds an Odin (LMG) per the HUD but the agent is not confirmed and is left unknown. The full ability bar (C/Q/E/X lit) is used only to justify 'util available', not a specific kit"
-    },
-    {
-      "champ": "alive_count",
-      "incertitude": "4v2 read from the alive-icon bar (four green vs two red); the two defenders' positions on/around B are not visible in the freeze"
-    },
-    {
-      "champ": "game_mode",
-      "incertitude": "Spike Rush footage on Bind. Buy tiers estimated from the Odin/full-alive state, not read from credits"
-    },
-    {
-      "champ": "freq_estimates",
-      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
-    }
+    { "champ": "agent_identity", "incertitude": "Ranked player-POV clip (upgrade from the prior Spike Rush footage); agent not read from the freeze (rifle, signature available). Decision is a numbers-conversion principle, not agent-specific." },
+    { "champ": "pick_context", "incertitude": "The 4v3 and the Window pick are read from the alive-icon bar (4 vs 3) and the active killfeed; the exact pick is inferred, not fully traced." },
+    { "champ": "defender_positions", "incertitude": "The three remaining defenders' rotation is unknown at the freeze (ennemis_inconnus_count: 3); the consolidate-and-commit principle is robust to it." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
   ],
   "video": {
     "intro_url": "media/p-video-013-intro.mp4",
@@ -137,6 +107,6 @@
     "freeze_frame_url": "media/p-video-013-freeze.jpg",
     "credit": "No Copyright Gameplay (YouTube)",
     "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
-    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
   }
 }

@@ -7,9 +7,16 @@
 // The 30 static 2D puzzles are demoted to an internal library, still reachable
 // via ?p=001..030 (deep-links / playtest) but never the served daily.
 //
-// Runway: 15 video puzzles = 15-day rotation (batch #2 added video-007..015 from
-// two additional CC-BY sources — see footage/SOURCES.md). Maps: Haven (001-006,
-// 014-015), Ascent (007-010), Bind (011-013). ≥14-day runway, cadence TODO cleared.
+// Runway: 27 video puzzles = 27-day rotation.
+//   Batch #1 video-001..006 (Haven, Dope Gameplays CC-BY).
+//   Batch #2 video-007..015 (Ascent+Bind Spike Rush, No Copyright Gameplay CC-BY).
+//   Batch #4 (2026-07-31) video-016..027 — NEW: 1080p60 RANKED player-POV, game audio,
+//     from 3 CC-BY compilation VODs (No Copyright Gameplay: LEpGr12MYjM, _gbfEXhJjz0,
+//     rPFcvli4m7s). Adds Split, Pearl, Icebox in video for the first time; covers the new
+//     taxonomy tags (zoning/info/timing/duel-selection/anchor/advantage).
+//   Batch #4 ALSO replaced the 3 weakest muted Spike Rush clips with ranked+audio footage:
+//     video-008 (now Split eco), video-012 (Bind entry Op+spike), video-013 (Bind rotation).
+//   Maps in video now: Haven, Ascent, Bind, Split, Pearl, Icebox. See footage/SOURCES.md.
 // ─────────────────────────────────────────────────────────────────────────────
 export const VIDEO_DAILY = [
   "puzzle-video-001.json",
@@ -27,6 +34,18 @@ export const VIDEO_DAILY = [
   "puzzle-video-013.json",
   "puzzle-video-014.json",
   "puzzle-video-015.json",
+  "puzzle-video-016.json",
+  "puzzle-video-017.json",
+  "puzzle-video-018.json",
+  "puzzle-video-019.json",
+  "puzzle-video-020.json",
+  "puzzle-video-021.json",
+  "puzzle-video-022.json",
+  "puzzle-video-023.json",
+  "puzzle-video-024.json",
+  "puzzle-video-025.json",
+  "puzzle-video-026.json",
+  "puzzle-video-027.json",
 ] as const;
 
 // Ordered list of static puzzle filenames (p001-p030) — internal library.

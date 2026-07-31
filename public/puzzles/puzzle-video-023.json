@@ -1,0 +1,112 @@
+{
+  "id": "puzzle-video-023",
+  "version": 2,
+  "map": "bind",
+  "side": "ATK",
+  "theme": "clutch",
+  "difficulty_est": 3,
+  "round_state": {
+    "timer_s": 93,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "full-buy",
+    "eco_def_approx": "semi-buy",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic", "basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "a-cubby",
+    "allies": [
+      { "id": "YOU", "x": 360, "y": 600, "orientation_deg": 30, "label": "YOU-OP", "est_joueur_concerne": true }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Bind — ATK, 8-1 up, 5v5, you hold an Operator scoped on an A Cubby angle while your team sets up the round. Nobody is peeking you yet. What is the disciplined Op play?",
+  "options": [
+    {
+      "label": "Hold the scoped angle patiently and only take the shot you are already set up for; re-position if it goes stale",
+      "tier": "optimal",
+      "ev_delta": "+0.12 R",
+      "freq_elite_estimee": 55,
+      "explication_courte": "Duel selection with an Op means taking ONLY the fights your crosshair is pre-set for. Holding the pre-aimed lane converts any peeker into a near-free pick, and if the angle dies you slip to a new one — you never gift the enemy a duel on their terms.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Only take the duels you are pre-aimed and positioned for; the Operator rewards the player who holds and refuses off-angle fights"
+        }
+      ]
+    },
+    {
+      "label": "Aggressively wide-swing the Op to hunt a pick and open the map early",
+      "tier": "couteux",
+      "ev_delta": "-0.24 R",
+      "freq_elite_estimee": 16,
+      "explication_courte": "Wide-swinging an Op throws away its entire strength — the slow scope-in leaves you cold on any angle you weren't already set for, and a wide-swing is exactly the fight riflers beat. Great picks come from holding, not chasing.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Wide-swinging with an Operator surrenders its holding advantage and hands riflers the reaction-time edge"
+        }
+      ]
+    },
+    {
+      "label": "Jiggle-peek the angle repeatedly to bait shots and gather info on who is watching",
+      "tier": "acceptable",
+      "ev_delta": "-0.06 R",
+      "freq_elite_estimee": 22,
+      "explication_courte": "Jiggling for info is a fine tool, but doing it constantly with an Op wastes your held pre-aim and can walk you into a rifler's pre-fire. It gathers info at the cost of the very setup that makes your Op valuable.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Jiggle-peeks harvest info cheaply, but over-peeking an angle trades your positional advantage for exposure"
+        }
+      ]
+    },
+    {
+      "label": "Un-scope and rush forward to force close-range fights with your sidearm",
+      "tier": "faute",
+      "ev_delta": "-0.29 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "Abandoning a strong Op perch to rush into pistol range on a gun round throws away your weapon advantage entirely and picks the worst possible duel for an Op holder. This is anti-duel-selection.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Forcing close-range fights with an Op holder discards the range advantage that defines the weapon's role"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Duel selection is the quiet skill that separates ranks: choosing only the fights you are already set up to win and refusing the rest. Up 8-1 on Bind, holding an Operator scoped on an A Cubby angle with nobody peeking you, the disciplined play is simply to hold that pre-aimed lane patiently — take only the shot your crosshair is already placed for, and if the angle goes stale, slip quietly to a fresh one. That is exactly how an Op converts value: any peeker crossing your pre-aim is a near-free pick, and you never hand the enemy a duel on their terms. Wide-swinging the Op to hunt a pick is the costly error — the slow scope-in leaves you cold on anything you weren't set for, and a wide-swing is precisely the fight riflers beat on reaction time. Constant jiggle-peeking is a fine info tool but overused it wastes your held pre-aim and can walk you into a pre-fire; it buys information at the price of the setup that makes your Op strong. Un-scoping to rush into sidearm range is the outright faute — on a gun round you would be trading away your entire weapon advantage to pick the worst possible fight for an Op holder. When you are ahead and holding a strong angle, let the game come to you: hold the shot you're set for, refuse the rest.",
+  "sources": [
+    {
+      "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+      "citation": "Duel selection with the Operator: hold your pre-aimed angle, take only the fights you're set up for, reposition rather than over-peek"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use Gameplay (60 Fps) | CC-BY — footage source (Bind, A Cubby, Op hold, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from the freeze (Operator scoped, signature+basics available). Decision is Op duel-selection, not agent-specific." },
+    { "champ": "theme_mapping", "incertitude": "The taxonomy tag trained here is 'duel-selection'; the schema theme enum lacks that value so 'clutch' is used as the closest holding/1-duel-at-a-time category. The question and explanation make the duel-selection focus explicit." },
+    { "champ": "defender_positions", "incertitude": "No defender is peeking at the freeze (ennemis_inconnus_count: 5); the hold-your-pre-aim principle is independent of exact enemy positions." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-023-intro.mp4",
+    "resolution_url": "media/p-video-023-resolution.mp4",
+    "freeze_frame_url": "media/p-video-023-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
+  }
+}

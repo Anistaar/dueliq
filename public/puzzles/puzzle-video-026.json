@@ -1,0 +1,113 @@
+{
+  "id": "puzzle-video-026",
+  "version": 2,
+  "map": "pearl",
+  "side": "DEF",
+  "theme": "eco",
+  "difficulty_est": 2,
+  "round_state": {
+    "timer_s": 92,
+    "spike_planted": false,
+    "alive_atk": 5,
+    "alive_def": 5,
+    "eco_atk_approx": "eco",
+    "eco_def_approx": "eco",
+    "util_joueur": {
+      "agent": "unknown",
+      "signature": "available",
+      "ultimate": null,
+      "basic_remaining": ["basic"]
+    }
+  },
+  "positions": {
+    "viewBox": "0 0 1000 1000",
+    "map_zone": "mid-market",
+    "allies": [
+      { "id": "YOU", "x": 480, "y": 620, "orientation_deg": 0, "label": "YOU", "est_joueur_concerne": true },
+      { "id": "P2", "x": 540, "y": 560, "orientation_deg": 0, "label": "MATE", "est_joueur_concerne": false }
+    ],
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
+  },
+  "question": "Pearl — DEF pistol round (Ghost, 5v5), 0-0, 1:32 left. Mid Market is the pivot of Pearl. As a defender near mid, how do you play the opening pistol around Mid control?",
+  "options": [
+    {
+      "label": "Contest Mid early with a teammate for control/info, then fall back to site if the attackers commit there in force",
+      "tier": "optimal",
+      "ev_delta": "+0.13 R",
+      "freq_elite_estimee": 50,
+      "explication_courte": "On Pearl, Mid feeds both sites — winning early Mid control (or just the info) as defenders lets you deny the attackers their fastest rotation and pick off over-extenders. Contest with a buddy for the trade, then give ground gracefully if they stack it.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "On maps where mid connects both sites, contesting mid control early denies the attackers their central rotation and yields info"
+        }
+      ]
+    },
+    {
+      "label": "Push Mid alone aggressively to try to win the pistol with an early solo pick",
+      "tier": "couteux",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 18,
+      "explication_courte": "Solo-pushing Mid on pistols into an unknown number of attackers is a coinflip that often just donates the first blood — and losing a defender early on Mid opens the whole map. Contest with support, don't gamble alone.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Solo-pushing into unknown numbers gambles first blood; contesting with a trade partner preserves the advantage"
+        }
+      ]
+    },
+    {
+      "label": "Fully retreat to your site and play a passive on-site hold, ceding Mid entirely",
+      "tier": "acceptable",
+      "ev_delta": "-0.05 R",
+      "freq_elite_estimee": 24,
+      "explication_courte": "Playing a clean on-site pistol hold is safe and legitimate, but giving Mid away for free on Pearl hands the attackers the map's key rotation and lets them hit either site with tempo. Safe, but lower EV than contesting the pivot.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Ceding mid entirely is safe but grants attackers the central rotation and flexible site timing"
+        }
+      ]
+    },
+    {
+      "label": "Rush all-in to the attackers' side of Mid to catch their spawn",
+      "tier": "faute",
+      "ev_delta": "-0.28 R",
+      "freq_elite_estimee": 4,
+      "explication_courte": "A full defensive rush into the attacker half on a pistol abandons your sites and gambles everything on catching them out — if they hold Mid, you die in their space and both sites fall for free.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
+          "citation": "Over-committing defenders into the attacker half abandons the sites and hands the round away if the read is wrong"
+        }
+      ]
+    }
+  ],
+  "explication_longue": "Pearl is a map built around its Mid: Mid Market connects to both sites, so whoever controls it dictates rotations and timing. On a defensive pistol at 0-0, the highest-EV play is to contest Mid early WITH a teammate — fight for the control or at least the info, then fall back to your site gracefully if the attackers commit there in force. Winning early Mid as a defender denies the attackers their fastest rotation and lets you punish over-extenders, and doing it with a trade partner means any duel you take is backed up. Solo-pushing Mid is the costly error: on pistols, gambling alone into an unknown number of attackers usually just donates first blood, and a defender lost on Mid opens the entire map. Fully retreating to a passive on-site hold is genuinely acceptable — it's clean and safe — but giving Mid away for free on Pearl specifically hands the attackers the pivot and lets them hit either site with tempo, so it's lower EV than contesting. Rushing all-in into the attacker half of Mid is the faute: you abandon both sites and bet the round on catching them out, and if they simply hold Mid you die in their space and everything falls. Contest the pivot with support, then give ground on your terms.",
+  "sources": [
+    {
+      "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+      "citation": "Mid control is the pivot on maps where mid connects both sites; contesting it early as defenders denies attacker rotations"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rPFcvli4m7s",
+      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Pearl, Mid Market DEF pistol, ranked POV)"
+    }
+  ],
+  "validation": { "status": "draft", "juges": [] },
+  "_gaps": [
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked pistol clip; agent not read from the freeze (Ghost, one signature-charge on HUD). A teammate (teal icon) is mid. Decision is a mid-control principle, not agent-specific." },
+    { "champ": "theme_mapping", "incertitude": "This trains both 'zoning' (mid control) and pistol 'eco'; the schema theme enum has 'eco' (used here) but not 'zoning'. The question/explanation foreground the mid-control focus." },
+    { "champ": "attacker_intent", "incertitude": "Whether the attackers commit Mid, fake it, or split is unknown at the freeze (ennemis_inconnus_count: 5); the contest-then-fall-back principle is robust to it." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated VOD dataset." }
+  ],
+  "video": {
+    "intro_url": "media/p-video-026-intro.mp4",
+    "resolution_url": "media/p-video-026-resolution.mp4",
+    "freeze_frame_url": "media/p-video-026-freeze.jpg",
+    "credit": "No Copyright Gameplay (YouTube)",
+    "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
+    "license_url": "https://www.youtube.com/watch?v=rPFcvli4m7s"
+  }
+}
