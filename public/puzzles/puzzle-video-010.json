@@ -1,149 +1,105 @@
 {
   "id": "puzzle-video-010",
-  "version": 2,
-  "map": "ascent",
+  "version": 3,
+  "map": "bind",
   "side": "ATK",
   "theme": "util",
   "difficulty_est": 4,
   "round_state": {
-    "timer_s": 95,
+    "timer_s": 94,
     "spike_planted": false,
-    "alive_atk": 1,
-    "alive_def": 3,
+    "alive_atk": 3,
+    "alive_def": 5,
     "eco_atk_approx": "full-buy",
     "eco_def_approx": "full-buy",
     "util_joueur": {
       "agent": "unknown",
-      "signature": "recon_reveal",
-      "ultimate": null,
-      "basic_remaining": ["q", "e", "x"]
+      "signature": "available",
+      "ultimate": "available",
+      "basic_remaining": []
     }
   },
   "positions": {
     "viewBox": "0 0 1000 1000",
-    "map_zone": "a-ramps",
+    "map_zone": "b-long",
     "allies": [
-      {
-        "id": "YOU",
-        "x": 400,
-        "y": 750,
-        "orientation_deg": 0,
-        "label": "YOU (Phantom)",
-        "est_joueur_concerne": true
-      }
+      { "id": "YOU", "x": 380, "y": 650, "orientation_deg": 315, "label": "YOU", "est_joueur_concerne": true }
     ],
-    "ennemis_connus": [
-      {
-        "id": "E1",
-        "x": 350,
-        "y": 400,
-        "orientation_deg": 180,
-        "label": "REVEALED"
-      },
-      {
-        "id": "E2",
-        "x": 430,
-        "y": 380,
-        "orientation_deg": 180,
-        "label": "REVEALED"
-      },
-      {
-        "id": "E3",
-        "x": 700,
-        "y": 420,
-        "orientation_deg": 225,
-        "label": "REVEALED (behind smoke)"
-      }
-    ],
-    "ennemis_inconnus_count": 0
+    "ennemis_connus": [],
+    "ennemis_inconnus_count": 5
   },
-  "question": "Ascent — ATK, 1v3 down, 1:35 left. A recon reveal just lit up all three defenders stacked at A Ramps — two grouped left, one behind smoke right. You have a Phantom. How do you use this info?",
+  "question": "Bind — ATK, full-buy, 3v5 down, 1:34 left. You are alone in B Long and the ult orb is right in front of you — 'HOLD F TO CAPTURE ORB (+1 ULT POINT)'. An Omen smoke covers the far end of B Long and an enemy is in that direction. Should you capture the orb?",
   "options": [
     {
-      "label": "Use the reveal to avoid the 3-stack: reposition off their known angle and make them rotate to you one at a time",
+      "label": "Do NOT capture the orb — stay mobile, wide-swing the smoke line and take a clean duel first, then grab the orb if you're still alive",
       "tier": "optimal",
-      "ev_delta": "+0.19 R",
-      "freq_elite_estimee": 54,
-      "explication_courte": "The scan's real value in a 1v3 is knowing where NOT to walk. You now know all three are grouped on A — so you slip off that angle, use the clock, and force them to break the stack and come to you singly instead of eating a 1v3 crossfire.",
-      "sources_option": [
-        {
-          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
-          "citation": "Information is used to avoid disadvantageous fights and reposition, not only to start them; a reveal that shows a stack is a reason to relocate"
-        }
-      ]
-    },
-    {
-      "label": "Push A Ramps now and spray through the green smoke to catch the lurker while he's revealed",
-      "tier": "couteux",
-      "ev_delta": "-0.30 R",
-      "freq_elite_estimee": 12,
-      "explication_courte": "Spraying a revealed body through smoke commits you into a choke where his two teammates are stacked one flick away. Even if you tag the smoked enemy, the other two trade you instantly — you traded a 1v3 for a 1v2 at best, in the open.",
-      "sources_option": [
-        {
-          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
-          "citation": "Spraying into smokes on a reveal wastes ammo and commits you to a choke; only take the fight if the reveal shows the enemy isolated"
-        }
-      ]
-    },
-    {
-      "label": "Wide-swing the two grouped left to try to double-tag them with the Phantom before they react",
-      "tier": "faute",
-      "ev_delta": "-0.46 R",
-      "freq_elite_estimee": 5,
-      "explication_courte": "Swinging into two pre-aimed, now-alert defenders is a near-guaranteed death — the reveal cut both ways the moment you showed. You throw the round trying to hero-frag a stack that's already looking at your angle.",
+      "ev_delta": "+0.15 R",
+      "freq_elite_estimee": 52,
+      "explication_courte": "Capturing the orb is a 2-3 second channelled stationary action. In a 3v5 with an enemy in the smoke 10m ahead, you are defenceless the whole time — one sound cue and they swing and headshot you while you're locked in the capture animation. Win the duel first.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
-          "citation": "Swinging into two or more players holding the same angle is a losing duel; isolate the fight rather than challenging a grouped stack"
+          "citation": "Stationary interactions (spike plant, orb capture, defuse) should only be committed when the immediate threat is neutralised; any enemy nearby makes the channel lethal"
         }
       ]
     },
     {
-      "label": "Sit exactly where you are and hold, letting the recon info go stale while the clock runs",
-      "tier": "acceptable",
-      "ev_delta": "-0.05 R",
-      "freq_elite_estimee": 29,
-      "explication_courte": "Holding is safe and time is on your side, but freezing on the same spot the reveal was fired from lets them predict you; the value is in USING the info to relocate, not in sitting on it until it expires.",
+      "label": "Capture the orb immediately — the ult point might be the difference-maker in a 3v5",
+      "tier": "faute",
+      "ev_delta": "-0.44 R",
+      "freq_elite_estimee": 8,
+      "explication_courte": "Standing still for 2-3 seconds with an enemy at the end of the same lane is a near-certain death. An ult point you die getting is worth nothing. The 3v5 deficit cannot be solved by a power-up you never live to use.",
       "sources_option": [
         {
-          "url": "https://dignitas.gg/articles/how-to-properly-rotate-on-offense-and-defense-in-valorant",
-          "citation": "Act on information while it's fresh; holding a predictable position after revealing yourself lets the enemy set up on you"
+          "url": "https://eloking.com/blog/how-to-eco-in-valorant",
+          "citation": "Risk-reward principle: any channelled action with an immediate enemy present gives away your position and timing for free"
+        }
+      ]
+    },
+    {
+      "label": "Smoke off B Long exit with your signature, then capture the orb under the smoke cover",
+      "tier": "acceptable",
+      "ev_delta": "-0.07 R",
+      "freq_elite_estimee": 28,
+      "explication_courte": "Using your signature to cover the lane before capturing is a real attempt to mitigate the risk, and it's defensible. The problem is the Omen smoke at the far end is already there — layering a second smoke means you're burning signature for an orb, a resource trade that's marginal in a 3v5 where you need every ability for the fight.",
+      "sources_option": [
+        {
+          "url": "https://dignitas.gg/articles/learn-to-take-control-of-your-valorant-games-a-breakdown-of-map-control",
+          "citation": "Utility spent to secure an orb rather than to facilitate a fight is a resource trade you must weigh against the ult value gained"
+        }
+      ]
+    },
+    {
+      "label": "Retreat out of B Long — the orb is not worth the exposure in a 3v5",
+      "tier": "couteux",
+      "ev_delta": "-0.20 R",
+      "freq_elite_estimee": 12,
+      "explication_courte": "Retreating cedes B Long entirely without gaining anything — no orb, no duel, no information. In a 3v5 every piece of map territory matters; giving B Long to the defense for free narrows your attack routes and gives them a free rotation lane.",
+      "sources_option": [
+        {
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Conceding space without a fight hands the defense free territory and rotation options; retreat only when the defensive cost of the lane is zero"
         }
       ]
     }
   ],
-  "explication_longue": "A recon reveal in a 1v3 is worth the most when you read it as a map of danger, not a target list. The scan shows all three defenders bunched near A Ramps — two together on the left, one tucked behind a green smoke on the right. The disciplined line is to treat that as a no-go zone: you are one player against three grouped crosshairs, so you use the clock (you have 1:35), peel off their known angle, and force them to break the stack and rotate to you where you can take them one at a time. Spraying the smoked lurker feels productive but commits you into the exact choke where his two teammates are one flick away; even a successful tag gets you traded immediately, converting a 1v3 into a 1v2 in the open — a bad trade. Wide-swinging the two grouped defenders is worse: the reveal alerted them too, they are pre-aimed on your angle, and you die for nothing. Even pure holding, while safe, wastes the information if you sit on the spot you revealed from and let it go stale. The edge the scan bought you is repositioning knowledge — spend it by relocating, not by charging a stack.",
+  "explication_longue": "The orb in B Long is a tempting target — an ult point that could matter in a 3v5 — but the tactical situation around it makes it a trap. Capturing any orb takes 2-3 seconds of standing stationary, and you have an enemy camped behind a smoke at the end of the same corridor. The moment you crouch to capture, you make the loudest 'free kill' sound available in the game: a locked-in channelling player with a known position. In a 3v5 your individual survival is critical to even having a chance at the round; dying for an ult charge you never use converts a tough 3v5 into an effectively unwinnable 2v5. The correct sequence is: engage the enemy in the smoke first, win the duel, and THEN collect the orb from safety if you're still standing. Using your own signature to create cover before capturing is a real compromise and not wrong — but it costs you an ability slot for an orb in a round where you need every tool for the actual site take. Simply retreating from B Long gives the defense the lane for free, no orb, no duel, nothing gained — the worst of all outcomes. Win the fight, then grab the reward.",
   "sources": [
     {
-      "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
-      "citation": "Information control is about avoiding bad fights and repositioning as much as starting good ones; a reveal that shows grouped enemies is a reason to relocate"
+      "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+      "citation": "Channelled stationary actions require a cleared immediate threat first; an enemy nearby turns any orb or plant into a defenceless death"
     },
     {
-      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
-      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Ramps)"
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use (1080p60) | CC-BY — footage source (Bind B Long orb, ranked)"
     }
   ],
-  "validation": {
-    "status": "draft",
-    "juges": []
-  },
+  "validation": { "status": "draft", "juges": [] },
   "_gaps": [
-    {
-      "champ": "agent_identity",
-      "incertitude": "The reveal (enemies highlighted through geometry) confirms a recon effect is active, but the source agent (Sova Recon Bolt, Fade, or KAY/O) is not identifiable from the observer POV. Player holds a Phantom with a full ability bar (Q/E/X shown)"
-    },
-    {
-      "champ": "enemy_positions",
-      "incertitude": "Enemy coordinates are approximated from the revealed silhouettes visible at A Ramps in the freeze; the exact stance/HP of each is not readable. The one behind smoke is inferred to be the tucked lurker"
-    },
-    {
-      "champ": "game_mode",
-      "incertitude": "Spike Rush footage (3v3); 'down 1v3' means last attacker alive. Alive counts read from the icon bar"
-    },
-    {
-      "champ": "freq_estimates",
-      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
-    }
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not identifiable from the freeze (hand visible, both abilities shown on HUD as available). Puzzle is a situational risk/reward decision, not agent-specific." },
+    { "champ": "alive_counts", "incertitude": "Score 2-0 DEF suggests late-round deficit. Top HUD icons read 3 ATK alive vs 5 DEF alive from the icon bar." },
+    { "champ": "orb_timing", "incertitude": "The HOLD F prompt duration (2-3s) is a standard Valorant mechanic; exact value not displayed in-frame but consistent across all orbs in the game." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset." }
   ],
   "video": {
     "intro_url": "media/p-video-010-intro.mp4",
@@ -151,6 +107,6 @@
     "freeze_frame_url": "media/p-video-010-freeze.jpg",
     "credit": "No Copyright Gameplay (YouTube)",
     "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
-    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
   }
 }

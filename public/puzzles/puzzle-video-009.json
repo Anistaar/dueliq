@@ -1,127 +1,106 @@
 {
   "id": "puzzle-video-009",
-  "version": 2,
-  "map": "ascent",
-  "side": "ATK",
+  "version": 3,
+  "map": "bind",
+  "side": "DEF",
   "theme": "eco",
-  "difficulty_est": 2,
+  "difficulty_est": 3,
   "round_state": {
-    "timer_s": 83,
+    "timer_s": 62,
     "spike_planted": false,
-    "alive_atk": 5,
-    "alive_def": 5,
+    "alive_atk": 2,
+    "alive_def": 2,
     "eco_atk_approx": "eco",
     "eco_def_approx": "eco",
     "util_joueur": {
       "agent": "unknown",
-      "signature": null,
-      "ultimate": null,
+      "signature": "available",
+      "ultimate": "available",
       "basic_remaining": []
     }
   },
   "positions": {
     "viewBox": "0 0 1000 1000",
-    "map_zone": "a-main",
+    "map_zone": "b-site",
     "allies": [
-      {
-        "id": "YOU",
-        "x": 500,
-        "y": 700,
-        "orientation_deg": 0,
-        "label": "YOU (Sheriff)",
-        "est_joueur_concerne": true
-      }
+      { "id": "YOU", "x": 480, "y": 620, "orientation_deg": 0, "label": "YOU (Bucky)", "est_joueur_concerne": true },
+      { "id": "P2", "x": 380, "y": 500, "orientation_deg": 315, "label": "DEF-B", "est_joueur_concerne": false }
     ],
     "ennemis_connus": [],
-    "ennemis_inconnus_count": 5
+    "ennemis_inconnus_count": 2
   },
-  "question": "Ascent — ATK pistol round, 5v5, no spike, 1:23 left. You hold a Sheriff pressed against the A Main wall, everyone still alive. What is the highest-EV pistol-round play here?",
+  "question": "Bind — DEF, eco round, 2v2, score 7-7, 1:02 left, no spike. You hold B Site with a Bucky (shotgun), looking up at B Window (Hookah window). Your ult is available. Two attackers are somewhere off-site. What is the highest-EV defensive play?",
   "options": [
     {
-      "label": "Hold your crosshair pre-aimed at head level on the A Main choke and take a disciplined first-tap if a defender peeks",
+      "label": "Hold tight against cover at B Site watching the Hookah window angle — let the attacker come to you at close range where the Bucky wins",
       "tier": "optimal",
-      "ev_delta": "+0.12 R",
-      "freq_elite_estimee": 52,
-      "explication_courte": "Pistol rounds are decided by first bullets and armor math. Pre-aiming head-level at the choke with a Sheriff means one clean tap = one dead defender, swinging the round to a 5v4 before util or numbers even matter.",
+      "ev_delta": "+0.16 R",
+      "freq_elite_estimee": 60,
+      "explication_courte": "The Bucky's edge is close range and pre-aim. Holding the Hookah window angle from B Site means any attacker who drops through is at 5-7m — inside Bucky one-shot territory. You're playing to your weapon's strength and making them come to you.",
       "sources_option": [
         {
           "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
-          "citation": "Pistol and eco rounds are won on first-shot discipline and armor value; pre-aim common angles and tap heads rather than spray"
+          "citation": "Eco rounds with close-range weapons are won by holding tight angles at the range your weapon dominates — make the enemy walk into your effective range"
         }
       ]
     },
     {
-      "label": "Peek out into A Main now to take space early while you have full HP",
+      "label": "Pop your ultimate now to get information on the two attackers and push toward them",
       "tier": "couteux",
-      "ev_delta": "-0.22 R",
-      "freq_elite_estimee": 13,
-      "explication_courte": "Peeking first on a pistol hands the defender the pre-aim advantage — they're already sighted on the choke and one tap trades you. On equal pistols, the peeker usually loses the opening duel.",
+      "ev_delta": "-0.19 R",
+      "freq_elite_estimee": 14,
+      "explication_courte": "Spending your ultimate to push into their ground inverts the Bucky's advantage — you're taking long-range duels with a shotgun while they can still be waiting at the angle they chose. The ult is better spent stabilizing the round after you confirm a kill.",
       "sources_option": [
         {
           "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
-          "citation": "The player holding a pre-aimed angle beats the player peeking into it; don't hand the defense the reaction advantage on a pistol"
+          "citation": "Agent ultimates on eco rounds are most valuable as stabilizers after a pick, not as initiators that commit you to worse weapon matchups"
         }
       ]
     },
     {
-      "label": "Wait for your team to group and default before you commit to any angle",
-      "tier": "acceptable",
-      "ev_delta": "+0.05 R",
-      "freq_elite_estimee": 30,
-      "explication_courte": "Setting up a structured default is genuinely fine on a pistol — but sitting completely passive at the wall with a pre-aimable choke in front of you leaves free opening-pick equity on the table if a defender wanders into your angle.",
+      "label": "Peek out to B Long looking for an early pick before they get set up in their positions",
+      "tier": "faute",
+      "ev_delta": "-0.39 R",
+      "freq_elite_estimee": 7,
+      "explication_courte": "Peeking B Long with a Bucky means walking into rifle range (15-25m) where the shotgun does chip damage and the enemy Vandal/Phantom one-taps. You play your worst matchup, wide-open, with no cover, in a round where your only edge is close-angle advantage.",
       "sources_option": [
         {
           "url": "https://eloking.com/blog/how-to-eco-in-valorant",
-          "citation": "A disciplined default spreads for info; but don't ignore a free angle you already control while waiting to group"
+          "citation": "Eco players with close-range weapons must not peek long sightlines — take favorable angles and let the enemy commit into shotgun range"
         }
       ]
     },
     {
-      "label": "Save your Sheriff by falling back to spawn and playing for the bonus round",
-      "tier": "faute",
-      "ev_delta": "-0.40 R",
-      "freq_elite_estimee": 5,
-      "explication_courte": "There is nothing to save on a pistol round — everyone is on equal equipment. Conceding the pistol without a fight throws the single highest-swing round of the half and the bonus economy that follows it.",
+      "label": "Fall back to CT and set up a passive hold so you can't be smoked out of the B Site angle",
+      "tier": "acceptable",
+      "ev_delta": "-0.04 R",
+      "freq_elite_estimee": 19,
+      "explication_courte": "Retreating to CT gives you a second angle but stretches the B-Long-to-CT rotation too thin in a 2v2 — the remaining defender alone can't hold B site while you're 30m away. Splitting a 2v2 into two 1v1s is a risky call when one player is on a Bucky.",
       "sources_option": [
         {
-          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
-          "citation": "The pistol round has outsized economic swing; conceding it without contesting forfeits the round and the follow-on bonus"
+          "url": "https://boostroom.com/blog/defense-guide-strong-site-setups-rotations-and-information-control",
+          "citation": "In a 2v2 defense, splitting too wide turns the round into isolated 1v1s where the team with better weapons wins each; keep guns mutually supporting"
         }
       ]
     }
   ],
-  "explication_longue": "Pistol rounds swing on two things: who lands the first clean headshot, and the armor economy behind it. Pressed against the A Main wall with a Sheriff and everyone alive, your job is to convert the angle you already hold into a free opening pick. Pre-aiming head level at the A Main choke means the moment a defender peeks, your Sheriff — a one-tap-to-the-head weapon — turns the round into a 5v4 before numbers, utility, or a plant ever come into play. Peeking out first inverts that: you walk into whatever the defense has pre-aimed, and on equal pistols the peeker loses the reaction duel far more often than they win it. Playing a structured default with your team is a legitimate alternative and often correct — but it is not a reason to sit blind at the wall ignoring a choke you already control; hold the angle while your team spreads. Saving is simply wrong here: on a pistol everyone is on identical equipment, so there is no weapon worth preserving, and conceding the round forfeits both it and the bonus-round economy that a pistol win sets up. Hold, pre-aim, tap.",
+  "explication_longue": "In an eco round 2v2 at 7-7, your Bucky defines what plays are available to you. The shotgun has a decisive close-range advantage — inside 5-7m it can one-tap through armor, but past 12m it does chip damage that loses a gunfight to any rifle. Holding the Hookah window angle from B Site is the play that maximizes that edge: any attacker who drops through the window into B Site lands at close range, right in your kill zone. You are making them come to you at the range you control. Spending your ultimate to push out toward them inverts every advantage — you move into rifle territory with a shotgun, the element of surprise is yours to squander, and you risk an isolated 1v1 under their conditions. Peeking B Long is even worse: 20+ metres of open corridor against rifles is a guaranteed loss. Falling back to CT keeps you alive longer but splits the two defenders so far apart that the attackers can isolate and pick them one at a time. Eco rounds are not lost by bad aim; they're lost by players with close-range weapons taking long-range fights. Hold B site, hold the window, let the Bucky do its job.",
   "sources": [
     {
       "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-eco-rounds-700",
-      "citation": "Win pistols with first-shot discipline, armor value and controlled angles; the pistol round has outsized economic swing"
+      "citation": "Eco rounds are won by playing to your weapon's strength and forcing the enemy into your effective range"
     },
     {
-      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
-      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Ascent A Main)"
+      "url": "https://www.youtube.com/watch?v=LEpGr12MYjM",
+      "citation": "No Copyright Gameplay — Valorant Free To Use (1080p60) | CC-BY — footage source (Bind B Site, ranked 7-7)"
     }
   ],
-  "validation": {
-    "status": "draft",
-    "juges": []
-  },
+  "validation": { "status": "draft", "juges": [] },
   "_gaps": [
-    {
-      "champ": "agent_identity",
-      "incertitude": "Spectator-observer POV; the player holds a Sheriff (pistol/eco loadout) but the agent is not clearly readable at the freeze and is left unknown rather than guessed. Puzzle is loadout/positioning driven, not agent-specific"
-    },
-    {
-      "champ": "eco_context",
-      "incertitude": "'pistol' round inferred from the Sheriff and both teams fully alive with no rifles shown; not read from a credit display. Game mode is Spike Rush (this round appears to be an all-alive round, read as 5-alive from the icon bar)"
-    },
-    {
-      "champ": "pov_blind_spots",
-      "incertitude": "No defenders are visible from A Main at the freeze; 'ennemis_inconnus_count: 5' reflects that no contact has been made yet"
-    },
-    {
-      "champ": "freq_estimates",
-      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
-    }
+    { "champ": "agent_identity", "incertitude": "Player-POV ranked clip; agent not read from freeze (Bucky visible, ult charge available). Puzzle is a weapon-matchup/positioning decision, not agent-specific." },
+    { "champ": "timer_s", "incertitude": "Timer reads 1:02 at freeze frame. Round state alive counts (2v2) read from the icon bar at the top of the HUD." },
+    { "champ": "eco_context", "incertitude": "Bank ¤200 visible on freeze confirms eco/force-buy. Attacker loadout not readable — assumed eco by symmetry of the score + both players on secondary-class weapons." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset." }
   ],
   "video": {
     "intro_url": "media/p-video-009-intro.mp4",
@@ -129,6 +108,6 @@
     "freeze_frame_url": "media/p-video-009-freeze.jpg",
     "credit": "No Copyright Gameplay (YouTube)",
     "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
-    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+    "license_url": "https://www.youtube.com/watch?v=LEpGr12MYjM"
   }
 }

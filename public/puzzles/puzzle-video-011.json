@@ -1,135 +1,108 @@
 {
   "id": "puzzle-video-011",
-  "version": 2,
+  "version": 3,
   "map": "bind",
   "side": "ATK",
-  "theme": "postplant",
+  "theme": "entry",
   "difficulty_est": 3,
   "round_state": {
-    "timer_s": 23,
-    "spike_planted": true,
+    "timer_s": 69,
+    "spike_planted": false,
     "alive_atk": 3,
-    "alive_def": 1,
+    "alive_def": 2,
     "eco_atk_approx": "full-buy",
     "eco_def_approx": "full-buy",
     "util_joueur": {
       "agent": "unknown",
-      "signature": null,
+      "signature": "available",
       "ultimate": null,
-      "basic_remaining": ["e"]
+      "basic_remaining": ["basic"]
     }
   },
   "positions": {
     "viewBox": "0 0 1000 1000",
-    "map_zone": "a-site",
+    "map_zone": "a-bath",
     "allies": [
-      {
-        "id": "YOU",
-        "x": 300,
-        "y": 350,
-        "orientation_deg": 90,
-        "label": "YOU",
-        "est_joueur_concerne": true
-      },
-      {
-        "id": "P2",
-        "x": 350,
-        "y": 600,
-        "orientation_deg": 45,
-        "label": "ALLY A",
-        "est_joueur_concerne": false
-      }
+      { "id": "YOU", "x": 580, "y": 680, "orientation_deg": 0, "label": "YOU (Spectre)", "est_joueur_concerne": true },
+      { "id": "P2", "x": 460, "y": 580, "orientation_deg": 0, "label": "OMEN (ally)", "est_joueur_concerne": false }
     ],
-    "ennemis_connus": [],
+    "ennemis_connus": [
+      { "id": "E1", "x": 480, "y": 340, "orientation_deg": 180, "label": "DEF (A Site)", "est_joueur_concerne": false }
+    ],
     "ennemis_inconnus_count": 1
   },
-  "question": "Bind — ATK, spike planted A (Reactor), 3v1 up, 23s on defuse. You hold near A Site with an ally; the single surviving defender is somewhere off-site. How do you close the post-plant?",
+  "question": "Bind — ATK, 3v2 man-advantage, 1:09 left, no spike planted. You and your Omen ally are pushing through A Bath toward A Site — 'A Site: 9m' proximity label visible. One defender is alive ahead on A Site, one is unaccounted for. How do you push through A Bath as the advantage team?",
   "options": [
     {
-      "label": "Hold crossfire angles on the spike and let the clock run — force the lone defender into two guns to even try a defuse",
+      "label": "Stagger the push — Omen goes first to absorb or bait the angle while you trail 2-3m behind to trade instantly if he takes a bullet",
       "tier": "optimal",
-      "ev_delta": "+0.22 R",
-      "freq_elite_estimee": 63,
-      "explication_courte": "You're 3v1 with the spike down and 23s — time is entirely on your side. Set a crossfire covering the plant so the lone defender has to show himself to defuse and dies to the first gun. You never need to move.",
+      "ev_delta": "+0.19 R",
+      "freq_elite_estimee": 56,
+      "explication_courte": "In a 3v2 you already win if you don't throw it. Staggering the push means the defender can only shoot one of you at a time — you are the trade. If Omen is shot, you swing and kill the now-low, reloading defender. You convert a 3v2 into a clean 2v1.",
       "sources_option": [
         {
-          "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
-          "citation": "Post-plant is about holding angles that cover the spike and letting the clock work; make the defender expose himself rather than hunting him"
+          "url": "https://dignitas.gg/articles/positioning-and-movement-101-the-dos-and-don-ts-of-peeking-and-holding-angles",
+          "citation": "Playing trade positions behind an entry keeps a man-advantage intact; both players rushing the same angle at once means one bullet can kill both in a crossfire"
         }
       ]
     },
     {
-      "label": "Push out together to hunt down the last defender and guarantee the kill",
+      "label": "Both rush out together at the same instant to overwhelm the defender with two targets",
       "tier": "couteux",
-      "ev_delta": "-0.28 R",
-      "freq_elite_estimee": 9,
-      "explication_courte": "Chasing a lone defender off-site with the spike already down throws your whole advantage — you leave the plant unwatched, expose yourselves to his held angle, and give him the isolated 1v1s he needs. Time already wins this for you.",
+      "ev_delta": "-0.22 R",
+      "freq_elite_estimee": 15,
+      "explication_courte": "Rushing two bodies through the same tight choke at once can clip both players with one spray — the defender stacks one gun on the door and gets a double. Staggered entries prevent a multi-kill from a single pre-aimed hold.",
       "sources_option": [
         {
-          "url": "https://boostroom.com/blog/post-plant-guide-best-positioning-timing-and-utility-to-secure-the-round",
-          "citation": "With a numbers and time advantage, value staying alive over extra kills; chasing the last defender risks giving the trade back"
+          "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+          "citation": "Funnelling two players through the same chokepoint simultaneously lets a holding defender hit both; stagger to force separate duels"
         }
       ]
     },
     {
-      "label": "Split apart to cover two separate entrances to site so he can't sneak in",
+      "label": "Have Omen use his smoke to blind the A Site angle, then both enter under the smoke together",
       "tier": "acceptable",
-      "ev_delta": "+0.07 R",
+      "ev_delta": "-0.02 R",
       "freq_elite_estimee": 24,
-      "explication_courte": "Covering both entries is reasonable with the man-advantage, but spreading too thin turns your crossfire into two isolated 1v1s; a good defender picks one, wins it, and now it's a 2v1 with the plant contested. Keep the guns mutually supporting.",
+      "explication_courte": "Smoking the A Site angle is a valid tool to neutralise the known defender before entry. The risk is that the second unaccounted defender may be watching a different entrance that the smoke doesn't cover — and spending Omen's smoke early leaves you without it for the actual plant/post-plant.",
       "sources_option": [
         {
-          "url": "https://theguide.gg/improve/lessons/valorant/how-to-win-more-postplants-as-attacker-701",
-          "citation": "Cover the common defuse approaches, but keep positions mutually supporting so the defender can't isolate a single gun"
+          "url": "https://dignitas.gg/articles/learn-to-take-control-of-your-valorant-games-a-breakdown-of-map-control",
+          "citation": "Utility used for entry is expended and unavailable for post-plant; weigh the cost of spending smoke before the duel vs the advantage it creates"
         }
       ]
     },
     {
-      "label": "Both hide off the spike and let him start the defuse, planning to swing on the defuse sound",
+      "label": "Stop at A Bath and wait for the third teammate to catch up before entering — use full numbers",
       "tier": "faute",
-      "ev_delta": "-0.42 R",
-      "freq_elite_estimee": 4,
-      "explication_courte": "Ceding vision of the spike to bait a defuse is a coinflip you don't need in a 3v1 — a fake defuse, a quick tap-defuse, or a util-cover defuse can steal the round outright. With this much advantage you never give up eyes on the bomb.",
+      "ev_delta": "-0.35 R",
+      "freq_elite_estimee": 5,
+      "explication_courte": "Stopping to wait in a corridor at 1:09 with two defenders alive burns the clock and gives the defense time to regroup, set up crossfires, and potentially retake B to catch the third teammate from behind. In a 3v2 with map pressure you already have the winning hand — play it now.",
       "sources_option": [
         {
-          "url": "https://www.switchbladegaming.com/valorant/spike-mechanics-guide/",
-          "citation": "Never fully cede vision of the spike when you can hold it; fake defuses and util-covered defuses punish attackers who give up eyes on the bomb"
+          "url": "https://guildorder.com/games/valorant/guides/map-control-fundamentals",
+          "citation": "Delaying an attack to consolidate numbers at low time lets defenders reset and cross-map — act on your advantage before it evaporates"
         }
       ]
     }
   ],
-  "explication_longue": "A 3v1 post-plant with 23 seconds on the clock is close to a free round, and the only way to lose it is to over-play. The spike is down at A (Reactor), the clock is running for you, and the last defender must come to the bomb — so the correct play is to set a crossfire that covers the plant and simply wait. To even attempt a defuse he has to expose himself to at least one of your guns while stationary on the spike; against two mutually supporting angles that is suicide. Chasing him off-site inverts everything: you abandon eyes on the bomb, walk into whatever angle he's holding, and hand him the isolated duels a lone defender lives for — all to secure a kill the clock was already going to hand you. Splitting to cover both entrances is defensible but must not become two lone 1v1s; keep the guns close enough to trade. And baiting the defuse — hiding off the spike to swing on the sound — is a needless coinflip in a 3v1: fake defuses, half-defuses, and util-covered defuses all exist to punish attackers who give up vision. Hold the crossfire, watch the spike, let time close the round.",
+  "explication_longue": "A 3v2 ATK advantage in A Bath with A Site 9 metres ahead is a round you can only lose by over-thinking or by stacking both bodies into the same angle. The correct push is staggered: Omen moves first through the corridor while you trail 2-3 metres behind with your crosshair already on the line the defender holds. If the defender shoots Omen, you are the instant trade — you swing, he's reloading or repositioning off the kill, and your Spectre punishes the exposed moment. You've just converted a 3v2 into a 2v1 with a fresh gun and full HP. Rushing through together at the same instant collapses two players into a single bottleneck — a well-placed defender can hit both with one spray if they're stacked too tight. Waiting for the third man sounds safe but burns your clock at 1:09 in a round where you have the numbers edge; defenders use that pause to reset crossfires, and the second unaccounted defender may rotate behind your third teammate. Using Omen's smoke to cover the A Site angle before entry is defensible — it removes the known threat — but it spends a key post-plant tool early and leaves the unaccounted second defender unchecked on another line. Stagger, trade, win.",
   "sources": [
     {
-      "url": "https://dignitas.gg/articles/playing-post-plant-in-valorant-strategies-and-tips",
-      "citation": "Hold angles covering the spike, keep positions mutually supporting, and let the defuse clock force the defender to expose himself"
+      "url": "https://www.oneesports.gg/valorant/entry-frag-guide-duelist-vice/",
+      "citation": "Stagger entry to force separate duels and keep the trade chain intact — rushing side-by-side risks a single hold killing both"
     },
     {
-      "url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ",
-      "citation": "No Copyright Gameplay — Valorant Gameplay Free To Use | CC-BY — footage source (Bind A Site / Reactor)"
+      "url": "https://www.youtube.com/watch?v=_gbfEXhJjz0",
+      "citation": "No Copyright Gameplay — Valorant Free To Use (1080p60) | CC-BY — footage source (Bind A Bath, ranked 3v2)"
     }
   ],
-  "validation": {
-    "status": "draft",
-    "juges": []
-  },
+  "validation": { "status": "draft", "juges": [] },
   "_gaps": [
-    {
-      "champ": "agent_identity",
-      "incertitude": "Spectator-observer POV; green toxin visible on A suggests a Viper is on the attacking side, but the spectated player's agent is not confirmed and is left unknown. Player holds a shotgun-class weapon (Judge/Bucky, ~7 shells) per the HUD"
-    },
-    {
-      "champ": "alive_count",
-      "incertitude": "3v1 read from the alive-icon bar (three green vs one red) with the spike-planted red icon centred; the lone defender's location off-site is not visible in the freeze"
-    },
-    {
-      "champ": "game_mode",
-      "incertitude": "Spike Rush footage on Bind; defuse timer read as ~23s from the player HUD. Buy tiers estimated, not read from credits"
-    },
-    {
-      "champ": "freq_estimates",
-      "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset"
-    }
+    { "champ": "agent_identity", "incertitude": "Player holds Spectre; ally is Omen (purple). Player's own agent not clearly readable from the freeze — left as unknown rather than guessed." },
+    { "champ": "second_defender_position", "incertitude": "One defender confirmed on A Site from the enemy player-card visible at top-right of HUD; second defender position unknown. ennemis_inconnus_count:1 reflects this." },
+    { "champ": "alive_counts", "incertitude": "3 ATK alive / 2 DEF alive read from the icon bar at the top HUD." },
+    { "champ": "freq_estimates", "incertitude": "freq_elite_estimee are V0 estimates from pro/coaching guides, not measured from an annotated dataset." }
   ],
   "video": {
     "intro_url": "media/p-video-011-intro.mp4",
@@ -137,6 +110,6 @@
     "freeze_frame_url": "media/p-video-011-freeze.jpg",
     "credit": "No Copyright Gameplay (YouTube)",
     "license": "Creative Commons Attribution (CC BY) — reuse allowed with credit",
-    "license_url": "https://www.youtube.com/watch?v=n0Rk6cbwFuQ"
+    "license_url": "https://www.youtube.com/watch?v=_gbfEXhJjz0"
   }
 }
