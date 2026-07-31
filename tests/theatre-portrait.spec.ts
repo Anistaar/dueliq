@@ -29,6 +29,26 @@ async function openTheatre(page: import("@playwright/test").Page) {
   await page.locator(".theatre").waitFor({ timeout: 5_000 });
 }
 
+// ── Helper: choose first option and skip watch_ending to reach reveal ────────
+async function chooseAndSkipToReveal(page: import("@playwright/test").Page) {
+  // Wait for question phase
+  const questionLayer = page.locator(".question-layer");
+  await questionLayer.waitFor({ timeout: 20_000 });
+
+  // Click first choice → grade flash → watch_ending
+  const firstChoice = page.locator(".choice-btn").first();
+  await firstChoice.click();
+
+  // Wait for watch_ending banner, then click Skip
+  const skipBtn = page.locator(".btn-skip");
+  await skipBtn.waitFor({ timeout: 5_000 });
+  await skipBtn.click();
+
+  // Wait for reveal layer
+  const revealLayer = page.locator(".reveal-layer");
+  await revealLayer.waitFor({ timeout: 5_000 });
+}
+
 // ── Portrait tests ───────────────────────────────────────────────────────────
 for (const vp of PORTRAIT_VIEWPORTS) {
   test.describe(`Portrait ${vp.name}`, () => {
@@ -107,22 +127,34 @@ for (const vp of PORTRAIT_VIEWPORTS) {
       });
     });
 
-    test("reveal phase: video visible AND reveal panel below it (no overlap)", async ({ page }) => {
+    test("watch_ending phase: full-screen clip with banner and skip button", async ({ page }) => {
       await openTheatre(page);
 
       // Wait for question phase
       const questionLayer = page.locator(".question-layer");
       await questionLayer.waitFor({ timeout: 20_000 });
 
-      // Click first choice → grade flash → reveal
+      // Click first choice → grade flash → watch_ending
       const firstChoice = page.locator(".choice-btn").first();
       await firstChoice.click();
 
-      // Wait for reveal layer
-      const revealLayer = page.locator(".reveal-layer");
-      await revealLayer.waitFor({ timeout: 5_000 });
+      // Watch ending banner must appear
+      const banner = page.locator(".watch-ending-banner");
+      await banner.waitFor({ timeout: 5_000 });
+
+      await page.screenshot({
+        path: `tests/screenshots/portrait-${vp.name}-watch-ending.png`,
+        fullPage: false,
+      });
+    });
+
+    test("reveal phase: video visible AND reveal panel below it (no overlap)", async ({ page }) => {
+      await openTheatre(page);
+      await chooseAndSkipToReveal(page);
 
       const videoLayer = page.locator(".video-layer");
+      const revealLayer = page.locator(".reveal-layer");
+
       const videoBox = await videoLayer.boundingBox();
       const revealBox = await revealLayer.boundingBox();
 
@@ -184,7 +216,7 @@ test.describe("Desktop 1440x900 — choices overlaid on video, no popup", () => 
     });
   });
 
-  test("reveal phase: panel is an absolute overlay (not stacked)", async ({ page }) => {
+  test("watch_ending: full-screen clip, no panel, banner + skip visible", async ({ page }) => {
     await openTheatre(page);
 
     const questionLayer = page.locator(".question-layer");
@@ -193,10 +225,26 @@ test.describe("Desktop 1440x900 — choices overlaid on video, no popup", () => 
     const firstChoice = page.locator(".choice-btn").first();
     await firstChoice.click();
 
-    const revealLayer = page.locator(".reveal-layer");
-    await revealLayer.waitFor({ timeout: 5_000 });
+    // Watch ending banner must appear
+    const banner = page.locator(".watch-ending-banner");
+    await banner.waitFor({ timeout: 5_000 });
+
+    // No reveal panel yet
+    await expect(page.locator(".reveal-layer")).toHaveCount(0);
+
+    await page.screenshot({
+      path: "tests/screenshots/desktop-1440x900-watch-ending.png",
+      fullPage: false,
+    });
+  });
+
+  test("reveal phase: panel is an absolute overlay (not stacked)", async ({ page }) => {
+    await openTheatre(page);
+    await chooseAndSkipToReveal(page);
 
     const videoLayer = page.locator(".video-layer");
+    const revealLayer = page.locator(".reveal-layer");
+
     const videoBox   = await videoLayer.boundingBox();
     const revealBox  = await revealLayer.boundingBox();
 
@@ -207,6 +255,9 @@ test.describe("Desktop 1440x900 — choices overlaid on video, no popup", () => 
     expect(videoBox!.width).toBeCloseTo(1440, -1);
     // Reveal panel overlaps the video
     expect(revealBox!.y).toBeLessThan(videoBox!.y + videoBox!.height);
+
+    // Rewatch button must be present
+    await expect(page.locator(".btn-rewatch")).toHaveCount(1);
 
     await page.screenshot({
       path: "tests/screenshots/desktop-1440x900-reveal.png",
@@ -243,6 +294,26 @@ test.describe("Portrait 390x844 — cards below video (no regression)", () => {
 
     await page.screenshot({
       path: "tests/screenshots/portrait-390x844-question.png",
+      fullPage: false,
+    });
+  });
+
+  test("no orphan timer number (no raw numeric text outside SVG arc)", async ({ page }) => {
+    await openTheatre(page);
+
+    const questionLayer = page.locator(".question-layer");
+    await questionLayer.waitFor({ timeout: 20_000 });
+
+    // The timer SVG must exist
+    await expect(page.locator(".timer-svg")).toHaveCount(1);
+
+    // No standalone text node showing a bare number outside the SVG
+    // (the SVG <text> was removed — only the arc circle remains)
+    const svgTexts = page.locator(".timer-svg text");
+    await expect(svgTexts).toHaveCount(0);
+
+    await page.screenshot({
+      path: "tests/screenshots/portrait-390x844-timer-arc.png",
       fullPage: false,
     });
   });

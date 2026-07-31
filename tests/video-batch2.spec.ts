@@ -23,12 +23,17 @@ async function playPuzzle(page: import("@playwright/test").Page, slug: string, c
   await expect(page.getByText(/Watch the situation/i)).toBeVisible({ timeout: 10000 });
 
   await skipIntro(page);
-  await expect(page.getByText("WHAT DO YOU DO?")).toBeVisible({ timeout: 10000 });
+  await page.locator(".question-layer").waitFor({ timeout: 10000 });
   await page.screenshot({ path: `${SHOTS}/batch2-${slug}-question.png` });
 
   await page.getByRole("button", { name: new RegExp(chooseLabelIncludes, "i") }).click();
 
-  await expect(page.getByText("EV BREAKDOWN")).toBeVisible({ timeout: 8000 });
+  // Grade flash → watch_ending → click Skip → reveal
+  const skipBtn = page.locator(".btn-skip");
+  await skipBtn.waitFor({ timeout: 5_000 });
+  await skipBtn.click();
+
+  await expect(page.locator(".reveal-layer")).toBeVisible({ timeout: 8000 });
   await page.screenshot({ path: `${SHOTS}/batch2-${slug}-reveal.png` });
 
   await page.getByRole("button", { name: /Final score/i }).click();

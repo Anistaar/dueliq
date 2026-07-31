@@ -41,11 +41,15 @@ async function waitForQuestion(page: Page, timeoutMs = 40_000) {
   await q.waitFor({ timeout: timeoutMs });
 }
 
-/** Click first choice → wait for grade flash → wait for reveal */
+/** Click first choice → wait for grade flash → skip watch_ending → wait for reveal */
 async function answerAndReveal(page: Page) {
   const firstChoice = page.locator(".choice-btn").first();
   await firstChoice.click();
   await page.locator(".grade-flash-overlay").waitFor({ timeout: 3_000 });
+  // After grade flash, watch_ending plays the clip — click Skip to proceed
+  const skipBtn = page.locator(".btn-skip");
+  await skipBtn.waitFor({ timeout: 5_000 });
+  await skipBtn.click();
   await page.locator(".reveal-layer").waitFor({ timeout: 5_000 });
 }
 

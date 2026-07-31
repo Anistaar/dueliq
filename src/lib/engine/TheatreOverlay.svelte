@@ -18,7 +18,7 @@
   }>();
 
   // ── Types ─────────────────────────────────────────────────────────────────
-  type TPhase = "intro" | "question" | "grade_flash" | "reveal" | "end";
+  type TPhase = "intro" | "question" | "grade_flash" | "watch_ending" | "reveal" | "end";
 
   // ── State ────────────────────────────────────────────────────────────────
   let phase = $state<TPhase>("intro");
@@ -122,13 +122,17 @@
     }
   });
 
-  // Auto-play resolution video when phase switches to reveal
+  // Auto-play resolution video when phase switches to watch_ending
   $effect(() => {
-    if (phase === "reveal" && resolutionVideoEl) {
+    if (phase === "watch_ending" && resolutionVideoEl) {
       resolutionVideoEl.currentTime = 0;
       resolutionVideoEl.volume = videoMuted ? 0 : 0.8;
       resolutionVideoEl.muted = videoMuted;
+      resolutionVideoEl.loop = false; // play once for watch_ending
       resolutionVideoEl.play().catch(() => {});
+    }
+    if (phase === "reveal" && resolutionVideoEl) {
+      resolutionVideoEl.loop = true;
     }
   });
 
@@ -149,7 +153,7 @@
     phase = "grade_flash";
     playSfxGrade(gradeGrade);
     setTimeout(() => {
-      phase = "reveal";
+      phase = "watch_ending";
     }, 1400);
   }
 
@@ -159,6 +163,36 @@
       case "acceptable": return "A";
       case "couteux":    return "C";
       case "faute":      return "X";
+    }
+  }
+
+  // Called when the resolution clip ends naturally (watch_ending → reveal)
+  function handleEndingEnded() {
+    if (phase === "watch_ending") {
+      phase = "reveal";
+      // Now loop the video for the analysis panel background
+      if (resolutionVideoEl) {
+        resolutionVideoEl.loop = true;
+        resolutionVideoEl.play().catch(() => {});
+      }
+    }
+  }
+
+  // Called by the "skip" / "↻ Rewatch ending" button
+  function skipToReveal() {
+    phase = "reveal";
+    if (resolutionVideoEl) {
+      resolutionVideoEl.loop = true;
+      resolutionVideoEl.play().catch(() => {});
+    }
+  }
+
+  function rewatchEnding() {
+    phase = "watch_ending";
+    if (resolutionVideoEl) {
+      resolutionVideoEl.loop = false;
+      resolutionVideoEl.currentTime = 0;
+      resolutionVideoEl.play().catch(() => {});
     }
   }
 
@@ -432,21 +466,21 @@
     {:else if phase === "question" || phase === "grade_flash"}
       <img class="theatre-video fade-in" src={freezeSrc} alt="Game situation freeze frame" />
 
-    <!-- REVEAL — resolution video loops -->
-    {:else if phase === "reveal" || phase === "end"}
+    <!-- REVEAL — resolution video (watch_ending = once, reveal/end = loops) -->
+    {:else if phase === "watch_ending" || phase === "reveal" || phase === "end"}
       <!-- svelte-ignore a11y_media_has_caption -->
       <video
         bind:this={resolutionVideoEl}
         class="theatre-video fade-in"
         src={resolutionSrc}
-        loop
         playsinline
         onplay={onVideoPlay}
+        onended={handleEndingEnded}
       ></video>
     {/if}
 
     <!-- Vignette to ensure readability of overlays on any frame -->
-    <div class="vignette" class:vignette--heavy={phase === "question" || phase === "reveal" || phase === "end"}></div>
+    <div class="vignette" class:vignette--heavy={phase === "question" || phase === "reveal" || phase === "end"} class:vignette--minimal={phase === "watch_ending"}></div>
   </div>
 
   <!-- ── CONTROLS (always visible) ── -->
@@ -499,7 +533,7 @@
         <div class="q-banner">
           <p class="q-text">{puzzle.question}</p>
         </div>
-        <svg class="timer-svg" viewBox="0 0 40 40" width="36" height="36" aria-label="timer">
+        <svg class="timer-svg" viewBox="0 0 40 40" width="36" height="36" aria-label="timer" aria-valuenow={timer} aria-valuemax={15}>
           <circle cx="20" cy="20" r="16" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" />
           <circle
             cx="20" cy="20" r="16"
@@ -512,9 +546,6 @@
             transform="rotate(-90 20 20)"
             style="transition: stroke-dasharray 1s linear, stroke 0.3s;"
           />
-          <text x="20" y="24" text-anchor="middle" font-size="11"
-            fill={timer <= 5 && timerActive ? "#FF4655" : "#e2e8f0"}
-            font-family="monospace" font-weight="700">{timer > 0 ? timer : "—"}</text>
         </svg>
       </div>
 
@@ -547,6 +578,14 @@
     </div>
   {/if}
 
+  <!-- WATCH ENDING — full-screen clip, single top banner + skip -->
+  {#if phase === "watch_ending"}
+    <div class="watch-ending-banner fade-in">
+      <span class="watch-ending-label">WHAT ACTUALLY HAPPENED</span>
+      <button class="btn-skip" onclick={skipToReveal}>Skip →</button>
+    </div>
+  {/if}
+
   <!-- REVEAL — resolution panel overlay (bottom + scrollable) -->
   {#if phase === "reveal" && chosenOption}
     <div class="reveal-layer fade-in">
@@ -564,7 +603,12 @@
           <div class="reveal-pick-label">YOUR PICK</div>
         </div>
 
-        <!-- VO Player — only shown if audio file exists, autoplay OFF -->
+        <!-- Rewatch ending button -->
+        <button class="btn-rewatch" onclick={rewatchEnding} title="Rewatch the ending clip" aria-label="Rewatch ending">
+          ↻ <span class="btn-rewatch-label">Rewatch</span>
+        </button>
+
+      <!-- VO Player — only shown if audio file exists, autoplay OFF -->
         {#if voLoaded && voAvailable}
           <button class="btn-vo" onclick={toggleVO} title={voPlaying ? "Pause coach audio" : "Play coach audio"} aria-label="Play coach audio">
             {#if voPlaying}
@@ -723,6 +767,11 @@
       radial-gradient(ellipse 80% 60% at 50% 50%, transparent 20%, rgba(0,0,0,0.55) 100%),
       linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 50%),
       linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
+  }
+  /* watch_ending: minimal vignette — top strip only for the banner */
+  .vignette--minimal {
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 18%);
   }
 
   /* ── QUESTION LAYER — SUR la vidéo (bande basse, pas de popup) ──
@@ -1397,6 +1446,69 @@
   @media (max-width: 500px) and (orientation: portrait) {
     .rotate-hint { display: flex; }
   }
+
+  /* ── WATCH ENDING BANNER ── */
+  .watch-ending-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 75;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    pointer-events: auto;
+  }
+  .watch-ending-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(236,232,225,0.9);
+    background: rgba(11,16,22,0.0);
+    border-left: 2px solid #FF4655;
+    padding: 4px 10px;
+  }
+  .btn-skip {
+    background: rgba(11,16,22,0.85);
+    border: 1px solid #2A3441;
+    color: #ECE8E1;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: border-color 0.1s, color 0.1s;
+  }
+  .btn-skip:hover { border-color: #FF4655; color: #FF4655; }
+
+  /* ── REWATCH ENDING BUTTON (in reveal topbar) ── */
+  .btn-rewatch {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: 1px solid #2A3441;
+    color: #7B8FA1;
+    padding: 7px 12px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.1s, color 0.1s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: center;
+    min-height: 36px;
+  }
+  .btn-rewatch:hover { border-color: #00D4AA; color: #00D4AA; }
+  .btn-rewatch-label { letter-spacing: 0.08em; }
 
   /* ── FADE IN ── */
   .fade-in {
