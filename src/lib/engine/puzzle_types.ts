@@ -124,6 +124,20 @@ export function computeScore(tier: OptionTier): number {
   }
 }
 
+/**
+ * Speed bonus — rewards fast decisions, never punishes.
+ * Max bonus = 150 pts (answered within first 3 s of 15 s timer).
+ * Scales linearly from 150 → 0 as remaining time goes from 15 → 0.
+ * Returns 0 for "faute" (wrong answer speed has no value).
+ * @param tier     - decision quality
+ * @param timeLeft - seconds remaining on the 15 s timer when answered (0–15)
+ */
+export function computeSpeedBonus(tier: OptionTier, timeLeft: number): number {
+  if (tier === "faute") return 0;
+  const clamped = Math.max(0, Math.min(15, timeLeft));
+  return Math.round((clamped / 15) * 150);
+}
+
 export function tierLabel(tier: OptionTier): string {
   switch (tier) {
     case "optimal":    return "Radiant Choice";

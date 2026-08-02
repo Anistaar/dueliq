@@ -3,7 +3,7 @@
   // Calqué MOBA Trainer : vidéo plein écran, tous les éléments en overlay sur la vidéo.
   // Not endorsed by Riot Games.
   import type { PuzzleSchema, PuzzleOptionSchema, OptionTier } from "./puzzle_types.js";
-  import { computeScore, tierLabel, tierColor } from "./puzzle_types.js";
+  import { computeScore, computeSpeedBonus, tierLabel, tierColor } from "./puzzle_types.js";
   import { initSfx, getMuted, setMuted, playSfxTick, playSfxGrade } from "./replay/sfx.js";
   import { recordResult } from "../progress.js";
   import { getStreakData, dailyNumber } from "../daily.js";
@@ -24,6 +24,7 @@
   let phase = $state<TPhase>("intro");
   let chosenIndex = $state<number | null>(null);
   let timer = $state<number>(15);
+  let timerAtAnswer = $state<number>(15); // timer value when user clicked — for speed bonus
   let timerActive = $state(false);
   let sfxMuted = $state(false);
   let copySuccess = $state(false);
@@ -67,7 +68,9 @@
     puzzle.options.find((o: PuzzleOptionSchema) => o.tier === "optimal") ?? puzzle.options[0]
   );
 
-  const userScore = $derived(chosenOption ? computeScore(chosenOption.tier) : 0);
+  const baseScore = $derived(chosenOption ? computeScore(chosenOption.tier) : 0);
+  const speedBonus = $derived(chosenOption ? computeSpeedBonus(chosenOption.tier, timerAtAnswer) : 0);
+  const userScore = $derived(baseScore + speedBonus);
 
   // ── Timer ────────────────────────────────────────────────────────────────
   let timerHandle: ReturnType<typeof setInterval> | null = null;
@@ -146,6 +149,7 @@
 
   function choose(idx: number) {
     if (phase !== "question") return;
+    timerAtAnswer = timer; // capture before stopping
     stopTimer();
     chosenIndex = idx;
     const tier = puzzle.options[idx].tier;
@@ -377,6 +381,15 @@
     }
   }
 
+  /** Extract readable hostname from a URL for attribution display */
+  function hostnameOf(url: string): string {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return url;
+    }
+  }
+
   function buildShareText(): string {
     const streakData = getStreakData();
     const dayN = dailyNumber();
@@ -388,9 +401,13 @@
 
     const streakStr = streakData.streak >= 2 ? `\n🔥 Day ${streakData.streak}` : "";
 
+    const scoreStr = speedBonus > 0
+      ? `${baseScore} +${speedBonus} SPEED = ${userScore}/1150`
+      : `${userScore}/1000`;
+
     return [
       `DuelIQ #${dayN} — ${puzzle.map.toUpperCase()}`,
-      `${grid} ${userScore}/1000${streakStr}`,
+      `${grid} ${scoreStr}${streakStr}`,
       "anistaar.github.io/dueliq",
     ].join("\n");
   }
@@ -573,7 +590,12 @@
       <div class="grade-splash" style="--gc: {gradeColors[gradeGrade]}">
         <div class="grade-letter" style="color: {gradeColors[gradeGrade]}">{gradeGrade}</div>
         <div class="grade-tier" style="color: {gradeColors[gradeGrade]}">{tierLabel(chosenOption.tier)}</div>
-        <div class="grade-score">{userScore}<span class="grade-max">/1000</span></div>
+        <div class="grade-score-row">
+          <span class="grade-score">{baseScore}<span class="grade-max">/1000</span></span>
+          {#if speedBonus > 0}
+            <span class="grade-speed-bonus">+{speedBonus} SPEED</span>
+          {/if}
+        </div>
       </div>
     </div>
   {/if}
@@ -598,7 +620,12 @@
           </div>
           <div class="reveal-info">
             <div class="reveal-tier-name" style="color:{tierColor(chosenOption.tier)}">{tierLabel(chosenOption.tier)}</div>
-            <div class="reveal-score">{userScore}<span class="reveal-score-max">/1000</span></div>
+            <div class="reveal-score-row">
+              <span class="reveal-score">{baseScore}<span class="reveal-score-max">/1000</span></span>
+              {#if speedBonus > 0}
+                <span class="reveal-speed-badge">+{speedBonus} SPEED</span>
+              {/if}
+            </div>
           </div>
           <div class="reveal-pick-label">YOUR PICK</div>
         </div>
@@ -661,9 +688,21 @@
         <p class="analysis-text">{puzzle.explication_longue}</p>
       </div>
 
-      <!-- Credit (mandatory CC-BY) -->
-      <div class="credit-line">
-        © Footage: <a href={video.license_url ?? "#"} target="_blank" rel="noopener">{video.credit}</a> — {video.license}
+      <!-- Attribution + honest sourcing (GAP-3) -->
+      <div class="attribution-block">
+        <div class="attr-analysis">
+          Analysis: <span class="attr-brand">DuelIQ</span>
+          {#if puzzle.sources.length > 0}
+            — sourced from
+            {#each puzzle.sources as src, i}
+              {#if i > 0}<span class="attr-sep">,</span> {/if}
+              <a class="attr-link" href={src.url} target="_blank" rel="noopener">{hostnameOf(src.url)}</a>
+            {/each}
+          {/if}
+        </div>
+        <div class="attr-footage">
+          Footage: <a href={video.license_url ?? "#"} target="_blank" rel="noopener">{video.credit}</a> — {video.license}
+        </div>
       </div>
 
       <!-- CTA -->
@@ -1233,16 +1272,79 @@
 
   /* full-analysis removed — replaced by radiant-section with .analysis-text */
 
-  /* Credit line */
-  .credit-line {
+  /* ── SPEED BONUS display ── */
+  .grade-score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .grade-speed-bonus {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00D4AA;
+    animation: fade-in 0.4s ease 0.2s both;
+  }
+  .reveal-score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .reveal-speed-badge {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #00D4AA;
+    border: 1px solid #00D4AA30;
+    background: #00D4AA14;
+    padding: 2px 6px;
+  }
+
+  /* ── ATTRIBUTION BLOCK (GAP-3) ── */
+  .attribution-block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 10px;
+    border-left: 2px solid #2A3441;
+    background: #0F1923;
+  }
+  .attr-analysis {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    color: #7B8FA1;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+  }
+  .attr-brand {
+    font-weight: 700;
+    color: #ECE8E1;
+  }
+  .attr-sep {
+    color: #4A5568;
+  }
+  .attr-link {
+    color: #7B8FA1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .attr-link:hover { color: #ECE8E1; }
+  .attr-footage {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 10px;
     color: #4A5568;
     line-height: 1.5;
     letter-spacing: 0.04em;
   }
-  .credit-line a { color: #7B8FA1; text-decoration: underline; }
-  .credit-line a:hover { color: #ECE8E1; }
+  .attr-footage a { color: #4A5568; text-decoration: underline; }
+  .attr-footage a:hover { color: #7B8FA1; }
 
   /* Final CTA */
   .btn-final {

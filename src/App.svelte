@@ -19,6 +19,7 @@
   } from "./lib/daily.js";
   import { pickNextPuzzle } from "./lib/progress.js";
   import OnboardingBanner from "./lib/OnboardingBanner.svelte";
+  import ConceptsMap from "./lib/ConceptsMap.svelte";
   import type { OnboardingProfile, Role, RankBand } from "./lib/onboarding.js";
   import {
     loadProfile,
@@ -43,6 +44,18 @@
     { id: "puzzle-video-013", file: "puzzle-video-013.json", map: "bind",   theme: "rotation",  difficulty: 3 },
     { id: "puzzle-video-014", file: "puzzle-video-014.json", map: "haven",  theme: "clutch",    difficulty: 5 },
     { id: "puzzle-video-015", file: "puzzle-video-015.json", map: "haven",  theme: "retake",    difficulty: 4 },
+    { id: "puzzle-video-016", file: "puzzle-video-016.json", map: "bind",   theme: "entry",     difficulty: 3 },
+    { id: "puzzle-video-017", file: "puzzle-video-017.json", map: "split",  theme: "entry",     difficulty: 4 },
+    { id: "puzzle-video-018", file: "puzzle-video-018.json", map: "split",  theme: "eco",       difficulty: 3 },
+    { id: "puzzle-video-019", file: "puzzle-video-019.json", map: "icebox", theme: "postplant", difficulty: 4 },
+    { id: "puzzle-video-020", file: "puzzle-video-020.json", map: "bind",   theme: "util",      difficulty: 3 },
+    { id: "puzzle-video-021", file: "puzzle-video-021.json", map: "bind",   theme: "entry",     difficulty: 4 },
+    { id: "puzzle-video-022", file: "puzzle-video-022.json", map: "bind",   theme: "rotation",  difficulty: 4 },
+    { id: "puzzle-video-023", file: "puzzle-video-023.json", map: "bind",   theme: "clutch",    difficulty: 3 },
+    { id: "puzzle-video-024", file: "puzzle-video-024.json", map: "pearl",  theme: "rotation",  difficulty: 3 },
+    { id: "puzzle-video-025", file: "puzzle-video-025.json", map: "pearl",  theme: "clutch",    difficulty: 4 },
+    { id: "puzzle-video-026", file: "puzzle-video-026.json", map: "pearl",  theme: "eco",       difficulty: 2 },
+    { id: "puzzle-video-027", file: "puzzle-video-027.json", map: "pearl",  theme: "rotation",  difficulty: 4 },
   ] as const;
 
   // ---- Base URL ----
@@ -195,6 +208,12 @@
   function onTrainTheme(theme: string) {
     libraryFilterTheme = theme;
     // Scroll to library
+    document.getElementById("practice-library")?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  // ── Concepts map: filter library by concept theme ─────────────────────────
+  function onFilterConcept(theme: string) {
+    libraryFilterTheme = theme;
     document.getElementById("practice-library")?.scrollIntoView({ behavior: "smooth" });
   }
 
@@ -420,6 +439,9 @@
       </div>
     </div>
   </section>
+
+  <!-- ======= TRAINING CONCEPTS MAP (GAP-1) ======= -->
+  <ConceptsMap onFilterConcept={onFilterConcept} />
 
   <!-- ======= COMING SOON ======= -->
   <section class="coming-section">
